@@ -10,7 +10,7 @@
 - [x] **Post 5:** foto real recebida e aplicada.
 - [x] **Novo @ do Instagram:** `@pbsolucoesia` (confirmado).
 - [ ] ✏️ **LinkedIn 01/12:** confirmar que você realmente faz a pergunta das férias (aviso que já estava em `redes/legendas-gargalo.md`).
-- [ ] ✏️ **Página da empresa no LinkedIn (26/11, 03/12, 10/12):** os textos estão em primeira pessoa e assinados por você. Se preferir a voz da empresa ("nós"), me avise que eu adapto.
+- [x] **Página da empresa no LinkedIn (26/11, 03/12, 10/12):** voz da empresa ("nós"), aprovada pela Priscila em 20/11/2026.
 
 ## Onde está cada número (fonte de todos: `conhecimento/empresa.md`, tabela "Resultados anteriores")
 | Número | Organização (só o tipo) | Onde aparece |
@@ -310,16 +310,16 @@ Se você está à frente de um negócio e quer conversar sobre isso, fale comigo
 ```
 
 ## Qui 26/11 · Página da empresa · Manifesto
-> **Novo.** ✏️ Em primeira pessoa e assinado; trocar para "nós" se preferir a voz da empresa.
+> **Novo.** ✅ Voz da empresa ("nós"), aprovada pela Priscila em 20/11/2026.
 
 ```
-Já vi empresas comprarem a ferramenta certa para o problema errado.
+É comum ver empresas comprarem a ferramenta certa para o problema errado.
 
 O roteiro costuma ser o mesmo: o atendimento está lento, alguém sugere um robô, o robô entra e passa a responder rápido... do mesmo jeito confuso de antes. Só que agora em escala.
 
 A ferramenta não era o problema. O processo era.
 
-É por isso que a PB Soluções IA tem um princípio que não muda: diagnóstico antes da tecnologia.
+É por isso que, na PB Soluções IA, temos um princípio que não muda: diagnóstico antes da tecnologia.
 
 Na prática, são 3 etapas, sempre nesta ordem:
 1. Diagnóstico da gestão: onde a empresa perde tempo e dinheiro
@@ -330,9 +330,7 @@ Isso vale para uma loja, um escritório ou uma clínica. Muda o setor, não a or
 
 Se você está pensando em usar IA na sua empresa, comece pela pergunta certa: qual processo eu quero que ela execute?
 
-Para conversar, fale comigo no WhatsApp (link no perfil).
-
-Priscila Blandy Dias, fundadora da PB Soluções IA
+Para conversar, fale com a gente no WhatsApp (link no perfil).
 
 #gestao #processos #inteligenciaartificial
 ```
@@ -357,12 +355,12 @@ Se a sua empresa depende de você para tudo, vale olhar para isso com calma. Fal
 ```
 
 ## Qui 03/12 · Página da empresa · "−35% de perdas com glosas"
-> **Adaptado** de `redes/legendas-lancamento.md` (seção 4, já revisado para atribuir o resultado à clínica). Mudanças: abertura para o LinkedIn, frase para quem não é da saúde e 3 hashtags. Imagem: `pecas/png/post-04-glosas.png`.
+> **Adaptado** de `redes/legendas-lancamento.md` (seção 4, já revisado para atribuir o resultado à clínica). Mudanças: abertura para o LinkedIn, frase para quem não é da saúde, 3 hashtags e voz da empresa ("nós", aprovada em 20/11/2026). Imagem: `pecas/png/post-04-glosas.png`.
 
 ```
 −35% de perdas com glosas.
 
-Esse foi o resultado alcançado por uma clínica de saúde mental, num projeto de gestão do qual participei. O mérito é da equipe da clínica.
+Esse foi o resultado alcançado por uma clínica de saúde mental, num projeto de gestão do qual a nossa fundadora, Priscila Blandy Dias, participou. O mérito é da equipe da clínica.
 
 Glosa (quando o convênio recusa pagar uma conta) raramente é azar. Um caminho comum para reduzi-la:
 → olhar os motivos de glosa dos últimos meses
@@ -375,9 +373,7 @@ E se você não é da saúde, a lição serve igual: perda que se repete quase s
 
 Resultado de outra organização não é promessa. Mas mostra onde vale olhar primeiro.
 
-Para conversar sobre o seu caso, fale comigo no WhatsApp (link no perfil).
-
-Priscila Blandy Dias, fundadora da PB Soluções IA
+Para conversar sobre o seu caso, fale com a gente no WhatsApp (link no perfil).
 
 #gestaoemsaude #glosas #processos
 ```
@@ -403,14 +399,14 @@ Se você quer usar IA sem perder a confiança do seu cliente, fale comigo no Wha
 ```
 
 ## Qui 10/12 · Página da empresa · "Como funciona o diagnóstico da gestão"
-> **Novo.** Mesmo conteúdo do carrossel 2. ✏️ Sem duração, preço ou gratuidade até confirmar.
+> **Novo.** Mesmo conteúdo do carrossel 2. Voz da empresa ("nós", aprovada em 20/11/2026). ✏️ Sem preço ou gratuidade até confirmar.
 
 ```
 "Não sei por onde começar com IA."
 
-É a frase que mais escuto de empresários. E a resposta é mais simples do que parece: não comece pela IA. Comece pela gestão.
+É a frase que mais ouvimos de empresários. E a resposta é mais simples do que parece: não comece pela IA. Comece pela gestão.
 
-O diagnóstico da gestão da PB Soluções IA tem 3 etapas:
+O nosso diagnóstico da gestão tem 3 etapas:
 
 1. Diagnóstico: entender onde a empresa perde tempo e dinheiro. O que trava, o que se repete, o que depende só do dono.
 
@@ -422,9 +418,7 @@ Você não precisa entender de IA para começar. Precisa só contar como a sua e
 
 A primeira conversa dura de 30 a 40 minutos, por Google Meet.
 
-Quer dar o primeiro passo? Fale comigo no WhatsApp (link no perfil).
-
-Priscila Blandy Dias, fundadora da PB Soluções IA
+Quer dar o primeiro passo? Fale com a gente no WhatsApp (link no perfil).
 
 #gestao #processos #inteligenciaartificial
 ```

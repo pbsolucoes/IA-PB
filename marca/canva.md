@@ -21,6 +21,7 @@
 | Guia da marca (cores, fontes, tom) | `MAHbf3Z4OKE` | referência |
 
 ## Peças já na pasta Peças das redes
+- Carrosséis como design único de 6 páginas (subpasta 1): Post 06 `DAHbf0uojfw` e Post 09 `DAHbf4OYWi8`, importados de `pecas/carrosseis/carrossel-post-6.pdf` e `-9.pdf`. Carrossel novo: gere o PDF com as páginas na ordem e importe com `import-design-from-url`.
 Organizadas em 4 subpastas (peça nova vai direto para a subpasta certa):
 
 | Subpasta | ID | O que tem |
