@@ -55,7 +55,7 @@ Eles moram em `.claude/agents/` e funcionam aqui no Claude Code. É só pedir em
 | designer-pecas | Posts, carrosséis, banners em PNG | `pecas/png/` |
 | social-media | Calendário, bio, linha editorial | `redes/` |
 | desenvolvedor-site | Site (grátis no GitHub Pages) | `docs/` |
-| comercial-prospeccao | Clínicas-alvo, abordagem, follow-up | `comercial/funil.md` |
+| comercial-prospeccao | Empresários de qualquer segmento: abordagem no Instagram e no LinkedIn | `comercial/funil.md` |
 | redator-propostas | Proposta após o diagnóstico (Word/PDF) | fora do repositório |
 | juridico-contratos | Rascunhos de contrato e LGPD (revisão de advogado) | — |
 | financeiro | Preço, ponto de equilíbrio, fluxo de caixa | fora do repositório |
