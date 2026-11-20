@@ -3,7 +3,7 @@
 - **Nome:** PB Soluções IA (antes chamada PB Serviços; os cases abaixo foram feitos com o nome antigo)
 - **Fundadora:** Priscila Blandy Dias
 - **Base:** Rio de Janeiro, Brasil. Atendimento online.
-- **Site:** ✏️ PREENCHER (novo domínio da PB Soluções IA; o antigo era pbservicos.com.br)
+- **Site:** https://pbsolucoes.github.io/IA-PB/ (grátis, GitHub Pages; domínio próprio ✏️ futuro)
 - **Instagram:** @pbsolucoesia (novo; o antigo @pbservicosoficial está em reformulação)
 - **LinkedIn da empresa:** linkedin.com/company/pb-servicos (em reformulação)
 - **LinkedIn:** linkedin.com/in/priscilablandy
