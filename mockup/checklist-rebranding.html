@@ -93,7 +93,7 @@ const ETAPAS = [
   {id:'ig-link1', l:'Link 1 · título "Site"', c:'https://pbsolucoes.github.io/IA-PB/'},
   {id:'ig-link2', l:'Link 2 · título "WhatsApp"', c:'https://wa.me/5532991337984'},
   {id:'ig-arquivar', l:'Arquivar (não excluir) os posts antigos com PB Serviços', d:'Abrir o post → ⋯ → Arquivar. Desafixe todos os posts fixados.'},
-  {id:'ig-destaques', l:'Trocar os destaques: Comece aqui · Diagnóstico · IA segura · Saúde · Resultados · Sobre', img:['destaque-comece-aqui.png','destaque-diagnostico.png','destaque-ia-segura.png','destaque-saude.png','destaque-resultados.png','destaque-sobre.png']},
+  {id:'ig-destaques', l:'Destaques novos: Comece aqui · Diagnóstico · IA segura · Saúde · Resultados · Sobre', d:'NÃO apague os destaques de eventos (ANAHP PRO, RIW 2025, FSWK 24, Fórum Saúde, RIW 2024): eles mostram autoridade. Sugestão: junte todos num só destaque "Eventos", com a capa de Resultados ou Sobre.', img:['destaque-comece-aqui.png','destaque-diagnostico.png','destaque-ia-segura.png','destaque-saude.png','destaque-resultados.png','destaque-sobre.png']},
  ]},
  {n:4, t:'Página do Facebook (ligada ao Instagram)', tempo:'5 min', onde:'facebook.com → sua página → Editar', itens:[
   {id:'fb-nome', l:'Nome', c:'PB Soluções IA'},
@@ -130,6 +130,11 @@ const ETAPAS = [
   {id:'gg-desc', l:'Descrição', c:'A PB Soluções IA organiza a gestão de empresas e coloca agentes de inteligência artificial para trabalhar nos processos que mais consomem tempo e dinheiro, sempre começando pelo diagnóstico da gestão. Atendemos empresários e donos de negócio de qualquer segmento, com especialidade em saúde privada (clínicas e casas de saúde). A primeira conversa é o diagnóstico da gestão, de 30 a 40 minutos, por Google Meet. Fundada por Priscila Blandy Dias: 19 anos de carreira, duas MBAs, PMO e Green Belt.'},
   {id:'gg-contato', l:'Site e telefone', c:'https://pbsolucoes.github.io/IA-PB/', d:'Telefone: +55 32 99133-7984. Se pedir verificação, faça quando puder: não trava o resto.'},
  ]},
+ {n:9, t:'Bônus · Sala Comercial dos agentes', tempo:'5 min', onde:'Instagram → Reels (e Status do WhatsApp)', itens:[
+  {id:'sala-ver', l:'Ver a sala 3D ao vivo (a Priscila caminha até o sino quando um contrato fecha)', link:'https://claude.ai/artifact/V4iscT42YcEDt1qyi4BKNS'},
+  {id:'sala-video', l:'Baixar o vídeo vertical (20 s, com som do sino)', link:IMG('../video-sala-comercial-reels.mp4'), d:'Ao publicar o Reels, desligue "Mostrar na grade do perfil" para não quebrar o fio dos 9 posts.'},
+  {id:'sala-legenda', l:'Legenda do Reels', c:'Bastidores da PB Soluções IA: quando um contrato fecha, o sino toca. 🔔\n\nAqui, agentes de IA cuidam do repetitivo (abordagens, propostas, rascunhos, planilhas) e as pessoas cuidam das decisões.\n\nCena ilustrativa de como o nosso time comercial trabalha.\n\nDiagnóstico antes da tecnologia. Fale comigo no WhatsApp (link na bio).\n\n#inteligenciaartificial #gestaoempresarial #bastidores #empreendedorismo #pbsolucoesia'},
+ ]},
 ];
 const total = ETAPAS.reduce((a,e)=>a+e.itens.length,0);
 let feitos = new Set(), db=null, docRef=null, salvando=Promise.resolve();
@@ -153,6 +158,7 @@ function render(){
         b.onclick=()=>{const ok=()=>{b.textContent='Copiado ✓';setTimeout(()=>b.textContent='Copiar',1600);};
           const sel=()=>{const r=document.createRange();r.selectNodeContents(corpo.querySelector('.copiar'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selecionado: copie';};
           try{navigator.clipboard.writeText(it.c).then(ok,sel);}catch(e){sel();}};ac.append(b);}
+      if(it.link){const a=document.createElement('a');a.className='link';a.href=it.link;a.target='_blank';a.rel='noopener';a.textContent=it.link.includes('artifact')?'▶ Abrir a sala':'⬇ Baixar o vídeo';ac.append(a);}
       (it.img||[]).forEach(f=>{const a=document.createElement('a');a.className='link';a.href=IMG(f);a.target='_blank';a.rel='noopener';a.textContent='🖼 '+f.replace('.png','');ac.append(a);});
       if(ac.children.length) corpo.append(ac);
       box.append(cb,lb); if(corpo.children.length) box.append(corpo);
