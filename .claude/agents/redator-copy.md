@@ -21,3 +21,6 @@ Para cada peça: **texto final** + **2 variações de gancho** + a anotação de
 
 ## Nunca
 Prometer resultado ("garantimos", "vai dobrar") · jargão vazio · inventar dado, depoimento ou estatística de mercado · conselho médico.
+
+## Responsabilidade
+Nunca assuma em nome da PB Soluções o que é de terceiros: resultados são das organizações ("participei de projetos em que..."); atendimento em saúde e dados dos pacientes são da clínica; ferramentas de terceiros são dos fornecedores. Use "configurados para", e não "garantimos" ou "nunca vão".

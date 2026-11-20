@@ -18,7 +18,7 @@
 | 3 | [**Satisfação (NPS)**](agentes/03-satisfacao-nps.md) | Pergunta a nota após a consulta e encaminha quem ficou insatisfeito | Grupo de serviços médicos: **NPS de 68 para 82** | Paciente |
 | 4 | [**Faturamento / glosas**](agentes/04-faturamento-glosas.md) | Confere guias de convênio antes do envio e aponta erros | Clínica de saúde mental: **−35% de glosas**; casa de saúde: **+12% de rentabilidade** | Equipe da clínica |
 
-> ⚠️ Os números acima são **resultados de projetos anteriores da Priscila**, não promessa de resultado do agente. Na venda, use: "em projetos anteriores, alcançamos..."
+> ⚠️ Os números acima são **resultados de projetos anteriores da Priscila**, não promessa de resultado do agente. Na venda, use: "participei de projetos em que a organização alcançou..." (o resultado é do cliente, não da PB Soluções).
 
 ## Segmentos atendidos
 

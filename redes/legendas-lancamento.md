@@ -1,6 +1,6 @@
 # Legendas: lançamento (prontas para colar)
 
-> Números conferidos em `conhecimento/empresa.md`. Clientes citados **sem nome** até você confirmar a autorização.
+> Números conferidos em `conhecimento/empresa.md`. 🔒 Nunca citar nomes de clientes. Os resultados são **dos clientes**, em projetos com participação da Priscila; a PB Soluções não os assume como seus.
 
 ---
 
@@ -29,9 +29,9 @@ Se você tem uma clínica ou casa de saúde e quer entender onde está perdendo 
 ```
 Mudei o nome da minha empresa. E o motivo diz mais do que o nome.
 
-Durante 19 anos trabalhei com gestão em saúde. Em projetos anteriores, ajudei uma clínica de saúde mental a aumentar a ocupação em 22% e a reduzir em 35% as perdas com glosas. Num grupo de serviços médicos, vi o NPS sair de 68 para 82.
+Em 19 anos de gestão, os projetos em saúde foram os que mais me marcaram. Participei de projetos em que uma clínica de saúde mental alcançou +22% de ocupação e −35% de perdas com glosas, e em que um grupo de serviços médicos viu o NPS sair de 68 para 82. O mérito é das equipes dessas organizações.
 
-Em todos eles, a virada veio do processo, não da ferramenta.
+O que aprendi com eles: a virada vem do processo, não da ferramenta.
 
 Hoje existe uma ferramenta nova, os agentes de IA, que pode executar esses processos 24 horas por dia. Mas IA em cima de processo desorganizado só acelera o problema.
 
@@ -89,17 +89,17 @@ Comenta "AGENDA" que eu te mando como funciona.
 ```
 −35% de perdas com glosas.
 
-Esse foi o resultado de um projeto anterior numa clínica de saúde mental.
+Esse foi o resultado alcançado por uma clínica de saúde mental, num projeto de gestão do qual participei.
 
-O que fizemos não foi mágico:
-→ mapeamos os motivos de glosa dos últimos meses
-→ descobrimos que a maior parte vinha de erro de preenchimento e falta de autorização
-→ criamos uma conferência ANTES do envio ao convênio
+Glosa raramente é azar. Um caminho comum para reduzi-la:
+→ olhar os motivos de glosa dos últimos meses
+→ separar o que é erro de processo (preenchimento, autorização, prazo)
+→ conferir as guias ANTES do envio ao convênio
 
-Hoje essa conferência pode ser feita por um agente de IA, que aponta os riscos guia por guia, e a equipe decide.
+Hoje essa conferência pode ter o apoio de um agente de IA, que aponta os riscos guia por guia. A decisão e o envio continuam com a equipe de faturamento da clínica.
 
-Resultado de projeto anterior não é promessa. Mas é um bom sinal de onde olhar primeiro.
+Resultado de outra organização não é promessa. Mas mostra onde vale olhar primeiro.
 
 #faturamentohospitalar #glosas #gestaoemsaude #clinicas #pbsolucoes
 ```
-> ✏️ Priscila: confira se a descrição do que foi feito bate com o que realmente aconteceu no projeto. Escrevi um processo genérico de prevenção de glosas; ajuste para a sua história real.
+> ✅ Reescrito: o texto descreve um **método genérico** ("um caminho comum"), e não o que aconteceu no projeto. O resultado é atribuído à clínica.

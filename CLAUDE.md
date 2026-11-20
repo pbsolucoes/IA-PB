@@ -15,3 +15,4 @@
 - **Foco do negócio:** vender agentes de IA para a **saúde privada de pequeno e médio porte** (clínicas médicas, saúde mental, odontologia, hospitais pequenos), no modelo implantação + mensalidade. Catálogo em `produtos/saude/`.
 - Agentes de saúde: **nunca** diagnosticam, orientam tratamento ou interpretam exames; emergência → SAMU 192; crise em saúde mental → CVV 188. Regras em `padroes/saude-compliance.md`. Nenhum agente vai ao ar sem passar em `produtos/saude/testes-seguranca.md`.
 - Dados de clínicas e pacientes **nunca** entram neste repositório.
+- ⚖️ **Não assumir responsabilidades de terceiros.** Resultados são das organizações clientes ("participei de projetos em que..."). Atendimento em saúde, dados de pacientes (controladora), envio de guias e ferramentas de terceiros (Meta, Anthropic, sistemas) são responsabilidade da clínica ou do fornecedor. A PB Soluções responde só pelo que está no contrato. Tabela em `comercial/oferta-saude.md`.

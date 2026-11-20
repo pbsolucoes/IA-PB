@@ -10,7 +10,20 @@
 | **Preço** | ✏️ por agente ou por pacote | ✏️ por agente ou por pacote |
 | **Prazo de implantação** | ✏️ (o agente 4, de glosas, é o mais longo) | Contrato mínimo: ✏️ meses |
 
-**Custos que a clínica paga direto ou que você repassa (decidir):** mensagens da WhatsApp Business Platform (Meta), uso do Claude (Anthropic), n8n. ✏️ Decida se ficam embutidos na mensalidade ou se são cobrados à parte.
+**Ferramentas de terceiros: contratadas diretamente pela clínica**, em nome dela: linha oficial do WhatsApp (Meta), conta da IA (ex.: Anthropic), sistema de agenda e de faturamento. A PB Soluções configura e acompanha, mas **não revende nem responde** pela disponibilidade, pelas regras ou pelos preços dessas empresas.
+
+## Limites de responsabilidade (vai para o contrato)
+
+| É responsabilidade da **clínica** | É responsabilidade da **PB Soluções** |
+|---|---|
+| Atendimento em saúde e decisões clínicas | Diagnóstico de gestão e desenho dos processos |
+| Controladora dos dados dos pacientes (LGPD) | Operadora: tratar dados só conforme o contrato e as instruções da clínica |
+| Aprovar as mensagens (responsável técnico) | Configurar os agentes com as mensagens aprovadas |
+| Decidir e enviar guias ao convênio | Apontar riscos de glosa (o agente sugere, não decide) |
+| Contratar e pagar as ferramentas de terceiros | Configurar, testar e monitorar, como contratado |
+| Responder aos pacientes que forem escalonados | Ajustar os agentes e entregar o relatório mensal |
+
+> ⚖️ Peça a um advogado para transformar esta tabela em cláusulas (prestação de serviço + DPA + limitação de responsabilidade).
 
 ## Pacotes sugeridos (nomes para você validar)
 
@@ -27,8 +40,8 @@
 - [ ] **Acordo de tratamento de dados (DPA)**: clínica = controladora, PB Soluções = operadora (veja `padroes/saude-compliance.md`)
 - [ ] Mensagens aprovadas por escrito pelo responsável técnico
 - [ ] Testes de segurança (`produtos/saude/testes-seguranca.md`) aprovados
-- [ ] Linha de WhatsApp Business API da clínica ativa
+- [ ] Linha de WhatsApp Business API **contratada pela clínica**, em nome dela, e ativa
 
 ## Argumento de venda (tom PB Soluções: diagnóstico antes de prescrição)
 
-> "Antes de colocar qualquer robô, eu olho o seu processo. Em projetos anteriores em saúde, alcançamos +22% de ocupação e −35% de glosas, mas o número da sua clínica a gente descobre medindo o mês zero."
+> "Antes de colocar qualquer robô, eu olho o seu processo. Já participei de projetos em saúde em que a organização chegou a +22% de ocupação e −35% de glosas. O mérito foi da equipe deles; o número da sua clínica a gente descobre medindo o mês zero."

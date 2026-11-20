@@ -58,9 +58,9 @@ A PB Soluções ajuda clínicas e casas de saúde privadas de pequeno e médio p
 
 Nosso método começa sempre pelo diagnóstico do processo: tecnologia em cima de processo desorganizado só acelera o problema.
 
-Em projetos anteriores em saúde, alcançamos +22% de ocupação, −35% de perdas com glosas e NPS de 68 para 82.
+A fundadora participou de projetos em saúde em que as organizações alcançaram +22% de ocupação, −35% de perdas com glosas e NPS de 68 para 82.
 
-Todos os agentes seguem a LGPD e as regras dos conselhos profissionais, nunca dão orientação clínica e passam a conversa para a equipe sempre que necessário.
+Os agentes são configurados para não dar orientação clínica e para passar a conversa à equipe sempre que necessário. A clínica mantém a responsabilidade pelo atendimento em saúde e pelos dados dos pacientes; a PB Soluções atua nos limites do contrato.
 
 Fundada por Priscila Blandy Dias: 19 anos em gestão, duas MBAs, PMO e Green Belt.
 ```

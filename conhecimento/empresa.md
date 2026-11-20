@@ -20,7 +20,7 @@
 
 ## Resultados anteriores (cases)
 
-> O agente pode citar estes resultados como **trabalhos já feitos**, nunca como promessa.
+> O agente pode citar estes resultados como **alcançados pelas organizações em projetos com participação da Priscila**: nunca como mérito exclusivo da PB Soluções e nunca como promessa.
 > 🔒 **Regra: nunca citar o nome de nenhum cliente** (atual ou da época da PB Serviços). Use apenas a descrição do tipo de organização. A PB Soluções leva as **estruturas e metodologias**, adaptadas a cada segmento.
 
 | Tipo de organização | Resultado |
