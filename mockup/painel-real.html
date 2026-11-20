@@ -1,0 +1,165 @@
+<title>Central Real PB</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: imagem realista em faixa larga no topo; abaixo, painel de dados reais (conexões, agentes, entregas, atividade, funil). Tema escuro único da marca, por escolha. */
+:root{
+  --bg:#1b1512; --surface:#2A211D; --surface-2:#352a24; --line:#4a3b33;
+  --fg:#FDF9F5; --muted:#c9b9ab; --accent:#C3885B; --accent-strong:#AB7646;
+  --ok:#8fc48d; --warn:#e2b25a; --bad:#e08a7a; --pause:#a1958d;
+  --display:'Playfair Display',Georgia,serif; --body:'Inter',system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);margin:0;line-height:1.5;font-size:15px}
+.hero{position:relative;margin-top:calc(-1 * env(safe-area-inset-top,0px))}
+.hero img{display:block;width:100%;height:clamp(260px,52vw,560px);object-fit:cover;object-position:center 20%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,21,18,.15) 0%,rgba(27,21,18,.1) 50%,var(--bg) 100%)}
+.hero .txt{position:absolute;left:0;right:0;bottom:0;z-index:1}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hero .wrap{padding-block:0 18px}
+.brand{display:flex;gap:9px;align-items:baseline}.brand b{font-family:var(--display);color:var(--accent);font-size:24px}.brand span{font-size:12px;letter-spacing:.3em;text-transform:uppercase}
+h1{font-family:var(--display);font-size:clamp(30px,5vw,52px);margin:2px 0 4px;text-wrap:balance;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.hero p{margin:0;color:var(--fg);max-width:62ch;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.credito{position:absolute;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:1;font-size:11.5px;background:rgba(18,14,12,.7);color:var(--muted);padding:3px 8px;border-radius:6px}
+main .wrap{padding-block:12px 56px;display:flex;flex-direction:column;gap:34px}
+h2{font-family:var(--display);font-size:clamp(22px,3vw,28px);margin:0 0 4px}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.lead{color:var(--muted);margin:0 0 14px;max-width:70ch}
+.kpis{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi strong{display:block;font-family:var(--display);font-size:34px;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--muted);font-size:13px}
+.tabela{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.pause{color:var(--pause)}
+.grid-ag{display:grid;gap:12px}
+@media(min-width:700px){.grid-ag{grid-template-columns:repeat(3,1fr)}}
+.ag{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ag header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ag b{font-size:15px}
+.ag small{color:var(--muted)}
+.ag ul{margin:2px 0 0;padding-left:18px;font-size:13.5px;color:var(--fg)}
+.entregas{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.entregas{grid-template-columns:2fr 1fr 1fr}}
+.entregas figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.entregas img{display:block;width:100%;height:auto}
+.entregas figcaption{padding:8px 12px;font-size:13px;color:var(--muted)}
+.entregas .big{grid-column:1/-1}
+@media(min-width:760px){.entregas .big{grid-column:auto;grid-row:span 2}}
+.linha{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.linha li{position:relative;padding-left:16px;font-size:14px}
+.linha li:before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent-strong)}
+.linha time{color:var(--muted);font-size:12.5px;display:block;font-variant-numeric:tabular-nums}
+.funil{display:grid;gap:8px}
+.etapa{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.etapa strong{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.vazio{background:var(--surface-2);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;color:var(--muted);font-size:14px}
+a{color:var(--accent)}
+.duas{display:grid;gap:24px}
+@media(min-width:900px){.duas{grid-template-columns:1fr 1fr}}
+</style>
+
+<div class="hero">
+  <img src="painel/sala.jpg" alt="Escritório com o time comercial trabalhando e uma mulher tocando o sino de comemoração">
+  <span class="credito">Imagem ilustrativa gerada no Canva · números nas telas são decorativos</span>
+  <div class="txt"><div class="wrap">
+    <div class="brand"><b>PB</b><span>Soluções IA</span></div>
+    <h1>Central Real dos Agentes</h1>
+    <p>Somente o que existe de verdade: o que está conectado, o que cada agente entregou e o que está esperando você.</p>
+  </div></div>
+</div>
+
+<main><div class="wrap">
+
+  <section aria-labelledby="t-num">
+    <div class="eyebrow">Atualizado em 20/11/2026</div>
+    <h2 id="t-num">Em números</h2>
+    <div class="kpis">
+      <div class="kpi"><strong>9</strong><span>agentes configurados</span></div>
+      <div class="kpi"><strong>18</strong><span>versões salvas no GitHub</span></div>
+      <div class="kpi"><strong>25</strong><span>peças visuais prontas (PNG)</span></div>
+      <div class="kpi"><strong>3</strong><span>conexões funcionando</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-con">
+    <div class="eyebrow">Testadas de verdade</div>
+    <h2 id="t-con">Conexões</h2>
+    <div class="tabela"><table>
+      <thead><tr><th>Ferramenta</th><th>Status</th><th>O que os agentes conseguem fazer</th><th>O que falta</th></tr></thead>
+      <tbody>
+        <tr><td><b>Canva (Pro)</b></td><td><span class="pill ok">Conectado</span></td><td>Enviar criativos, criar e <b>redimensionar</b> designs, gerar imagens, usar o Kit de Marca</td><td>Nada</td></tr>
+        <tr><td><b>Google Agenda</b></td><td><span class="pill ok">Conectado</span></td><td>Ver e criar as conversas de diagnóstico (30 a 40 min, Meet) na agenda <b>falecom@pbservicos.com.br</b></td><td>Sua autorização a cada evento</td></tr>
+        <tr><td><b>GitHub</b></td><td><span class="pill ok">Conectado</span></td><td>Guardar tudo o que os agentes criam, com histórico; site grátis no GitHub Pages</td><td>Ligar o GitHub Pages</td></tr>
+        <tr><td><b>Gmail</b></td><td><span class="pill bad">Sem permissão</span></td><td>(depois de reconectar) rascunhos de resposta para leads</td><td>Reconectar em claude.ai → Conectores</td></tr>
+        <tr><td><b>Instagram</b></td><td><span class="pill warn">Manual + automação grátis</span></td><td>Respostas automáticas no Direct pelo Meta Business Suite (textos prontos)</td><td>Você configurar (passo a passo pronto)</td></tr>
+        <tr><td><b>LinkedIn</b></td><td><span class="pill bad">Sem conexão possível</span></td><td>O LinkedIn não permite que agentes enviem ou respondam mensagens</td><td>Você envia; o agente escreve</td></tr>
+        <tr><td><b>n8n</b></td><td><span class="pill pause">Pausado</span></td><td>(futuro) atendimento automático com IA</td><td>Orçamento</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="t-ag">
+    <div class="eyebrow">O que cada um realmente entregou</div>
+    <h2 id="t-ag">Agentes</h2>
+    <div class="grid-ag">
+      <article class="ag"><header><b>social-media</b><span class="pill ok">Ativo</span></header><small>Marketing</small><ul><li>Plano do relançamento "Fio Condutor"</li><li>Calendário de 3 semanas</li><li>Bio e 6 destaques</li></ul></article>
+      <article class="ag"><header><b>redator-copy</b><span class="pill ok">Ativo</span></header><small>Marketing</small><ul><li>9 legendas + 2 carrosséis</li><li>6 textos para o LinkedIn</li><li>Textos do site e do criativo "gargalo"</li></ul></article>
+      <article class="ag"><header><b>designer-pecas</b><span class="pill ok">Ativo</span></header><small>Marketing</small><ul><li>Grade 3×3 com fio contínuo</li><li>6 capas de destaque</li><li>Criativo em 3 formatos</li></ul></article>
+      <article class="ag"><header><b>estrategista-marca</b><span class="pill ok">Ativo</span></header><small>Marketing</small><ul><li>2 revisões finais (aprovadas com ajustes)</li><li>9 correções aplicadas</li></ul></article>
+      <article class="ag"><header><b>desenvolvedor-site</b><span class="pill ok">Ativo</span></header><small>Marketing</small><ul><li>Site de 1 página pronto em docs/</li><li>Falta ligar o GitHub Pages</li></ul></article>
+      <article class="ag"><header><b>comercial-prospeccao</b><span class="pill ok">Testado</span></header><small>Comercial</small><ul><li>Mensagens para LinkedIn e Instagram</li><li>2 follow-ups e roteiro do diagnóstico</li></ul></article>
+      <article class="ag"><header><b>redator-propostas</b><span class="pill warn">Aguardando 1º uso</span></header><small>Receita</small><ul><li>Começa depois da 1ª conversa de diagnóstico</li></ul></article>
+      <article class="ag"><header><b>juridico-contratos</b><span class="pill warn">Aguardando 1º uso</span></header><small>Jurídico</small><ul><li>Rascunho de contrato e LGPD para advogado</li></ul></article>
+      <article class="ag"><header><b>financeiro</b><span class="pill warn">Aguardando 1º uso</span></header><small>Finanças</small><ul><li>Precificação, quando você definir as horas</li></ul></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-ent">
+    <div class="eyebrow">Arquivos reais</div>
+    <h2 id="t-ent">Entregas prontas</h2>
+    <div class="entregas">
+      <figure class="big"><img src="painel/grade.jpg" alt="Grade de 9 posts do relançamento com fio de bronze contínuo"><figcaption>Grade do relançamento (9 posts)</figcaption></figure>
+      <figure><img src="painel/p5.jpg" alt="Post 5 com a foto da Priscila"><figcaption>Post 5 com a sua foto</figcaption></figure>
+      <figure><img src="painel/gargalo.jpg" alt="Criativo Tudo passa por você? Isso tem nome: gargalo"><figcaption>Criativo "gargalo"</figcaption></figure>
+    </div>
+    <p class="lead" style="margin-top:12px">No Canva: <a href="https://www.canva.com/d/FtOezz97Q-YQZO_" target="_blank" rel="noopener">story redimensionado pelo agente</a> · <a href="https://www.canva.com/d/0HN4106eOFHtU6d" target="_blank" rel="noopener">post editável</a></p>
+  </section>
+
+  <div class="duas">
+    <section aria-labelledby="t-fun">
+      <div class="eyebrow">Dados reais (começa com você)</div>
+      <h2 id="t-fun">Funil comercial</h2>
+      <div class="funil">
+        <div class="etapa"><span>Abordagens enviadas</span><strong>0</strong></div>
+        <div class="etapa"><span>Responderam</span><strong>0</strong></div>
+        <div class="etapa"><span>Diagnósticos marcados</span><strong>0</strong></div>
+        <div class="etapa"><span>Propostas enviadas</span><strong>0</strong></div>
+        <div class="etapa"><span>Contratos fechados 🔔</span><strong>0</strong></div>
+      </div>
+      <div class="vazio" style="margin-top:10px">Ainda está tudo em zero porque nenhuma mensagem real foi enviada. Mande os primeiros perfis para o agente comercial e conte aqui quem respondeu: os números passam a ser os seus.</div>
+    </section>
+    <section aria-labelledby="t-hist">
+      <div class="eyebrow">Histórico real do GitHub</div>
+      <h2 id="t-hist">Atividade de hoje</h2>
+      <ol class="linha">
+        <li><time>18:07</time>Foto real no post 5, @pbsolucoesia e primeira conversa</li>
+        <li><time>18:05</time>Relançamento "Fio Condutor": grade, destaques e prévia</li>
+        <li><time>18:00</time>Legendas do relançamento</li>
+        <li><time>17:59</time>Sala Comercial 3D + plano do relançamento</li>
+        <li><time>17:30</time>Criativos enviados ao Canva</li>
+        <li><time>17:17</time>Marca ampliada: PB Soluções IA</li>
+        <li><time>17:01</time>Teste dos agentes de marketing</li>
+        <li><time>16:56</time>Teste do agente comercial</li>
+      </ol>
+    </section>
+  </div>
+
+</div></main>

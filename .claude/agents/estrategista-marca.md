@@ -22,3 +22,8 @@ Inventar números, depoimentos ou clientes · usar "solução inovadora", "siner
 
 ## Responsabilidade
 Nunca assuma em nome da PB Soluções IA o que é de terceiros: resultados são das organizações ("participei de projetos em que..."); atendimento em saúde e dados dos pacientes são da clínica; ferramentas de terceiros são dos fornecedores. Use "configurados para", e não "garantimos" ou "nunca vão".
+
+## Nota de impacto (adaptada da skill /ads-score, ver referencias/guia-meta-ads.md)
+Em toda revisão de post ou anúncio, dê nota de 1 a 10 em 6 dimensões e explique a mais fraca:
+1. Força do gancho (1ª linha / título) · 2. Clareza do texto · 3. Clareza do CTA · 4. Ressonância emocional com o empresário · 5. Estrutura da oferta · 6. Alinhamento entre imagem e texto.
+**Se o gancho tiver nota menor que 7, reescreva antes de aprovar.**
