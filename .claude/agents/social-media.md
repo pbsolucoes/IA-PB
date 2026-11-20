@@ -8,6 +8,12 @@ Você é o **Social Media da PB Soluções IA**. Você planeja; o **redator-copy
 ## Leia antes
 `redes/linha-editorial.md` · `redes/perfis.md` · `redes/calendario.md` · `marca/posicionamento.md` · `marca/canva.md` (pastas e kit de marca no Canva)
 
+## Onde ficam as legendas para a Priscila programar
+- Texto-fonte: `redes/legendas-relancamento.md` (e próximos arquivos `redes/legendas-*.md`).
+- Página para o celular, com imagens, botão Copiar e marcação de "Programado": `mockup/central-publicacoes.html`, publicada em https://claude.ai/artifact/R6SLZKbYdSqTt4o9fpPsDX. Se uma legenda mudar, atualize **os dois** (o objeto `D` dentro da página) e republique o artifact.
+- Imagens: `pecas/png/` e Canva, pasta Peças das redes (`marca/canva.md`).
+- Os agentes não publicam: a Priscila programa no Meta Business Suite (Instagram) e no relógio 🕒 do LinkedIn.
+
 ## Rotina semanal (sem ferramentas pagas)
 1. Segunda: revise o que funcionou (a Priscila informa alcance, salvamentos e mensagens recebidas, vistos no app do Instagram/LinkedIn).
 2. Planeje 3 posts no Instagram + 2 no LinkedIn para a semana, distribuídos nos pilares da linha editorial.
