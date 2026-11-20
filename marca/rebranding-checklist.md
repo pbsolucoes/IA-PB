@@ -82,7 +82,7 @@
 | Categoria | `Serviços profissionais` (ou "Consultoria", se aparecer) | Priscila no app | ⏳ Priscila aplicar |
 | Descrição | `Gestão + agentes de IA para empresários. Diagnóstico antes da tecnologia. Organizamos a gestão da sua empresa e colocamos agentes de IA para trabalhar nos processos que mais consomem tempo. Especialidade em saúde privada. Atendimento online.` | Priscila no app | ⏳ Priscila aplicar |
 | Site e e-mail | Site: `https://pbsolucoes.github.io/IA-PB/` · E-mail: `falecom@pbservicos.com.br` | Priscila no app | ⏳ Priscila aplicar |
-| Horário | ✏️ PREENCHER (o horário real ainda não foi definido em `conhecimento/empresa.md`) | Priscila no app | ⏳ Priscila decidir |
+| Horário | Segunda a sexta, 9h às 18h | Priscila no app | ⏳ Priscila aplicar |
 | Mensagem de saudação | `Olá! Aqui é a PB Soluções IA. Recebi sua mensagem e respondo em até 1 dia útil. Se puder, me conte: o que sua empresa faz e qual é o maior desafio de gestão hoje?` | Priscila no app | ✅ texto feito · ⏳ Priscila aplicar |
 | Mensagem de ausência | `Obrigada pelo contato! Aqui é a PB Soluções IA. Estou fora do horário agora e respondo no próximo dia útil.` | Priscila no app | ✅ texto feito · ⏳ Priscila aplicar |
 | Resposta rápida `/diagnostico` | `O diagnóstico da gestão é uma conversa de 30 a 40 minutos por Google Meet, em que eu entendo como a sua empresa funciona hoje e onde ela perde tempo e dinheiro. Antes de qualquer tecnologia. Qual o melhor dia e horário para você?` | Priscila no app | ✅ texto feito · ⏳ Priscila aplicar |
@@ -122,7 +122,7 @@
 | Ponto de contato | O que mudar (texto ou arquivo exato) | Quem faz | Status |
 |---|---|---|---|
 | Site | https://pbsolucoes.github.io/IA-PB/ já no ar com o nome PB Soluções IA, slogan e botões de WhatsApp | Agente desenvolvedor-site | ✅ feito no repositório |
-| Links das redes no site | Hoje o site mostra só o LinkedIn pessoal. Sugestão: incluir `@pbsolucoesia` e a página da empresa no rodapé. | Agente desenvolvedor-site | 🛠️ agente preparar |
+| Links das redes no site | Rodapé com `@pbsolucoesia`, a página da empresa no LinkedIn e falecom@pbservicos.com.br | Agente desenvolvedor-site | ✅ feito no repositório |
 | Textos de redes, legendas e respostas | `redes/perfis.md`, `redes/relancamento.md`, `redes/legendas-*.md`, `redes/meta-business-suite.md`, `conhecimento/empresa.md` | Agentes de marketing | ✅ feito no repositório |
 | Peças visuais | `perfil.png`, `banner-linkedin.png`, `destaque-*.png`, `relancamento-01..09.png` | Agente designer-pecas | ✅ feito no repositório |
 

@@ -1,0 +1,182 @@
+<title>Checklist do Rebranding PB</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: lista de tarefas em coluna única, feita para o celular: etapas na ordem do dia, cada item com botão de copiar, link da imagem e caixa de marcar. */
+:root{
+  --bg:#FDF9F5; --card:#ffffff; --fg:#2A211D; --muted:#6e5d52; --line:#e8ddd1; --accent:#936431; --accent-2:#AB7646; --ok:#3f7d4a; --chip:#f3eadf;
+  --display:'Playfair Display',Georgia,serif; --body:'Inter',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1d1714;--card:#2A211D;--fg:#FDF9F5;--muted:#c9b9ab;--line:#4a3b33;--accent:#C3885B;--accent-2:#AB7646;--ok:#8fc48d;--chip:#362a24;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1714;--card:#2A211D;--fg:#FDF9F5;--muted:#c9b9ab;--line:#4a3b33;--accent:#C3885B;--accent-2:#AB7646;--ok:#8fc48d;--chip:#362a24;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);margin:0;font-size:15.5px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+.brand{display:flex;gap:8px;align-items:baseline}.brand b{font-family:var(--display);color:var(--accent);font-size:22px}.brand span{font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+h1{font-family:var(--display);font-size:clamp(28px,6vw,40px);margin:6px 0 4px;text-wrap:balance}
+.sub{color:var(--muted);margin:0}
+.prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:12px 0 10px;margin-top:14px;border-bottom:1px solid var(--line)}
+.prog .bar{height:8px;border-radius:99px;background:var(--chip);overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--accent-2);transition:width .3s}
+.prog .txt{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
+.etapa{margin-top:28px}
+.etapa header{display:flex;gap:12px;align-items:baseline}
+.etapa .n{font-family:var(--display);font-size:30px;color:var(--accent);line-height:1;min-width:26px}
+.etapa h2{font-family:var(--display);font-size:22px;margin:0}
+.etapa .tempo{font-size:12.5px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.etapa .onde{font-size:13.5px;color:var(--muted);margin:4px 0 0 38px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:10px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start}
+.item.feito{opacity:.6}
+.item input[type=checkbox]{width:22px;height:22px;margin:2px 0 0;accent-color:var(--accent-2);cursor:pointer}
+.item label{font-weight:600;cursor:pointer}
+.item .corpo{grid-column:2;min-width:0;display:flex;flex-direction:column;gap:8px}
+.item .dica{font-size:13.5px;color:var(--muted)}
+.copiar{position:relative;background:var(--chip);border-radius:10px;padding:10px 12px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.acoes{display:flex;flex-wrap:wrap;gap:8px}
+button,.link{font-family:var(--body);font-size:13.5px;font-weight:600;border-radius:99px;padding:7px 13px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+button.cp{background:var(--accent-2);border-color:var(--accent-2);color:#2A211D}
+button:focus-visible,.link:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.aviso{margin-top:28px;background:var(--chip);border-radius:12px;padding:14px 16px;font-size:14px}
+.estado{font-size:12.5px;color:var(--muted);margin-top:4px}
+</style>
+
+<div class="wrap">
+  <div class="brand"><b>PB</b><span>Soluções IA</span></div>
+  <h1>Checklist do rebranding</h1>
+  <p class="sub">Siga na ordem, em cerca de 1 hora. Toque em <b>Copiar</b> e cole no app; toque no nome da imagem (🖼) para abrir e salve no celular (segure o dedo sobre a imagem). Marque ✓ o que for fazendo.</p>
+  <div class="prog" aria-live="polite"><div class="bar"><i id="barra"></i></div><div class="txt"><span id="contagem">0 de 0 feitos</span><span id="estado">Conectando…</span></div></div>
+  <div id="lista"></div>
+  <div class="aviso">Quando terminar, me avise no Claude: eu vejo aqui o que você marcou e atualizo o checklist no repositório. Se algum app pedir confirmação ou der erro, me conte qual.</div>
+</div>
+
+<script>
+const IMG = f => 'https://raw.githubusercontent.com/pbsolucoes/IA-PB/claude/pb-servicos-ai-agents-xpg0ky/pecas/png/' + f;
+const SOBRE_LI = `A PB Soluções IA ajuda empresários e donos de negócio a organizar a gestão e a colocar agentes de inteligência artificial para trabalhar nos processos que mais consomem tempo e dinheiro:
+
+• Primeiro atendimento e dúvidas frequentes
+• Acompanhamento de clientes e propostas
+• Tarefas repetitivas da operação
+• Indicadores para decidir com números
+
+Nosso método começa sempre pelo diagnóstico da gestão: tecnologia em cima de processo desorganizado só acelera o problema.
+
+Especialidade em saúde privada: agentes prontos para clínicas e casas de saúde (agendamento, retorno de pacientes, pesquisa de satisfação e prevenção de glosas). A fundadora participou de projetos em saúde em que as organizações alcançaram +22% de ocupação, −35% de perdas com glosas e NPS de 68 para 82.
+
+Os agentes se apresentam como IA e passam a conversa para a equipe sempre que necessário. Cada empresa mantém a responsabilidade pelo seu atendimento e pelos dados dos seus clientes; a PB Soluções IA atua nos limites do contrato.
+
+Fundada por Priscila Blandy Dias: 19 anos de carreira, duas MBAs, PMO e Green Belt.`;
+const ETAPAS = [
+ {n:0, t:'Antes de começar', tempo:'5 min', onde:'No celular', itens:[
+  {id:'prints', l:'Tirar print do Instagram, do LinkedIn e do WhatsApp atuais (o "antes")'},
+  {id:'baixar', l:'Salvar as imagens no celular', img:['perfil.png','banner-linkedin.png','banner-linkedin-perfil.png','post-01-agora-pb-solucoes.png']},
+ ]},
+ {n:1, t:'LinkedIn · página da empresa', tempo:'10 min', onde:'linkedin.com/company/pb-servicos → Ferramentas de administrador → Editar página', itens:[
+  {id:'li-nome', l:'Nome da página', c:'PB Soluções IA', d:'Não troque a URL: ela continua /company/pb-servicos.'},
+  {id:'li-logo', l:'Logo', img:['perfil.png']},
+  {id:'li-capa', l:'Capa da página', img:['banner-linkedin.png']},
+  {id:'li-slogan', l:'Slogan', c:'Gestão e agentes de IA para empresários. Diagnóstico antes da tecnologia.'},
+  {id:'li-sobre', l:'Sobre', c:SOBRE_LI},
+  {id:'li-site', l:'Site', c:'https://pbsolucoes.github.io/IA-PB/'},
+  {id:'li-setor', l:'Setor e especialidades', c:'Serviços de consultoria', d:'Especialidades: Gestão de processos · Inteligência artificial · Agentes de IA · Gestão em saúde · Melhoria contínua'},
+ ]},
+ {n:2, t:'LinkedIn · seu perfil pessoal', tempo:'10 min', onde:'linkedin.com/in/priscilablandy → lápis de editar', itens:[
+  {id:'lp-titulo', l:'Título', c:'Gestão + IA para empresários | Fundadora da PB Soluções IA | Especialidade em saúde | MBA · PMO · Green Belt'},
+  {id:'lp-capa', l:'Capa do perfil', img:['banner-linkedin-perfil.png'], d:'Já no tamanho do perfil pessoal (texto à direita da sua foto).'},
+  {id:'lp-exp', l:'Experiência atual: Fundadora, escolhendo a PÁGINA PB Soluções IA na lista', c:'Organizo a gestão de empresas e coloco agentes de IA para trabalhar nos processos que mais consomem tempo e dinheiro, sempre começando pelo diagnóstico da gestão. Especialidade em saúde privada, com agentes prontos para clínicas e casas de saúde.'},
+  {id:'lp-contato', l:'Informações de contato: site', c:'https://pbsolucoes.github.io/IA-PB/'},
+ ]},
+ {n:3, t:'Instagram', tempo:'15 min', onde:'Perfil → Editar perfil', itens:[
+  {id:'ig-user', l:'Nome de usuário', c:'pbsolucoesia', d:'Trocar o @ mantém os seguidores; links antigos para o @ anterior param de funcionar.'},
+  {id:'ig-nome', l:'Nome', c:'PB Soluções IA | Gestão + IA'},
+  {id:'ig-foto', l:'Foto', img:['perfil.png']},
+  {id:'ig-bio', l:'Bio (cole com as quebras de linha)', c:'Gestão + agentes de IA para empresários\nDiagnóstico antes da tecnologia\nEspecialidade em saúde | Priscila Blandy\n👇 Comece pelo diagnóstico'},
+  {id:'ig-link1', l:'Link 1 · título "Site"', c:'https://pbsolucoes.github.io/IA-PB/'},
+  {id:'ig-link2', l:'Link 2 · título "WhatsApp"', c:'https://wa.me/5532991337984'},
+  {id:'ig-arquivar', l:'Arquivar (não excluir) os posts antigos com PB Serviços', d:'Abrir o post → ⋯ → Arquivar. Desafixe todos os posts fixados.'},
+  {id:'ig-destaques', l:'Trocar os destaques: Comece aqui · Diagnóstico · IA segura · Saúde · Resultados · Sobre', img:['destaque-comece-aqui.png','destaque-diagnostico.png','destaque-ia-segura.png','destaque-saude.png','destaque-resultados.png','destaque-sobre.png']},
+ ]},
+ {n:4, t:'Página do Facebook (ligada ao Instagram)', tempo:'5 min', onde:'facebook.com → sua página → Editar', itens:[
+  {id:'fb-nome', l:'Nome', c:'PB Soluções IA'},
+  {id:'fb-foto', l:'Foto', img:['perfil.png']},
+  {id:'fb-site', l:'Site', c:'https://pbsolucoes.github.io/IA-PB/'},
+ ]},
+ {n:5, t:'WhatsApp Business', tempo:'10 min', onde:'App WhatsApp Business → Ferramentas comerciais', itens:[
+  {id:'wa-nome', l:'Nome da empresa', c:'PB Soluções IA'},
+  {id:'wa-foto', l:'Foto', img:['perfil.png']},
+  {id:'wa-desc', l:'Descrição', c:'Gestão + agentes de IA para empresários. Diagnóstico antes da tecnologia. Organizamos a gestão da sua empresa e colocamos agentes de IA para trabalhar nos processos que mais consomem tempo. Especialidade em saúde privada. Atendimento online.'},
+  {id:'wa-email', l:'E-mail', c:'falecom@pbservicos.com.br'},
+  {id:'wa-site', l:'Site', c:'https://pbsolucoes.github.io/IA-PB/'},
+  {id:'wa-horario', l:'Horário: segunda a sexta, 9h às 18h'},
+  {id:'wa-saud', l:'Mensagem de saudação', c:'Olá! Aqui é a PB Soluções IA. Recebi sua mensagem e respondo em até 1 dia útil. Se puder, me conte: o que sua empresa faz e qual é o maior desafio de gestão hoje?'},
+  {id:'wa-aus', l:'Mensagem de ausência', c:'Obrigada pelo contato! Aqui é a PB Soluções IA. Estou fora do horário agora e respondo no próximo dia útil.'},
+  {id:'wa-rr', l:'Resposta rápida (atalho /diagnostico)', c:'O diagnóstico da gestão é uma conversa de 30 a 40 minutos por Google Meet, em que eu entendo como a sua empresa funciona hoje e onde ela perde tempo e dinheiro. Antes de qualquer tecnologia. Qual o melhor dia e horário para você?'},
+  {id:'wa-status', l:'Status anunciando o nome novo', img:['post-01-agora-pb-solucoes.png'], c:'Agora somos PB Soluções IA. Diagnóstico antes da tecnologia.'},
+ ]},
+ {n:6, t:'E-mail falecom@pbservicos.com.br', tempo:'5 min', onde:'Gmail → Configurações → Ver todas as configurações', itens:[
+  {id:'em-nome', l:'Nome do remetente (Contas → Enviar e-mail como → editar)', c:'Priscila | PB Soluções IA'},
+  {id:'em-ass', l:'Assinatura (Geral → Assinatura)', c:'Priscila Blandy Dias\nFundadora | PB Soluções IA\nGestão + agentes de IA para empresários\nDiagnóstico antes da tecnologia.\n\nWhatsApp: +55 32 99133-7984\nSite: pbsolucoes.github.io/IA-PB\nInstagram: @pbsolucoesia\nLinkedIn: linkedin.com/company/pb-servicos'},
+  {id:'em-teste', l:'Mandar um e-mail de teste para você mesma'},
+ ]},
+ {n:7, t:'Canva · Kit de Marca', tempo:'5 min', onde:'Canva → Marca → Kit de Marca', itens:[
+  {id:'cv-nome', l:'Nome do kit', c:'PB Soluções IA'},
+  {id:'cv-cores', l:'Cores', c:'#AB7646 #C3885B #936431 #2A211D #FDF9F5', d:'Bronze, Bronze Claro, Bronze Escuro, Espresso e Marfim.'},
+  {id:'cv-fontes', l:'Fontes: Playfair Display (títulos) e Inter (textos)'},
+  {id:'cv-logo', l:'Logo', img:['perfil.png']},
+ ]},
+ {n:8, t:'Google Perfil da Empresa', tempo:'5 min', onde:'business.google.com', itens:[
+  {id:'gg-nome', l:'Nome (só o nome, sem slogan)', c:'PB Soluções IA'},
+  {id:'gg-tipo', l:'Tipo: sem endereço aberto ao público · área atendida: Brasil (online)', d:'Não mostre endereço residencial.'},
+  {id:'gg-cat', l:'Categoria principal', c:'Consultor de negócios'},
+  {id:'gg-desc', l:'Descrição', c:'A PB Soluções IA organiza a gestão de empresas e coloca agentes de inteligência artificial para trabalhar nos processos que mais consomem tempo e dinheiro, sempre começando pelo diagnóstico da gestão. Atendemos empresários e donos de negócio de qualquer segmento, com especialidade em saúde privada (clínicas e casas de saúde). A primeira conversa é o diagnóstico da gestão, de 30 a 40 minutos, por Google Meet. Fundada por Priscila Blandy Dias: 19 anos de carreira, duas MBAs, PMO e Green Belt.'},
+  {id:'gg-contato', l:'Site e telefone', c:'https://pbsolucoes.github.io/IA-PB/', d:'Telefone: +55 32 99133-7984. Se pedir verificação, faça quando puder: não trava o resto.'},
+ ]},
+];
+const total = ETAPAS.reduce((a,e)=>a+e.itens.length,0);
+let feitos = new Set(), db=null, docRef=null, salvando=Promise.resolve();
+const lista=document.getElementById('lista');
+function render(){
+  lista.innerHTML='';
+  ETAPAS.forEach(e=>{
+    const sec=document.createElement('section'); sec.className='etapa';
+    sec.innerHTML=`<header><span class="n">${e.n}</span><h2></h2><span class="tempo">${e.tempo}</span></header><p class="onde"></p>`;
+    sec.querySelector('h2').textContent=e.t; sec.querySelector('.onde').textContent=e.onde;
+    e.itens.forEach(it=>{
+      const box=document.createElement('div'); box.className='item'+(feitos.has(it.id)?' feito':'');
+      const cb=document.createElement('input'); cb.type='checkbox'; cb.id='cb-'+it.id; cb.checked=feitos.has(it.id);
+      cb.addEventListener('change',()=>marca(it.id,cb.checked));
+      const lb=document.createElement('label'); lb.htmlFor=cb.id; lb.textContent=it.l;
+      const corpo=document.createElement('div'); corpo.className='corpo';
+      if(it.d){const d=document.createElement('div');d.className='dica';d.textContent=it.d;corpo.append(d);}
+      if(it.c){const p=document.createElement('div');p.className='copiar';p.textContent=it.c;corpo.append(p);}
+      const ac=document.createElement('div'); ac.className='acoes';
+      if(it.c){const b=document.createElement('button');b.type='button';b.className='cp';b.textContent='Copiar';
+        b.onclick=()=>{const ok=()=>{b.textContent='Copiado ✓';setTimeout(()=>b.textContent='Copiar',1600);};
+          const sel=()=>{const r=document.createRange();r.selectNodeContents(corpo.querySelector('.copiar'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selecionado: copie';};
+          try{navigator.clipboard.writeText(it.c).then(ok,sel);}catch(e){sel();}};ac.append(b);}
+      (it.img||[]).forEach(f=>{const a=document.createElement('a');a.className='link';a.href=IMG(f);a.target='_blank';a.rel='noopener';a.textContent='🖼 '+f.replace('.png','');ac.append(a);});
+      if(ac.children.length) corpo.append(ac);
+      box.append(cb,lb); if(corpo.children.length) box.append(corpo);
+      sec.append(box);
+    });
+    lista.append(sec);
+  });
+  const n=feitos.size; document.getElementById('contagem').textContent=`${n} de ${total} feitos`;
+  document.getElementById('barra').style.width=(n/total*100)+'%';
+}
+function marca(id,on){
+  on?feitos.add(id):feitos.delete(id); render();
+  if(docRef){ const lista=[...feitos]; salvando=salvando.then(()=>docRef.set({feitos:lista,atualizado:new Date().toISOString()})).catch(()=>{document.getElementById('estado').textContent='Não salvou agora';}); }
+  else { try{localStorage.setItem('pb-checklist',JSON.stringify([...feitos]));}catch(e){} }
+}
+try{ JSON.parse(localStorage.getItem('pb-checklist')||'[]').forEach(x=>feitos.add(x)); }catch(e){}
+render();
+(async()=>{
+  const C=window.claude; const est=document.getElementById('estado');
+  try{ db = C ? await C.use('db') : null; }catch(e){ db=null; }
+  if(!db){ est.textContent='Salvo só neste aparelho'; return; }
+  docRef=db.doc('progresso/rebranding');
+  const t=setTimeout(()=>est.textContent='Demorando para sincronizar',10000);
+  docRef.onSnapshot(s=>{ if(!s.metadata.fromCache){clearTimeout(t);est.textContent='Salvo e sincronizado';}
+    if(s.exists){ feitos=new Set((s.data().feitos)||[]); render(); } },()=>{clearTimeout(t);est.textContent='Salvo só neste aparelho';docRef=null;});
+})();
+</script>
