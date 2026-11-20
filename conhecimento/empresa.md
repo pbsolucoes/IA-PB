@@ -7,6 +7,7 @@
 - **Instagram:** ✏️ PREENCHER (novo @; o atual @pbservicosoficial está em reformulação)
 - **LinkedIn da empresa:** linkedin.com/company/pb-servicos (em reformulação)
 - **LinkedIn:** linkedin.com/in/priscilablandy
+- **WhatsApp comercial (link da bio e CTAs):** https://wa.me/5532991337984
 - **Link para agendar conversa:** ✏️ PREENCHER (ex.: Google Calendar, página de agendamento)
 - **Horário de atendimento humano:** ✏️ PREENCHER (ex.: seg a sex, 9h às 18h, horário de Brasília)
 

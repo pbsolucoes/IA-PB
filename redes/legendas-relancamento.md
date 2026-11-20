@@ -139,7 +139,7 @@ Quer descobrir onde está o tempo perdido da sua equipe? Fale comigo no WhatsApp
 ```
 Prazer, eu sou a Priscila Blandy Dias, fundadora da PB Soluções IA.
 
-São 19 anos de carreira em gestão. No caminho, vieram 2 MBAs, a certificação PMO, o Green Belt e uma especialização em marketing B2B.
+São 19 anos de carreira. No caminho, vieram 2 MBAs, a certificação PMO, o Green Belt e uma especialização em marketing B2B.
 
 Mas o que mais me ensinou foi estar dentro das empresas. Vi muita ferramenta cara ser comprada para resolver um problema que, na verdade, era de processo.
 
@@ -235,7 +235,7 @@ Para clínicas, a PB Soluções IA tem 4 agentes de IA prontos:
 1. Agendamento e confirmação: agenda pelo WhatsApp, confirma na véspera e reaproveita horários vagos
 2. Captação e retorno: lembra retornos e responde a novos contatos
 3. Satisfação (NPS): pergunta a nota depois da consulta e avisa a equipe quando alguém ficou insatisfeito
-4. Glosas: confere as guias antes do envio e aponta riscos. A decisão e o envio continuam com o faturamento da clínica
+4. Prevenção de glosas: confere as guias antes do envio e aponta riscos. A decisão e o envio continuam com o faturamento da clínica
 
 Regras que valem para os 4: eles são configurados para nunca dar diagnóstico nem orientar tratamento, para indicar o SAMU 192 em sinal de emergência e para se apresentar como IA.
 
@@ -266,7 +266,7 @@ Quer saber qual agente faz sentido para a sua clínica? Fale comigo no WhatsApp 
 ```
 O fio chegou ao fim. E é aqui que a sua parte começa.
 
-Nos últimos 9 posts, eu mostrei o que muda quando a gestão vem antes da tecnologia. Agora, como isso funciona na prática:
+Ao longo destes 9 posts, eu mostrei o que muda quando a gestão vem antes da tecnologia. Agora, como isso funciona na prática:
 
 1. Diagnóstico da gestão: entender onde a empresa perde tempo e dinheiro
 2. Desenho do processo: arrumar antes de automatizar
@@ -289,12 +289,12 @@ Quer dar o primeiro passo? Fale comigo no WhatsApp (link na bio).
 # PARTE 2 · LINKEDIN (6 textos do calendário)
 
 ## Ter 24/11 · Perfil da Priscila · "Mudei o nome da minha empresa."
-> **Reaproveitado sem mudar o texto** de `redes/legendas-lancamento.md` (seção 1, LinkedIn). Acrescentei só 3 hashtags e o CTA no padrão.
+> **Reaproveitado** de `redes/legendas-lancamento.md` (seção 1, LinkedIn). Acrescentei 3 hashtags e o CTA no padrão; na revisão de marca, "19 anos de gestão" virou "19 anos de carreira".
 
 ```
 Mudei o nome da minha empresa. E o motivo diz mais do que o nome.
 
-Em 19 anos de gestão, os projetos em saúde foram os que mais me marcaram. Participei de projetos em que uma clínica de saúde mental alcançou +22% de ocupação e −35% de perdas com glosas, e em que um grupo de serviços médicos viu o NPS sair de 68 para 82. O mérito é das equipes dessas organizações.
+Em 19 anos de carreira, os projetos em saúde foram os que mais me marcaram. Participei de projetos em que uma clínica de saúde mental alcançou +22% de ocupação e −35% de perdas com glosas, e em que um grupo de serviços médicos viu o NPS sair de 68 para 82. O mérito é das equipes dessas organizações.
 
 O que aprendi com eles: a virada vem do processo, não da ferramenta.
 

@@ -1,0 +1,204 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<!--
+  PAINEL MESTRE "FIO CONDUTOR" (relançamento) · 3240 × 4050 = 3 colunas × 3 linhas de posts 1080 × 1350.
+  Não renderize com renderizar.js: use  node pecas/fatiar-grade.js  (recorta em relancamento-01..09.png).
+  Posição na grade (como aparece no perfil) e ordem de publicação:
+      [9 CTA]   [8 Saúde]  [7 IA responsável]
+      [6 Prova] [5 Pessoa] [4 Dor]
+      [3 Dor]   [2 Manifesto] [1 Nome novo]
+  O fio corre numa "faixa" a 1100 px do topo de cada post e, nas viradas, na vertical em x = 960 px
+  (posts 3, 4, 6 e 7). Por isso o texto desses posts termina antes de x = 860 px e todo texto termina acima de y ≈ 1040 px.
+-->
+<style>
+:root{--w:3240px;--h:4050px}
+.post{position:absolute;width:1080px;height:1350px;overflow:hidden;font-variant-numeric:lining-nums}
+.c{position:absolute;left:90px;right:90px;top:140px}
+.c.estreito{right:220px}
+h1{font-family:'Playfair Display',serif;font-weight:600;line-height:1.04}
+h1 em{font-weight:500}
+.escuro h1 em{color:var(--bronze-claro)}
+.claro h1 em,.claro h1 span{color:var(--bronze-escuro)}
+p.sub{font-size:38px;line-height:1.4;font-weight:300}
+.escuro p.sub b{font-weight:600;color:var(--bronze-claro)}
+.claro p.sub b{font-weight:600;color:var(--bronze-escuro)}
+.selo{font-size:28px;bottom:86px;opacity:1}
+.escuro .selo{color:var(--bronze-claro)}
+.claro .selo{color:var(--bronze-escuro)}
+#fio{position:absolute;left:0;top:0;width:3240px;height:4050px;pointer-events:none;z-index:5}
+
+/* post 1 */
+#p1 .antes{font-size:40px;font-weight:300;opacity:.75;margin-top:24px;text-decoration:line-through;text-decoration-color:var(--bronze);text-decoration-thickness:3px}
+/* post 2 */
+#p2 ol{list-style:none;margin-top:64px;display:grid;gap:26px}
+#p2 li{display:flex;gap:28px;align-items:baseline;font-size:40px;font-weight:400}
+#p2 li b{font-family:'Playfair Display',serif;color:var(--bronze-escuro);font-size:46px;min-width:50px}
+#p2 li small{display:block;font-size:30px;font-weight:300;opacity:.85;margin-top:6px}
+/* post 3 */
+#p3 .cta{display:inline-block;margin-top:40px;background:var(--bronze);color:var(--espresso);font-weight:600;font-size:32px;padding:20px 44px;border-radius:999px}
+/* listas com marcador em losango */
+ul.l{list-style:none;display:grid;gap:26px}
+ul.l li{display:flex;gap:24px;align-items:baseline;font-size:40px;font-weight:400;line-height:1.25}
+ul.l li::before{content:"";flex:0 0 16px;height:16px;transform:translateY(-6px) rotate(45deg);background:var(--bronze)}
+/* post 5 */
+#p5 .c{text-align:center}
+#p5 .foto{width:340px;height:340px;margin:44px auto 0;border-radius:50%;border:3px solid var(--bronze);display:flex;align-items:center;justify-content:center;background:rgba(171,118,70,.08)}
+#p5 .foto span{font-family:'Playfair Display',serif;font-weight:700;font-size:170px;color:var(--bronze-claro);letter-spacing:4px;line-height:1}
+#p5 .nome{font-size:40px;font-weight:600;margin-top:36px}
+#p5 .cred{font-size:30px;font-weight:300;margin-top:12px;letter-spacing:.5px}
+#p5 .cred b{color:var(--bronze-claro);font-weight:500}
+/* post 6 */
+#p6 .nums{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;margin-top:52px}
+#p6 .n b{display:block;font-family:'Playfair Display',serif;font-weight:600;font-size:92px;line-height:1;color:var(--bronze-escuro)}
+#p6 .n b i{font-family:'Inter',sans-serif;font-style:normal;font-weight:300;font-size:64px}
+#p6 .n span{display:block;font-size:32px;font-weight:400;margin-top:8px}
+#p6 .aviso{font-size:28px;font-weight:400;margin-top:44px;line-height:1.35;border-left:4px solid var(--bronze);padding-left:22px}
+#p6 .selo,#p9 .selo{right:200px}
+/* post 9 */
+#p9 .etapas{font-size:32px;font-weight:500;margin-top:40px;color:var(--bronze-claro);letter-spacing:.5px}
+#p9 .convite{position:absolute;left:90px;top:1058px;height:84px;display:flex;align-items:center;background:var(--bronze);color:var(--espresso);font-weight:600;font-size:32px;padding:0 44px;border-radius:999px}
+#p9 .selo{right:90px}
+</style></head><body>
+
+<!-- ============ LINHA 1 (topo) ============ -->
+
+<!-- POST 9 · escuro · CTA · capa do carrossel 2 -->
+<section class="post escuro" id="p9" style="left:0;top:0">
+  <div class="c"><div class="eyebrow">Comece por aqui</div>
+  <h1 style="font-size:96px;margin-top:40px">Como funciona<br>o <em>diagnóstico<br>da gestão.</em></h1>
+  <div class="linha" style="margin-top:48px"></div>
+  <p class="sub" style="margin-top:44px">Três etapas para organizar<br>a empresa antes da tecnologia.</p>
+  <div class="etapas">Diagnóstico · Desenho · Agentes de IA</div></div>
+  <div class="convite" id="convite">Comece pelo diagnóstico</div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">deslize →</div>
+</section>
+
+<!-- POST 8 · claro · Especialidade saúde -->
+<section class="post claro" id="p8" style="left:1080px;top:0">
+  <div class="c"><div class="eyebrow">Especialidade saúde</div>
+  <h1 style="font-size:92px;margin-top:40px">Tem clínica?<br><em>Temos 4 agentes<br>prontos.</em></h1>
+  <ul class="l" style="margin-top:56px">
+    <li>Agendamento e confirmação</li><li>Captação e retorno</li>
+    <li>Satisfação (NPS)</li><li>Prevenção de glosas</li></ul>
+  <p class="sub" style="margin-top:44px;font-size:32px">Sempre começando pelo <b>diagnóstico da gestão</b>.</p></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+</section>
+
+<!-- POST 7 · escuro · IA com responsabilidade -->
+<section class="post escuro" id="p7" style="left:2160px;top:0">
+  <div class="c"><div class="eyebrow">IA com responsabilidade</div>
+  <h1 style="font-size:112px;margin-top:44px">IA que diz<br><em>que é IA.</em></h1>
+  <div class="linha" style="margin-top:52px"></div>
+  <ul class="l" style="margin-top:56px">
+    <li>Se apresenta como IA</li>
+    <li>Passa a conversa para uma pessoa na hora certa</li>
+    <li>Configurada para a LGPD</li></ul></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+</section>
+
+<!-- ============ LINHA 2 ============ -->
+
+<!-- POST 6 · claro · Prova · capa do carrossel 1 (números de conhecimento/empresa.md) -->
+<section class="post claro" id="p6" style="left:0;top:1350px">
+  <div class="c"><div class="eyebrow">Projetos em saúde</div>
+  <h1 style="font-size:80px;margin-top:36px">O que as organizações<br>alcançaram. <em>Sem mágica.</em></h1>
+  <div class="nums">
+    <div class="n"><b>+22%</b><span>de ocupação</span></div>
+    <div class="n"><b>−35%</b><span>perdas com glosas</span></div>
+    <div class="n"><b>68 <i>→</i> 82</b><span>no NPS</span></div>
+    <div class="n"><b>+30%</b><span>base de clientes</span></div></div>
+  <p class="aviso">Projetos com participação da fundadora.<br>Não é promessa.</p></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">deslize →</div>
+</section>
+
+<!-- POST 5 · escuro · Pessoa (nó central da rede) -->
+<section class="post escuro" id="p5" style="left:1080px;top:1350px">
+  <div class="c" style="top:120px"><div class="eyebrow">Quem está por trás</div>
+  <h1 style="font-size:92px;margin-top:30px">Prazer, Priscila.</h1>
+  <h1 style="font-size:56px;margin-top:14px"><em>Gestão antes da tecnologia.</em></h1>
+  <!-- FOTO REAL: quando houver a foto da Priscila (boa luz, fundo simples), troque o <span>PB</span> abaixo por
+       <img src="fotos/priscila.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%">
+       mantendo o círculo de 340 px (o fio não passa por ele). -->
+  <div class="foto"><span>PB</span></div>
+  <div class="nome">Priscila Blandy Dias</div>
+  <div class="cred"><b>19 anos</b> de carreira · <b>2 MBAs</b> · PMO · Green Belt</div></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+</section>
+
+<!-- POST 4 · claro · Dor (coluna estreita: fio vertical à direita) -->
+<section class="post claro" id="p4" style="left:2160px;top:1350px">
+  <div class="c estreito"><div class="eyebrow">Equipe sobrecarregada</div>
+  <h1 style="font-size:92px;margin-top:40px">Sua equipe<br>trabalha muito.<br><em>E tudo atrasa?</em></h1>
+  <div class="linha" style="margin-top:52px"></div>
+  <p class="sub" style="margin-top:48px">O problema raramente é a equipe.<br>É o <b>processo</b>: tarefa manual,<br>repetida e sem dono.</p></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+</section>
+
+<!-- ============ LINHA 3 (base) ============ -->
+
+<!-- POST 3 · escuro · Dor: gargalo (texto aprovado de gargalo-ig-post.html) · coluna estreita -->
+<section class="post escuro" id="p3" style="left:0;top:2700px">
+  <div class="c estreito" style="top:120px"><div class="eyebrow">Diagnóstico da gestão</div>
+  <h1 style="font-size:92px;margin-top:36px">Tudo passa<br>por você?<br>Isso tem nome:<br><em>gargalo.</em></h1>
+  <div class="linha" style="margin-top:40px"></div>
+  <p class="sub" style="margin-top:36px;font-size:36px">Não é falta de esforço. É processo que só existe na sua cabeça. Comece pelo diagnóstico da gestão.</p>
+  <div class="cta">Fale comigo no WhatsApp</div></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+</section>
+
+<!-- POST 2 · claro · Manifesto (texto aprovado de post-02, versão para empresários em geral) -->
+<section class="post claro" id="p2" style="left:1080px;top:2700px">
+  <div class="c"><div class="eyebrow">Nosso método</div>
+  <h1 style="font-size:104px;margin-top:44px;font-style:italic;font-weight:500">Diagnóstico<br>antes da<br><span>tecnologia.</span></h1>
+  <ol><li><b>1</b><div>Diagnóstico da gestão<small>onde a empresa perde tempo e dinheiro</small></div></li>
+  <li><b>2</b><div>Desenho do processo<small>regra clara antes de automatizar</small></div></li>
+  <li><b>3</b><div>Agentes de IA<small>a tecnologia executa o processo certo</small></div></li></ol></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+</section>
+
+<!-- POST 1 · escuro · Nome novo (texto aprovado de post-01) · início do fio -->
+<section class="post escuro" id="p1" style="left:2160px;top:2700px">
+  <div class="c" style="top:150px"><div class="eyebrow">Novo nome · novo foco</div>
+  <p class="antes">PB Serviços</p>
+  <h1 style="font-size:104px;margin-top:40px">Agora somos<br><em>PB Soluções IA.</em></h1>
+  <div class="linha" style="margin-top:52px"></div>
+  <p class="sub" style="margin-top:52px;font-size:40px">Gestão e <b>agentes de IA</b><br>para empresários<br>que querem crescer<br>com controle.</p></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+</section>
+
+<svg id="fio" viewBox="0 0 3240 4050"></svg>
+<script>
+// O FIO CONDUTOR: desenhado uma única vez, em coordenadas do painel inteiro.
+(function () {
+  const B = '#AB7646', Y = 1100, X = 960;           // faixa do fio (y local) e x das viradas
+  const g = (c, r, x, y) => [c * 1080 + x, r * 1350 + y]; // coluna, linha, x/y local -> painel
+  const conv = document.getElementById('convite').getBoundingClientRect();
+  const fimX = conv.right + 34;                       // ponta da seta, encostada no convite
+  const pts = [g(2,2,X,Y), g(0,2,X,Y), g(0,1,X,Y), g(2,1,X,Y), g(2,0,X,Y), [fimX + 70, Y]];
+  const nos = [ // [x, y, raio]
+    [...g(2,2,540,Y), 9], [...g(1,2,540,Y), 9], [...g(0,2,540,Y), 9], [...g(0,2,X,Y), 11],
+    [...g(0,2,X,560), 9], [...g(0,1,X,Y), 11], [...g(2,1,540,Y), 9], [...g(2,1,X,Y), 11],
+    [...g(2,1,X,560), 9], [...g(2,0,X,Y), 11], [...g(2,0,540,Y), 9], [...g(1,0,540,Y), 9]];
+  const ramos = [ // ramificações curtas (rede), sempre dentro da faixa do fio
+    [g(2,2,540,Y), g(2,2,630,1180)], [g(2,2,X,Y), g(2,2,850,1185)], [g(1,2,540,Y), g(1,2,450,1180)],
+    [g(0,2,540,Y), g(0,2,450,1185)], [g(0,1,X,Y), g(0,1,790,1175)], [g(0,1,790,1175), g(0,1,640,1135)],
+    [g(1,1,540,Y), g(1,1,440,1180)], [g(1,1,540,Y), g(1,1,650,1185)], [g(2,1,540,Y), g(2,1,620,1180)],
+    [g(2,0,540,Y), g(2,0,460,1180)], [g(1,0,540,Y), g(1,0,630,1180)]];
+  let s = `<polyline points="${pts.map(p => p.join(',')).join(' ')}" fill="none" stroke="${B}" stroke-width="5" stroke-linejoin="round"/>`;
+  s += `<line x1="${fimX + 70}" y1="${Y}" x2="${fimX + 6}" y2="${Y}" stroke="${B}" stroke-width="5"/>`;
+  ramos.forEach(([a, b]) => s += `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${B}" stroke-width="2.5" opacity=".7"/><circle cx="${b[0]}" cy="${b[1]}" r="6" fill="${B}" opacity=".85"/>`);
+  nos.forEach(([x, y, r]) => s += `<circle cx="${x}" cy="${y}" r="${r * 2.4}" fill="${B}" opacity=".18"/><circle cx="${x}" cy="${y}" r="${r}" fill="${B}"/>`);
+  // início (post 1): ponto com anéis = "o começo"
+  const [ix, iy] = g(2,2,X,Y);
+  s += `<circle cx="${ix}" cy="${iy}" r="46" fill="none" stroke="${B}" stroke-width="2.5" opacity=".5"/><circle cx="${ix}" cy="${iy}" r="30" fill="${B}" opacity=".22"/><circle cx="${ix}" cy="${iy}" r="16" fill="${B}"/>`;
+  // nó central (post 5, Priscila): o maior ponto da rede
+  const [cx, cy] = g(1,1,540,Y);
+  s += `<circle cx="${cx}" cy="${cy}" r="62" fill="none" stroke="${B}" stroke-width="2.5" opacity=".45"/><circle cx="${cx}" cy="${cy}" r="42" fill="${B}" opacity=".22"/><circle cx="${cx}" cy="${cy}" r="22" fill="${B}"/>`;
+  // fim (post 9): ponto + pequena seta apontando para o convite
+  s += `<circle cx="${fimX + 70}" cy="${Y}" r="13" fill="${B}"/><polygon points="${fimX},${Y} ${fimX + 30},${Y - 18} ${fimX + 30},${Y + 18}" fill="${B}"/>`;
+  document.getElementById('fio').innerHTML = s;
+  window.__fio = { pts, nos, ramos, fim: [fimX, Y] };
+})();
+</script>
+</body></html>

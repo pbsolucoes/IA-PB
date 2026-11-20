@@ -7,7 +7,7 @@ const tam = { 'perfil': [1080, 1080, 1], 'banner-linkedin': [1128, 191, 2],
 (async () => {
   fs.mkdirSync(out, { recursive: true });
   const b = await chromium.launch();
-  for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.html'))) {
+  for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.html') && !['grade-painel.html', 'destaques.html'].includes(f))) { // grade-painel e destaques: node pecas/fatiar-grade.js
     const nome = f.replace('.html', ''), [w, h, s] = tam[nome] || [1080, 1350, 1];
     const p = await b.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: s });
     await p.goto('file://' + path.join(dir, f), { waitUntil: 'networkidle' });
