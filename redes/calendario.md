@@ -1,4 +1,8 @@
-# Calendário: semanas 1 e 2 (lançamento PB Soluções IA)
+# Calendário (ANTIGO, substituído)
+
+> ⚠️ Substituído pelo plano do relançamento "Fio Condutor": veja `redes/relancamento.md`.
+
+## Semanas 1 e 2 (versão anterior)
 
 > As peças marcadas 🖼️ já estão prontas em `pecas/png/`. As legendas estão em `redes/legendas-lancamento.md`.
 
