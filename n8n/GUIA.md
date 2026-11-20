@@ -1,5 +1,7 @@
 # Fase 2: ligar o agente nos canais com o n8n
 
+> ⏸️ **PAUSADO** (20/11/2026): sem orçamento para novas assinaturas no momento. Retomar quando houver.
+
 > **n8n** (fala-se "n-eight-n") é uma ferramenta visual: você monta a automação ligando blocos, como um fluxograma. Não precisa programar.
 > Vamos fazer esta fase **juntas**, passo a passo, numa próxima sessão.
 

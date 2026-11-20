@@ -1,0 +1,28 @@
+@import url('fontes.css');
+
+:root {
+  --bronze: #AB7646;
+  --bronze-claro: #C3885B;
+  --bronze-escuro: #936431;
+  --espresso: #2A211D;
+  --marfim: #FDF9F5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: var(--w); height: var(--h); overflow: hidden; }
+body { font-family: 'Inter', sans-serif; position: relative; -webkit-font-smoothing: antialiased; }
+.escuro { background: radial-gradient(120% 90% at 80% 10%, #3a2d27 0%, var(--espresso) 60%); color: var(--marfim); }
+.claro  { background: var(--marfim); color: var(--espresso); }
+.serif  { font-family: 'Playfair Display', serif; }
+.rede   { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* assinatura padrão das peças */
+.marca { position: absolute; left: 90px; bottom: 80px; display: flex; align-items: baseline; gap: 14px; }
+.marca .pb { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; letter-spacing: 1px; }
+.marca .sol { font-weight: 300; font-size: 30px; letter-spacing: 6px; text-transform: uppercase; }
+.escuro .marca .pb { color: var(--bronze-claro); }
+.claro  .marca .pb { color: var(--bronze-escuro); }
+.selo { position: absolute; right: 90px; bottom: 88px; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; opacity: .85; }
+.eyebrow { font-size: 28px; letter-spacing: 6px; text-transform: uppercase; font-weight: 500; }
+.escuro .eyebrow { color: var(--bronze-claro); }
+.claro  .eyebrow { color: var(--bronze-escuro); }
+.linha { width: 120px; height: 3px; background: var(--bronze); }

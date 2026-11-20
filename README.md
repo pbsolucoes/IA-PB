@@ -39,13 +39,37 @@ Detalhes de cada departamento: [`empresa/departamentos.md`](empresa/departamento
 
 ---
 
+## 🤖 Seus agentes de marketing (sem custo extra)
+
+Eles moram em `.claude/agents/` e funcionam aqui no Claude Code. É só pedir em português, por exemplo:
+- *"Usa o **redator-copy** para escrever o post da semana sobre glosas"*
+- *"Pede ao **designer-pecas** um carrossel com esse texto"*
+- *"**social-media**, planeja a semana 3"*
+- *"**desenvolvedor-site**, troca o título da página inicial"*
+- *"**estrategista-marca**, revisa esse post antes de eu publicar"*
+
+| Agente | Faz | Arquivos |
+|---|---|---|
+| estrategista-marca | Posicionamento, slogan, revisão final | `marca/` |
+| redator-copy | Legendas, posts, textos do site | `redes/legendas-*.md` |
+| designer-pecas | Posts, carrosséis, banners em PNG | `pecas/png/` |
+| social-media | Calendário, bio, linha editorial | `redes/` |
+| desenvolvedor-site | Site (grátis no GitHub Pages) | `docs/` |
+
+## 🌐 Publicar o site de graça (GitHub Pages), uma vez só
+1. No GitHub, abra o repositório → **Settings** (Configurações) → **Pages** (menu da esquerda).
+2. Em *Source*, escolha **Deploy from a branch**.
+3. Em *Branch*, escolha `main` (depois de juntar este trabalho) e a pasta **`/docs`** → **Save**.
+4. Em 1 a 2 minutos o site fica no ar em `https://pbsolucoes.github.io/IA-PB/`.
+5. (Opcional, custa o domínio) Um domínio próprio como `pbsolucoes.com.br` pode ser ligado em *Custom domain*.
+
 ## ✅ Próximos passos (para você, Priscila)
 
 1. **Preencher `conhecimento/servicos.md`**: procure as marcações `✏️ PREENCHER`. O agente **não inventa** preços nem serviços; se o campo estiver vazio, ele passa a conversa para você.
 2. **Revisar `conhecimento/faq.md`**: as perguntas que os clientes mais fazem.
 3. **Ler `agentes/atendimento/testes.md`**: são as conversas de teste. Diga se as respostas esperadas estão do jeito que você atenderia.
 4. **Linha Saúde:** revise `produtos/saude/` e defina os preços em `comercial/oferta-saude.md`.
-5. **Fase 2:** criar a conta no n8n e ligar os canais (guia em `n8n/GUIA.md`).
+5. **Fase 2 (pausada, sem orçamento agora):** n8n para atendimento automático (`n8n/GUIA.md`).
 
 ---
 
