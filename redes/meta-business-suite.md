@@ -20,7 +20,7 @@ Enquanto isso, me conta: o que a sua empresa faz e qual é hoje o maior desafio 
 ```
 
 ### 2. Mensagem de ausência (fora do horário)
-Horário sugerido: segunda a sexta, 9h às 18h (Brasília). ✏️ Ajuste para o seu horário real.
+Horário de atendimento: segunda a sexta, 9h às 18h (Brasília). ✅ Confirmado pela Priscila.
 ```
 Recebi sua mensagem! Estou fora do horário de atendimento agora e respondo no próximo dia útil.
 Se quiser adiantar: conte o que sua empresa faz e o que mais trava no dia a dia.

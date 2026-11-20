@@ -69,7 +69,7 @@
 | Ponto de contato | O que mudar (texto ou arquivo exato) | Quem faz | Status |
 |---|---|---|---|
 | Título | `Gestão + IA para empresários \| Fundadora da PB Soluções IA \| Especialidade em saúde \| MBA · PMO · Green Belt` | Priscila no app | ⏳ Priscila aplicar |
-| Capa (banner) | `pecas/png/banner-linkedin.png`. Depois de subir, confira no celular: o perfil pessoal corta um pouco as laterais e a foto cobre o canto esquerdo. Se a frase ficar cortada, peça ao **designer-pecas** uma versão 1584×396. | Priscila no app | ⏳ Priscila aplicar |
+| Capa (banner) | `pecas/png/banner-linkedin-perfil.png` (✅ já no formato do perfil pessoal, 1584×396, texto à direita para não ficar atrás da sua foto). | Priscila no app | ⏳ Priscila aplicar |
 | Experiência atual | Cargo: `Fundadora` · Empresa: escolher a **página** PB Soluções IA na lista (assim aparece o logo novo) · Descrição:<br>`Organizo a gestão de empresas e coloco agentes de IA para trabalhar nos processos que mais consomem tempo e dinheiro, sempre começando pelo diagnóstico da gestão. Especialidade em saúde privada, com agentes prontos para clínicas e casas de saúde.` | Priscila no app | ⏳ Priscila aplicar |
 | Informações de contato | Site: `https://pbsolucoes.github.io/IA-PB/` · WhatsApp: `https://wa.me/5532991337984` | Priscila no app | ⏳ Priscila aplicar |
 
@@ -148,5 +148,5 @@
 **No fim do dia, me avise** o que ficou feito e o que deu erro (por exemplo, se o LinkedIn ou o Google pediram confirmação), para eu atualizar os status desta tabela.
 
 ## Pendências que dependem de decisão da Priscila
-- ✏️ Horário de atendimento humano (WhatsApp, Google, mensagem de ausência).
+- ✅ Horário de atendimento humano: segunda a sexta, 9h às 18h (Brasília). E-mail oficial: falecom@pbservicos.com.br.
 - ✏️ Link público de agendamento do diagnóstico (se houver, entra na bio, no site e na assinatura).

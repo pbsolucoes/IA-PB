@@ -13,7 +13,7 @@ Marca, remarca ou consulta horários da **conversa de diagnóstico da gestão** 
 | Agenda | `falecom@pbservicos.com.br` (fuso America/Sao_Paulo) |
 | Duração padrão | **40 minutos** (a conversa dura de 30 a 40 min) |
 | Link | Google Meet criado automaticamente (`addGoogleMeetUrl: true`) |
-| Horário de atendimento | segunda a sexta, 9h às 18h (✏️ ajustar se a Priscila mudar) |
+| Horário de atendimento | segunda a sexta, 9h às 18h (confirmado) |
 | Lembretes | e-mail 24 h antes + aviso 30 min antes |
 | Título | `Diagnóstico da gestão · [Nome] ([Empresa])` |
 | Visibilidade | privada |
