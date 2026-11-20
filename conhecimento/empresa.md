@@ -5,7 +5,7 @@
 - **Base:** Rio de Janeiro, Brasil. Atendimento online.
 - **Site:** https://pbsolucoes.github.io/IA-PB/ (grátis, GitHub Pages; domínio próprio ✏️ futuro)
 - **Instagram:** @pbsolucoesia (novo; o antigo @pbservicosoficial está em reformulação)
-- **LinkedIn da empresa:** linkedin.com/company/pb-servicos (em reformulação)
+- **LinkedIn da empresa:** https://www.linkedin.com/company/pb-servicos (página da empresa; nome muda para PB Soluções IA, a URL continua)
 - **LinkedIn:** linkedin.com/in/priscilablandy
 - **WhatsApp comercial (link da bio e CTAs):** https://wa.me/5532991337984
 - **Primeira conversa:** diagnóstico da gestão, 30 a 40 min, por Google Meet (agenda "falecompb"). ✏️ Link público de agendamento: PREENCHER
