@@ -1,4 +1,4 @@
-# Serviços da PB Serviços
+# Serviços da PB Soluções
 
 > ⚠️ **Priscila, este arquivo é seu.** Eu (Claude) não sei quais são os seus serviços atuais, nem preços e prazos, e **não inventei nada**.
 > Preencha os campos `✏️ PREENCHER`. Enquanto um campo estiver vazio, o agente responde "a Priscila passa essa informação pessoalmente" e passa a conversa para você.
@@ -10,7 +10,18 @@
 - [ ] Marketing B2B
 - [ ] Gestão de projetos (PMO)
 - [ ] Consultoria para o setor de saúde
-- [ ] ✏️ PREENCHER: outra área? Ex.: implantação de agentes de IA
+- [x] Implantação de agentes de IA para saúde privada (Linha Saúde)
+- [ ] ✏️ PREENCHER: outra área?
+
+---
+
+## ⭐ Linha Saúde: agentes de IA para clínicas (FOCO ATUAL)
+
+- **Para quem é:** saúde privada de pequeno e médio porte: clínicas médicas, saúde mental, odontologia, hospitais pequenos e casas de saúde.
+- **O que é:** a PB Soluções analisa o processo da clínica, implanta e opera agentes de IA no WhatsApp e no back-office.
+- **Agentes:** (1) agendamento e confirmação de consultas · (2) captação e retorno de pacientes · (3) pesquisa de satisfação (NPS) · (4) prevenção de glosas no faturamento de convênios.
+- **Como é cobrado:** taxa de implantação + mensalidade. Valores: ✏️ PREENCHER (até lá, o agente escalona com o motivo `preco`).
+- Detalhes completos: `produtos/saude/` e `comercial/oferta-saude.md`.
 
 ---
 
@@ -29,7 +40,7 @@
 
 ---
 
-## O que a PB Serviços NÃO faz
+## O que a PB Soluções NÃO faz
 
 > Ajuda o agente a recusar com educação. Exemplos para você confirmar:
 

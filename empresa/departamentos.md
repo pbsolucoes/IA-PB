@@ -1,9 +1,12 @@
-# Departamentos da PB Serviços
+# Departamentos da PB Soluções
+
+> **Dois tipos de agente:** os **internos** (que tocam a PB Soluções, departamentos 1 a 6) e os **produtos** (que a PB Soluções implanta nas clínicas, linha 0).
 
 Cada departamento tem **agentes** (IA que executa) e um **dono humano** (quem aprova). No começo, o dono de todos é a Priscila.
 
 | # | Departamento | O que faz | Agentes previstos | Status |
 |---|---|---|---|---|
+| 0 | **Produtos (Linha Saúde)** | Os agentes que a PB Soluções **vende** para clínicas | Agendamento, Captação/retorno, NPS, Glosas (`produtos/saude/`) | ✅ Modelos prontos |
 | 1 | **Atendimento (Cliente)** | Primeiro contato, dúvidas, agendamento de conversa | Agente de Atendimento (Instagram, site, e-mail) | ✅ Fase 1: em construção |
 | 2 | **Growth (Vendas)** | Qualificar contatos e acompanhar quem não respondeu | Qualificador de leads, agente de follow-up | ⏳ |
 | 3 | **Receita (Propostas)** | Montar propostas na identidade da marca | Redator de propostas (usa a skill `pb-servicos-brand`) | ⏳ |

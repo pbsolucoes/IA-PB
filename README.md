@@ -1,6 +1,6 @@
-# PB Serviços — Empresa com Agentes de IA
+# PB Soluções — Empresa com Agentes de IA
 
-Este repositório é o **"cérebro" da PB Serviços**. Aqui ficam guardadas, em português, as regras de cada agente de IA, o que cada um sabe sobre a empresa e como ele deve se comportar.
+Este repositório é o **"cérebro" da PB Soluções**. Aqui ficam guardadas, em português, as regras de cada agente de IA, o que cada um sabe sobre a empresa e como ele deve se comportar.
 
 As ferramentas que conversam com o cliente (n8n, Instagram, chat do site, e-mail) **leem daqui**. Então, se você mudar uma regra aqui, o agente muda junto.
 
@@ -18,6 +18,8 @@ As ferramentas que conversam com o cliente (n8n, Instagram, chat do site, e-mail
       ✅ fase 1     ⏳         ⏳           ⏳           ⏳           ⏳
 ```
 
+**Produto (o que vendemos):** agentes de IA para a saúde privada → [`produtos/saude/`](produtos/saude/README.md)
+
 Detalhes de cada departamento: [`empresa/departamentos.md`](empresa/departamentos.md)
 
 ---
@@ -29,7 +31,9 @@ Detalhes de cada departamento: [`empresa/departamentos.md`](empresa/departamento
 | `empresa/` | Organograma: departamentos e o papel de cada agente | Às vezes |
 | `agentes/atendimento/` | As instruções do agente de atendimento (o "manual do funcionário") | Raramente |
 | `conhecimento/` | O que o agente sabe: serviços, preços, perguntas frequentes | **Sim, sempre que algo mudar** |
-| `padroes/` | Padrão de qualidade (boas práticas americanas e a LGPD) | Não |
+| `produtos/saude/` | ⭐ **Os 4 agentes que vendemos para clínicas** + ficha de implantação + testes de segurança | Revisar |
+| `comercial/` | Oferta: implantação + mensalidade, pacotes, checklist de contrato | **Sim: preços** |
+| `padroes/` | Padrão de qualidade (boas práticas americanas, LGPD e regras de saúde) | Não |
 | `n8n/` | Passo a passo para ligar o agente no Instagram, no site e no e-mail | Na fase 2 |
 | `referencias/` | Projetos do GitHub que usamos como inspiração | Não |
 
@@ -40,7 +44,8 @@ Detalhes de cada departamento: [`empresa/departamentos.md`](empresa/departamento
 1. **Preencher `conhecimento/servicos.md`**: procure as marcações `✏️ PREENCHER`. O agente **não inventa** preços nem serviços; se o campo estiver vazio, ele passa a conversa para você.
 2. **Revisar `conhecimento/faq.md`**: as perguntas que os clientes mais fazem.
 3. **Ler `agentes/atendimento/testes.md`**: são as conversas de teste. Diga se as respostas esperadas estão do jeito que você atenderia.
-4. **Fase 2:** criar a conta no n8n e ligar os canais (guia em `n8n/GUIA.md`).
+4. **Linha Saúde:** revise `produtos/saude/` e defina os preços em `comercial/oferta-saude.md`.
+5. **Fase 2:** criar a conta no n8n e ligar os canais (guia em `n8n/GUIA.md`).
 
 ---
 

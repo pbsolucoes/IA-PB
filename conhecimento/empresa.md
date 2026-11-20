@@ -1,10 +1,11 @@
-# Sobre a PB Serviços
+# Sobre a PB Soluções
 
-- **Nome:** PB Serviços
+- **Nome:** PB Soluções (antes chamada PB Serviços; os cases abaixo foram feitos com o nome antigo)
 - **Fundadora:** Priscila Blandy Dias
 - **Base:** Rio de Janeiro, Brasil. Atendimento online.
-- **Site:** pbservicos.com.br
-- **Instagram:** @pbservicosoficial
+- **Site:** ✏️ PREENCHER (novo domínio da PB Soluções; o antigo era pbservicos.com.br)
+- **Instagram:** ✏️ PREENCHER (novo @; o atual @pbservicosoficial está em reformulação)
+- **LinkedIn da empresa:** linkedin.com/company/pb-servicos (em reformulação)
 - **LinkedIn:** linkedin.com/in/priscilablandy
 - **Link para agendar conversa:** ✏️ PREENCHER (ex.: Google Calendar, página de agendamento)
 - **Horário de atendimento humano:** ✏️ PREENCHER (ex.: seg a sex, 9h às 18h, horário de Brasília)
