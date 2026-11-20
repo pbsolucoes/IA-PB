@@ -60,7 +60,7 @@ Eles moram em `.claude/agents/` e funcionam aqui no Claude Code. É só pedir em
 | juridico-contratos | Rascunhos de contrato e LGPD (revisão de advogado) | — |
 | financeiro | Preço, ponto de equilíbrio, fluxo de caixa | fora do repositório |
 
-🗺️ **Mapa visual de todos os agentes:** `mockup/central-de-agentes.html`
+🗺️ **Mapa visual de todos os agentes:** `mockup/central-de-agentes.html` · 🔔 **Sala Comercial (simulação):** `mockup/sala-comercial.html`
 
 ## 🌐 Publicar o site de graça (GitHub Pages), uma vez só
 1. No GitHub, abra o repositório → **Settings** (Configurações) → **Pages** (menu da esquerda).

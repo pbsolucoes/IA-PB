@@ -1,0 +1,291 @@
+<title>Sala Comercial PB</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Silkscreen&display=swap">
+<style>
+/* Layout: sala isométrica em pixel-art à esquerda (palco), painel do funil e diário de eventos à direita. Tema único escuro (identidade espresso), por escolha. */
+:root{
+  --bg:#1d1714; --surface:#2A211D; --surface-2:#362a24; --line:#4a3b33;
+  --fg:#FDF9F5; --muted:#c9b9ab; --accent:#C3885B; --accent-strong:#AB7646; --gold:#e9b45a; --ok:#8fc48d;
+  --display:'Playfair Display',Georgia,serif; --body:'Inter',system-ui,sans-serif; --pixel:'Silkscreen','Courier New',monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);margin:0;font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px 48px}
+header.top{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between}
+.brand{display:flex;gap:9px;align-items:baseline}
+.brand b{font-family:var(--display);color:var(--accent);font-size:26px}
+.brand span{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+h1{font-family:var(--display);font-size:clamp(26px,4vw,38px);margin:4px 0 0;text-wrap:balance}
+.sub{color:var(--muted);margin:2px 0 0;max-width:60ch}
+.ctrls{display:flex;flex-wrap:wrap;gap:8px}
+button{font-family:var(--body);font-weight:600;font-size:14px;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+button.pri{background:var(--accent-strong);border-color:var(--accent-strong);color:#2A211D}
+button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.grid{display:grid;gap:18px;margin-top:18px}
+@media(min-width:980px){.grid{grid-template-columns:1.7fr 1fr}}
+.stage{position:relative;background:#120e0c;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}
+canvas{display:block;width:100%;height:auto;image-rendering:pixelated;image-rendering:crisp-edges}
+.bubbles{position:absolute;inset:0;pointer-events:none}
+.bub{position:absolute;transform:translate(-50%,-100%);background:var(--fg);color:#2A211D;border-radius:8px;padding:4px 8px 5px;font-size:11.5px;line-height:1.25;white-space:nowrap;box-shadow:0 2px 0 rgba(0,0,0,.35);transition:opacity .2s}
+.bub b{display:block;font-family:var(--pixel);font-size:9.5px;font-weight:400;color:#936431;letter-spacing:.02em}
+.bub:after{content:"";position:absolute;left:50%;bottom:-5px;margin-left:-5px;border:5px solid transparent;border-bottom:0;border-top-color:var(--fg)}
+@media(max-width:620px){.bub{font-size:0;padding:2px 5px}.bub b{font-size:8px}}
+.ding{position:absolute;left:50%;top:9%;transform:translateX(-50%);font-family:var(--pixel);font-size:clamp(20px,4vw,36px);color:var(--gold);text-shadow:0 3px 0 #5a3a12;opacity:0;pointer-events:none;white-space:nowrap}
+.ding.on{animation:pop 1.6s ease-out}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,10px) scale(.7)}15%{opacity:1;transform:translate(-50%,0) scale(1.08)}75%{opacity:1}100%{opacity:0;transform:translate(-50%,-14px)}}
+@media (prefers-reduced-motion:reduce){.ding.on{animation:none;opacity:1}}
+.tag{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--muted);background:rgba(18,14,12,.75);padding:3px 8px;border-radius:6px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.funil{display:grid;gap:6px}
+.etapa{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;background:var(--surface-2);border-radius:10px;padding:8px 12px;position:relative;overflow:hidden}
+.etapa .bar{position:absolute;left:0;top:0;bottom:0;background:rgba(171,118,70,.22);transition:width .4s}
+.etapa span,.etapa strong{position:relative}
+.etapa strong{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.etapa.sino{background:#3d2e1c}
+.etapa.sino strong{color:var(--gold)}
+.feed{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;max-height:300px;overflow:auto;font-size:13.5px}
+.feed li{display:flex;gap:8px;border-bottom:1px solid var(--line);padding-bottom:6px;min-width:0}
+.feed time{color:var(--muted);font-variant-numeric:tabular-nums;flex:none;font-size:12px;padding-top:1px}
+.feed .win{color:var(--gold);font-weight:600}
+.equipe{display:grid;gap:10px;margin-top:22px}
+@media(min-width:720px){.equipe{grid-template-columns:repeat(5,1fr)}}
+.membro{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.membro b{display:block}
+.membro small{color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.nota{color:var(--muted);font-size:13px;margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="brand"><b>PB</b><span>Soluções IA</span></div>
+      <h1>Sala Comercial</h1>
+      <p class="sub">O time comercial de agentes trabalhando ao vivo. Quando uma call vira contrato, alguém toca o sino.</p>
+    </div>
+    <div class="ctrls">
+      <button class="pri" id="bPlay" type="button">⏸ Pausar</button>
+      <button id="bSom" type="button" aria-pressed="false">🔕 Ligar som</button>
+      <button id="bSino" type="button">🔔 Fechar uma call agora</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="stage" id="stage">
+      <canvas id="cv" width="400" height="250" aria-label="Escritório isométrico do time comercial da PB Soluções IA"></canvas>
+      <div class="bubbles" id="bubbles"></div>
+      <div class="ding" id="ding">DING! CONTRATO FECHADO</div>
+      <span class="tag">Simulação · dados fictícios</span>
+    </div>
+    <aside class="panel">
+      <div>
+        <div class="eyebrow">Funil de hoje</div>
+        <div class="funil" id="funil"></div>
+      </div>
+      <div>
+        <div class="eyebrow">Diário da sala</div>
+        <ol class="feed" id="feed" aria-live="polite"></ol>
+      </div>
+    </aside>
+  </div>
+
+  <div class="equipe" id="equipe"></div>
+  <p class="nota">Mockup de demonstração. Os números e eventos são simulados para mostrar como o time comercial funciona: o agente de prospecção escreve as mensagens, a Priscila envia e faz as calls de diagnóstico da gestão, o agente de propostas monta a proposta e o agente jurídico prepara o rascunho do contrato para revisão de advogado. Não são resultados reais.</p>
+</div>
+
+<script>
+// ---------- Equipe ----------
+const TEAM = [
+  {id:'prosp', nome:'Prospecção', papel:'Agente IA · Instagram e LinkedIn', cor:'#7fa7c9', cabelo:'#2a2a3a', pele:'#e3b48c', tile:[1.3,1.5]},
+  {id:'pri',   nome:'Priscila',   papel:'CEO · faz as calls',            cor:'#AB7646', cabelo:'#3a2416', pele:'#d9a27a', tile:[5.7,1.5], ceo:true},
+  {id:'prop',  nome:'Propostas',  papel:'Agente IA · monta a proposta',   cor:'#8fc48d', cabelo:'#5a3b24', pele:'#c98f68', tile:[1.3,4.9]},
+  {id:'jur',   nome:'Jurídico',   papel:'Agente IA · rascunho de contrato', cor:'#b49ad6', cabelo:'#1f1a18', pele:'#f0c9a6', tile:[5.7,4.9]},
+  {id:'fin',   nome:'Financeiro', papel:'Agente IA · cobrança e caixa',   cor:'#d9c3a5', cabelo:'#6b4a2e', pele:'#b97d58', tile:[8.2,3.2]}
+];
+document.getElementById('equipe').innerHTML = TEAM.map(t=>`<div class="membro"><b><span class="dot" style="background:${t.cor}"></span>${t.nome}</b><small>${t.papel}</small></div>`).join('');
+
+// ---------- Canvas isométrico ----------
+const cv=document.getElementById('cv'), g=cv.getContext('2d'); g.imageSmoothingEnabled=false;
+const W=cv.width, H=cv.height, OX=200, OY=70, TW=18, TH=9, GX=10, GY=8;
+const iso=(x,y,z=0)=>[Math.round(OX+(x-y)*TW), Math.round(OY+(x+y)*TH - z)];
+function poly(pts,fill,stroke){g.beginPath();pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.closePath();g.fillStyle=fill;g.fill();if(stroke){g.strokeStyle=stroke;g.lineWidth=1;g.stroke()}}
+function box(x,y,w,d,h,top,left,right,z=0){
+  const a=iso(x,y,z+h),b=iso(x+w,y,z+h),c=iso(x+w,y+d,z+h),e=iso(x,y+d,z+h);
+  const b0=iso(x+w,y,z),c0=iso(x+w,y+d,z),e0=iso(x,y+d,z);
+  poly([e,c,c0,e0],left); poly([c,b,b0,c0],right); poly([a,b,c,e],top);
+}
+function room(){
+  g.fillStyle='#120e0c'; g.fillRect(0,0,W,H);
+  // paredes
+  const wallH=58;
+  const p00=iso(0,0), pX=iso(GX,0), pY=iso(0,GY);
+  poly([[p00[0],p00[1]-wallH],[pX[0],pX[1]-wallH],pX,p00],'#3a2d26');
+  poly([[pY[0],pY[1]-wallH],[p00[0],p00[1]-wallH],p00,pY],'#2f241f');
+  // rodapé
+  poly([[p00[0],p00[1]-3],[pX[0],pX[1]-3],pX,p00],'#AB7646');
+  poly([[pY[0],pY[1]-3],[p00[0],p00[1]-3],p00,pY],'#936431');
+  // janelas na parede da direita (eixo x)
+  for(let i=0;i<3;i++){const x0=1.2+i*3, a=iso(x0,0,46), b=iso(x0+2,0,46), c=iso(x0+2,0,20), d=iso(x0,0,20);
+    poly([a,b,c,d],'#5d7f99'); const m1=iso(x0+1,0,46), m2=iso(x0+1,0,20); g.fillStyle='#2a211d'; g.fillRect(m1[0],m1[1],1,m2[1]-m1[1]);
+    const s1=iso(x0+.3,0,42),s2=iso(x0+.8,0,42); g.fillStyle='#9cc0d8'; g.fillRect(s1[0],s1[1],2,6);}
+  // placa PB na parede da esquerda
+  const s=iso(0,3.2,44), s2=iso(0,1.2,44), s3=iso(0,1.2,26), s4=iso(0,3.2,26);
+  poly([s2,s,s4,s3],'#2A211D','#AB7646');
+  g.fillStyle='#C3885B'; g.font='9px Silkscreen'; g.textAlign='center'; const sc=iso(0,2.2,32); g.fillText('PB',sc[0],sc[1]);
+  // quadro de metas
+  const q1=iso(0,6.6,44),q2=iso(0,4.2,44),q3=iso(0,4.2,22),q4=iso(0,6.6,22); poly([q2,q1,q4,q3],'#efe6da','#8a6a4f');
+  g.fillStyle='#2A211D'; g.font='6px Silkscreen'; const qc=iso(0,5.4,37); g.fillText('META',qc[0],qc[1]);
+  const fill=Math.min(1,state.fechadas/5); const qa=iso(0,6.2,28), qb=iso(0,4.6,28);
+  g.strokeStyle='#cfc2b2'; g.lineWidth=3; g.beginPath(); g.moveTo(qa[0],qa[1]); g.lineTo(qb[0],qb[1]); g.stroke();
+  g.strokeStyle='#8fc48d'; g.beginPath(); g.moveTo(qa[0],qa[1]); g.lineTo(qa[0]+(qb[0]-qa[0])*fill, qa[1]+(qb[1]-qa[1])*fill); g.stroke();
+  // piso de madeira
+  for(let x=0;x<GX;x++)for(let y=0;y<GY;y++){
+    const c=((x+y)%2)?'#7a5234':'#86593a';
+    poly([iso(x,y),iso(x+1,y),iso(x+1,y+1),iso(x,y+1)],c);
+  }
+  // tapete central
+  poly([iso(3.3,6.1),iso(6.1,6.1),iso(6.1,7.8),iso(3.3,7.8)],'#5b3a2a');
+  poly([iso(3.5,6.25),iso(5.9,6.25),iso(5.9,7.65),iso(3.5,7.65)],'#6d4633');
+}
+// ---------- Objetos ----------
+function desk(x,y,screenOn){
+  box(x,y,1.6,1.0,9,'#d8c3a6','#a88a6a','#c0a383');
+  box(x+.5,y+.15,.6,.18,8,'#1d1714','#1d1714','#2a2420',9);
+  const s1=iso(x+.55,y+.15,15), s2=iso(x+1.05,y+.15,15);
+  g.fillStyle=screenOn?'#9fd3ff':'#3b4b58'; g.fillRect(Math.min(s1[0],s2[0])+1,s1[1]-1,Math.abs(s2[0]-s1[0]),4);
+}
+function plant(x,y){box(x,y,.5,.5,6,'#6b4a2e','#4d3420','#5c3e27'); const p=iso(x+.25,y+.25,10); g.fillStyle='#4f8a4c'; g.fillRect(p[0]-4,p[1]-9,8,8); g.fillStyle='#6fb06a'; g.fillRect(p[0]-2,p[1]-12,5,5);}
+function person(t,frame){
+  const [x,y]=t.tile, base=iso(x+.8,y+1.45);
+  const jump = t.pulo>0 ? Math.round(Math.sin((1-t.pulo/18)*Math.PI)*6) : 0;
+  const bob = (Math.floor(frame/12+t.tile[0])%2) ? 1:0;
+  g.save(); g.translate(base[0], base[1]); g.scale(2,2);
+  const Y=-jump-bob;
+  g.fillStyle='rgba(0,0,0,.28)'; g.fillRect(-4,-1,9,2);
+  g.fillStyle='#2b2b33'; g.fillRect(-3,Y-5,2,5); g.fillRect(1,Y-5,2,5);
+  g.fillStyle=t.cor; g.fillRect(-4,Y-13,8,8);
+  g.fillStyle='rgba(0,0,0,.18)'; g.fillRect(2,Y-13,2,8);
+  g.fillStyle=t.pele; g.fillRect(-3,Y-19,6,6);
+  g.fillStyle=t.cabelo; g.fillRect(-3,Y-20,6,2); g.fillRect(-3,Y-19,1,3);
+  if(t.ceo){ g.fillStyle=t.cabelo; g.fillRect(2,Y-19,2,6); }
+  g.fillStyle='#1d1714'; g.fillRect(-1,Y-17,1,1); g.fillRect(1,Y-17,1,1);
+  if(t.pulo>0){ g.fillStyle=t.pele; g.fillRect(-6,Y-17,2,4); g.fillRect(4,Y-17,2,4); }
+  else { g.fillStyle=t.pele; g.fillRect(-5,Y-11,1,4); g.fillRect(4,Y-11,1,4); }
+  g.restore();
+  t.screen=[base[0], base[1]-44];
+}
+let bellSwing=0;
+function bell(frame){
+  const [bx,by]=[4.7,6.9];
+  box(bx-.35,by-.35,.7,.7,10,'#4a3b33','#2f241f','#3a2d26');
+  const top=iso(bx,by,10);
+  const ang = bellSwing>0 ? Math.sin(bellSwing*0.7)*0.5*(bellSwing/40) : 0;
+  g.save(); g.translate(top[0],top[1]-4); g.scale(2,2); g.translate(0,-2); g.rotate(ang);
+  g.fillStyle='#e9b45a'; g.fillRect(-5,0,10,2); g.fillRect(-4,-3,8,3); g.fillRect(-3,-6,6,3); g.fillRect(-1,-8,2,2);
+  g.fillStyle='#b8862f'; g.fillRect(-6,2,12,2); g.fillStyle='#fff2c6'; g.fillRect(-2,-5,1,4);
+  g.restore();
+  
+  if(bellSwing>0){
+    for(let i=0;i<10;i++){const a=i/10*Math.PI*2+frame*.05, r=16+(40-bellSwing)*.9; g.fillStyle=i%2?'#e9b45a':'#fff2c6'; g.fillRect(Math.round(top[0]+Math.cos(a)*r),Math.round(top[1]-22+Math.sin(a)*r*.6),3,3);}
+    bellSwing--;
+  }
+}
+// ---------- Estado e simulação ----------
+const state={abord:0,resp:0,calls:0,props:0,fechadas:0, rodando:true, som:false};
+const ETAPAS=[['abord','Abordagens enviadas'],['resp','Responderam'],['calls','Calls de diagnóstico'],['props','Propostas enviadas'],['fechadas','Contratos fechados 🔔']];
+function renderFunil(){
+  const max=Math.max(1,state.abord);
+  document.getElementById('funil').innerHTML=ETAPAS.map(([k,l])=>`<div class="etapa ${k==='fechadas'?'sino':''}"><div class="bar" style="width:${Math.round(state[k]/max*100)}%"></div><span>${l}</span><strong>${state[k]}</strong></div>`).join('');
+}
+const feed=document.getElementById('feed');
+let minuto=9*60;
+function log(txt,win){
+  const h=String(Math.floor(minuto/60)).padStart(2,'0'), m=String(minuto%60).padStart(2,'0');
+  const li=document.createElement('li'); li.innerHTML=`<time>${h}:${m}</time><span class="${win?'win':''}">${txt}</span>`;
+  feed.prepend(li); while(feed.children.length>40) feed.lastChild.remove();
+}
+const T=Object.fromEntries(TEAM.map(t=>[t.id,t]));
+TEAM.forEach(t=>{t.msg='Começando o dia'; t.pulo=0;});
+T.prosp.msg='Pesquisando perfis no LinkedIn'; T.pri.msg='Revisando a agenda'; T.prop.msg='Organizando modelos'; T.jur.msg='Lendo cláusulas'; T.fin.msg='Conferindo o caixa';
+const fila={call:[],prop:[],jur:[]};
+const EMPRESAS=['loja de roupas','escritório de contabilidade','restaurante','clínica odontológica','agência de viagens','academia','imobiliária','escola de idiomas','clínica médica','distribuidora'];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function tick(){
+  if(!state.rodando) return;
+  minuto+=7; if(minuto>18*60) minuto=9*60;
+  // Prospecção
+  const canal=Math.random()<.5?'LinkedIn':'Instagram';
+  state.abord++; T.prosp.msg=`Mensagem pronta (${canal}) ✉️`;
+  if(Math.random()<.32){ state.resp++; const emp=pick(EMPRESAS); log(`Dono(a) de ${emp} respondeu no ${canal}`);
+    if(Math.random()<.55){ fila.call.push(emp); T.prosp.msg='Call agendada! 📅'; } }
+  // Priscila nas calls
+  if(T.pri.ocupado>0){ T.pri.ocupado--; if(T.pri.ocupado===0){ const emp=T.pri.emp; if(Math.random()<.6){ fila.prop.push(emp); log(`Diagnóstico com ${emp}: pediu proposta`); T.pri.msg='Pediu proposta! 🙌'; } else { log(`Diagnóstico com ${emp}: vai pensar`); T.pri.msg='Anotando o follow-up'; } } }
+  else if(fila.call.length){ const emp=fila.call.shift(); state.calls++; T.pri.ocupado=3; T.pri.emp=emp; T.pri.msg=`Em call: ${emp} 📞`; log(`Call de diagnóstico da gestão começou (${emp})`); }
+  else T.pri.msg=pick(['Revisando mensagens','Aprovando posts','Preparando a próxima call']);
+  // Propostas
+  if(T.prop.ocupado>0){ T.prop.ocupado--; if(T.prop.ocupado===0){ state.props++; fila.jur.push(T.prop.emp); log(`Proposta enviada para ${T.prop.emp} 📄`); T.prop.msg='Proposta enviada ✓'; } }
+  else if(fila.prop.length){ T.prop.emp=fila.prop.shift(); T.prop.ocupado=2; T.prop.msg=`Montando proposta 📄`; }
+  else T.prop.msg=pick(['Atualizando modelos','Revisando pacotes']);
+  // Jurídico e fechamento
+  if(T.jur.ocupado>0){ T.jur.ocupado--; if(T.jur.ocupado===0){ const emp=T.jur.emp; if(Math.random()<.65) fechar(emp); else { log(`${emp} pediu mais um tempo para decidir`); T.jur.msg='Aguardando o cliente'; } } }
+  else if(fila.jur.length){ T.jur.emp=fila.jur.shift(); T.jur.ocupado=2; T.jur.msg='Rascunho p/ advogado ⚖️'; }
+  else T.jur.msg=pick(['Lendo cláusulas','Checklist LGPD']);
+  T.fin.msg=pick(['Conferindo o caixa','Atualizando a planilha','Emitindo cobrança']);
+  renderFunil(); renderBubbles();
+}
+function fechar(emp){
+  emp = emp || pick(EMPRESAS);
+  state.fechadas++;
+  state.props=Math.max(state.props,state.fechadas); state.calls=Math.max(state.calls,state.props); state.resp=Math.max(state.resp,state.calls); state.abord=Math.max(state.abord,state.resp); bellSwing=40; TEAM.forEach(t=>t.pulo=18);
+  T.pri.msg='🔔 Toquei o sino!'; T.jur.msg='Contrato assinado ✓'; T.fin.msg='Novo cliente no caixa 💰';
+  log(`🔔 Contrato fechado com ${emp}!`, true);
+  const d=document.getElementById('ding'); d.classList.remove('on'); void d.offsetWidth; d.classList.add('on');
+  if(state.som) tocarSino();
+  renderFunil(); renderBubbles();
+}
+// ---------- Som do sino (Web Audio, só depois do clique) ----------
+let ac=null;
+function tocarSino(){
+  try{
+    ac = ac || new (window.AudioContext||window.webkitAudioContext)();
+    const now=ac.currentTime, base=880;
+    [[1,.35],[2.0,.18],[2.76,.14],[5.4,.06],[8.9,.03]].forEach(([m,v])=>{
+      const o=ac.createOscillator(), gn=ac.createGain(); o.type='sine'; o.frequency.value=base*m;
+      gn.gain.setValueAtTime(0,now); gn.gain.linearRampToValueAtTime(v,now+.005); gn.gain.exponentialRampToValueAtTime(.0001,now+2.2/m**.3);
+      o.connect(gn).connect(ac.destination); o.start(now); o.stop(now+2.5);
+    });
+  }catch(e){}
+}
+// ---------- Balões ----------
+const bubbles=document.getElementById('bubbles');
+function renderBubbles(){
+  bubbles.innerHTML=TEAM.map(t=>{ if(!t.screen) return ''; const [x,y]=t.screen;
+    return `<div class="bub" style="left:${x/W*100}%;top:${y/H*100}%"><b>${t.nome}</b>${t.msg}</div>`; }).join('');
+}
+// ---------- Loop ----------
+let frame=0;
+function draw(){
+  room();
+  const items=[];
+  TEAM.forEach(t=>{ items.push({d:t.tile[0]+t.tile[1], f:()=>desk(t.tile[0],t.tile[1], true)}); items.push({d:t.tile[0]+t.tile[1]+1.6, f:()=>person(t,frame)}); });
+  items.push({d:1.2, f:()=>plant(.3,.3)}); items.push({d:9.3,f:()=>plant(8.9,.4)}); items.push({d:8.3,f:()=>plant(.4,7.4)});
+  items.push({d:11.6, f:()=>bell(frame)});
+  items.sort((a,b)=>a.d-b.d).forEach(i=>i.f());
+  TEAM.forEach(t=>{ if(t.pulo>0) t.pulo--; });
+  frame++;
+}
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function loop(){ draw(); if(frame%6===0) renderBubbles(); requestAnimationFrame(loop); }
+document.fonts.ready.then(()=>{ draw(); renderBubbles(); });
+loop();
+renderFunil(); log('A sala abriu. Bom dia, time!');
+let iv=setInterval(tick, reduz?2600:1800);
+// ---------- Controles ----------
+const bPlay=document.getElementById('bPlay'), bSom=document.getElementById('bSom');
+bPlay.onclick=()=>{ state.rodando=!state.rodando; bPlay.textContent=state.rodando?'⏸ Pausar':'▶ Continuar'; };
+bSom.onclick=()=>{ state.som=!state.som; bSom.textContent=state.som?'🔔 Som ligado':'🔕 Ligar som'; bSom.setAttribute('aria-pressed',state.som); if(state.som) tocarSino(); };
+document.getElementById('bSino').onclick=()=>fechar();
+// O botão manual simula uma call que já passou por diagnóstico e proposta: o funil se ajusta para continuar coerente.
+</script>
