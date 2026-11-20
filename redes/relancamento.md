@@ -202,7 +202,7 @@ Para manter a grade bonita, publique o feed em **blocos de 3** (uma linha inteir
 13. [ ] **Depois de cada publicação:** abrir o perfil e conferir se o post caiu no lugar certo da grade.
 
 ### LinkedIn
-14. [ ] **Página da empresa** (primeiro, porque o perfil pessoal aponta para ela): Ferramentas de administrador → Editar página → Nome `PB Soluções IA`, slogan, seção "Sobre", setor e especialidades (textos prontos em `redes/perfis.md`). Tentar a URL `linkedin.com/company/pbsolucoesia`. Trocar o logo (`perfil.png`) e a capa (`banner-linkedin.png`).
+14. [ ] **Página da empresa** (primeiro, porque o perfil pessoal aponta para ela): Ferramentas de administrador → Editar página → Nome `PB Soluções IA`, slogan, seção "Sobre", setor e especialidades (textos prontos em `redes/perfis.md`). A URL continua https://www.linkedin.com/company/pb-servicos (não trocar). Trocar o logo (`perfil.png`) e a capa (`banner-linkedin.png`).
 15. [ ] **Perfil pessoal da Priscila:** título (texto em `redes/perfis.md`), foto, capa `banner-linkedin.png`, e na experiência atual mudar a empresa para a página PB Soluções IA.
 16. [ ] Colocar o link do WhatsApp no perfil pessoal (Informações de contato ou site).
 17. [ ] **Agendar os 2 posts da semana 1** pelo relógio do LinkedIn (ícone 🕒 ao criar o post).

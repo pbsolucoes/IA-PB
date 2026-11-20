@@ -32,7 +32,7 @@ Processo primeiro, tecnologia depois.
 👇 Fale no WhatsApp
 ```
 
-**Link da bio:** `https://wa.me/5532991337984` (ou o site, quando publicado).
+**Links da bio:** 1) `https://pbsolucoes.github.io/IA-PB/` (site, já no ar) · 2) `https://wa.me/5532991337984` (WhatsApp). Detalhes em `marca/rebranding-checklist.md`.
 
 **Destaques:** `Comece aqui` · `Método` · `Agentes` · `Saúde` · `Resultados` · `Sobre`
 
@@ -42,7 +42,7 @@ Processo primeiro, tecnologia depois.
 
 ## 💼 LinkedIn: página da empresa
 
-**Nome:** PB Soluções IA · **URL:** ✏️ tente `linkedin.com/company/pbsolucoesia`
+**Nome:** PB Soluções IA · **URL:** https://www.linkedin.com/company/pb-servicos (o endereço continua com "pb-servicos"; só o **nome** da página muda) · **Site:** https://pbsolucoes.github.io/IA-PB/
 
 **Slogan (até 120 caracteres):**
 `Gestão e agentes de IA para empresários. Diagnóstico antes da tecnologia.`
