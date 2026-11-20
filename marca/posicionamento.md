@@ -12,6 +12,8 @@
 | 2 | Gestão e IA para a saúde que precisa funcionar. | Mais descritivo, bom para o Google |
 | 3 | Sua clínica organizada. Seus processos no automático. | Mais leve, bom para anúncios |
 
+> 💡 Para não confundir com diagnóstico médico: nos textos de apoio, sempre escreva **"diagnóstico da gestão"**. O slogan curto pode ficar como está.
+
 ## Público
 - **Quem decide:** dono(a), sócio(a) ou gestor(a) de clínica médica, de saúde mental, odontológica ou de casa de saúde e hospital pequeno.
 - **Dores** (vindas dos seus cases, não de pesquisa de mercado):

@@ -1,0 +1,222 @@
+<title>Central de Agentes PB</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: "sala de comando" escura da marca — mapa em rede à esquerda, ficha do agente à direita, painel de status e fluxo abaixo. Tema único escuro por escolha (identidade espresso). */
+:root{
+  --bg:#211a17; --surface:#2A211D; --surface-2:#352a25; --line:#4a3b33;
+  --fg:#FDF9F5; --muted:#cbbcae; --accent:#C3885B; --accent-strong:#AB7646;
+  --ok:#8fc48d; --cfg:#C3885B; --model:#d9c3a5; --pause:#9a8f88;
+  --display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font-family:var(--display);font-size:30px;color:var(--accent)}
+.brand span{letter-spacing:.32em;text-transform:uppercase;font-weight:300;font-size:13px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,4vw,40px);margin:6px 0 0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;max-width:62ch}
+.kpis{display:flex;flex-wrap:wrap;gap:8px;width:100%;max-width:520px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;flex:1 1 0;min-width:0}
+.kpi strong{display:block;font-family:var(--display);font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.kpi small{color:var(--muted);font-size:12px}
+.grid{display:grid;gap:22px;margin-top:24px}
+@media(min-width:960px){.grid{grid-template-columns:1.55fr 1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;min-width:0}
+.mapa{padding:8px;position:relative}
+.mapa svg{width:100%;height:auto;display:block}
+.mapa .hint{position:absolute;left:18px;bottom:12px;font-size:12px;color:var(--muted)}
+svg text{font-family:var(--body);fill:var(--fg)}
+.node{cursor:pointer;outline:none}
+.node:focus-visible circle.ring,.node:hover circle.ring{stroke:var(--fg);stroke-width:2.5}
+.node.sel circle.ring{stroke:var(--fg);stroke-width:3}
+.edge{stroke:var(--accent-strong);stroke-opacity:.45;stroke-width:1.4}
+.edge.dep{stroke-opacity:.7;stroke-width:2}
+.ficha{padding:24px;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.ficha h2{font-family:var(--display);font-size:28px;margin:0;line-height:1.15}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:999px;border:1px solid currentColor;width:max-content}
+.pill:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.s-ativo{color:var(--ok)} .s-configurado{color:var(--cfg)} .s-modelo{color:var(--model)} .s-pausado{color:var(--pause)} .s-ceo{color:var(--fg)}
+.ficha p{margin:0;color:var(--muted)}
+.ficha dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0;font-size:14px}
+.ficha dt{color:var(--muted)} .ficha dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.pedido{background:var(--surface-2);border:1px dashed var(--line);border-radius:12px;padding:14px 16px}
+.pedido .eyebrow{display:block;margin-bottom:6px}
+.pedido code{font-family:var(--body);font-size:14.5px;color:var(--fg)}
+.copy{align-self:flex-start;background:var(--accent-strong);color:var(--surface);border:0;border-radius:999px;padding:9px 16px;font-weight:600;font-family:var(--body);cursor:pointer}
+.copy:focus-visible,.lista button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+h3{font-family:var(--display);font-size:22px;margin:0 0 4px}
+.sec{margin-top:34px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:10px 0 0;font-size:13px;color:var(--muted)}
+.lista{display:grid;gap:14px;margin-top:16px}
+@media(min-width:720px){.lista{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.lista{grid-template-columns:repeat(4,1fr)}}
+.dep{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.dep h4{margin:0 0 10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lista button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;padding:8px 10px;border-radius:9px;cursor:pointer;font-size:14px}
+.lista button:hover{background:var(--surface-2)}
+.lista button.sel{background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
+.dot{width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+.fluxo{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:16px}
+.passo{flex:1 1 170px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;min-width:0}
+.passo .n{font-family:var(--display);color:var(--accent);font-size:24px;line-height:1}
+.passo b{display:block;margin:6px 0 2px}
+.passo span{color:var(--muted);font-size:13.5px}
+.nota{margin-top:30px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:no-preference){.node circle.ring{transition:stroke-width .15s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="brand"><b>PB</b><span>Soluções</span></div>
+      <h1>Central de Agentes</h1>
+      <p class="sub">Mockup da estrutura da empresa: você no centro como CEO, sete departamentos e os agentes de IA de cada um. Toque num ponto do mapa ou da lista para ver a ficha.</p>
+    </div>
+    <div class="kpis" id="kpis"></div>
+  </header>
+
+  <div class="grid">
+    <div class="panel mapa">
+      <svg id="mapa" viewBox="0 0 900 700" role="img" aria-label="Mapa em rede dos departamentos e agentes da PB Soluções"></svg>
+      <span class="hint">Toque num ponto para abrir a ficha</span>
+    </div>
+    <aside class="panel ficha" id="ficha" aria-live="polite"></aside>
+  </div>
+
+  <section class="sec" aria-labelledby="t-lista">
+    <h3 id="t-lista">Todos os agentes</h3>
+    <div class="legend">
+      <span class="s-ativo">● Ativo: já produziu entregas</span>
+      <span class="s-configurado">● Configurado: pronto para o primeiro pedido</span>
+      <span class="s-modelo">● Modelo: produto para vender às clínicas</span>
+      <span class="s-pausado">● Pausado: depende de ferramenta paga</span>
+    </div>
+    <div class="lista" id="lista"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="t-fluxo">
+    <h3 id="t-fluxo">Fluxo da semana (marketing, 100% grátis)</h3>
+    <div class="fluxo">
+      <div class="passo"><div class="n">1</div><b>social-media</b><span>Lê os resultados da semana e planeja 3 posts no Instagram + 2 no LinkedIn</span></div>
+      <div class="passo"><div class="n">2</div><b>redator-copy</b><span>Escreve as legendas com gancho, prova e um CTA</span></div>
+      <div class="passo"><div class="n">3</div><b>designer-pecas</b><span>Gera os PNGs na identidade da marca e confere a imagem</span></div>
+      <div class="passo"><div class="n">4</div><b>estrategista-marca</b><span>Revisa: tom, números, nenhum nome de cliente, responsabilidades</span></div>
+      <div class="passo"><div class="n">5</div><b>Priscila</b><span>Aprova e agenda no Meta Business Suite e no LinkedIn</span></div>
+    </div>
+  </section>
+
+  <p class="nota">Mockup de demonstração. Os agentes "Ativo" e "Configurado" funcionam hoje no Claude Code, a partir do repositório da PB Soluções. O atendimento automático está pausado até haver orçamento; enquanto isso, o WhatsApp Business (app grátis) cobre a saudação e as respostas rápidas.</p>
+</div>
+
+<script>
+const D = [
+  {id:'mkt', nome:'Marketing', cor:'#C3885B'},
+  {id:'com', nome:'Comercial', cor:'#C3885B'},
+  {id:'rec', nome:'Receita', cor:'#C3885B'},
+  {id:'jur', nome:'Jurídico', cor:'#C3885B'},
+  {id:'fin', nome:'Finanças', cor:'#C3885B'},
+  {id:'ate', nome:'Atendimento', cor:'#C3885B'},
+  {id:'sau', nome:'Linha Saúde', cor:'#C3885B'}
+];
+const A = [
+  {id:'estrategista-marca', dep:'mkt', curto:'Estrategista', status:'ativo', faz:'Posicionamento, slogan e revisão final de tudo antes de publicar.', pedido:'estrategista-marca, revisa esse post antes de eu publicar', arq:'marca/posicionamento.md', ferr:'Claude'},
+  {id:'redator-copy', dep:'mkt', curto:'Redator', status:'ativo', faz:'Legendas, posts do LinkedIn, textos do site, roteiros de Reels.', pedido:'redator-copy, escreve o post de sexta sobre faltas na agenda', arq:'redes/legendas-lancamento.md', ferr:'Claude'},
+  {id:'designer-pecas', dep:'mkt', curto:'Designer', status:'ativo', faz:'Posts, carrosséis, banners e foto de perfil em PNG, nas cores da marca.', pedido:'designer-pecas, cria um carrossel de 5 slides com esse texto', arq:'pecas/png/', ferr:'Claude + Playwright (grátis)'},
+  {id:'social-media', dep:'mkt', curto:'Social media', status:'ativo', faz:'Calendário, linha editorial, bio e destaques. Planeja a semana.', pedido:'social-media, planeja a semana 3', arq:'redes/calendario.md', ferr:'Meta Business Suite + LinkedIn (grátis)'},
+  {id:'desenvolvedor-site', dep:'mkt', curto:'Site', status:'ativo', faz:'Cria e altera o site, publicado de graça no GitHub Pages.', pedido:'desenvolvedor-site, adiciona uma seção sobre saúde mental', arq:'docs/index.html', ferr:'GitHub Pages (grátis)'},
+  {id:'comercial-prospeccao', dep:'com', curto:'Prospecção', status:'configurado', faz:'Lista de clínicas-alvo, mensagens de abordagem e follow-up, roteiro do diagnóstico da gestão.', pedido:'comercial-prospeccao, escreve 3 mensagens de abordagem para clínicas odontológicas', arq:'comercial/funil.md', ferr:'LinkedIn + WhatsApp Business (grátis)'},
+  {id:'redator-propostas', dep:'rec', curto:'Propostas', status:'configurado', faz:'Monta a proposta da clínica após o diagnóstico, em Word ou PDF, na identidade da marca.', pedido:'redator-propostas, monta a proposta do pacote Agenda Cheia com estas anotações', arq:'comercial/oferta-saude.md', ferr:'Claude (skills docx e pdf)'},
+  {id:'juridico-contratos', dep:'jur', curto:'Contratos', status:'configurado', faz:'Rascunhos de contrato, acordo de dados (LGPD) e política de privacidade. Sempre para revisão de advogado.', pedido:'juridico-contratos, rascunha a política de privacidade do site', arq:'padroes/saude-compliance.md', ferr:'Claude (skills legal)'},
+  {id:'financeiro', dep:'fin', curto:'Financeiro', status:'configurado', faz:'Precificação, ponto de equilíbrio e fluxo de caixa simples, com os números que você informar.', pedido:'financeiro, monta a conta de preço com as horas que vou te passar', arq:'comercial/oferta-saude.md', ferr:'Claude (skill xlsx)'},
+  {id:'agente-atendimento', dep:'ate', curto:'Atendimento IA', status:'pausado', faz:'Atendimento bilíngue no Instagram, no site e por e-mail. As regras estão prontas; falta o canal automático (n8n, pago).', pedido:'(pausado) Enquanto isso, use as respostas rápidas do WhatsApp Business', arq:'agentes/atendimento/', ferr:'n8n (pausado) · WhatsApp Business (grátis, manual)'},
+  {id:'agendamento', dep:'sau', curto:'Agendamento', status:'modelo', faz:'Produto para clínicas: agenda e confirma consultas no WhatsApp para reduzir faltas.', pedido:'Mostrar este modelo numa conversa de diagnóstico', arq:'produtos/saude/agentes/01-agendamento-confirmacao.md', ferr:'WhatsApp oficial, contratado pela clínica'},
+  {id:'captacao', dep:'sau', curto:'Retorno', status:'modelo', faz:'Produto para clínicas: lembra retornos e reativa pacientes que aceitaram receber mensagens.', pedido:'Mostrar este modelo numa conversa de diagnóstico', arq:'produtos/saude/agentes/02-captacao-retorno.md', ferr:'WhatsApp oficial, contratado pela clínica'},
+  {id:'nps', dep:'sau', curto:'NPS', status:'modelo', faz:'Produto para clínicas: pede a nota após a consulta e leva os insatisfeitos para a equipe tratar.', pedido:'Mostrar este modelo numa conversa de diagnóstico', arq:'produtos/saude/agentes/03-satisfacao-nps.md', ferr:'WhatsApp oficial, contratado pela clínica'},
+  {id:'glosas', dep:'sau', curto:'Glosas', status:'modelo', faz:'Produto para clínicas: aponta riscos nas guias antes do envio ao convênio. A equipe decide.', pedido:'Mostrar este modelo numa conversa de diagnóstico', arq:'produtos/saude/agentes/04-faturamento-glosas.md', ferr:'Sistema de faturamento da clínica'}
+];
+const ROT = {ativo:'Ativo', configurado:'Configurado', modelo:'Modelo para clínicas', pausado:'Pausado'};
+const COR = {ativo:'#8fc48d', configurado:'#C3885B', modelo:'#d9c3a5', pausado:'#9a8f88'};
+const depNome = id => D.find(d=>d.id===id).nome;
+const svg = document.getElementById('mapa'), NS='http://www.w3.org/2000/svg';
+const el = (t,a={},p=svg)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+const C={x:450,y:370}, R1=165, R2=268;
+const pos={ceo:C};
+D.forEach((d,i)=>{const ang=-Math.PI/2+i*2*Math.PI/D.length;pos[d.id]={x:C.x+R1*Math.cos(ang),y:C.y+R1*Math.sin(ang),ang}});
+D.forEach(d=>{
+  const ags=A.filter(a=>a.dep===d.id), n=ags.length, spread=Math.min(1.0,0.24*(n-1));
+  ags.forEach((a,j)=>{const ang=pos[d.id].ang+(n>1?-spread/2+j*spread/(n-1):0), r=R2+(n>2?(j%2)*44:0);pos[a.id]={x:C.x+r*Math.cos(ang),y:C.y+r*Math.sin(ang),ang}});
+});
+const gE=el('g'), gN=el('g');
+D.forEach(d=>el('line',{x1:C.x,y1:C.y,x2:pos[d.id].x,y2:pos[d.id].y,class:'edge dep'},gE));
+A.forEach(a=>el('line',{x1:pos[a.dep].x,y1:pos[a.dep].y,x2:pos[a.id].x,y2:pos[a.id].y,class:'edge'},gE));
+function node(id,r,fill,label,sub,kind){
+  const p=pos[id], g=el('g',{class:'node',tabindex:0,role:'button','data-id':id,'aria-label':label},gN);
+  el('circle',{cx:p.x,cy:p.y,r:r*1.9,fill,opacity:.12},g);
+  el('circle',{cx:p.x,cy:p.y,r,fill,class:'ring',stroke:'transparent'},g);
+  if(kind==='ceo'){
+    const t=el('text',{x:p.x,y:p.y+2,'text-anchor':'middle','font-size':15,'font-weight':600},g);t.textContent='CEO';t.setAttribute('fill','#2A211D');
+    const t2=el('text',{x:p.x,y:p.y+r+22,'text-anchor':'middle','font-size':15,'font-weight':600},g);t2.textContent=label;
+  } else {
+    const c=Math.cos(p.ang), s=Math.sin(p.ang);
+    const anchor = kind==='dep' ? 'middle' : (Math.abs(c)<0.3?'middle':(c>0?'start':'end'));
+    const dx = kind==='dep'?0:(anchor==='middle'?0:(c>0?r+8:-(r+8)));
+    const dy = kind==='dep'? (s<-0.2? -(r+10) : r+20) : (anchor==='middle'?(s>0?r+18:-(r+9)):5);
+    const t=el('text',{x:p.x+dx,y:p.y+dy,'text-anchor':anchor,'font-size':kind==='dep'?14:12.5,'font-weight':kind==='dep'?600:400},g);t.textContent=label;
+    if(kind==='dep') t.setAttribute('fill','#C3885B');
+  }
+  g.addEventListener('click',()=>sel(id));
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(id)}});
+}
+node('ceo',30,'#FDF9F5','Priscila Blandy Dias','', 'ceo');
+D.forEach(d=>node(d.id,17,'#AB7646',d.nome,'','dep'));
+A.forEach(a=>node(a.id,9,COR[a.status],a.curto,'','ag'));
+
+// KPIs
+const cnt=s=>A.filter(a=>a.status===s).length;
+document.getElementById('kpis').innerHTML=[['Departamentos',D.length],['Agentes',A.length],['Ativos',cnt('ativo')],['Configurados',cnt('configurado')]]
+  .map(([l,v])=>`<div class="kpi"><strong>${v}</strong><small>${l}</small></div>`).join('');
+
+// Lista por departamento
+document.getElementById('lista').innerHTML=D.map(d=>`<div class="dep"><h4>${d.nome}</h4>${A.filter(a=>a.dep===d.id).map(a=>`<button type="button" data-id="${a.id}"><span>${a.id}</span><span class="dot s-${a.status}" title="${ROT[a.status]}"></span></button>`).join('')}</div>`).join('');
+document.querySelectorAll('.lista button').forEach(b=>b.addEventListener('click',()=>sel(b.dataset.id)));
+
+const ficha=document.getElementById('ficha');
+function sel(id){
+  document.querySelectorAll('.node').forEach(n=>n.classList.toggle('sel',n.dataset.id===id));
+  document.querySelectorAll('.lista button').forEach(b=>b.classList.toggle('sel',b.dataset.id===id));
+  if(id==='ceo'){
+    ficha.innerHTML=`<span class="eyebrow">Direção</span><h2>Priscila Blandy Dias</h2><span class="pill s-ceo">CEO · aprova tudo</span>
+    <p>Define as prioridades, aprova cada entrega antes de publicar ou enviar e é a única que fecha contrato, preço e prazo.</p>
+    <dl><dt>Decide</dt><dd>Preços, pacotes, o que publicar, quais clínicas abordar</dd><dt>Recebe</dt><dd>Escalonamentos, rascunhos para aprovar, relatório semanal</dd></dl>`;
+    return;
+  }
+  const d=D.find(x=>x.id===id);
+  if(d){
+    const ags=A.filter(a=>a.dep===id);
+    ficha.innerHTML=`<span class="eyebrow">Departamento</span><h2>${d.nome}</h2>
+    <p>${ags.length} agente${ags.length>1?'s':''} neste departamento.</p>
+    <dl>${ags.map(a=>`<dt><span class="pill s-${a.status}">${ROT[a.status]}</span></dt><dd>${a.id}</dd>`).join('')}</dl>
+    <p>Toque num agente para ver o que ele faz e como pedir.</p>`;
+    return;
+  }
+  const a=A.find(x=>x.id===id);
+  ficha.innerHTML=`<span class="eyebrow">${depNome(a.dep)}</span><h2>${a.id}</h2><span class="pill s-${a.status}">${ROT[a.status]}</span>
+  <p>${a.faz}</p>
+  <dl><dt>Arquivos</dt><dd>${a.arq}</dd><dt>Ferramentas</dt><dd>${a.ferr}</dd><dt>Aprovação</dt><dd>Priscila, antes de publicar ou enviar</dd></dl>
+  <div class="pedido"><span class="eyebrow">Como pedir</span><code id="txt">${a.pedido}</code></div>
+  ${a.status==='ativo'||a.status==='configurado'?'<button class="copy" id="cp" type="button">Copiar pedido</button>':''}`;
+  const cp=document.getElementById('cp');
+  if(cp) cp.addEventListener('click',()=>{const t=document.getElementById('txt').textContent;
+    const ok=()=>{cp.textContent='Copiado'};
+    try{navigator.clipboard.writeText(t).then(ok,()=>{selTxt()})}catch(e){selTxt()}
+    function selTxt(){const r=document.createRange();r.selectNodeContents(document.getElementById('txt'));const s=getSelection();s.removeAllRanges();s.addRange(r);cp.textContent='Selecionado: copie manualmente'}});
+}
+sel('redator-copy');
+</script>

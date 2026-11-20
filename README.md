@@ -55,6 +55,12 @@ Eles moram em `.claude/agents/` e funcionam aqui no Claude Code. É só pedir em
 | designer-pecas | Posts, carrosséis, banners em PNG | `pecas/png/` |
 | social-media | Calendário, bio, linha editorial | `redes/` |
 | desenvolvedor-site | Site (grátis no GitHub Pages) | `docs/` |
+| comercial-prospeccao | Clínicas-alvo, abordagem, follow-up | `comercial/funil.md` |
+| redator-propostas | Proposta após o diagnóstico (Word/PDF) | fora do repositório |
+| juridico-contratos | Rascunhos de contrato e LGPD (revisão de advogado) | — |
+| financeiro | Preço, ponto de equilíbrio, fluxo de caixa | fora do repositório |
+
+🗺️ **Mapa visual de todos os agentes:** `mockup/central-de-agentes.html`
 
 ## 🌐 Publicar o site de graça (GitHub Pages), uma vez só
 1. No GitHub, abra o repositório → **Settings** (Configurações) → **Pages** (menu da esquerda).

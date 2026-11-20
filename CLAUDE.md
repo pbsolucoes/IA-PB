@@ -5,7 +5,7 @@
 - Objetivo: estruturar a empresa em **departamentos operados por agentes de IA**, com Priscila no papel de CEO.
 - Padrão de qualidade: **boas práticas americanas** de atendimento (ela não tem empresa nos EUA). A lei que se aplica de fato é a **LGPD** (Brasil). Veja `padroes/qualidade-atendimento.md`.
 - **Orçamento zero para novas assinaturas.** O n8n está **pausado**. Use só o que já existe: Claude, GitHub (inclui o GitHub Pages, grátis), Playwright (já instalado) e os apps nativos do Instagram e do LinkedIn.
-- **Prioridade atual:** marketing da própria PB Soluções (site, redes, peças, conteúdo). Agentes internos em `.claude/agents/`: `estrategista-marca`, `redator-copy`, `designer-pecas`, `desenvolvedor-site`, `social-media`. Delegue a eles.
+- **Prioridade atual:** marketing da própria PB Soluções (site, redes, peças, conteúdo). Agentes internos em `.claude/agents/`: marketing (`estrategista-marca`, `redator-copy`, `designer-pecas`, `desenvolvedor-site`, `social-media`), comercial (`comercial-prospeccao`), receita (`redator-propostas`), jurídico (`juridico-contratos`) e finanças (`financeiro`). Delegue a eles. Mapa visual: `mockup/central-de-agentes.html`.
 - Site: `docs/` (GitHub Pages). Peças: `pecas/fonte/*.html` → `node pecas/renderizar.js` → `pecas/png/`. Sempre faça QA visual do PNG.
 - **O repositório é PÚBLICO:** nada de dados de clientes, senhas ou informações estratégicas sensíveis.
 - 🔒 **Nunca citar nomes de clientes** (atuais ou da época da PB Serviços), em nenhum material. A PB Soluções leva as **estruturas e metodologias**, ajustadas a cada segmento.
