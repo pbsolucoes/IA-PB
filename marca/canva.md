@@ -20,6 +20,10 @@
 | Ícone PB no anel (bronze claro) | `MAHbfw-1N7c` | fundo escuro |
 | Guia da marca (cores, fontes, tom) | `MAHbf3Z4OKE` | referência |
 
+## Peças já na pasta Peças das redes
+- 9 posts do relançamento (`relancamento-01` a `09`).
+- Reels da sala comercial "o sino toca" (vídeo 1080 × 1920): `VAHbf1VzF8s`. Se o vídeo for refeito, envie a versão nova e avise a Priscila para apagar a antiga.
+
 Originais com fundo transparente: `pecas/marca/` (regerar: `node pecas/renderizar-marca.js`).
 
 ## O que a Priscila faz uma vez (o Canva não deixa a IA editar o Brand Kit)
