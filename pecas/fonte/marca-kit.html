@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fontes.css"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:transparent;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.peca{position:relative;display:flex;align-items:center;justify-content:center}
+.pb{font-family:'Playfair Display',serif;font-weight:700;line-height:1;letter-spacing:4px}
+.sol{font-weight:300;text-transform:uppercase}
+.empilhado{width:1200px;height:1200px;flex-direction:column}
+.empilhado .pb{font-size:420px}.empilhado .sol{font-size:62px;letter-spacing:18px;padding-left:18px;margin-top:8px}
+.horizontal{width:2000px;height:500px;gap:44px}
+.horizontal .pb{font-size:300px}.horizontal .sol{font-size:92px;letter-spacing:22px;padding-top:40px}
+.horizontal .barra{width:4px;height:240px;background:#AB7646}
+.icone{width:1000px;height:1000px}.icone .pb{font-size:440px}
+.icone .anel{position:absolute;inset:40px;border:6px solid #AB7646;border-radius:50%}
+.esc .pb{color:#AB7646}.esc .sol{color:#2A211D}
+.cla .pb{color:#C3885B}.cla .sol{color:#FDF9F5}
+.guia{width:1920px;height:1080px;background:#FDF9F5;color:#2A211D;padding:90px 110px;display:block}
+.guia h1{font-family:'Playfair Display',serif;font-size:72px;font-weight:700}
+.guia .ey{font-size:22px;letter-spacing:6px;text-transform:uppercase;color:#936431;font-weight:500;margin-bottom:14px}
+.guia h2{font-size:22px;letter-spacing:5px;text-transform:uppercase;color:#936431;font-weight:500;margin:54px 0 22px}
+.cores{display:flex;gap:28px}
+.cor{width:300px}.cor .s{height:170px;border-radius:14px;border:1px solid #e5d9cc}
+.cor b{display:block;margin-top:14px;font-size:24px}.cor span{font-size:22px;color:#6b5a50}
+.tipos{display:flex;gap:90px}.tipos .t1{font-family:'Playfair Display',serif;font-size:84px;font-weight:700}
+.tipos .t2{font-size:84px;font-weight:300}.tipos small{display:block;font-size:22px;color:#6b5a50;margin-top:10px}
+.tom{font-size:26px;line-height:1.5;max-width:1400px}
+.cant{position:absolute;right:110px;top:90px;text-align:right}
+.cant .pb{font-size:110px;color:#AB7646}.cant .sol{font-size:26px;letter-spacing:8px}
+</style></head><body>
+<div id="logo-empilhado-escuro" class="peca empilhado esc"><div class="pb">PB</div><div class="sol">Soluções IA</div></div>
+<div id="logo-empilhado-claro" class="peca empilhado cla"><div class="pb">PB</div><div class="sol">Soluções IA</div></div>
+<div id="logo-horizontal-escuro" class="peca horizontal esc"><div class="pb">PB</div><div class="barra"></div><div class="sol">Soluções IA</div></div>
+<div id="logo-horizontal-claro" class="peca horizontal cla"><div class="pb">PB</div><div class="barra"></div><div class="sol">Soluções IA</div></div>
+<div id="icone-escuro" class="peca icone esc"><div class="anel"></div><div class="pb">PB</div></div>
+<div id="icone-claro" class="peca icone cla"><div class="anel"></div><div class="pb">PB</div></div>
+<div id="guia-da-marca" class="peca guia">
+  <div class="cant"><div class="pb">PB</div><div class="sol">Soluções IA</div></div>
+  <div class="ey">Kit de marca</div><h1>PB Soluções IA</h1>
+  <h2>Cores</h2><div class="cores">
+   <div class="cor"><div class="s" style="background:#AB7646"></div><b>Bronze</b><span>#AB7646 · principal</span></div>
+   <div class="cor"><div class="s" style="background:#2A211D"></div><b>Espresso</b><span>#2A211D · fundo escuro e textos</span></div>
+   <div class="cor"><div class="s" style="background:#FDF9F5"></div><b>Marfim</b><span>#FDF9F5 · fundo claro</span></div>
+   <div class="cor"><div class="s" style="background:#C3885B"></div><b>Bronze claro</b><span>#C3885B · sobre fundo escuro</span></div>
+   <div class="cor"><div class="s" style="background:#936431"></div><b>Bronze escuro</b><span>#936431 · sobre fundo claro</span></div></div>
+  <h2>Tipografia</h2><div class="tipos"><div><div class="t1">Playfair Display</div><small>Títulos · Bold 700</small></div><div><div class="t2">Inter</div><small>Textos · Light 300 e Regular 400 · subtítulos em CAIXA ALTA espaçada</small></div></div>
+  <h2>Tom de voz</h2><div class="tom">Consultivo e direto, sem jargão vazio. Sempre começa pelo diagnóstico da gestão. Nunca inventar números, prazos ou preços. Nunca citar nomes de clientes.</div>
+</div>
+</body></html>
