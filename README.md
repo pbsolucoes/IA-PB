@@ -65,7 +65,7 @@ Eles moram em `.claude/agents/` e funcionam aqui no Claude Code. É só pedir em
 ## 🌐 Publicar o site de graça (GitHub Pages), uma vez só
 1. No GitHub, abra o repositório → **Settings** (Configurações) → **Pages** (menu da esquerda).
 2. Em *Source*, escolha **Deploy from a branch**.
-3. Em *Branch*, escolha `main` (depois de juntar este trabalho) e a pasta **`/docs`** → **Save**.
+3. Em *Branch*, escolha **`claude/pb-servicos-ai-agents-xpg0ky`** (é onde está o site hoje) e a pasta **`/docs`** → **Save**.
 4. Em 1 a 2 minutos o site fica no ar em `https://pbsolucoes.github.io/IA-PB/`.
 5. (Opcional, custa o domínio) Um domínio próprio como `pbsolucoes.com.br` pode ser ligado em *Custom domain*.
 
