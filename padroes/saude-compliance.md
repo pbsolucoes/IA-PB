@@ -15,7 +15,7 @@
 ## 2. LGPD: dado de saúde é dado sensível
 
 - ✅ A LGPD (Lei 13.709/2018) classifica dado referente à saúde como **dado pessoal sensível** (art. 5º, II), com regras mais rígidas de tratamento (art. 11).
-- **Papéis:** a **clínica é a controladora** (decide sobre os dados). A **PB Soluções é a operadora** (trata os dados em nome da clínica). As ferramentas (Meta/WhatsApp, n8n, Anthropic) são **suboperadoras**. Isso precisa constar em contrato, num **acordo de tratamento de dados** (em inglês, DPA).
+- **Papéis:** a **clínica é a controladora** (decide sobre os dados). A **PB Soluções IA é a operadora** (trata os dados em nome da clínica). As ferramentas (Meta/WhatsApp, n8n, Anthropic) são **suboperadoras**. Isso precisa constar em contrato, num **acordo de tratamento de dados** (em inglês, DPA).
 - O agente pede **o mínimo**: nome, telefone, data de nascimento (se a clínica exigir), convênio. **Não** pede a descrição dos sintomas pelo WhatsApp; quem coleta isso é a equipe da clínica.
 - Conversas guardadas pelo menor tempo necessário. ✏️ Definir com cada clínica (vai na ficha).
 - Pedido de acesso ou exclusão de dados → encaminhado à clínica (é ela quem responde, como controladora).

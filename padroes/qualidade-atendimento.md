@@ -2,7 +2,7 @@
 
 Você escolheu seguir o **padrão de qualidade americano** sem ter empresa nos EUA. Por isso, este arquivo separa duas coisas:
 
-- 🇧🇷 **Lei que vale para você hoje:** LGPD (a PB Soluções é uma empresa brasileira tratando dados de pessoas).
+- 🇧🇷 **Lei que vale para você hoje:** LGPD (a PB Soluções IA é uma empresa brasileira tratando dados de pessoas).
 - 🇺🇸 **Boas práticas americanas:** adotadas por escolha. Algumas viram lei se um dia você atender clientes nos EUA.
 
 > Isto é orientação de boas práticas, não parecer jurídico. Antes de abrir empresa nos EUA ou fazer marketing ativo por lá, consulte um advogado.

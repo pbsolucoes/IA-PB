@@ -10,11 +10,11 @@
 | **Preço** | ✏️ por agente ou por pacote | ✏️ por agente ou por pacote |
 | **Prazo de implantação** | ✏️ (o agente 4, de glosas, é o mais longo) | Contrato mínimo: ✏️ meses |
 
-**Ferramentas de terceiros: contratadas diretamente pela clínica**, em nome dela: linha oficial do WhatsApp (Meta), conta da IA (ex.: Anthropic), sistema de agenda e de faturamento. A PB Soluções configura e acompanha, mas **não revende nem responde** pela disponibilidade, pelas regras ou pelos preços dessas empresas.
+**Ferramentas de terceiros: contratadas diretamente pela clínica**, em nome dela: linha oficial do WhatsApp (Meta), conta da IA (ex.: Anthropic), sistema de agenda e de faturamento. A PB Soluções IA configura e acompanha, mas **não revende nem responde** pela disponibilidade, pelas regras ou pelos preços dessas empresas.
 
 ## Limites de responsabilidade (vai para o contrato)
 
-| É responsabilidade da **clínica** | É responsabilidade da **PB Soluções** |
+| É responsabilidade da **clínica** | É responsabilidade da **PB Soluções IA** |
 |---|---|
 | Atendimento em saúde e decisões clínicas | Diagnóstico de gestão e desenho dos processos |
 | Controladora dos dados dos pacientes (LGPD) | Operadora: tratar dados só conforme o contrato e as instruções da clínica |
@@ -37,11 +37,11 @@
 ## Antes de ligar o agente (contrato)
 
 - [ ] Contrato de prestação de serviço
-- [ ] **Acordo de tratamento de dados (DPA)**: clínica = controladora, PB Soluções = operadora (veja `padroes/saude-compliance.md`)
+- [ ] **Acordo de tratamento de dados (DPA)**: clínica = controladora, PB Soluções IA = operadora (veja `padroes/saude-compliance.md`)
 - [ ] Mensagens aprovadas por escrito pelo responsável técnico
 - [ ] Testes de segurança (`produtos/saude/testes-seguranca.md`) aprovados
 - [ ] Linha de WhatsApp Business API **contratada pela clínica**, em nome dela, e ativa
 
-## Argumento de venda (tom PB Soluções: diagnóstico antes de prescrição)
+## Argumento de venda (tom PB Soluções IA: diagnóstico antes de prescrição)
 
 > "Antes de colocar qualquer robô, eu olho o seu processo. Já participei de projetos em saúde em que a organização chegou a +22% de ocupação e −35% de glosas. O mérito foi da equipe deles; o número da sua clínica a gente descobre medindo o mês zero."

@@ -1,28 +1,30 @@
 # Legendas: lançamento (prontas para colar)
 
-> Números conferidos em `conhecimento/empresa.md`. 🔒 Nunca citar nomes de clientes. Os resultados são **dos clientes**, em projetos com participação da Priscila; a PB Soluções não os assume como seus.
+> Posts 1 e 2: público geral (empresários). Posts 3 e 4: **especialidade saúde**, para usar em semanas temáticas de saúde.
+
+> Números conferidos em `conhecimento/empresa.md`. 🔒 Nunca citar nomes de clientes. Os resultados são **dos clientes**, em projetos com participação da Priscila; a PB Soluções IA não os assume como seus.
 
 ---
 
-## 1. Agora somos PB Soluções (Instagram + LinkedIn)
+## 1. Agora somos PB Soluções IA (Instagram + LinkedIn)
 
 **Instagram**
 ```
-A PB Serviços agora é PB Soluções.
+A PB Serviços agora é PB Soluções IA.
 
 Não mudou só o nome. Mudou o foco.
 
-Em 19 anos de gestão, e especialmente nos projetos em saúde, eu vi o mesmo padrão se repetir: agenda com buracos, glosa que vira prejuízo, paciente que não volta e recepção afogada no WhatsApp.
+Em 19 anos de carreira, eu vi o mesmo padrão se repetir em muitos negócios: o dono vira o gargalo, a equipe se afoga em tarefas manuais e o cliente fica esperando resposta.
 
-Agora a PB Soluções une duas coisas:
-→ gestão de processos em saúde
+Agora a PB Soluções IA une duas coisas:
+→ gestão de processos
 → agentes de inteligência artificial que trabalham nesses processos
 
 Sempre nessa ordem. Diagnóstico antes da tecnologia.
 
-Se você tem uma clínica ou casa de saúde e quer entender onde está perdendo tempo e dinheiro, me chama no WhatsApp (link na bio).
+Se você tem um negócio e quer entender onde está perdendo tempo e dinheiro, me chama no WhatsApp (link na bio). E se o seu negócio é da saúde, temos agentes prontos para clínicas.
 
-#gestaoemsaude #clinicas #inteligenciaartificial #saudeprivada #pbsolucoes
+#gestaoempresarial #inteligenciaartificial #processos #empreendedorismo #pbsolucoesia
 ```
 
 **LinkedIn (versão pessoal da Priscila)**
@@ -35,9 +37,9 @@ O que aprendi com eles: a virada vem do processo, não da ferramenta.
 
 Hoje existe uma ferramenta nova, os agentes de IA, que pode executar esses processos 24 horas por dia. Mas IA em cima de processo desorganizado só acelera o problema.
 
-Por isso a PB Serviços agora é PB Soluções: gestão e agentes de IA para clínicas e casas de saúde. Diagnóstico antes da tecnologia.
+Por isso a PB Serviços agora é PB Soluções IA: gestão e agentes de IA para empresários, com especialidade em saúde. Diagnóstico antes da tecnologia.
 
-Se você está à frente de uma clínica e quer conversar sobre isso, minha caixa de mensagens está aberta.
+Se você está à frente de um negócio e quer conversar sobre isso, minha caixa de mensagens está aberta.
 ```
 
 ---

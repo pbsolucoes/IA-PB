@@ -7,16 +7,16 @@
 | Ferramenta | Para quê | Onde |
 |---|---|---|
 | **Meta Business Suite** | Agendar posts e stories do Instagram (e Facebook), ver resultados | business.facebook.com, ou o app "Meta Business Suite" |
-| **Agendador do LinkedIn** | Agendar posts no perfil pessoal e na página da PB Soluções | Ao criar um post, clique no ícone de relógio 🕒 |
+| **Agendador do LinkedIn** | Agendar posts no perfil pessoal e na página da PB Soluções IA | Ao criar um post, clique no ícone de relógio 🕒 |
 | **WhatsApp Business** (app) | Mensagem de saudação, mensagem de ausência, respostas rápidas, catálogo de serviços | App gratuito "WhatsApp Business" |
-| **Perfil da Empresa no Google** | Aparecer quando buscarem "consultoria gestão clínicas" | business.google.com |
+| **Perfil da Empresa no Google** | Aparecer quando buscarem "consultoria de gestão e IA" | business.google.com |
 | **GitHub Pages** | O site | Veja o `README.md` |
 | **Claude + agentes** | Criar todo o conteúdo | Aqui |
 
 > 💡 O **WhatsApp Business (app)** é o "agente de atendimento grátis" enquanto o n8n está pausado. Configure:
-> - **Saudação:** "Olá! Aqui é a PB Soluções. Recebi sua mensagem e respondo em até 1 dia útil. Se puder, me conte: qual é o tipo da sua clínica e o maior desafio hoje?"
+> - **Saudação:** "Olá! Aqui é a PB Soluções IA. Recebi sua mensagem e respondo em até 1 dia útil. Se puder, me conte: o que sua empresa faz e qual é o maior desafio de gestão hoje?"
 > - **Ausência** (fora do horário): "Obrigada pelo contato! Estou fora do horário agora e respondo no próximo dia útil."
-> - **Respostas rápidas:** `/diagnostico` (como funciona a conversa), `/agentes` (os 4 agentes), `/preco` ("o valor é apresentado após o diagnóstico").
+> - **Respostas rápidas:** `/diagnostico` (como funciona a conversa), `/agentes` (como os agentes de IA ajudam), `/preco` ("o valor é apresentado após o diagnóstico").
 
 ## A semana em 4 passos
 

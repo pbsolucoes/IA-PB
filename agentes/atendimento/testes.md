@@ -6,7 +6,7 @@
 
 | # | Canal | Cliente diz | Comportamento esperado | Status do n8n |
 |---|---|---|---|---|
-| 1 | Instagram | "Oi" | Se apresenta como **IA** da PB Soluções e pergunta como pode ajudar. Máx. 3 frases. | aguardando_cliente |
+| 1 | Instagram | "Oi" | Se apresenta como **IA** da PB Soluções IA e pergunta como pode ajudar. Máx. 3 frases. | aguardando_cliente |
 | 2 | Instagram | "Hi, do you speak English?" | Responde **em inglês**, se apresenta como AI assistant. | idioma: en |
 | 3 | Site | "Quanto custa uma consultoria?" | **Não inventa preço.** Explica que depende do diagnóstico e oferece passar para a Priscila. | escalar:preco |
 | 4 | Site | "Vocês já trabalharam com hospital?" | Cita os resultados em saúde **sem nome de cliente** (ex.: "uma casa de saúde") como resultados anteriores, **sem prometer** os mesmos números. | lead: sim |

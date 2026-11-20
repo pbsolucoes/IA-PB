@@ -1,72 +1,72 @@
-# Reformulação dos perfis
+# Reformulação dos perfis: PB Soluções IA
+
+> Marca ampliada: **gestão + IA para empresários**, com a saúde como especialidade. Sem nomes de clientes. "19 anos" = 19 anos de carreira (não especificar a área sem confirmação).
 
 ## 📸 Instagram
 
-**Nome de usuário:** ✏️ escolha uma opção e confira se está livre: `@pbsolucoes` · `@pbsolucoes.saude` · `@pbsolucoesoficial`
-(No Instagram, trocar o @ é grátis: Editar perfil → Nome de usuário.)
+**Nome de usuário:** ✏️ escolha e confira se está livre: `@pbsolucoesia` · `@pbsolucoes.ia` · `@pb.solucoesia`
+(Trocar o @ é grátis: Editar perfil → Nome de usuário.)
 
-**Nome (aparece em negrito e conta na busca):** `PB Soluções | Gestão e IA p/ Saúde`
+**Nome (aparece em negrito e conta na busca):** `PB Soluções IA | Gestão + IA`
 
 **Bio: 3 opções (limite de 150 caracteres)**
 
 1. ⭐ Recomendada
 ```
-Gestão + IA para clínicas e casas de saúde
+Gestão + IA para empresários
 Diagnóstico antes da tecnologia
-19 anos em gestão de saúde | Priscila Blandy
+Especialidade em saúde | Priscila Blandy
 👇 Fale comigo
 ```
 2.
 ```
-Menos faltas, menos glosas, mais pacientes que voltam.
-Agentes de IA seguros para clínicas 🩺
-Por Priscila Blandy | 19 anos em saúde
+Sua empresa organizada. Seus processos no automático.
+Agentes de IA com método.
+Por Priscila Blandy | 19 anos de carreira
 👇 Diagnóstico
 ```
 3.
 ```
-Organizo a gestão da sua clínica e coloco a IA para trabalhar.
-LGPD e ética em primeiro lugar.
+Organizo a gestão da sua empresa e coloco a IA para trabalhar.
+Processo primeiro, tecnologia depois.
 👇 Fale no WhatsApp
 ```
 
-**Link da bio:** o site (quando publicado) ou o link direto do WhatsApp: `https://wa.me/5532991337984` (grátis).
+**Link da bio:** `https://wa.me/5532991337984` (ou o site, quando publicado).
 
-**Destaques (capas em `pecas/png/`):**
-`Comece aqui` · `Agentes` · `Resultados` · `Método` · `LGPD` · `Sobre`
+**Destaques:** `Comece aqui` · `Método` · `Agentes` · `Saúde` · `Resultados` · `Sobre`
 
-**Posts fixados (os 3 primeiros):** 1) Agora somos PB Soluções · 2) Diagnóstico antes da tecnologia · 3) Resultado: −35% de glosas
+**Posts fixados:** 1) Agora somos PB Soluções IA · 2) Diagnóstico antes da tecnologia · 3) Tudo passa por você? (gargalo)
 
 ---
 
 ## 💼 LinkedIn: página da empresa
 
-**Nome:** PB Soluções. (Para mudar o nome da página, vá em Ferramentas de administrador → Editar página. O LinkedIn pode pedir verificação.)
-**URL:** ✏️ tente `linkedin.com/company/pbsolucoes`
+**Nome:** PB Soluções IA · **URL:** ✏️ tente `linkedin.com/company/pbsolucoesia`
 
 **Slogan (até 120 caracteres):**
-`Gestão e agentes de IA para clínicas e casas de saúde. Diagnóstico antes da tecnologia.`
+`Gestão e agentes de IA para empresários. Diagnóstico antes da tecnologia.`
 
 **Sobre:**
 ```
-A PB Soluções ajuda clínicas e casas de saúde privadas de pequeno e médio porte a organizar a gestão e a colocar agentes de inteligência artificial para trabalhar nos processos que mais pesam no resultado:
+A PB Soluções IA ajuda empresários e donos de negócio a organizar a gestão e a colocar agentes de inteligência artificial para trabalhar nos processos que mais consomem tempo e dinheiro:
 
-• Agendamento e confirmação de consultas, para reduzir faltas
-• Retorno e reativação de pacientes
-• Pesquisa de satisfação (NPS) com tratamento de quem ficou insatisfeito
-• Conferência de guias antes do envio ao convênio, para prevenir glosas
+• Primeiro atendimento e dúvidas frequentes
+• Acompanhamento de clientes e propostas
+• Tarefas repetitivas da operação
+• Indicadores para decidir com números
 
-Nosso método começa sempre pelo diagnóstico do processo: tecnologia em cima de processo desorganizado só acelera o problema.
+Nosso método começa sempre pelo diagnóstico da gestão: tecnologia em cima de processo desorganizado só acelera o problema.
 
-A fundadora participou de projetos em saúde em que as organizações alcançaram +22% de ocupação, −35% de perdas com glosas e NPS de 68 para 82.
+Especialidade em saúde privada: agentes prontos para clínicas e casas de saúde (agendamento, retorno de pacientes, pesquisa de satisfação e prevenção de glosas). A fundadora participou de projetos em saúde em que as organizações alcançaram +22% de ocupação, −35% de perdas com glosas e NPS de 68 para 82.
 
-Os agentes são configurados para não dar orientação clínica e para passar a conversa à equipe sempre que necessário. A clínica mantém a responsabilidade pelo atendimento em saúde e pelos dados dos pacientes; a PB Soluções atua nos limites do contrato.
+Os agentes se apresentam como IA e passam a conversa para a equipe sempre que necessário. Cada empresa mantém a responsabilidade pelo seu atendimento e pelos dados dos seus clientes; a PB Soluções IA atua nos limites do contrato.
 
-Fundada por Priscila Blandy Dias: 19 anos em gestão, duas MBAs, PMO e Green Belt.
+Fundada por Priscila Blandy Dias: 19 anos de carreira, duas MBAs, PMO e Green Belt.
 ```
-**Setor:** Consultoria em gestão de saúde (ou "Serviços de consultoria") · **Especialidades:** Gestão em saúde, Inteligência artificial, Melhoria de processos, Faturamento hospitalar, Experiência do paciente
+**Setor:** Serviços de consultoria · **Especialidades:** Gestão de processos, Inteligência artificial, Agentes de IA, Gestão em saúde, Melhoria contínua
 
 ## 💼 LinkedIn: perfil pessoal (Priscila)
 
 **Título:**
-`Gestão + IA para clínicas e casas de saúde | Fundadora da PB Soluções | 19 anos em gestão de saúde | MBA · PMO · Green Belt`
+`Gestão + IA para empresários | Fundadora da PB Soluções IA | Especialidade em saúde | MBA · PMO · Green Belt`

@@ -1,6 +1,6 @@
-# PB Soluções — Empresa com Agentes de IA
+# PB Soluções IA — Empresa com Agentes de IA
 
-Este repositório é o **"cérebro" da PB Soluções**. Aqui ficam guardadas, em português, as regras de cada agente de IA, o que cada um sabe sobre a empresa e como ele deve se comportar.
+Este repositório é o **"cérebro" da PB Soluções IA**. Aqui ficam guardadas, em português, as regras de cada agente de IA, o que cada um sabe sobre a empresa e como ele deve se comportar.
 
 As ferramentas que conversam com o cliente (n8n, Instagram, chat do site, e-mail) **leem daqui**. Então, se você mudar uma regra aqui, o agente muda junto.
 

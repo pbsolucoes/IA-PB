@@ -1,9 +1,9 @@
-# Sobre a PB Soluções
+# Sobre a PB Soluções IA
 
-- **Nome:** PB Soluções (antes chamada PB Serviços; os cases abaixo foram feitos com o nome antigo)
+- **Nome:** PB Soluções IA (antes chamada PB Serviços; os cases abaixo foram feitos com o nome antigo)
 - **Fundadora:** Priscila Blandy Dias
 - **Base:** Rio de Janeiro, Brasil. Atendimento online.
-- **Site:** ✏️ PREENCHER (novo domínio da PB Soluções; o antigo era pbservicos.com.br)
+- **Site:** ✏️ PREENCHER (novo domínio da PB Soluções IA; o antigo era pbservicos.com.br)
 - **Instagram:** ✏️ PREENCHER (novo @; o atual @pbservicosoficial está em reformulação)
 - **LinkedIn da empresa:** linkedin.com/company/pb-servicos (em reformulação)
 - **LinkedIn:** linkedin.com/in/priscilablandy
@@ -20,8 +20,8 @@
 
 ## Resultados anteriores (cases)
 
-> O agente pode citar estes resultados como **alcançados pelas organizações em projetos com participação da Priscila**: nunca como mérito exclusivo da PB Soluções e nunca como promessa.
-> 🔒 **Regra: nunca citar o nome de nenhum cliente** (atual ou da época da PB Serviços). Use apenas a descrição do tipo de organização. A PB Soluções leva as **estruturas e metodologias**, adaptadas a cada segmento.
+> O agente pode citar estes resultados como **alcançados pelas organizações em projetos com participação da Priscila**: nunca como mérito exclusivo da PB Soluções IA e nunca como promessa.
+> 🔒 **Regra: nunca citar o nome de nenhum cliente** (atual ou da época da PB Serviços). Use apenas a descrição do tipo de organização. A PB Soluções IA leva as **estruturas e metodologias**, adaptadas a cada segmento.
 
 | Tipo de organização | Resultado |
 |---|---|

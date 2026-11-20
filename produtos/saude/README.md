@@ -1,6 +1,6 @@
 # Linha Saúde: agentes de IA para a saúde privada (pequenas e médias)
 
-> **O produto:** a PB Soluções implanta e opera agentes de IA para clínicas e casas de saúde, cobrando **taxa de implantação + mensalidade**.
+> **O produto:** a PB Soluções IA implanta e opera agentes de IA para clínicas e casas de saúde, cobrando **taxa de implantação + mensalidade**.
 > Cada agente é um **modelo** (escrito uma vez) + a **ficha da clínica** (preenchida para cada cliente). É assim que um mesmo agente atende várias clínicas.
 
 ```
@@ -18,7 +18,7 @@
 | 3 | [**Satisfação (NPS)**](agentes/03-satisfacao-nps.md) | Pergunta a nota após a consulta e encaminha quem ficou insatisfeito | Grupo de serviços médicos: **NPS de 68 para 82** | Paciente |
 | 4 | [**Faturamento / glosas**](agentes/04-faturamento-glosas.md) | Confere guias de convênio antes do envio e aponta erros | Clínica de saúde mental: **−35% de glosas**; casa de saúde: **+12% de rentabilidade** | Equipe da clínica |
 
-> ⚠️ Os números acima são **resultados de projetos anteriores da Priscila**, não promessa de resultado do agente. Na venda, use: "participei de projetos em que a organização alcançou..." (o resultado é do cliente, não da PB Soluções).
+> ⚠️ Os números acima são **resultados de projetos anteriores da Priscila**, não promessa de resultado do agente. Na venda, use: "participei de projetos em que a organização alcançou..." (o resultado é do cliente, não da PB Soluções IA).
 
 ## Segmentos atendidos
 

@@ -1,42 +1,49 @@
-# Posicionamento: PB Soluções
+# Posicionamento: PB Soluções IA
 
-> Proposta inicial, feita pelo agente estrategista. **Priscila: aprove ou ajuste.** Tudo o que for aprovado vira regra para os outros agentes.
+> **Decisão da Priscila (20/11/2026): ampliar a marca.** O nome passa a ser **PB Soluções IA** e o público, **empresários e donos de negócio de qualquer segmento**. A saúde privada vira uma **especialidade**, com produtos prontos (`produtos/saude/`).
 
 ## Em uma frase
-**A PB Soluções organiza a gestão de clínicas e casas de saúde e coloca agentes de IA para trabalhar nos processos que mais perdem dinheiro: faltas, glosas, retorno de pacientes e satisfação.**
+**A PB Soluções IA organiza a gestão de empresas e coloca agentes de inteligência artificial para trabalhar nos processos que mais consomem tempo e dinheiro, sempre começando pelo diagnóstico da gestão.**
 
-## Slogan: 3 opções
-| # | Slogan | Por quê |
+## Slogan
+| # | Slogan | Uso |
 |---|---|---|
-| **1 (recomendado)** | **Diagnóstico antes da tecnologia.** | É o seu método de verdade, e diferencia de quem só vende "robô de WhatsApp" |
-| 2 | Gestão e IA para a saúde que precisa funcionar. | Mais descritivo, bom para o Google |
-| 3 | Sua clínica organizada. Seus processos no automático. | Mais leve, bom para anúncios |
+| **1 (principal)** | **Diagnóstico antes da tecnologia.** | Site, bio, assinatura das peças |
+| 2 | Gestão + IA para empresários que querem crescer com controle. | Descrição, Google, LinkedIn |
+| 3 | Sua empresa organizada. Seus processos no automático. | Anúncios e stories |
 
-> 💡 Para não confundir com diagnóstico médico: nos textos de apoio, sempre escreva **"diagnóstico da gestão"**. O slogan curto pode ficar como está.
+> 💡 Nos textos de apoio, sempre escreva **"diagnóstico da gestão"**.
+
+## Nome e marca
+- **Nome:** PB Soluções IA (antes PB Soluções; antes ainda PB Serviços).
+- **Logo:** monograma **PB** (Playfair, bronze) + "SOLUÇÕES IA" (Inter, leve, espaçado).
+- Paleta e tipografia não mudam: bronze `#AB7646`, espresso `#2A211D`, marfim `#FDF9F5`; Playfair Display + Inter.
 
 ## Público
-- **Quem decide:** dono(a), sócio(a) ou gestor(a) de clínica médica, de saúde mental, odontológica ou de casa de saúde e hospital pequeno.
-- **Dores** (vindas dos seus cases, não de pesquisa de mercado):
-  - paciente que falta e deixa a agenda vazia
-  - convênio que glosa e a receita que não entra
-  - paciente que não volta
-  - reclamação que ninguém trata
-  - recepção sobrecarregada no WhatsApp
-- **Medos:** "robô vai tratar mal meu paciente", "vou ter problema com o CRM e com a LGPD", "é caro e complicado".
+- **Quem decide:** dono(a), sócio(a) ou gestor(a) de pequenas e médias empresas, de qualquer segmento.
+- **Dores comuns de gestão** (para validar nas conversas, não são pesquisa de mercado):
+  - tudo passa pelo dono (o dono é o gargalo)
+  - equipe sobrecarregada com tarefas manuais e repetitivas
+  - atendimento que não dá conta das mensagens
+  - falta de números claros para decidir
+  - cliente que some e ninguém acompanha
+- **Medos:** "IA é cara e complicada", "vai atender mal o meu cliente", "não sei por onde começar".
 
 ## 4 pilares de mensagem
-1. **Método:** diagnóstico antes da tecnologia. Processo bem desenhado primeiro, IA depois.
-2. **Prova:** resultados de projetos anteriores (+22% de ocupação, −35% de glosas, NPS de 68 para 82, +30% da base).
-3. **Segurança:** IA que respeita a LGPD e as regras dos conselhos, nunca dá diagnóstico e passa para humano na hora certa.
-4. **Experiência:** 19 anos, 2 MBAs, PMO, Green Belt. Quem implanta entende de gestão em saúde.
+1. **Método:** diagnóstico da gestão antes da tecnologia. Processo bem desenhado primeiro, IA depois.
+2. **Experiência:** 19 anos de carreira, 2 MBAs, PMO, Green Belt.
+3. **Prova:** projetos em saúde dos quais a Priscila participou, sempre como "a organização alcançou…", nunca como promessa e nunca com nome do cliente.
+4. **IA com responsabilidade:** agentes que se apresentam como IA, passam para humanos na hora certa e respeitam a LGPD.
 
-## Regras de uso dos cases em conteúdo PÚBLICO
-- 🔒 **Decisão da Priscila (20/11/2026): nenhum nome de cliente é citado, nunca.** A PB Soluções leva as **estruturas e metodologias**, ajustadas para cada segmento.
-- Descreva só o tipo: "uma clínica de saúde mental", "uma casa de saúde", "um grupo de serviços médicos".
-- Sempre como resultado **anterior**, nunca como promessa.
+## Especialidade: Saúde
+Para clínicas e casas de saúde, a PB Soluções IA tem **4 agentes prontos** (agendamento, retorno, NPS, glosas) e regras próprias de segurança e conselhos (`produtos/saude/`, `padroes/saude-compliance.md`).
 
-## Antes × depois do nome
-| | PB Serviços (antes) | PB Soluções (agora) |
-|---|---|---|
-| Foco | Serviços administrativos e marketing, vários setores | **Gestão + IA para saúde privada** |
-| Promessa | Fazer por você | Organizar e automatizar com método |
+## Regras de uso dos cases em conteúdo público
+- 🔒 **Nenhum nome de cliente, nunca.** Descreva só o tipo: "uma clínica de saúde mental", "uma casa de saúde", "um grupo de serviços médicos".
+- Para público fora da saúde: diga que os projetos foram **na área da saúde**, sem sugerir que foram no setor da pessoa.
+- Sempre como resultado **da organização**, em projeto com participação da Priscila. Nunca como promessa.
+
+## Antes × depois
+| | PB Serviços | PB Soluções | **PB Soluções IA (agora)** |
+|---|---|---|---|
+| Foco | Serviços administrativos e marketing | Gestão + IA para saúde | **Gestão + IA para empresários; saúde como especialidade** |

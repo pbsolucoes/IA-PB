@@ -17,13 +17,13 @@
 
 ### 2. Mensagem após o aceite
 **Principal (513):**
-> Obrigada por aceitar, [Nome]! Sou a Priscila, da PB Soluções. Trabalho há 19 anos com gestão e processos, e vejo um padrão em muitos negócios: o dono vira o gargalo, a equipe se perde em tarefas manuais e faltam números claros para decidir. Hoje organizo esses processos e, quando faz sentido, coloco agentes de IA para cuidar do que é repetitivo. Sempre começo por um diagnóstico da gestão, antes de qualquer tecnologia. Não sei se isso é uma questão na [Empresa] hoje. Se for, topa uma conversa sem compromisso?
+> Obrigada por aceitar, [Nome]! Sou a Priscila, da PB Soluções IA. Trabalho há 19 anos com gestão e processos, e vejo um padrão em muitos negócios: o dono vira o gargalo, a equipe se perde em tarefas manuais e faltam números claros para decidir. Hoje organizo esses processos e, quando faz sentido, coloco agentes de IA para cuidar do que é repetitivo. Sempre começo por um diagnóstico da gestão, antes de qualquer tecnologia. Não sei se isso é uma questão na [Empresa] hoje. Se for, topa uma conversa sem compromisso?
 
 **Variação A, "apagar incêndio" (493):**
-> Obrigada por aceitar, [Nome]! Vi [detalhe do perfil] e fiquei pensando: quanto do seu dia ainda vai para apagar incêndio em vez de planejar a [Empresa]? Sou a Priscila, da PB Soluções, e há 19 anos trabalho com gestão e processos. Hoje organizo a operação de negócios e, quando faz sentido, coloco agentes de IA para cuidar do que é repetitivo. Sempre começo por um diagnóstico da gestão, antes de qualquer tecnologia. Se isso for uma questão para você hoje, topa uma conversa sem compromisso?
+> Obrigada por aceitar, [Nome]! Vi [detalhe do perfil] e fiquei pensando: quanto do seu dia ainda vai para apagar incêndio em vez de planejar a [Empresa]? Sou a Priscila, da PB Soluções IA, e há 19 anos trabalho com gestão e processos. Hoje organizo a operação de negócios e, quando faz sentido, coloco agentes de IA para cuidar do que é repetitivo. Sempre começo por um diagnóstico da gestão, antes de qualquer tecnologia. Se isso for uma questão para você hoje, topa uma conversa sem compromisso?
 
 **Variação B, pergunta direta (463):**
-> Obrigada por aceitar, [Nome]! Uma pergunta direta: na [Empresa], qual processo hoje só anda se você estiver olhando? Sou a Priscila, da PB Soluções, e há 19 anos trabalho com gestão e processos. Organizo a operação para que ela dependa menos do dono e, quando faz sentido, coloco agentes de IA para cuidar do que é repetitivo. Sempre começo por um diagnóstico da gestão, antes de qualquer tecnologia. Se fizer sentido para você, topa uma conversa sem compromisso?
+> Obrigada por aceitar, [Nome]! Uma pergunta direta: na [Empresa], qual processo hoje só anda se você estiver olhando? Sou a Priscila, da PB Soluções IA, e há 19 anos trabalho com gestão e processos. Organizo a operação para que ela dependa menos do dono e, quando faz sentido, coloco agentes de IA para cuidar do que é repetitivo. Sempre começo por um diagnóstico da gestão, antes de qualquer tecnologia. Se fizer sentido para você, topa uma conversa sem compromisso?
 
 ## Instagram
 
@@ -35,13 +35,13 @@
 
 ### 4. Direct de primeira abordagem
 **Principal (292):**
-> Oi, [Nome]! Acompanho a [Empresa] por aqui e gostei de [detalhe do perfil]. Sou a Priscila, da PB Soluções: ajudo donos de negócio a organizar processos para que a operação dependa menos deles no dia a dia. Fiquei curiosa: hoje, qual tarefa da rotina mais toma o seu tempo ou o da sua equipe?
+> Oi, [Nome]! Acompanho a [Empresa] por aqui e gostei de [detalhe do perfil]. Sou a Priscila, da PB Soluções IA: ajudo donos de negócio a organizar processos para que a operação dependa menos deles no dia a dia. Fiquei curiosa: hoje, qual tarefa da rotina mais toma o seu tempo ou o da sua equipe?
 
 **Variação A, trabalho manual (265):**
-> Oi, [Nome]! Vi [detalhe do perfil] e me chamou atenção. Sou a Priscila, da PB Soluções, e ajudo donos de negócio a organizar processos para a operação não depender tanto deles. Me conta: na [Empresa], o que hoje ainda é feito à mão e toma mais tempo do que deveria?
+> Oi, [Nome]! Vi [detalhe do perfil] e me chamou atenção. Sou a Priscila, da PB Soluções IA, e ajudo donos de negócio a organizar processos para a operação não depender tanto deles. Me conta: na [Empresa], o que hoje ainda é feito à mão e toma mais tempo do que deveria?
 
 **Variação B, equipe no limite (280):**
-> Oi, [Nome]! Gosto muito do conteúdo da [Empresa], principalmente [detalhe do perfil]. Sou a Priscila, da PB Soluções: trabalho com gestão e processos para donos de negócio que sentem a equipe no limite. Fiquei curiosa: quando o movimento aumenta, o que costuma ficar para trás aí?
+> Oi, [Nome]! Gosto muito do conteúdo da [Empresa], principalmente [detalhe do perfil]. Sou a Priscila, da PB Soluções IA: trabalho com gestão e processos para donos de negócio que sentem a equipe no limite. Fiquei curiosa: quando o movimento aumenta, o que costuma ficar para trás aí?
 
 ## Follow-ups (servem para os dois canais)
 

@@ -1,10 +1,10 @@
-# Calendário: semanas 1 e 2 (lançamento PB Soluções)
+# Calendário: semanas 1 e 2 (lançamento PB Soluções IA)
 
 > As peças marcadas 🖼️ já estão prontas em `pecas/png/`. As legendas estão em `redes/legendas-lancamento.md`.
 
 | Dia | Rede | Pilar | Peça | Status |
 |---|---|---|---|---|
-| Seg S1 | IG + LI | Pessoa | **"Agora somos PB Soluções"** | 🖼️ pronta |
+| Seg S1 | IG + LI | Pessoa | **"Agora somos PB Soluções IA"** | 🖼️ pronta |
 | Qua S1 | IG | Método | **"Diagnóstico antes da tecnologia"** | 🖼️ pronta |
 | Qui S1 | LI | Pessoa | Texto: por que mudei o nome (história) | ✍️ legenda pronta |
 | Sex S1 | IG | Dor | **"Quanto custa uma falta na sua agenda?"** | 🖼️ pronta |
