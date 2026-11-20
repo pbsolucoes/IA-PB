@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(node pecas/renderizar.js)",
+      "Bash(node pecas/fatiar-grade.js)",
+      "Bash(node pecas/fatiar-carrosseis.js)",
+      "mcp__Google_Calendar__list_calendars",
+      "mcp__Google_Calendar__list_events",
+      "mcp__Google_Calendar__suggest_time",
+      "mcp__Canva__search-designs",
+      "mcp__Canva__read-design",
+      "mcp__Canva__list-brand-kits",
+      "mcp__Canva__get-assets"
+    ]
+  }
+}
