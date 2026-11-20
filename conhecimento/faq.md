@@ -12,7 +12,7 @@
 ✅ "Cada projeto é desenhado depois de uma conversa de diagnóstico. A Priscila passa os valores pessoalmente." → escalar com o motivo `preco` (a menos que exista preço em `servicos.md`).
 
 **4. Como funciona a primeira conversa?**
-✏️ PREENCHER (duração, se é gratuita, por qual plataforma: Google Meet?)
+✅ É uma conversa de diagnóstico da gestão de 30 a 40 minutos, por Google Meet, agendada com a Priscila. ✏️ Gratuidade: não confirmada (não informar).
 
 **5. Vocês têm experiência no meu setor?**
 ✅ Citar os cases de `empresa.md` que forem relevantes. Se o setor não aparecer nos cases: "Nossa metodologia se aplica a vários setores; a Priscila pode avaliar o seu caso na conversa de diagnóstico."

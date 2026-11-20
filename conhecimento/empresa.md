@@ -4,11 +4,11 @@
 - **Fundadora:** Priscila Blandy Dias
 - **Base:** Rio de Janeiro, Brasil. Atendimento online.
 - **Site:** ✏️ PREENCHER (novo domínio da PB Soluções IA; o antigo era pbservicos.com.br)
-- **Instagram:** ✏️ PREENCHER (novo @; o atual @pbservicosoficial está em reformulação)
+- **Instagram:** @pbsolucoesia (novo; o antigo @pbservicosoficial está em reformulação)
 - **LinkedIn da empresa:** linkedin.com/company/pb-servicos (em reformulação)
 - **LinkedIn:** linkedin.com/in/priscilablandy
 - **WhatsApp comercial (link da bio e CTAs):** https://wa.me/5532991337984
-- **Link para agendar conversa:** ✏️ PREENCHER (ex.: Google Calendar, página de agendamento)
+- **Primeira conversa:** diagnóstico da gestão, 30 a 40 min, por Google Meet (agenda "falecompb"). ✏️ Link público de agendamento: PREENCHER
 - **Horário de atendimento humano:** ✏️ PREENCHER (ex.: seg a sex, 9h às 18h, horário de Brasília)
 
 ## Credenciais da fundadora

@@ -6,9 +6,9 @@
 > CTA único em todas as legendas: **"Fale comigo no WhatsApp (link na bio)"**.
 
 ## ✏️ O que a Priscila precisa confirmar antes de publicar
-- [ ] ✏️ **Primeira conversa:** é gratuita? Quanto tempo dura? Por qual plataforma (WhatsApp, Google Meet)? (`conhecimento/faq.md`, pergunta 4). Enquanto não houver resposta, os textos **não citam** duração, preço nem gratuidade. Onde cabe a informação, está marcado com ✏️.
-- [ ] ✏️ **Post 5:** existe uma foto real sua para o post? A legenda funciona com ou sem foto.
-- [ ] ✏️ **Novo @ do Instagram:** a hashtag de marca usada aqui é `#pbsolucoesia`. Se o @ escolhido for outro, ajustar.
+- [x] **Primeira conversa:** 30 a 40 min, Google Meet (confirmado). - [ ] ✏️ Ainda falta: é gratuita? Até confirmar, os textos **não citam** preço nem gratuidade.
+- [x] **Post 5:** foto real recebida e aplicada.
+- [x] **Novo @ do Instagram:** `@pbsolucoesia` (confirmado).
 - [ ] ✏️ **LinkedIn 01/12:** confirmar que você realmente faz a pergunta das férias (aviso que já estava em `redes/legendas-gargalo.md`).
 - [ ] ✏️ **Página da empresa no LinkedIn (26/11, 03/12, 10/12):** os textos estão em primeira pessoa e assinados por você. Se preferir a voz da empresa ("nós"), me avise que eu adapto.
 
@@ -134,7 +134,7 @@ Quer descobrir onde está o tempo perdido da sua equipe? Fale comigo no WhatsApp
 ---
 
 ## Post 5 · Qua 02/12 · "Prazer, Priscila. Gestão antes da tecnologia." · Pessoa · escuro (nó central)
-> **Novo.** ✏️ Ideal com foto real da Priscila.
+> **Novo.** Com a foto real da Priscila.
 
 ```
 Prazer, eu sou a Priscila Blandy Dias, fundadora da PB Soluções IA.
@@ -260,7 +260,7 @@ Quer saber qual agente faz sentido para a sua clínica? Fale comigo no WhatsApp 
 | 3 | **2. Desenho.** Arrumar o processo antes de qualquer ferramenta: quem faz, quando faz e o que vira regra escrita. |
 | 4 | **3. Agentes de IA.** Só então a tecnologia entra para trabalhar, nas tarefas que o diagnóstico mostrou que valem a pena. |
 | 5 | Por que nessa ordem? Porque IA em cima de processo desorganizado só acelera o problema. |
-| 6 · CTA | **O fio está completo. Agora é a sua vez.** Fale comigo no WhatsApp (link na bio). ✏️ [se confirmado: "A primeira conversa é gratuita e dura X minutos."] |
+| 6 · CTA | **O fio está completo. Agora é a sua vez.** Fale comigo no WhatsApp (link na bio). A primeira conversa dura de 30 a 40 minutos, por Google Meet. |
 
 ### Legenda
 ```
@@ -276,11 +276,13 @@ Serve para empresários de qualquer segmento. E, para clínicas e casas de saúd
 
 Você não precisa saber nada de IA para começar. Precisa só contar como a sua empresa funciona hoje.
 
+A primeira conversa dura de 30 a 40 minutos, por Google Meet.
+
 Quer dar o primeiro passo? Fale comigo no WhatsApp (link na bio).
 
 #gestaoempresarial #diagnostico #processos #inteligenciaartificial #pbsolucoesia
 ```
-> ✏️ Se a Priscila confirmar a primeira conversa, inserir antes do CTA: "A primeira conversa é [gratuita], dura [X minutos] e acontece pelo [plataforma]."
+> ✅ Primeira conversa confirmada pela Priscila (20/11/2026): 30 a 40 min, Google Meet. ✏️ Gratuidade não confirmada: não citar.
 
 **Gancho alternativo:** "Não sabe por onde começar com IA? Comece por aqui."
 
@@ -418,13 +420,15 @@ O diagnóstico da gestão da PB Soluções IA tem 3 etapas:
 
 Você não precisa entender de IA para começar. Precisa só contar como a sua empresa funciona hoje.
 
+A primeira conversa dura de 30 a 40 minutos, por Google Meet.
+
 Quer dar o primeiro passo? Fale comigo no WhatsApp (link no perfil).
 
 Priscila Blandy Dias, fundadora da PB Soluções IA
 
 #gestao #processos #inteligenciaartificial
 ```
-> ✏️ Se a Priscila confirmar a primeira conversa, inserir antes do CTA: "A primeira conversa é [gratuita], dura [X minutos] e acontece pelo [plataforma]."
+> ✅ Primeira conversa confirmada pela Priscila (20/11/2026): 30 a 40 min, Google Meet. ✏️ Gratuidade não confirmada: não citar.
 
 ---
 

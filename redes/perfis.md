@@ -4,7 +4,7 @@
 
 ## 📸 Instagram
 
-**Nome de usuário:** ✏️ escolha e confira se está livre: `@pbsolucoesia` · `@pbsolucoes.ia` · `@pb.solucoesia`
+**Nome de usuário:** `@pbsolucoesia` ✅ (escolhido)
 (Trocar o @ é grátis: Editar perfil → Nome de usuário.)
 
 **Nome (aparece em negrito e conta na busca):** `PB Soluções IA | Gestão + IA`

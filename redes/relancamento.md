@@ -111,7 +111,7 @@ Xadrez: posts ímpares (1, 3, 5, 7, 9) = **escuro**; posts pares (2, 4, 6, 8) = 
 ## 4. Perfil do Instagram
 
 **Nome do perfil (em negrito, conta na busca):** `PB Soluções IA | Gestão + IA`
-**Nome de usuário (@):** ✏️ escolher e conferir se está livre: `@pbsolucoesia` · `@pbsolucoes.ia` · `@pb.solucoesia`
+**Nome de usuário (@):** `@pbsolucoesia` ✅ (escolhido)
 
 **Bio escolhida** (versão melhorada da opção 1 de `redes/perfis.md`):
 ```
