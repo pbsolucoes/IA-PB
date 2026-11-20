@@ -81,7 +81,7 @@ async function abrir(b, arquivo, w, h) {
   fs.unlinkSync(path.join(out, 'grade-painel.png')); // só intermediário
 
   // ---------- destaques ----------
-  const d = await abrir(b, 'destaques.html', 1080, 6 * 1920);
+  const d = await abrir(b, 'destaques.html', 1080, 7 * 1920);
   const ids = await d.evaluate(() => [...document.querySelectorAll('section.d')].map(s => s.id));
   for (let i = 0; i < ids.length; i++) {
     await d.screenshot({ path: path.join(out, `destaque-${ids[i]}.png`), clip: { x: 0, y: i * 1920, width: 1080, height: 1920 } });
