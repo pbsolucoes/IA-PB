@@ -29,8 +29,8 @@
 4. **Experiência:** 19 anos, 2 MBAs, PMO, Green Belt. Quem implanta entende de gestão em saúde.
 
 ## Regras de uso dos cases em conteúdo PÚBLICO
-- ✏️ **Priscila, confirme:** você tem autorização dos clientes para citar o nome deles publicamente (Amil, Casa de Saúde São José, Vila Verde)?
-- Até confirmar, os agentes citam **sem o nome**: "uma clínica de saúde mental", "uma casa de saúde", "um grupo de serviços médicos".
+- 🔒 **Decisão da Priscila (20/11/2026): nenhum nome de cliente é citado, nunca.** A PB Soluções leva as **estruturas e metodologias**, ajustadas para cada segmento.
+- Descreva só o tipo: "uma clínica de saúde mental", "uma casa de saúde", "um grupo de serviços médicos".
 - Sempre como resultado **anterior**, nunca como promessa.
 
 ## Antes × depois do nome

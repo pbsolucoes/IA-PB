@@ -1,7 +1,7 @@
 # Agente 4: Faturamento / prevenção de glosas
 
 **Canal:** interno (e-mail, planilha ou painel da equipe de faturamento) · **Fala com:** equipe da clínica, **nunca com paciente**
-**Cases de referência:** Vila Verde (−35% de perdas/glosas) · Casa de Saúde São José (+12% de rentabilidade)
+**Cases de referência:** clínica de saúde mental (−35% de perdas/glosas) · casa de saúde (+12% de rentabilidade)
 
 > **Glosa** é quando o convênio (operadora do plano de saúde) recusa pagar, total ou parcialmente, uma guia enviada pela clínica. Muitas glosas vêm de erro de preenchimento: **o agente confere antes do envio**.
 > ✅ As guias seguem o **padrão TISS** da ANS, que usa a terminologia **TUSS** para os códigos de procedimentos.

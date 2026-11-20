@@ -13,10 +13,10 @@
 
 | # | Agente | O que faz | Case seu que comprova a experiência | Fala com |
 |---|---|---|---|---|
-| 1 | [**Agendamento + confirmação**](agentes/01-agendamento-confirmacao.md) | Agenda pelo WhatsApp, confirma na véspera, reaproveita horários vagos | Vila Verde: **+22% de ocupação** | Paciente |
-| 2 | [**Captação e retorno**](agentes/02-captacao-retorno.md) | Lembra retornos, reativa pacientes sumidos, responde a novos contatos | Amil: **+30% da base de clientes** | Paciente |
-| 3 | [**Satisfação (NPS)**](agentes/03-satisfacao-nps.md) | Pergunta a nota após a consulta e encaminha quem ficou insatisfeito | Amil: **NPS de 68 para 82** | Paciente |
-| 4 | [**Faturamento / glosas**](agentes/04-faturamento-glosas.md) | Confere guias de convênio antes do envio e aponta erros | Vila Verde: **−35% de glosas**; São José: **+12% de rentabilidade** | Equipe da clínica |
+| 1 | [**Agendamento + confirmação**](agentes/01-agendamento-confirmacao.md) | Agenda pelo WhatsApp, confirma na véspera, reaproveita horários vagos | Clínica de saúde mental: **+22% de ocupação** | Paciente |
+| 2 | [**Captação e retorno**](agentes/02-captacao-retorno.md) | Lembra retornos, reativa pacientes sumidos, responde a novos contatos | Grupo de serviços médicos: **+30% da base de clientes** | Paciente |
+| 3 | [**Satisfação (NPS)**](agentes/03-satisfacao-nps.md) | Pergunta a nota após a consulta e encaminha quem ficou insatisfeito | Grupo de serviços médicos: **NPS de 68 para 82** | Paciente |
+| 4 | [**Faturamento / glosas**](agentes/04-faturamento-glosas.md) | Confere guias de convênio antes do envio e aponta erros | Clínica de saúde mental: **−35% de glosas**; casa de saúde: **+12% de rentabilidade** | Equipe da clínica |
 
 > ⚠️ Os números acima são **resultados de projetos anteriores da Priscila**, não promessa de resultado do agente. Na venda, use: "em projetos anteriores, alcançamos..."
 

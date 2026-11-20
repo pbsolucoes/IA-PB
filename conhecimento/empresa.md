@@ -21,10 +21,11 @@
 ## Resultados anteriores (cases)
 
 > O agente pode citar estes resultados como **trabalhos já feitos**, nunca como promessa.
+> 🔒 **Regra: nunca citar o nome de nenhum cliente** (atual ou da época da PB Serviços). Use apenas a descrição do tipo de organização. A PB Soluções leva as **estruturas e metodologias**, adaptadas a cada segmento.
 
-| Cliente | Resultado |
+| Tipo de organização | Resultado |
 |---|---|
-| Americas Serviços Médicos / Grupo Amil | +30% de crescimento da base de clientes; NPS de 68 para 82 |
-| Casa de Saúde São José | +15% de competitividade; +12% de rentabilidade |
-| Vila Verde Saúde Mental | +22% de ocupação; −35% de perdas financeiras/glosas |
-| FCX Consultoria | Estruturação de governança e dashboards para um portfólio de 180+ clientes ativos |
+| Grupo de serviços médicos | +30% de crescimento da base de clientes; NPS de 68 para 82 |
+| Casa de saúde | +15% de competitividade; +12% de rentabilidade |
+| Clínica de saúde mental | +22% de ocupação; −35% de perdas financeiras/glosas |
+| Consultoria empresarial | Estruturação de governança e dashboards para um portfólio de 180+ clientes ativos |

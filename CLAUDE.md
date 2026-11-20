@@ -8,11 +8,10 @@
 - **Prioridade atual:** marketing da própria PB Soluções (site, redes, peças, conteúdo). Agentes internos em `.claude/agents/`: `estrategista-marca`, `redator-copy`, `designer-pecas`, `desenvolvedor-site`, `social-media`. Delegue a eles.
 - Site: `docs/` (GitHub Pages). Peças: `pecas/fonte/*.html` → `node pecas/renderizar.js` → `pecas/png/`. Sempre faça QA visual do PNG.
 - **O repositório é PÚBLICO:** nada de dados de clientes, senhas ou informações estratégicas sensíveis.
-- Cases em conteúdo público: **sem nome do cliente** até a Priscila confirmar a autorização (`marca/posicionamento.md`).
+- 🔒 **Nunca citar nomes de clientes** (atuais ou da época da PB Serviços), em nenhum material. A PB Soluções leva as **estruturas e metodologias**, ajustadas a cada segmento.
 - Atendimento ao cliente (fase futura) será bilíngue (português e inglês).
 - Marca: paleta bronze `#AB7646`, espresso `#2A211D` e marfim `#FDF9F5`; tipografia Playfair Display e Inter. Tom consultivo e direto, sem jargão vazio.
 - Regra de ouro: **nunca inventar** preço, prazo, serviço, case ou número. Use só o que está em `conhecimento/`. Campos marcados com `✏️ PREENCHER` ainda não têm resposta.
-- A FCX é um case de portfólio, e não um emprego atual da Priscila.
 - **Foco do negócio:** vender agentes de IA para a **saúde privada de pequeno e médio porte** (clínicas médicas, saúde mental, odontologia, hospitais pequenos), no modelo implantação + mensalidade. Catálogo em `produtos/saude/`.
 - Agentes de saúde: **nunca** diagnosticam, orientam tratamento ou interpretam exames; emergência → SAMU 192; crise em saúde mental → CVV 188. Regras em `padroes/saude-compliance.md`. Nenhum agente vai ao ar sem passar em `produtos/saude/testes-seguranca.md`.
 - Dados de clínicas e pacientes **nunca** entram neste repositório.

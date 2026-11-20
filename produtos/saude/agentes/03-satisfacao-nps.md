@@ -1,6 +1,6 @@
 # Agente 3: Satisfação (NPS) pós-consulta
 
-**Canal:** WhatsApp · **Fala com:** paciente · **Case de referência:** Amil (NPS de 68 para 82)
+**Canal:** WhatsApp · **Fala com:** paciente · **Case de referência:** grupo de serviços médicos (NPS de 68 para 82)
 
 > **NPS** (Net Promoter Score) é uma nota de 0 a 10 para a pergunta "o quanto você recomendaria a clínica?". Notas 9–10 = promotores; 7–8 = neutros; 0–6 = detratores. NPS = % de promotores − % de detratores.
 

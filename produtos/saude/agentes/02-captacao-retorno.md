@@ -1,6 +1,6 @@
 # Agente 2: Captação e retorno de pacientes
 
-**Canal:** WhatsApp (+ Instagram da clínica, opcional) · **Fala com:** paciente e interessado · **Case de referência:** Amil (+30% da base de clientes)
+**Canal:** WhatsApp (+ Instagram da clínica, opcional) · **Fala com:** paciente e interessado · **Case de referência:** grupo de serviços médicos (+30% da base de clientes)
 
 ## O que faz
 1. **Novo contato** (alguém que viu a clínica no Instagram ou no Google): tira dúvidas gerais (endereço, convênios, profissionais) e passa para o **Agente 1** para agendar.

@@ -1,6 +1,6 @@
 # Agente 1: Agendamento + confirmação
 
-**Canal:** WhatsApp da clínica (API oficial) · **Fala com:** paciente · **Case de referência:** Vila Verde (+22% de ocupação)
+**Canal:** WhatsApp da clínica (API oficial) · **Fala com:** paciente · **Case de referência:** clínica de saúde mental (+22% de ocupação)
 
 ## System prompt (modelo)
 
