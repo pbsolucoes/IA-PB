@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<!--
+  CARROSSEL 2 (post 9 do relançamento "Fio Condutor", fim do fio) · slides 2 a 6, lado a lado: 5400 × 1350.
+  O slide 1 (capa) é png/relancamento-09.png, gerado pela grade.
+  Não renderize com renderizar.js: use  node pecas/fatiar-carrosseis.js  (recorta em png/carrossel-9-02.png … 06).
+  Textos: exatamente os da seção "### Slides (6)" do Post 9 em redes/legendas-relancamento.md.
+  O fio corre a 1100 px do topo, de ponta a ponta, e termina numa seta que aponta para o botão do WhatsApp (slide 6).
+-->
+<style>
+:root{--w:5400px;--h:1350px}
+body{background:var(--espresso)}
+.s{position:absolute;top:0;width:1080px;height:1350px;overflow:hidden;font-variant-numeric:lining-nums}
+.c{position:absolute;left:90px;right:90px;top:170px}
+h1{font-family:'Playfair Display',serif;font-weight:600;line-height:1.08;color:var(--marfim)}
+h1 em{font-weight:500;color:var(--bronze-claro)}
+h1 em.i{display:inline-block;padding-left:8px}
+p.t b{white-space:nowrap}
+.num{font-family:'Playfair Display',serif;font-weight:600;font-size:150px;line-height:1;color:var(--bronze-claro)}
+p.t{font-size:46px;line-height:1.4;font-weight:300;margin-top:44px}
+p.t b{font-weight:600;color:var(--bronze-claro)}
+.selo{font-size:28px;bottom:86px;opacity:1;color:var(--bronze-claro);letter-spacing:4px}
+.botao{position:absolute;right:90px;top:1056px;height:88px;display:flex;align-items:center;background:var(--bronze-claro);color:var(--espresso);font-weight:600;font-size:34px;padding:0 46px;border-radius:999px}
+.bio{position:absolute;right:90px;top:986px;font-size:28px;font-weight:400;color:var(--bronze-claro);letter-spacing:.5px}
+#fio{position:absolute;left:0;top:0;width:5400px;height:1350px;pointer-events:none;z-index:5}
+</style></head><body>
+
+<!-- SLIDE 2 -->
+<section class="s escuro" style="left:0">
+  <div class="c"><div class="num">1.</div>
+  <h1 style="font-size:96px;margin-top:16px">Diagnóstico.</h1>
+  <div class="linha" style="margin-top:44px"></div>
+  <p class="t">Entender onde a empresa perde <b>tempo e dinheiro</b>: o que trava, o que se repete, o que depende só do dono.</p></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">2/6</div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="s escuro" style="left:1080px">
+  <div class="c"><div class="num">2.</div>
+  <h1 style="font-size:96px;margin-top:16px">Desenho.</h1>
+  <div class="linha" style="margin-top:44px"></div>
+  <p class="t">Arrumar o processo <b>antes de qualquer ferramenta</b>: quem faz, quando faz e o que vira regra escrita.</p></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">3/6</div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="s escuro" style="left:2160px">
+  <div class="c"><div class="num">3.</div>
+  <h1 style="font-size:96px;margin-top:16px">Agentes de IA.</h1>
+  <div class="linha" style="margin-top:44px"></div>
+  <p class="t">Só então a tecnologia entra para trabalhar, nas tarefas que <b>o diagnóstico mostrou</b> que valem a pena.</p></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">4/6</div>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="s escuro" style="left:3240px">
+  <div class="c">
+  <h1 style="font-size:100px">Por que nessa ordem?</h1>
+  <div class="linha" style="margin-top:56px"></div>
+  <p class="t" style="margin-top:52px">Porque IA em cima de processo desorganizado</p>
+  <h1 style="font-size:76px;margin-top:20px"><em class="i">só acelera o problema.</em></h1></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">5/6</div>
+</section>
+
+<!-- SLIDE 6 · CTA (fim do fio) -->
+<section class="s escuro" style="left:4320px">
+  <div class="c">
+  <h1 style="font-size:96px">O fio está completo.<br><em class="i">Agora é a sua vez.</em></h1>
+  <div class="linha" style="margin-top:52px"></div>
+  <p class="t" style="margin-top:48px">A primeira conversa dura de <b>30 a 40 minutos</b>, por Google Meet.</p></div>
+  <div class="bio">(link na bio)</div>
+  <div class="botao" id="botao">Fale comigo no WhatsApp</div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">6/6</div>
+</section>
+
+<svg id="fio"></svg>
+<script>
+// O FIO: continua da capa (relancamento-09.png sai pela borda direita a y = 1100), atravessa os slides
+// e termina numa seta que aponta para o botão do WhatsApp.
+(function () {
+  const B = '#AB7646', Y = 1100, g = (i, x) => i * 1080 + x;
+  const fimX = document.getElementById('botao').getBoundingClientRect().left - 22; // ponta da seta
+  const nos = [0, 1, 2, 3].map(i => [g(i, 540), Y, 9]);
+  const ramos = [[g(0,540),Y,g(0,630),1180],[g(1,540),Y,g(1,450),1180],[g(2,540),Y,g(2,630),1182],
+                 [g(3,540),Y,g(3,450),1182],[g(4,200),Y,g(4,280),1178]];
+  let s = `<line x1="0" y1="${Y}" x2="${fimX - 20}" y2="${Y}" stroke="${B}" stroke-width="5"/>`;
+  ramos.forEach(([a, b, c, d]) => s += `<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="${B}" stroke-width="2.5" opacity=".7"/><circle cx="${c}" cy="${d}" r="6" fill="${B}" opacity=".85"/>`);
+  nos.push([g(4, 200), Y, 9]);
+  nos.forEach(([x, y, r]) => s += `<circle cx="${x}" cy="${y}" r="${r * 2.4}" fill="${B}" opacity=".18"/><circle cx="${x}" cy="${y}" r="${r}" fill="${B}"/>`);
+  s += `<circle cx="${fimX - 70}" cy="${Y}" r="13" fill="${B}"/><polygon points="${fimX},${Y} ${fimX - 30},${Y - 18} ${fimX - 30},${Y + 18}" fill="${B}"/>`;
+  document.getElementById('fio').innerHTML = s;
+  window.__fio = { segs: [[[0, Y], [fimX, Y], 8], ...ramos.map(([a, b, c, d]) => [[a, b], [c, d], 8]), ...nos.map(([x, y, r]) => [[x, y], [x, y], r * 2.4])] };
+  window.__fio.ignorar = ['botao'];
+})();
+</script>
+</body></html>

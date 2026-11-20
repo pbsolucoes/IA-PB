@@ -1,0 +1,93 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<!--
+  CARROSSEL 1 (post 6 do relançamento "Fio Condutor") · slides 2 a 6, lado a lado: 5 × 1080 = 5400 × 1350.
+  O slide 1 (capa) é png/relancamento-06.png, gerado pela grade.
+  Não renderize com renderizar.js: use  node pecas/fatiar-carrosseis.js  (recorta em png/carrossel-6-02.png … 06).
+  Textos: exatamente os da seção "### Slides (6)" do Post 6 em redes/legendas-relancamento.md.
+  O fio corre a 1100 px do topo, de ponta a ponta (continua da capa); todo texto termina acima de y ≈ 1040 px.
+-->
+<style>
+:root{--w:5400px;--h:1350px}
+.s{position:absolute;top:0;width:1080px;height:1350px;overflow:hidden;font-variant-numeric:lining-nums}
+.c{position:absolute;left:90px;right:90px;top:170px}
+h1{font-family:'Playfair Display',serif;font-weight:600;line-height:1.08;color:var(--espresso)}
+h1 em{font-weight:500;color:var(--bronze-escuro)}
+h1 em.i{display:inline-block;padding-left:8px}
+p.t{font-size:48px;line-height:1.38;font-weight:400;margin-top:44px}
+p.t b{font-family:'Playfair Display',serif;font-weight:700;color:var(--bronze-escuro);font-size:62px;line-height:1}
+.aviso{position:absolute;left:90px;right:90px;top:840px;font-size:28px;font-weight:400;line-height:1.4;border-left:4px solid var(--bronze);padding-left:22px}
+.selo{font-size:28px;bottom:86px;opacity:1;color:var(--bronze-escuro);letter-spacing:4px}
+#fio{position:absolute;left:0;top:0;width:5400px;height:1350px;pointer-events:none;z-index:5}
+</style></head><body class="claro">
+
+<!-- SLIDE 2 -->
+<section class="s claro" style="left:0">
+  <div class="c"><h1 style="font-size:92px">Uma clínica de saúde mental</h1>
+  <div class="linha" style="margin-top:48px"></div>
+  <p class="t">alcançou <b>+22%</b> de ocupação e <b>−35%</b> de perdas com glosas.</p></div>
+  <p class="aviso">Resultado da organização, em projeto com participação da fundadora. Não é promessa.</p>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">2/6</div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="s claro" style="left:1080px">
+  <div class="c"><h1 style="font-size:92px">Um grupo de serviços médicos</h1>
+  <div class="linha" style="margin-top:48px"></div>
+  <p class="t" style="font-size:44px">cresceu <b>+30%</b> na base de clientes.<br>O NPS (nota de satisfação dos clientes) foi de <b>68</b> para <b>82</b>.</p></div>
+  <p class="aviso">Resultado da organização, em projeto com participação da fundadora. Não é promessa.</p>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">3/6</div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="s claro" style="left:2160px">
+  <div class="c"><h1 style="font-size:92px">Uma casa de saúde</h1>
+  <div class="linha" style="margin-top:48px"></div>
+  <p class="t">alcançou <b>+15%</b> de competitividade e <b>+12%</b> de rentabilidade.</p></div>
+  <p class="aviso">Resultado da organização, em projeto com participação da fundadora. Não é promessa.</p>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">4/6</div>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="s claro" style="left:3240px">
+  <div class="c">
+  <h1 style="font-size:84px">O que esses projetos tiveram em comum?</h1>
+  <div class="linha" style="margin-top:52px"></div>
+  <p class="t" style="margin-top:48px">Começaram pelo <b style="font-size:54px">diagnóstico da gestão.</b></p>
+  <h1 style="font-size:64px;margin-top:48px"><em class="i">A ferramenta veio depois do processo.</em></h1></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">5/6</div>
+</section>
+
+<!-- SLIDE 6 -->
+<section class="s claro" style="left:4320px">
+  <div class="c">
+  <h1 style="font-size:84px">O mérito é das equipes dessas organizações.</h1>
+  <div class="linha" style="margin-top:52px"></div>
+  <p class="t" style="margin-top:48px">Resultado de outra empresa<br>não é promessa:</p>
+  <h1 style="font-size:64px;margin-top:24px"><em class="i">mostra onde vale<br>olhar primeiro.</em></h1></div>
+  <div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>
+  <div class="selo">6/6</div>
+</section>
+
+<svg id="fio"></svg>
+<script>
+// O FIO: continua da capa (relancamento-06.png sai pela borda direita a y = 1100) e atravessa os 5 slides.
+(function () {
+  const B = '#AB7646', Y = 1100, g = (i, x) => i * 1080 + x;   // i = 0..4 (slides 2..6)
+  const fimX = g(4, 860);                                        // fim do carrossel: ponto final com anéis
+  const nos = [0, 1, 2, 3].map(i => [g(i, 540), Y, 9]);
+  const ramos = [[g(0,540),Y,g(0,630),1180],[g(1,540),Y,g(1,450),1180],[g(2,540),Y,g(2,630),1182],
+                 [g(3,540),Y,g(3,450),1182],[g(3,540),Y,g(3,640),1176],[g(4,540),Y,g(4,450),1180]];
+  let s = `<line x1="0" y1="${Y}" x2="${fimX}" y2="${Y}" stroke="${B}" stroke-width="5"/>`;
+  ramos.forEach(([a, b, c, d]) => s += `<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="${B}" stroke-width="2.5" opacity=".7"/><circle cx="${c}" cy="${d}" r="6" fill="${B}" opacity=".85"/>`);
+  nos.push([g(4, 540), Y, 9]);
+  nos.forEach(([x, y, r]) => s += `<circle cx="${x}" cy="${y}" r="${r * 2.4}" fill="${B}" opacity=".18"/><circle cx="${x}" cy="${y}" r="${r}" fill="${B}"/>`);
+  s += `<circle cx="${fimX}" cy="${Y}" r="40" fill="none" stroke="${B}" stroke-width="2.5" opacity=".5"/><circle cx="${fimX}" cy="${Y}" r="26" fill="${B}" opacity=".22"/><circle cx="${fimX}" cy="${Y}" r="14" fill="${B}"/>`;
+  document.getElementById('fio').innerHTML = s;
+  window.__fio = { segs: [[[0, Y], [fimX, Y], 8], ...ramos.map(([a, b, c, d]) => [[a, b], [c, d], 8]), ...nos.map(([x, y, r]) => [[x, y], [x, y], r * 2.4]), [[fimX, Y], [fimX, Y], 40]] };
+})();
+</script>
+</body></html>
