@@ -21,8 +21,14 @@
 | Guia da marca (cores, fontes, tom) | `MAHbf3Z4OKE` | referência |
 
 ## Peças já na pasta Peças das redes
-- 9 posts do relançamento (`relancamento-01` a `09`).
-- Reels da sala comercial "o sino toca" (vídeo 1080 × 1920): `VAHbf1VzF8s`. Se o vídeo for refeito, envie a versão nova e avise a Priscila para apagar a antiga.
+Organizadas em 4 subpastas (peça nova vai direto para a subpasta certa):
+
+| Subpasta | ID | O que tem |
+|---|---|---|
+| **1 · Instagram · relançamento (posts e carrosséis)** | `FAHbf5_Ag3E` | 9 posts do relançamento (`relancamento-01` a `09`) + slides 2 a 6 dos carrosséis dos posts 06 e 09 ("Post 06 · carrossel · slide 2…6", "Post 09 · carrossel · slide 2…6"). O slide 1 de cada carrossel é o Relançamento 06 / 09. |
+| **2 · LinkedIn** | `FAHbf2HKPks` | "LinkedIn 01/12 · gargalo", "LinkedIn 03/12 · glosas", banner da página da empresa e banner do perfil da Priscila. |
+| **3 · Stories, destaques e perfil** | `FAHbf61nrZ0` | "Story · gargalo", foto de perfil PB Soluções IA e 7 capas de destaque (Comece aqui, Diagnóstico, IA segura, Saúde, Resultados, Sobre, Eventos). |
+| **4 · Vídeos** | `FAHbf4Am42o` | Reels da sala comercial "o sino toca" (1080 × 1920): `VAHbf1VzF8s`. Se o vídeo for refeito, envie a versão nova e avise a Priscila para apagar a antiga. |
 
 Originais com fundo transparente: `pecas/marca/` (regerar: `node pecas/renderizar-marca.js`).
 
