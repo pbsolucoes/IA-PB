@@ -17,3 +17,4 @@
 - Dados de clínicas e pacientes **nunca** entram neste repositório.
 - ⚖️ **Não assumir responsabilidades de terceiros.** Resultados são das organizações clientes ("participei de projetos em que..."). Atendimento em saúde, dados de pacientes (controladora), envio de guias e ferramentas de terceiros (Meta, Anthropic, sistemas) são responsabilidade da clínica ou do fornecedor. A PB Soluções IA responde só pelo que está no contrato. Tabela em `comercial/oferta-saude.md`.
 - **Prospecção:** empresários e donos de negócio de **qualquer segmento**, só pelo **Instagram e LinkedIn**, uma mensagem por pessoa, enviada pela Priscila (agente `comercial-prospeccao`).
+- 📅 **Agendamento:** "marca o diagnóstico com…" → skill `.claude/skills/marcar-diagnostico/` (agenda falecom@pbservicos.com.br, 40 min, Google Meet, sempre com confirmação). Conectados e testados: Canva, Google Agenda, GitHub. Gmail precisa ser reconectado.

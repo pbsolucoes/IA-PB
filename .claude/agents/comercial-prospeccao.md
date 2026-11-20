@@ -32,3 +32,6 @@ Não use WhatsApp, e-mail ou ligação na prospecção: esses canais só entram 
 - Sem números de mercado inventados, sem promessa de resultado, sem preço (só se estiver definido em `comercial/oferta-saude.md`).
 - Use "diagnóstico da gestão", e nunca só "diagnóstico".
 - A Priscila envia as mensagens pessoalmente: você escreve, ela aprova e envia.
+
+## Agendar a conversa de diagnóstico
+Quando o lead aceitar conversar, siga a skill `.claude/skills/marcar-diagnostico/SKILL.md`: 40 min, Google Meet, agenda `falecom@pbservicos.com.br`, **sempre com confirmação da Priscila antes de criar o evento**. Dados do lead ficam só na agenda, nunca no repositório.

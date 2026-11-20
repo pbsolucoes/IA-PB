@@ -54,4 +54,4 @@ No Direct, digite a barra `/` e escolha:
 
 ## Quando alguém responder
 1. Copie a mensagem da pessoa e cole aqui no Claude: *"comercial-prospeccao, como respondo isso?"*
-2. Quando a pessoa aceitar a conversa, peça: *"marca o diagnóstico com [nome] na [data e hora]"*. O Claude cria o evento com Google Meet na agenda **falecom@pbservicos.com.br** (sempre com a sua confirmação).
+2. Quando a pessoa aceitar a conversa, peça: *"marca o diagnóstico com [nome] da [empresa] na [data e hora], e-mail [e-mail]"*. A skill `marcar-diagnostico` (configurada) cria o evento de 40 min com Google Meet na agenda **falecom@pbservicos.com.br**, depois da sua confirmação, e te devolve a mensagem pronta com o link.
