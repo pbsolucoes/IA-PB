@@ -83,6 +83,36 @@ tr:last-child td{border-bottom:0}
 .linha li:before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent-strong)}
 .linha time{color:var(--muted);font-size:12.5px;display:block}
 a{color:var(--accent)}
+/* ===== Sala de guerra (quadro de tarefas) ===== */
+.rodada{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:14px}
+.rodada b{color:var(--gold)}
+.nova{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-top:12px}
+.nova summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none}
+.nova summary::-webkit-details-marker{display:none}
+.nova summary:before{content:"+ ";color:var(--accent)}
+.nova form{display:grid;gap:10px;padding:0 16px 16px}
+@media(min-width:760px){.nova form{grid-template-columns:repeat(3,1fr)}.nova .full{grid-column:1/-1}}
+.nova label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--muted);min-width:0}
+.nova select,.nova input,.nova textarea{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:9px 10px;width:100%;font-family:var(--body);font-size:14px}
+.nova textarea{min-height:70px;resize:vertical}
+.quadro{display:grid;gap:12px;margin-top:14px}
+@media(min-width:900px){.quadro{grid-template-columns:repeat(4,1fr);align-items:start}}
+.col{background:#211a16;border:1px solid var(--line);border-radius:14px;padding:10px;min-width:0}
+.col h3{margin:2px 4px 10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.col h3 span{color:var(--fg);font-variant-numeric:tabular-nums}
+.col.aprovar{border-color:#6a5030}.col.aprovar h3{color:var(--gold)}
+.vazio{font-size:13px;color:var(--muted);padding:6px 4px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:8px;font-size:14px;min-width:0}
+.card .tp{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.card h4{margin:2px 0 2px;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+.card .meta{font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.card details{margin-top:6px}
+.card details summary{cursor:pointer;font-size:13px;color:var(--accent)}
+.card .txt{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:13.5px}
+.card .rot{font-size:11.5px;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+.card .bts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.card .bts button{padding:5px 11px;font-size:12.5px}
+.card.atrasada{border-color:var(--bad)}
 </style>
 
 <div class="wrap">
@@ -105,6 +135,46 @@ a{color:var(--accent)}
 </div>
 
 <main><div class="wrap">
+
+  <section aria-labelledby="t-guerra">
+    <div class="eyebrow">Ao vivo · os agentes trabalham às 7h30 e às 16h30 (dias úteis)</div>
+    <h2 id="t-guerra">Sala de guerra comercial</h2>
+    <p class="lead">Crie uma tarefa e os agentes pegam na próxima rodada. O que eles produzem volta para a coluna <b>Para você aprovar</b>. Nenhuma mensagem é enviada por eles: quem envia é você.</p>
+    <div class="rodada" id="rodada"><span>Última rodada dos agentes: <b id="rUlt">ainda não rodou</b></span><span id="rRes" class="estado"></span></div>
+    <details class="nova" id="novaBox"><summary>Nova tarefa para os agentes</summary>
+      <form id="fTar" autocomplete="off">
+        <label for="tTipo">Tipo
+          <select id="tTipo">
+            <option value="prospeccao">Prospecção (1ª mensagem)</option>
+            <option value="followup">Follow-up</option>
+            <option value="diagnostico">Diagnóstico e proposta</option>
+            <option value="conteudo">Conteúdo</option>
+          </select>
+        </label>
+        <label for="tCanal">Canal
+          <select id="tCanal"><option>Instagram</option><option>LinkedIn</option><option>Google Meet</option><option>—</option></select>
+        </label>
+        <label for="tPrazo">Prazo
+          <input id="tPrazo" type="date">
+        </label>
+        <label for="tNome">Nome da pessoa
+          <input id="tNome" maxlength="60" placeholder="Ex.: Ana Souza">
+        </label>
+        <label for="tEmp">Empresa / segmento
+          <input id="tEmp" maxlength="80" placeholder="Ex.: Loja de roupas, Centro do Rio">
+        </label>
+        <label for="tTit">Título da tarefa
+          <input id="tTit" maxlength="90" placeholder="Ex.: Primeira mensagem" required>
+        </label>
+        <label for="tDet" class="full">O que você sabe / o que quer (contexto para o agente)
+          <textarea id="tDet" maxlength="1200" placeholder="Ex.: Vi que ela posta sobre atrasos na entrega. Quero um tom leve."></textarea>
+        </label>
+        <div class="full" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="pri" id="bTar" type="submit">Criar tarefa</button><span class="estado" id="tEst"></span></div>
+      </form>
+    </details>
+    <p class="aviso">LGPD: só nome e empresa. Não coloque telefone, e-mail, CPF nem dados de saúde. Apague as tarefas encerradas que não precisar mais.</p>
+    <div class="quadro" id="quadro"></div>
+  </section>
 
   <section aria-labelledby="t-fun">
     <div class="eyebrow">Dados reais · só você vê e registra</div>
@@ -129,7 +199,7 @@ a{color:var(--accent)}
       </label>
       <button class="pri" id="bReg" type="submit">Registrar</button>
     </form>
-    <p class="aviso">LGPD: não registre nome de pessoa, telefone, e-mail ou dados sensíveis. Use o tipo de empresa ou o nome da empresa.</p>
+    <p class="aviso">LGPD: aqui no funil, use só o nome da empresa ou o tipo de negócio. Nunca telefone, e-mail ou dados sensíveis.</p>
     <p class="estado" id="estado">Conectando aos seus dados…</p>
     <ul class="eventos" id="eventos"></ul>
   </section>
@@ -252,6 +322,7 @@ document.getElementById('form').addEventListener('submit', async ev=>{
 });
 
 // ===================== CENA 3D =====================
+
 const stage=document.getElementById('stage');
 let ok3d=!!window.THREE, renderer=null;
 if(ok3d){ try{ renderer=new THREE.WebGLRenderer({antialias:true,alpha:true}); }catch(e){ ok3d=false; } }
@@ -272,6 +343,71 @@ function atualizaBaloes(c){
   T.jur.msg   = 'Rascunhos para advogado';
   T.fin.msg   = c.contrato ? `${c.contrato} cliente(s) no caixa` : 'Planilha de caixa pronta';
 }
+
+// ===================== SALA DE GUERRA (db: tarefas, sala/status) =====================
+const TIPOS={prospeccao:{n:'Prospecção',ag:'comercial-prospeccao',team:'prosp'},followup:{n:'Follow-up',ag:'comercial-prospeccao',team:'prosp'},diagnostico:{n:'Diagnóstico e proposta',ag:'redator-propostas',team:'prop'},conteudo:{n:'Conteúdo',ag:'social-media + redator-copy + designer-pecas',team:null}};
+const COLS=[['fazer','A fazer'],['andamento','Agentes trabalhando'],['aprovar','Para você aprovar'],['feito','Feito']];
+let tarefas=[], dbT=null;
+const quadro=document.getElementById('quadro');
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+function fmt(iso){if(!iso)return'';const d=new Date(iso);return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})+' '+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});}
+async function muda(t,campos){ if(!dbT)return; try{ await dbT.doc('tarefas/'+t.id).update(Object.assign({atualizado:new Date().toISOString()},campos)); }catch(e){ document.getElementById('tEst').textContent='Não consegui salvar agora. Tente de novo.'; } }
+function renderQuadro(){
+  quadro.innerHTML='';
+  const hoje=new Date().toISOString().slice(0,10);
+  COLS.forEach(([k,nome])=>{
+    const lista=tarefas.filter(t=>(t.status||'fazer')===k);
+    const col=el('div','col '+k); const h=el('h3',null,nome); h.append(el('span',null,String(lista.length))); col.append(h);
+    if(!lista.length) col.append(el('div','vazio',k==='aprovar'?'Nada esperando por você.':'—'));
+    lista.forEach(t=>{
+      const c=el('article','card'+(t.prazo&&t.prazo<hoje&&k!=='feito'?' atrasada':''));
+      c.append(el('div','tp',(TIPOS[t.tipo]||{n:t.tipo}).n+(t.canal&&t.canal!=='—'?' · '+t.canal:'')));
+      c.append(el('h4',null,t.titulo||'(sem título)'));
+      const quem=[t.contato,t.empresa].filter(Boolean).join(' · '); if(quem) c.append(el('div','meta',quem));
+      c.append(el('div','meta',(t.prazo?'Prazo '+t.prazo.split('-').reverse().slice(0,2).join('/')+' · ':'')+'Atualizado '+fmt(t.atualizado||t.criado)));
+      if(t.detalhes){const d=el('details');d.append(el('summary',null,'Contexto'),el('div','txt',t.detalhes));c.append(d);}
+      if(t.ajuste){c.append(el('div','rot','Seu pedido de ajuste'),el('div','txt',t.ajuste));}
+      if(t.resultado){c.append(el('div','rot','Entrega do agente'));const r=el('div','txt',t.resultado);c.append(r);}
+      if(t.proxima){c.append(el('div','rot','Próximo passo'),el('div','meta',t.proxima));}
+      const b=el('div','bts');
+      const bt=(x,f,cls)=>{const e=el('button',cls,x);e.type='button';e.onclick=f;b.append(e);};
+      if(t.resultado) bt('Copiar entrega',()=>{try{navigator.clipboard.writeText(t.resultado);}catch(e){}},'pri');
+      if(k==='aprovar'){
+        bt('Aprovar',()=>muda(t,{status:'feito'}));
+        if(t.tipo==='prospeccao'||t.tipo==='followup') bt('Aprovei e enviei',async()=>{await muda(t,{status:'feito',enviado:new Date().toISOString()}); if(t.tipo==='prospeccao'&&db){try{await db.collection('eventos').add({tipo:'abordagem',quem:t.empresa||t.contato||'Contato',oque:'',quando:new Date().toISOString()});}catch(e){}}});
+        bt('Pedir ajuste',()=>{const a=prompt('O que o agente deve mudar?');if(a&&a.trim())muda(t,{status:'fazer',ajuste:a.trim().slice(0,600)});});
+      }
+      if(k==='feito') bt('Reabrir',()=>muda(t,{status:'fazer'}));
+      if(k==='fazer'||k==='feito') bt('Apagar',async()=>{if(confirm('Apagar esta tarefa?')){try{await dbT.doc('tarefas/'+t.id).delete();}catch(e){}}});
+      if(b.children.length)c.append(b);
+      col.append(c);
+    });
+    quadro.append(col);
+  });
+  // balões da sala 3D mostram a tarefa em andamento de cada mesa
+  TEAM.forEach(tm=>tm.tarefa='');
+  tarefas.filter(t=>t.status==='andamento'||t.status==='aprovar').forEach(t=>{const id=(TIPOS[t.tipo]||{}).team;const tm=TEAM.find(x=>x.id===id);if(tm&&!tm.tarefa)tm.tarefa=(t.status==='aprovar'?'Para aprovar: ':'Trabalhando: ')+(t.titulo||'').slice(0,34);});
+  const pa=tarefas.filter(t=>t.status==='aprovar').length; const pri=TEAM.find(x=>x.id==='pri'); if(pri&&pa) pri.tarefa=pa+' tarefa(s) para aprovar';
+}
+(async()=>{
+  const C=window.claude; try{ dbT = C ? await C.use('db') : null; }catch(e){ dbT=null; }
+  if(!dbT){ document.getElementById('novaBox').style.display='none'; quadro.innerHTML='<p class="estado">As tarefas só aparecem quando você abre esta página logada no claude.ai.</p>'; return; }
+  const tm=setTimeout(()=>{document.getElementById('rRes').textContent='As tarefas estão demorando para chegar.';},10000);
+  dbT.collection('tarefas').orderBy('criado','desc').limit(300).onSnapshot(sn=>{clearTimeout(tm);tarefas=sn.docs.map(d=>Object.assign({id:d.id},d.data()));renderQuadro();},()=>{clearTimeout(tm);quadro.innerHTML='<p class="estado">Não foi possível ler as tarefas agora.</p>';});
+  dbT.doc('sala/status').onSnapshot(s=>{ if(s.exists){const d=s.data(); document.getElementById('rUlt').textContent=fmt(d.ultima_rodada)||'ainda não rodou'; document.getElementById('rRes').textContent=d.resumo||'';} },()=>{});
+})();
+document.getElementById('tTipo').addEventListener('change',e=>{const m={prospeccao:'Primeira mensagem',followup:'Follow-up',diagnostico:'Preparar diagnóstico',conteudo:'Post'};const ti=document.getElementById('tTit');if(!ti.value)ti.placeholder='Ex.: '+m[e.target.value];});
+document.getElementById('fTar').addEventListener('submit',async ev=>{
+  ev.preventDefault(); if(!dbT) return;
+  const g=id=>document.getElementById(id).value.trim(); const tipo=g('tTipo');
+  if(!g('tTit')) return; const b=document.getElementById('bTar'); b.disabled=true;
+  const agora=new Date().toISOString();
+  try{ await dbT.collection('tarefas').add({titulo:g('tTit'),tipo,agente:TIPOS[tipo].ag,canal:g('tCanal'),contato:g('tNome'),empresa:g('tEmp'),detalhes:g('tDet'),prazo:g('tPrazo'),status:'fazer',resultado:'',criado:agora,atualizado:agora,por:'Priscila'});
+    ['tTit','tNome','tEmp','tDet','tPrazo'].forEach(i=>document.getElementById(i).value=''); document.getElementById('tEst').textContent='Tarefa criada. Os agentes pegam na próxima rodada.';
+  }catch(e){ document.getElementById('tEst').textContent='Não consegui criar agora. Tente de novo.'; }
+  b.disabled=false;
+});
+
 if(ok3d){
 const scene=new THREE.Scene(), cam=new THREE.OrthographicCamera(-1,1,1,-1,.1,200);
 let theta=Math.PI/4; const frust=10.6;
@@ -379,7 +515,7 @@ const bubbles=document.getElementById('bubbles');
 TEAM.forEach(t=>{const d=document.createElement('div');d.className='bub';d.id='b-'+t.id;const b=document.createElement('b');b.textContent=t.nome;const s=document.createElement('span');d.append(b,s);bubbles.append(d);});
 const v3=new THREE.Vector3();
 function posBaloes(){const w=stage.clientWidth,h=stage.clientHeight;
-  TEAM.forEach(t=>{t.o.cab.getWorldPosition(v3);v3.y+=.42;v3.project(cam);const el=document.getElementById('b-'+t.id);el.style.left=((v3.x+1)/2*w)+'px';el.style.top=((1-v3.y)/2*h)+'px';el.lastChild.textContent=t.msg;
+  TEAM.forEach(t=>{t.o.cab.getWorldPosition(v3);v3.y+=.42;v3.project(cam);const el=document.getElementById('b-'+t.id);el.style.left=((v3.x+1)/2*w)+'px';el.style.top=((1-v3.y)/2*h)+'px';el.lastChild.textContent=t.tarefa||t.msg;
     el.style.opacity=(t===P&&cena)?'0':'1';
     if(t===P&&cena&&balaoFecha.style.display==='block'){balaoFecha.style.left=((v3.x+1)/2*w)+'px';balaoFecha.style.top=(((1-v3.y)/2*h)-6)+'px';}});}
 const clock=new THREE.Clock(); let ult=0;
