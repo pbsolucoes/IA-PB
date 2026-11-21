@@ -24,27 +24,28 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--marfim);color:var
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 .eyebrow{font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:500;color:var(--be)}
-.escuro .eyebrow{color:var(--bc)}
+.escuro .eyebrow{color:var(--be)}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--bronze);color:var(--esp);text-decoration:none;font-weight:600;padding:16px 26px;border-radius:999px;font-size:16px;transition:background .2s}
 .btn:hover,.btn:focus-visible{background:var(--bc)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--bc);outline-offset:3px}
 .btn.sec{background:transparent;color:inherit;border:1.5px solid currentColor}
 /* topo */
-header{position:sticky;top:0;z-index:10;background:rgba(42,33,29,.96);backdrop-filter:blur(6px)}
+header{position:sticky;top:0;z-index:10;background:rgba(253,249,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid #eadfd3}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{text-decoration:none;color:var(--marfim);display:flex;align-items:baseline;gap:8px}
-.logo b{font-family:'Playfair Display',serif;font-size:26px;color:var(--bc)}
+.logo{text-decoration:none;color:var(--esp);display:flex;align-items:baseline;gap:8px}
+.logo b{font-family:'Playfair Display',serif;font-size:26px;color:var(--bronze)}
 .logo span{font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:300}
-header nav a{color:var(--marfim);text-decoration:none;font-size:15px;margin-left:24px;opacity:.85}
-header nav a:hover{opacity:1;color:var(--bc)}
+header nav a{color:var(--esp);text-decoration:none;font-size:15px;margin-left:24px;opacity:.85}
+header nav a:hover{opacity:1;color:var(--be)}
+header nav a.btn{color:var(--esp);opacity:1}
 header .btn{padding:10px 18px;font-size:14px}
 @media(max-width:820px){header nav .lnk{display:none}}
 /* hero */
-.escuro{background:radial-gradient(110% 80% at 85% 0%,#3d2f28 0%,var(--esp) 60%);color:var(--marfim)}
+.escuro{background:radial-gradient(90% 70% at 90% 0%,#F6E9DB 0%,var(--marfim) 62%);color:var(--esp)}
 .hero{padding:88px 0 96px;position:relative;overflow:hidden}
 .hero h1{font-size:clamp(40px,7vw,76px);font-weight:600;margin:20px 0 24px;max-width:820px}
-.hero h1 em{color:var(--bc);font-weight:500}
-.hero p.lead{font-size:clamp(18px,2.2vw,21px);max-width:620px;opacity:.9;font-weight:300}
+.hero h1 em{color:var(--bronze);font-weight:500}
+.hero p.lead{font-size:clamp(18px,2.2vw,21px);max-width:620px;color:#4a3d36;font-weight:400}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 .hero svg{position:absolute;right:-40px;bottom:-20px;width:min(520px,70vw);opacity:.55;pointer-events:none}
 /* seções */
@@ -63,9 +64,10 @@ h2{font-size:clamp(30px,4.5vw,46px);font-weight:600;margin:14px 0 18px;max-width
 .passo .n{font-family:'Playfair Display',serif;font-size:44px;color:var(--be);line-height:1}
 .agente .tag{display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--be);font-weight:600;margin-bottom:12px}
 .areia{background:var(--areia)}
-.num{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,64px);font-weight:700;color:var(--bc);line-height:1}
-.res p{color:var(--marfim);opacity:.85;font-size:16px;margin-top:8px}
-.aviso{font-size:14px;opacity:.7;margin-top:28px}
+.num{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,64px);font-weight:700;color:var(--be);line-height:1}
+.res>div{background:#fff;border:1px solid #eadfd3;border-top:4px solid var(--bronze);border-radius:18px;padding:26px}
+.res p{color:#4a3d36;font-size:16px;margin-top:8px}
+.aviso{font-size:14px;color:#6e5d52;margin-top:28px}
 .seg{display:grid;gap:16px;margin-top:20px}
 .seg li{list-style:none;padding-left:28px;position:relative}
 .seg li:before{content:"";position:absolute;left:0;top:10px;width:12px;height:12px;border-radius:50%;background:var(--bronze)}
@@ -81,10 +83,11 @@ summary{cursor:pointer;font-weight:600;font-size:17px}
 details p{margin-top:12px;color:#4a3d36}
 .final{text-align:center}
 .final h2{margin-left:auto;margin-right:auto}
-.final p{max-width:560px;margin:0 auto 32px;opacity:.9}
-footer{background:#1f1815;color:#cfc4ba;font-size:14px;padding:40px 0 96px}
+.final{background:linear-gradient(180deg,var(--areia) 0%,#EFDFCC 100%)}
+.final p{max-width:560px;margin:0 auto 32px;color:#4a3d36}
+footer{background:var(--marfim);border-top:1px solid #eadfd3;color:#4a3d36;font-size:14px;padding:40px 0 96px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
-footer a{color:var(--bc)}
+footer a{color:var(--be)}
 .zap{position:fixed;right:18px;bottom:18px;z-index:20;width:58px;height:58px;border-radius:50%;background:var(--bronze);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 .zap svg{width:30px;height:30px;fill:var(--esp)}
 /* simulação: escritório de agentes */
@@ -325,7 +328,7 @@ footer a{color:var(--bc)}
 
 <footer>
   <div class="wrap">
-    <div><b style="color:var(--bc);font-family:'Playfair Display',serif;font-size:20px">PB</b> Soluções IA · Rio de Janeiro · Atendimento online · seg a sex, 9h às 18h</div>
+    <div><b style="color:var(--bronze);font-family:'Playfair Display',serif;font-size:20px">PB</b> Soluções IA · Rio de Janeiro · Atendimento online · seg a sex, 9h às 18h</div>
     <div><a href="https://www.instagram.com/pbsolucoesia/" target="_blank" rel="noopener" aria-label="Instagram @pbsolucoesia (abre em nova aba)">Instagram @pbsolucoesia</a> · <a href="https://www.linkedin.com/company/pb-servicos" target="_blank" rel="noopener" aria-label="LinkedIn da empresa (abre em nova aba)">LinkedIn</a> · <a href="mailto:falecom@pbservicos.com.br">E-mail</a></div>
     <div style="width:100%;font-size:13px;opacity:.75">Privacidade: este site não usa cookies nem formulários. Os dados que você enviar pelo WhatsApp ou e-mail são usados apenas para responder ao seu contato, conforme a LGPD.</div>
   </div>
