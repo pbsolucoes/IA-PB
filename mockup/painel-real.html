@@ -630,7 +630,7 @@ function pessoa(t){
   mesh(new THREE.SphereGeometry(.2,24,18),pele,0,0,0,cab);
   mesh(new THREE.SphereGeometry(.212,24,18,0,Math.PI*2,0,Math.PI*.55),M(t.cabelo,{roughness:.9}),0,.02,.01,cab);
   if(t.ceo) mesh(new THREE.BoxGeometry(.36,.42,.12),M(t.cabelo,{roughness:.9}),0,-.14,-.13,cab);
-  const bracos=[-1,1].map(s=>{const b=new THREE.Group();b.position.set(s*.25,.56,0);corpo.add(b);mesh(new THREE.CylinderGeometry(.06,.06,.44,10),roupa,0,-.2,0,b);mesh(new THREE.SphereGeometry(.065,10,10),pele,0,-.44,0,b);b.rotation.x=-1.1;return b;});
+  const bracos=[-1,1].map(s=>{const b=new THREE.Group();b.position.set(s*.25,.56,0);corpo.add(b);mesh(new THREE.CylinderGeometry(.06,.06,.44,10),roupa,0,-.2,0,b);mesh(new THREE.SphereGeometry(.065,10,10),pele,0,-.44,0,b);b.rotation.x=1.2;return b;});
   raiz.position.set(t.pos[0],0,t.pos[1]); scene.add(raiz);
   t.o={raiz,sentado,empe,pernas,corpo,cab,bracos};
 }
@@ -664,7 +664,7 @@ function iniciaCena(item){
   P.o.sentado.visible=false; P.o.empe.visible=true; P.o.corpo.position.set(0,.92,0); P.o.raiz.position.set(ROTA[0][0],0,ROTA[0][1]);
   P.o.bracos.forEach(b=>{b.rotation.x=0;b.rotation.z=0;});
 }
-function senta(){ P.o.sentado.visible=true; P.o.empe.visible=false; P.o.corpo.position.set(0,.6,.72); P.o.raiz.position.set(P.pos[0],0,P.pos[1]); P.o.raiz.rotation.y=0; P.o.bracos.forEach(b=>{b.rotation.x=-1.1;b.rotation.z=0;}); }
+function senta(){ P.o.sentado.visible=true; P.o.empe.visible=false; P.o.corpo.position.set(0,.6,.72); P.o.raiz.position.set(P.pos[0],0,P.pos[1]); P.o.raiz.rotation.y=0; P.o.bracos.forEach(b=>{b.rotation.x=1.2;b.rotation.z=0;}); }
 const balaoFecha=document.createElement('div'); balaoFecha.className='bub fecha'; balaoFecha.style.display='none'; document.getElementById('bubbles').append(balaoFecha);
 function andar(dt,rota){
   const vel=1.6; let a=rota[cena.seg], b=rota[cena.seg+1];
@@ -703,7 +703,7 @@ function anima(){const dt=Math.min(clock.getDelta(),.05),tm=clock.elapsedTime;
   passoCena(dt);
   TEAM.forEach((t,i)=>{const o=t.o; if(t===P&&cena)return;
     if(t.pulo>0){t.pulo=Math.max(0,t.pulo-dt*.8);const s=Math.sin((1-t.pulo)*Math.PI*3);o.corpo.position.y=.6+Math.abs(s)*.3;o.bracos.forEach((b,k)=>{b.rotation.x=-2.9;b.rotation.z=(k?-1:1)*.35*Math.abs(s);});}
-    else{o.corpo.position.y=.6+Math.sin(tm*2+i)*.008;o.bracos.forEach((b,k)=>{b.rotation.x=-1.1+Math.sin(tm*14+k*Math.PI+i)*.08;b.rotation.z=0;});}
+    else{o.corpo.position.y=.6+Math.sin(tm*2+i)*.008;o.bracos.forEach((b,k)=>{b.rotation.x=1.2+Math.sin(tm*14+k*Math.PI+i)*.08;b.rotation.z=0;});}
     o.cab.rotation.y=Math.sin(tm*.6+i*1.7)*.25; t.tela.emissiveIntensity=.6+Math.sin(tm*3+i*2)*.08;});
   if(tocando>0){tocando=Math.max(0,tocando-dt*.45);piv.rotation.z=Math.sin(tm*18)*.55*tocando;ouro.emissiveIntensity=.15+tocando*1.1;brilho.intensity=tocando*3;
     for(let i=0;i<NP;i++){pPos[i*3]+=pVel[i].x;pPos[i*3+1]+=pVel[i].y;pPos[i*3+2]+=pVel[i].z;pVel[i].y-=.0025;}pGeo.attributes.position.needsUpdate=true;parts.material.opacity=tocando;} else piv.rotation.z=0;

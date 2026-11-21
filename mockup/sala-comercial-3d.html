@@ -222,7 +222,7 @@ function pessoa(t){
   const cabelo=mesh(new THREE.SphereGeometry(.212,24,18,0,Math.PI*2,0,Math.PI*.55),M(t.cabelo,{roughness:.9}),0,.02,.01,cab);
   if(t.ceo){ mesh(new THREE.BoxGeometry(.36,.36,.12),M(t.cabelo,{roughness:.9}),0,-.12,.13,cab); }
   // braços
-  const bracos=[-1,1].map(s=>{ const b=new THREE.Group(); b.position.set(s*.25,.56,0); corpo.add(b); mesh(new THREE.CylinderGeometry(.06,.06,.44,10),roupa,0,-.2,0,b); mesh(new THREE.SphereGeometry(.065,10,10),pele,0,-.44,0,b); b.rotation.x=-1.1; return b; });
+  const bracos=[-1,1].map(s=>{ const b=new THREE.Group(); b.position.set(s*.25,.56,0); corpo.add(b); mesh(new THREE.CylinderGeometry(.06,.06,.44,10),roupa,0,-.2,0,b); mesh(new THREE.SphereGeometry(.065,10,10),pele,0,-.44,0,b); b.rotation.x=1.2; return b; });
   g.position.set(t.pos[0],0,t.pos[1]); scene.add(g);
   t.obj={g,corpo,cab,bracos}; t.pulo=0;
 }
@@ -303,7 +303,7 @@ function anima(){
   const dt=Math.min(clock.getDelta(),.05), tm=clock.elapsedTime;
   TEAM.forEach((t,i)=>{ const o=t.obj;
     if(t.pulo>0){ t.pulo=Math.max(0,t.pulo-dt*.8); const s=Math.sin((1-t.pulo)*Math.PI*3); o.corpo.position.y=.6+Math.abs(s)*.35; o.bracos.forEach(b=>b.rotation.x=-2.9); o.bracos.forEach((b,k)=>b.rotation.z=(k?-1:1)*.35*Math.abs(s)); }
-    else { o.corpo.position.y=.6+Math.sin(tm*2+i)*.008; o.bracos.forEach((b,k)=>{ b.rotation.x=-1.1+Math.sin(tm*14+k*Math.PI+i)*.08; b.rotation.z=0; }); }
+    else { o.corpo.position.y=.6+Math.sin(tm*2+i)*.008; o.bracos.forEach((b,k)=>{ b.rotation.x=1.2+Math.sin(tm*14+k*Math.PI+i)*.08; b.rotation.z=0; }); }
     o.cab.rotation.y=Math.sin(tm*.6+i*1.7)*.25; o.cab.rotation.x=Math.sin(tm*.9+i)*.05;
     t.tela.emissiveIntensity=.6+Math.sin(tm*3+i*2)*.08;
   });
