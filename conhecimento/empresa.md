@@ -33,8 +33,6 @@
 | Consultoria empresarial | Estruturação de governança e dashboards para um portfólio de 180+ clientes ativos |
 
 ## Meta Ads (para o agente de tráfego)
-- Conta de anúncios (ID): ✏️ PREENCHER
-- Página do Facebook (ID): ✏️ PREENCHER
-- Conta do Instagram ligada: @pbsolucoesia (✏️ confirmar se está ligada à Página/portfólio)
-- Teto de verba por mês: ✏️ PREENCHER (o agente nunca passa disso)
-- A chave de acesso **não** fica aqui: fica guardada no ambiente do Claude (formulário seguro).
+- Os números da conta de anúncios, da Página e o teto mensal ficam **no banco privado da Central Real** (documento `config/meta`, lido com ArtifactData em https://claude.ai/artifact/V4iscT42YcEDt1qyi4BKNS), não neste repositório público.
+- Teto definido pela Priscila em 21/11/2026: **R$ 150 por mês** (o agente nunca passa disso).
+- A chave de acesso fica guardada no ambiente do Claude (formulário seguro), nunca aqui.
