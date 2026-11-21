@@ -517,8 +517,12 @@ document.getElementById('fTar').addEventListener('submit',async ev=>{
 if(ok3d){
 const scene=new THREE.Scene(), cam=new THREE.OrthographicCamera(-1,1,1,-1,.1,200);
 let theta=Math.PI/4; const frust=20.5;
-function placeCam(){ cam.position.set(Math.cos(theta)*46,31,Math.sin(theta)*46); cam.lookAt(0,.2,0); }
-function resize(){ const w=stage.clientWidth,h=stage.clientHeight; renderer.setSize(w,h,false); const a=w/h, f=Math.max(frust,31.5/a); cam.left=-f*a/2;cam.right=f*a/2;cam.top=f/2;cam.bottom=-f/2;cam.updateProjectionMatrix(); }
+let foco={x:0,z:0,f:0}, focoAlvo=null, ultW=1, ultH=1;
+function placeCam(){ cam.position.set(foco.x+Math.cos(theta)*46,31,foco.z+Math.sin(theta)*46); cam.lookAt(foco.x,.2,foco.z); }
+function aplicaFrust(){ const a=ultW/ultH, f=foco.f||Math.max(frust,31.5/a); cam.left=-f*a/2;cam.right=f*a/2;cam.top=f/2;cam.bottom=-f/2;cam.updateProjectionMatrix(); }
+// Câmera para vídeos e demonstrações: window.salaCamera(x, z, zoom, ms). zoom = altura visível (menor = mais perto); 0 = visão geral.
+window.salaCamera=(x,z,f,ms=1400)=>{ const a=ultW/ultH; focoAlvo={x0:foco.x,z0:foco.z,f0:foco.f||Math.max(frust,31.5/a),x,z,f:f||Math.max(frust,31.5/a),fim:f,t:0,ms}; };
+function resize(){ const w=stage.clientWidth,h=stage.clientHeight; renderer.setSize(w,h,false); ultW=w; ultH=h; aplicaFrust(); }
 renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2)); renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 renderer.outputEncoding=THREE.sRGBEncoding; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05;
 stage.prepend(renderer.domElement); placeCam();
@@ -663,6 +667,8 @@ function separaBaloes(){const bs=[...document.querySelectorAll('#bubbles .bub')]
   it.forEach(o=>{o.b.style.top=o.y+'px';});}
 const clock=new THREE.Clock(); let ult=0;
 function anima(){const dt=Math.min(clock.getDelta(),.05),tm=clock.elapsedTime;
+  if(focoAlvo){ const A=focoAlvo; A.t=Math.min(1,A.t+dt*1000/A.ms); const e=A.t<.5?2*A.t*A.t:1-Math.pow(-2*A.t+2,2)/2;
+    foco.x=A.x0+(A.x-A.x0)*e; foco.z=A.z0+(A.z-A.z0)*e; foco.f=A.f0+(A.f-A.f0)*e; placeCam(); aplicaFrust(); if(A.t>=1){ if(!A.fim) foco.f=0; focoAlvo=null; } }
   passoCena(dt);
   TEAM.forEach((t,i)=>{const o=t.o; if(t===P&&cena)return;
     if(t.pulo>0){t.pulo=Math.max(0,t.pulo-dt*.8);const s=Math.sin((1-t.pulo)*Math.PI*3);o.corpo.position.y=.6+Math.abs(s)*.3;o.bracos.forEach((b,k)=>{b.rotation.x=-2.9;b.rotation.z=(k?-1:1)*.35*Math.abs(s);});}

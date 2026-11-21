@@ -90,6 +90,7 @@ footer a{color:var(--bc)}
 /* simulação: escritório de agentes */
 .sim-rotulo{display:inline-block;margin-top:22px;background:#fff;border:1px dashed var(--be);border-radius:12px;padding:10px 16px;font-size:15px;color:#4a3d36}
 .sim-rotulo b{color:var(--esp)}
+.sim-video{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:10px}.sim-video video{width:100%;max-width:420px;aspect-ratio:9/16;border-radius:24px;background:#2A211D;box-shadow:0 20px 50px rgba(42,33,29,.22)}.sim-legenda{font-size:14px;color:#6e5d52;text-align:center}
 .sim-sala{margin-top:28px;scroll-margin-top:80px;background:radial-gradient(120% 90% at 80% 0%,#3d2f28 0%,var(--esp) 65%);border-radius:24px;padding:18px;color:var(--marfim);box-shadow:0 20px 50px rgba(42,33,29,.18)}
 .sim-barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:2px 4px 16px}
 .sim-barra .t{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--bc);font-weight:500}
@@ -212,30 +213,23 @@ footer a{color:var(--bc)}
 <section id="simulacao" class="areia" aria-labelledby="t-sim">
   <div class="wrap">
     <div class="eyebrow">Veja na prática</div>
-    <h2 id="t-sim">Um dia no escritório dos agentes</h2>
-    <p class="intro">Uma mensagem chega, os agentes cuidam do repetitivo e a decisão fica com a sua equipe. Acompanhe o ciclo de um agendamento numa empresa fictícia.</p>
+    <h2 id="t-sim">A sala de operações dos agentes</h2>
+    <p class="intro">Um pedido chega, cada departamento faz a sua parte e tudo volta para quem decide aprovar. É assim que a PB Soluções IA trabalha, e é assim que estruturamos os agentes de cada empresa, depois do diagnóstico da gestão.</p>
     <p class="sim-rotulo"><b>Simulação ilustrativa.</b> Os agentes reais são configurados para cada empresa depois do diagnóstico da gestão.</p>
-    <div class="sim-sala">
-      <div class="sim-barra"><span class="t">Escritório de agentes · simulação</span><button type="button" class="sim-pausa" hidden>Pausar animação</button></div>
-      <div class="sim-mesas" aria-hidden="true">
-        <div class="mesa m-at" data-mesa="at"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Atendimento</div><div class="papel">Agente de IA</div><div class="balao ">Olá! Sou a assistente virtual desta empresa, uma IA. Vou ver os horários para você.</div></div></div>
-        <div class="mesa m-ag" data-mesa="ag"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Agendamento e confirmação</div><div class="papel">Agente de IA</div><div class="balao ok"><svg class="sino" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5v.6A6.5 6.5 0 0 1 18.5 10.5V15l2 2.5v1H3.5v-1l2-2.5v-4.5a6.5 6.5 0 0 1 5-6.4v-.6A1.5 1.5 0 0 1 12 2zm-2.2 18h4.4a2.2 2.2 0 0 1-4.4 0z"/></svg>Horário marcado</div></div></div>
-        <div class="mesa m-eq" data-mesa="eq"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><circle cx="60" cy="19" r="11" fill="#E8D6C4"/><path d="M36 55c0-15 10-24 24-24s24 9 24 24z" fill="#C3885B"/><path d="M42 41h36l5 14H37z" fill="#3a2e28"/><circle cx="60" cy="48" r="2" fill="#C3885B"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#FDF9F5" opacity=".85"/><rect x="12" y="61" width="5" height="20" fill="#cfc4ba"/><rect x="103" y="61" width="5" height="20" fill="#cfc4ba"/></svg><div><div class="nome">Equipe humana</div><div class="papel">Você aprova</div><div class="balao ok">Aprovado pela equipe</div></div></div>
-        <div class="mesa m-re" data-mesa="re"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Retorno de clientes</div><div class="papel">Agente de IA</div><div class="balao ">Lembrete programado para a véspera</div></div></div>
-        <div class="mesa m-ps" data-mesa="ps"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Pesquisa de satisfação</div><div class="papel">Agente de IA</div><div class="balao ">Pesquisa pronta para depois do atendimento</div></div></div>
-      </div>
+    <div class="sim-video">
+      <video src="sala-operacoes.mp4" poster="sala-operacoes-capa.jpg" controls playsinline muted loop preload="metadata" aria-label="Vídeo: um pedido chega, a mesa central divide as tarefas, cada departamento trabalha, a equipe aprova e o sino toca quando um contrato fecha."></video>
+      <p class="sim-legenda">Toque no vídeo para assistir. Com som, o sino toca quando o contrato fecha.</p>
     </div>
     <div class="sim-info">
       <div>
         <h3 class="serif" style="font-size:22px;margin-bottom:14px">O que acontece no ciclo</h3>
         <ol class="sim-passos">
-          <li>Chega uma nova mensagem: "Qual o horário de amanhã?"</li>
-          <li>O agente de atendimento responde e se apresenta como IA.</li>
-          <li>O pedido passa para o agente de agendamento, que separa os horários livres.</li>
-          <li>O agendamento fica aguardando aprovação da equipe.</li>
-          <li>Uma pessoa da equipe aprova.</li>
-          <li>O sino toca: horário marcado.</li>
-          <li>O agente de retorno programa o lembrete e o de satisfação prepara a pesquisa.</li>
+          <li>O pedido chega à sala, por texto ou por voz.</li>
+          <li>A mesa central divide o pedido em tarefas e direciona cada uma.</li>
+          <li>Cada departamento trabalha na sua parte: conteúdo, anúncios, conversas comerciais.</li>
+          <li>Tudo volta pronto para a mesa de quem decide.</li>
+          <li>A pessoa aprova ou pede ajuste. Nada é publicado ou enviado sem aprovação.</li>
+          <li>Quando um contrato fecha, o sino toca.</li>
         </ol>
       </div>
       <div class="sim-regras">
@@ -340,7 +334,7 @@ footer a{color:var(--bc)}
 <a class="zap" href="https://wa.me/5532991337984?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PB%20Solu%C3%A7%C3%B5es%20IA" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></svg></a>
 <script>
 (function(){
-  var sec=document.getElementById('simulacao');if(!sec)return;
+  var sec=document.getElementById('simulacao');if(!sec||!sec.querySelector('.sim-sala'))return;
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var sino=sec.querySelector('.m-ag .sino').outerHTML;
   var mesas={},passos=sec.querySelectorAll('.sim-passos li');
