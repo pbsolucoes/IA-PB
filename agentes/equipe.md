@@ -19,6 +19,12 @@
 | **Otávio** | Financeiro | `financeiro` | Finanças |
 | **Sofia** | Jurídico (rascunhos para advogado) | `juridico-contratos` | Jurídico |
 
+## Habilidades prontas de cada agente
+Cada agente usa **habilidades (skills) já testadas e instaladas** nesta conta, além das regras da PB. A lista de cada um está no fim do arquivo dele em `.claude/agents/`. Exemplos: Lucas usa o planejador de campanhas e o relatório de desempenho; Sofia usa revisão de contrato e checagem de conformidade; Theo usa as ferramentas do Canva (redimensionar e checar a marca).
+
+## O sino (DNA comercial)
+Contrato fechado = **sino**. Na sala de guerra, o botão **"🔔 Fechou contrato"** registra o contrato no funil e a Priscila caminha até o sino na sala 3D, com o balão do que foi fechado. Só a Priscila toca o sino: agente nenhum registra contrato.
+
 ## Como um pedido vira entrega
 1. **Pedido para a sala** (texto ou voz) na Central Real.
 2. **Helena** divide em tarefas e direciona para cada agente.

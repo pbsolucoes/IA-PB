@@ -423,6 +423,8 @@ function renderQuadro(){
         if(t.tipo==='prospeccao'||t.tipo==='followup') bt('Aprovei e enviei',async()=>{await muda(t,{status:'feito',enviado:new Date().toISOString()}); if(t.tipo==='prospeccao'&&db){try{await db.collection('eventos').add({tipo:'abordagem',quem:t.empresa||t.contato||'Contato',oque:'',quando:new Date().toISOString()});}catch(e){}}});
         bt('Pedir ajuste',()=>{const a=prompt('O que o agente deve mudar?');if(a&&a.trim())muda(t,{status:'fazer',ajuste:a.trim().slice(0,600)});});
       }
+      if(['prospeccao','followup','diagnostico'].includes(t.tipo)&&(k==='aprovar'||k==='feito')&&!t.contrato) bt('🔔 Fechou contrato',async()=>{const o=prompt('O que foi fechado? (ex.: Plano de gestão + 1 agente)');if(o===null)return;const quem=t.empresa||t.contato||'Cliente';try{if(db)await db.collection('eventos').add({tipo:'contrato',quem,oque:o.trim().slice(0,80),quando:new Date().toISOString()});}catch(e){}await muda(t,{status:'feito',contrato:true});if(window.fechaContrato)window.fechaContrato(quem,o.trim());document.getElementById('stage').scrollIntoView({behavior:'smooth'});});
+      if(t.contrato) c.append(el('div','selo-exec','🔔 Contrato fechado'));
       if(k==='feito') bt('Reabrir',()=>muda(t,{status:'fazer'}));
       if(k==='fazer'||k==='feito') bt('Apagar',async()=>{if(confirm('Apagar esta tarefa?')){try{await dbT.doc('tarefas/'+t.id).delete();}catch(e){}}});
       if(b.children.length)c.append(b);

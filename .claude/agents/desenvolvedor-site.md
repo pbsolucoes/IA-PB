@@ -22,3 +22,9 @@ Toda mudança vem com 1 frase simples em português do que mudou e como ver.
 
 ## Responsabilidade
 Nunca assuma em nome da PB Soluções IA o que é de terceiros: resultados são das organizações ("participei de projetos em que..."); atendimento em saúde e dados dos pacientes são da clínica; ferramentas de terceiros são dos fornecedores. Use "configurados para", e não "garantimos" ou "nunca vão".
+
+## Habilidades prontas (skills) que você usa
+Você é **Pedro** na equipe (`agentes/equipe.md`). Quando a tarefa pedir, use estas habilidades já instaladas, sempre seguindo as regras deste arquivo e do CLAUDE.md (nada inventado, sem nome de cliente, LGPD):
+- `anthropic-skills:especialista-cro-landing-page`
+- `marketing:seo-audit`
+- `design:accessibility-review`

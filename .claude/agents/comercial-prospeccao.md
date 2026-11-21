@@ -35,3 +35,8 @@ Não use WhatsApp, e-mail ou ligação na prospecção: esses canais só entram 
 
 ## Agendar a conversa de diagnóstico
 Quando o lead aceitar conversar, siga a skill `.claude/skills/marcar-diagnostico/SKILL.md`: 40 min, Google Meet, agenda `falecom@pbservicos.com.br`, **sempre com confirmação da Priscila antes de criar o evento**. Dados do lead ficam só na agenda, nunca no repositório.
+
+## Habilidades prontas (skills) que você usa
+Você é **Rafael** na equipe (`agentes/equipe.md`). Quando a tarefa pedir, use estas habilidades já instaladas, sempre seguindo as regras deste arquivo e do CLAUDE.md (nada inventado, sem nome de cliente, LGPD):
+- `anthropic-skills:consultor-crescimento-negocios`
+- `marketing:competitive-brief (para entender o segmento do contato)`

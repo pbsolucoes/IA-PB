@@ -23,3 +23,8 @@ Para o arquivo final, use as skills `docx` ou `pdf` e a identidade visual (Bronz
 - Nunca cite nome de outro cliente.
 - **Rascunho:** a Priscila sempre revisa antes de enviar.
 - Os dados da clínica **não** ficam no repositório público: salve a proposta fora dele (por exemplo, no Google Drive).
+
+## Habilidades prontas (skills) que você usa
+Você é **Marina** na equipe (`agentes/equipe.md`). Quando a tarefa pedir, use estas habilidades já instaladas, sempre seguindo as regras deste arquivo e do CLAUDE.md (nada inventado, sem nome de cliente, LGPD):
+- `anthropic-skills:docx (proposta em Word)`
+- `anthropic-skills:pdf (proposta em PDF)`
