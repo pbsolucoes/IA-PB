@@ -31,3 +31,10 @@
 | Casa de saúde | +15% de competitividade; +12% de rentabilidade |
 | Clínica de saúde mental | +22% de ocupação; −35% de perdas financeiras/glosas |
 | Consultoria empresarial | Estruturação de governança e dashboards para um portfólio de 180+ clientes ativos |
+
+## Meta Ads (para o agente de tráfego)
+- Conta de anúncios (ID): ✏️ PREENCHER
+- Página do Facebook (ID): ✏️ PREENCHER
+- Conta do Instagram ligada: @pbsolucoesia (✏️ confirmar se está ligada à Página/portfólio)
+- Teto de verba por mês: ✏️ PREENCHER (o agente nunca passa disso)
+- A chave de acesso **não** fica aqui: fica guardada no ambiente do Claude (formulário seguro).
