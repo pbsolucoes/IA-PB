@@ -503,11 +503,11 @@ function renderSugestoes(){
     const ds=el('button',null,'Descartar');ds.type='button';ds.onclick=()=>muda(t,{status:'descartada'});b.append(ac,ds);d.append(tx,b);ls.append(d);});
 }
 // Acionar os agentes na hora (tarefa agendada "Sala de guerra: rodada dos agentes")
-const TRIGGER_ID='trig_01Nv4sMun8HkiSB8zTR1fzcG'; let mcpSala=null, gatilho=null;
-async function rodarAgora(motivo){ const est=document.getElementById('rAgoraEst'); if(!mcpSala){ if(est) est.textContent='Para acionar na hora, abra o Claude e diga "rode as tarefas da sala".'; return; }
-  try{ await mcpSala.callTool('Claude Code Remote','fire_trigger',{trigger_id:TRIGGER_ID,text:motivo}); if(est) est.textContent='Agentes acionados. A rodada começa em instantes.'; }
+const TRIGGER_ID='trig_01Nv4sMun8HkiSB8zTR1fzcG', EXEC_ID='trig_01Pi3s7uE3FLcpPqtuSRWfj6'; let mcpSala=null, gatilho=null;
+async function rodarAgora(motivo,id){ const est=document.getElementById('rAgoraEst'); if(!mcpSala){ if(est) est.textContent='Para acionar na hora, abra o Claude e diga "rode as tarefas da sala".'; return; }
+  try{ await mcpSala.callTool('Claude Code Remote','fire_trigger',{trigger_id:id||TRIGGER_ID,text:motivo}); if(est) est.textContent='Agentes acionados. A rodada começa em instantes.'; }
   catch(e){ if(est) est.textContent=(e&&e.code==='not_granted')?'Permissão não dada. Você pode liberar no menu Permissões desta página.':'Não consegui acionar agora. Os agentes rodam no próximo horário.'; } }
-function agendaRodada(motivo){ clearTimeout(gatilho); gatilho=setTimeout(()=>rodarAgora(motivo),15000); const est=document.getElementById('rAgoraEst'); if(est&&mcpSala) est.textContent='Aprovado. Os agentes serão acionados em 15 segundos (dá tempo de aprovar outras).'; }
+function agendaRodada(motivo){ clearTimeout(gatilho); gatilho=setTimeout(()=>rodarAgora(motivo,EXEC_ID),15000); const est=document.getElementById('rAgoraEst'); if(est&&mcpSala) est.textContent='Aprovado. Os agentes serão acionados em 15 segundos (dá tempo de aprovar outras).'; }
 document.getElementById('rAgora').addEventListener('click',()=>rodarAgora('Rodada pedida pela Priscila pelo botão "Rodar agora" da sala.'));
 (async()=>{ let m=null; try{ m=window.claude?await window.claude.use('mcp'):null; }catch(e){m=null;} if(!m) return;
   try{ const lt=await m.listTools('Claude Code Remote'); const ok=(lt.servers||[]).some(sv=>(sv.tools||[]).some(t=>t.name==='fire_trigger')); if(!ok) return; }catch(e){ return; }

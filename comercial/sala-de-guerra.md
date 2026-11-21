@@ -35,8 +35,16 @@
 6. Gravar `sala/status` com `ultima_rodada` (agora), `resumo` (ex.: "3 tarefas prontas para aprovar") e `proxima` ("próxima rodada às 16h30").
 7. Se não houver nada para fazer, só atualizar `sala/status` ("Nenhuma tarefa nova").
 
-## Aprovou, os agentes seguem
-Ao clicar **Aprovar** numa tarefa com `execucao`, a página aciona esta rodada em 15 segundos (botão **▶ Rodar agora** também). A rodada executa as tarefas `aprovado` na hora.
+## Aprovou, os agentes seguem (com conectores)
+- **Duas tarefas agendadas:** (1) "Sala de guerra: rodada dos agentes" (7h31 e 16h31, sessão nova, **sem** conectores): divide pedidos, cria entregas, sugestões e análise; (2) "Sala de guerra: execução das aprovadas (com conectores)" (7h52 e 16h52), que roda **na conversa principal do Claude da Priscila**, onde Canva, Gmail e Google Agenda estão conectados: executa as tarefas `aprovado`.
+- Ao clicar **Aprovar** numa tarefa com `execucao`, a página aciona a tarefa (2) em 15 segundos. O botão **▶ Rodar agora** aciona a (1).
+- Se a sessão sem conectores não conseguir enviar algo ao GitHub, ela guarda o rascunho no banco (`rascunhos/…`) e a execução (2) publica.
+
+## Painel executivo (base de dados)
+- Painel: https://claude.ai/artifact/WZUrduDJJPGzNNa2cgH7Wd · base `data/executivo/dias` (1 documento por dia, id `AAAA-MM-DD`) e `data/executivo/contratos`.
+- Em cada execução (2), grave o dia de hoje (`set` no documento do dia): `abordagens`, `respostas`, `diagnosticos`, `propostas`, `contratos` (totais acumulados do funil `eventos`, **sem** registros de teste: `quem` ou `oque` com "teste"), `sugestoes`, `fila`, `para_aprovar`, `aprovadas_execucao`, `feitas` (contagem atual de `tarefas` por status) e `nota` (1 frase, opcional).
+- Para cada evento `contrato` novo (não teste), crie um documento em `data/executivo/contratos` com `data`, `segmento`, `oferta` (o que foi fechado) e, se a Priscila informar, `implantacao` e `mensalidade` (números). Sem valor informado, deixe em branco e peça em `proxima`.
+- Só números que existem nos dados. Nada de nomes de pessoas no painel.
 
 ## Ações permitidas depois da aprovação (`execucao`)
 - Enviar peça pronta ao **Canva**, na pasta certa (`marca/canva.md`).
