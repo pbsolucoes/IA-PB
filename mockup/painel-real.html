@@ -181,6 +181,7 @@ a{color:var(--accent)}
     <div class="pedido" id="pedidoBox"><div class="t">Pedido para a sala · por texto ou por voz</div>
       <textarea id="pedTxt" maxlength="1500" aria-label="Pedido para a sala" placeholder="Ex.: Helena, monta o post de amanhã para o segmento de varejo e planeja um anúncio de teste no Instagram."></textarea>
       <div class="bts"><button class="pri" id="pedEnv" type="button">Enviar para a Helena</button><button class="mic" id="pedMic" type="button" aria-pressed="false" hidden>🎙 Falar</button><span class="estado" id="pedEst"></span></div>
+      <p class="estado" id="pedDica" style="margin:8px 0 0">🎤 Para falar em vez de digitar: no celular, toque na caixa acima e use o <b>microfone do teclado</b>. No computador (Chrome), use o botão 🎙 Falar.</p>
     </div>
     <details class="nova" id="novaBox"><summary>Nova tarefa para os agentes</summary>
       <form id="fTar" autocomplete="off">
@@ -527,8 +528,9 @@ document.getElementById('pedEnv').addEventListener('click',async()=>{
   d.onPartial(({text})=>{tx.value=(base+' '+text).trim();});
   d.onFinal(({text})=>{base=(base+' '+text).trim();tx.value=base;});
   d.onState(({state,reason})=>{const on=state==='listening'||state==='starting';mic.setAttribute('aria-pressed',on);mic.textContent=on?'■ Parar':'🎙 Falar';
-    if(state==='idle'&&reason==='not_granted'){mic.hidden=true;est.textContent='Microfone não liberado. Pode digitar o pedido.';}});
-  mic.addEventListener('click',()=>{ if(d.active()){d.stop().catch(()=>{});return;} base=tx.value.trim(); d.start({language:'pt-BR'}).catch(e=>{ if(e&&e.code==='not_granted'){mic.hidden=true;est.textContent='Microfone não liberado. Pode digitar o pedido.';} }); });
+    const R={not_granted:'Microfone não liberado nesta página. Use o microfone do teclado ou digite.',dismissed:'O pedido de microfone foi fechado. Toque em 🎙 Falar de novo.',unavailable:'A voz não está disponível aqui. Use o microfone do teclado.',time_limit:'Tempo máximo de fala atingido. Toque de novo para continuar.',rate_limited:'Muitas tentativas seguidas. Espere um pouco.',upstream_error:'Falha na transcrição. Tente de novo ou digite.',hidden:'A gravação parou porque a página saiu da tela.'};
+    if(state==='idle'&&reason&&R[reason]){est.textContent=R[reason]; if(reason==='not_granted') mic.hidden=true;}});
+  mic.addEventListener('click',()=>{ if(d.active()){d.stop().catch(()=>{});return;} base=tx.value.trim(); est.textContent='Ouvindo… fale o pedido e toque em ■ Parar.'; d.start({language:'pt-BR'}).catch(e=>{ const c=e&&e.code; est.textContent=c==='not_granted'?'Microfone não liberado nesta página. Use o microfone do teclado ou digite.':c==='no_gesture'?'Toque no botão 🎙 Falar de novo.':'A voz não funcionou aqui ('+(c||'erro')+'). Use o microfone do teclado ou digite.'; if(c==='not_granted') mic.hidden=true; }); });
 })();
 
 document.getElementById('tTipo').addEventListener('change',e=>{const m={prospeccao:'Primeira mensagem',followup:'Follow-up',diagnostico:'Preparar diagnóstico',conteudo:'Post',ads:'Campanha de teste no Instagram',fluxo:'Fluxo de atendimento no WhatsApp'};const ti=document.getElementById('tTit');if(!ti.value)ti.placeholder='Ex.: '+m[e.target.value];});
