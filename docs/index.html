@@ -87,6 +87,56 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
 footer a{color:var(--bc)}
 .zap{position:fixed;right:18px;bottom:18px;z-index:20;width:58px;height:58px;border-radius:50%;background:var(--bronze);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 .zap svg{width:30px;height:30px;fill:var(--esp)}
+/* simulação: escritório de agentes */
+.sim-rotulo{display:inline-block;margin-top:22px;background:#fff;border:1px dashed var(--be);border-radius:12px;padding:10px 16px;font-size:15px;color:#4a3d36}
+.sim-rotulo b{color:var(--esp)}
+.sim-sala{margin-top:28px;scroll-margin-top:80px;background:radial-gradient(120% 90% at 80% 0%,#3d2f28 0%,var(--esp) 65%);border-radius:24px;padding:18px;color:var(--marfim);box-shadow:0 20px 50px rgba(42,33,29,.18)}
+.sim-barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:2px 4px 16px}
+.sim-barra .t{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--bc);font-weight:500}
+.sim-pausa{font:inherit;font-size:14px;font-weight:500;color:var(--marfim);background:transparent;border:1.5px solid rgba(253,249,245,.55);border-radius:999px;padding:8px 16px;cursor:pointer;min-height:40px}
+.sim-pausa:hover{border-color:var(--bc);color:var(--bc)}
+.sim-pausa:focus-visible{outline:3px solid var(--bc);outline-offset:3px}
+.sim-mesas{display:grid;gap:12px}
+@media(min-width:760px){.sim-mesas{grid-template-columns:repeat(3,1fr);grid-template-areas:"at ag eq" "re ps eq"}.m-at{grid-area:at}.m-ag{grid-area:ag}.m-eq{grid-area:eq}.m-re{grid-area:re}.m-ps{grid-area:ps}}
+.mesa{position:relative;background:rgba(253,249,245,.06);border:1px solid rgba(195,136,91,.28);border-radius:18px;padding:12px;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;align-content:start;transition:background .4s,border-color .4s,box-shadow .4s}
+@media(min-width:760px){.mesa{grid-template-columns:1fr;padding:18px}.sim-mesas .mesa svg.ilu{width:110px}}
+.mesa svg.ilu{width:64px;height:auto;display:block;margin-top:4px}
+.mesa .nome,.mesa .papel{padding-right:18px}
+.mesa .nome{font-family:'Playfair Display',serif;font-size:18px;line-height:1.2;color:var(--marfim)}
+.mesa .papel{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#d9b48f;margin-top:2px}
+.mesa .balao{position:relative;margin-top:8px;background:var(--marfim);color:var(--esp);border-radius:4px 14px 14px 14px;padding:9px 12px;font-size:14.5px;line-height:1.4;min-height:44px;transition:opacity .35s,transform .35s}
+.mesa .balao.troca{opacity:0;transform:translateY(4px)}
+.mesa .luz{position:absolute;top:14px;right:14px;width:10px;height:10px;border-radius:50%;background:#6e5d52}
+.mesa.ativa{background:rgba(171,118,70,.2);border-color:var(--bc);box-shadow:0 0 0 2px rgba(195,136,91,.35)}
+.mesa.ativa .luz{background:var(--bc);box-shadow:0 0 0 4px rgba(195,136,91,.25);animation:sim-pulso 1.2s ease-in-out infinite}
+.mesa.feito .luz{background:#9fbf8f}
+.mesa .balao.msg{background:#fff;border-left:4px solid var(--bronze)}
+.mesa .balao.espera{background:#f6e7d6}
+.mesa .balao.ok{background:#e9f1e3}
+.m-eq{border-style:dashed;border-color:rgba(253,249,245,.4)}
+.m-eq .papel{color:var(--marfim)}
+.ilu .tela{fill:#3a2e28}
+.mesa.ativa .ilu .linha{animation:sim-digita 1s steps(2) infinite}
+.sino{display:inline-block;width:22px;height:22px;vertical-align:-5px;margin-right:6px;transform-origin:50% 10%}
+.sino path{fill:var(--bronze)}
+.toca .sino{animation:sim-sino .9s ease-in-out 2}
+.sim-info{display:grid;gap:28px;margin-top:36px}
+@media(min-width:860px){.sim-info{grid-template-columns:1.1fr 1fr;align-items:start}}
+.sim-passos{list-style:none;counter-reset:p;display:grid;gap:8px}
+.sim-passos li{counter-increment:p;position:relative;padding:8px 12px 8px 44px;border-radius:10px;font-size:15.5px;color:#4a3d36;transition:background .3s}
+.sim-passos li:before{content:counter(p);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid var(--be);color:var(--be);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.sim-passos li[aria-current]{background:#fff;color:var(--esp)}
+.sim-passos li[aria-current]:before{background:var(--be);color:#fff}
+.sim-regras{background:#fff;border:1px solid #eadfd3;border-radius:18px;padding:24px}
+.sim-regras h3{font-size:22px;margin-bottom:6px}
+.sim-regras .seg{margin-top:14px;gap:12px}
+.sim-regras .seg li{font-size:15.5px;color:#4a3d36}
+.sim-cta{margin-top:22px}
+.sim-cta p{font-size:15px;color:#4a3d36;margin-bottom:12px}
+@keyframes sim-pulso{50%{box-shadow:0 0 0 7px rgba(195,136,91,0)}}
+@keyframes sim-digita{50%{opacity:.25}}
+@keyframes sim-sino{0%,100%{transform:rotate(0)}20%{transform:rotate(18deg)}40%{transform:rotate(-16deg)}60%{transform:rotate(10deg)}80%{transform:rotate(-6deg)}}
+@media(prefers-reduced-motion:reduce){.mesa,.mesa .balao,.sim-passos li{transition:none}.mesa.ativa .luz,.mesa.ativa .ilu .linha,.toca .sino{animation:none}.sim-pausa{display:none}}
 </style>
 </head>
 <body>
@@ -97,6 +147,7 @@ footer a{color:var(--bc)}
     <nav aria-label="Menu principal">
       <a class="lnk" href="#metodo">Método</a>
       <a class="lnk" href="#agentes">Agentes</a>
+      <a class="lnk" href="#simulacao">Simulação</a>
       <a class="lnk" href="#resultados">Resultados</a>
       <a class="lnk" href="#saude">Saúde</a>
       <a class="btn" href="https://wa.me/5532991337984?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PB%20Solu%C3%A7%C3%B5es%20IA" target="_blank" rel="noopener">Fale comigo</a>
@@ -154,6 +205,51 @@ footer a{color:var(--bc)}
       <div class="card agente"><span class="tag">Comercial</span><h3>Acompanhamento de clientes</h3><p>Lembra de retomar propostas e contatos, para nenhum cliente ficar esquecido.</p></div>
       <div class="card agente"><span class="tag">Operação</span><h3>Tarefas repetitivas</h3><p>Conferências, cadastros e rotinas que hoje tomam horas da equipe, seguindo o processo que desenhamos juntos.</p></div>
       <div class="card agente"><span class="tag">Gestão</span><h3>Números para decidir</h3><p>Um resumo periódico com os indicadores combinados no diagnóstico, para você decidir com dados.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="simulacao" class="areia" aria-labelledby="t-sim">
+  <div class="wrap">
+    <div class="eyebrow">Veja na prática</div>
+    <h2 id="t-sim">Um dia no escritório dos agentes</h2>
+    <p class="intro">Uma mensagem chega, os agentes cuidam do repetitivo e a decisão fica com a sua equipe. Acompanhe o ciclo de um agendamento numa empresa fictícia.</p>
+    <p class="sim-rotulo"><b>Simulação ilustrativa.</b> Os agentes reais são configurados para cada empresa depois do diagnóstico da gestão.</p>
+    <div class="sim-sala">
+      <div class="sim-barra"><span class="t">Escritório de agentes · simulação</span><button type="button" class="sim-pausa" hidden>Pausar animação</button></div>
+      <div class="sim-mesas" aria-hidden="true">
+        <div class="mesa m-at" data-mesa="at"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Atendimento</div><div class="papel">Agente de IA</div><div class="balao ">Olá! Sou a assistente virtual desta empresa, uma IA. Vou ver os horários para você.</div></div></div>
+        <div class="mesa m-ag" data-mesa="ag"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Agendamento e confirmação</div><div class="papel">Agente de IA</div><div class="balao ok"><svg class="sino" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5v.6A6.5 6.5 0 0 1 18.5 10.5V15l2 2.5v1H3.5v-1l2-2.5v-4.5a6.5 6.5 0 0 1 5-6.4v-.6A1.5 1.5 0 0 1 12 2zm-2.2 18h4.4a2.2 2.2 0 0 1-4.4 0z"/></svg>Horário marcado</div></div></div>
+        <div class="mesa m-eq" data-mesa="eq"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><circle cx="60" cy="19" r="11" fill="#E8D6C4"/><path d="M36 55c0-15 10-24 24-24s24 9 24 24z" fill="#C3885B"/><path d="M42 41h36l5 14H37z" fill="#3a2e28"/><circle cx="60" cy="48" r="2" fill="#C3885B"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#FDF9F5" opacity=".85"/><rect x="12" y="61" width="5" height="20" fill="#cfc4ba"/><rect x="103" y="61" width="5" height="20" fill="#cfc4ba"/></svg><div><div class="nome">Equipe humana</div><div class="papel">Você aprova</div><div class="balao ok">Aprovado pela equipe</div></div></div>
+        <div class="mesa m-re" data-mesa="re"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Retorno de clientes</div><div class="papel">Agente de IA</div><div class="balao ">Lembrete programado para a véspera</div></div></div>
+        <div class="mesa m-ps" data-mesa="ps"><span class="luz"></span><svg class="ilu" viewBox="0 0 120 84" aria-hidden="true"><rect x="28" y="6" width="64" height="42" rx="5" fill="#C3885B"/><rect class="tela" x="32" y="10" width="56" height="34" rx="3"/><rect x="37" y="15" width="14" height="12" rx="4" fill="#C3885B"/><circle cx="41.5" cy="21" r="1.8" fill="#2A211D"/><circle cx="46.5" cy="21" r="1.8" fill="#2A211D"/><rect class="linha" x="55" y="16" width="27" height="3" rx="1.5" fill="#AB7646"/><rect class="linha" x="55" y="23" width="20" height="3" rx="1.5" fill="#AB7646"/><rect x="37" y="32" width="45" height="3" rx="1.5" fill="#6e5d52"/><rect x="56" y="48" width="8" height="7" fill="#936431"/><rect x="4" y="55" width="112" height="6" rx="3" fill="#AB7646"/><rect x="12" y="61" width="5" height="20" fill="#936431"/><rect x="103" y="61" width="5" height="20" fill="#936431"/></svg><div><div class="nome">Pesquisa de satisfação</div><div class="papel">Agente de IA</div><div class="balao ">Pesquisa pronta para depois do atendimento</div></div></div>
+      </div>
+    </div>
+    <div class="sim-info">
+      <div>
+        <h3 class="serif" style="font-size:22px;margin-bottom:14px">O que acontece no ciclo</h3>
+        <ol class="sim-passos">
+          <li>Chega uma nova mensagem: "Qual o horário de amanhã?"</li>
+          <li>O agente de atendimento responde e se apresenta como IA.</li>
+          <li>O pedido passa para o agente de agendamento, que separa os horários livres.</li>
+          <li>O agendamento fica aguardando aprovação da equipe.</li>
+          <li>Uma pessoa da equipe aprova.</li>
+          <li>O sino toca: horário marcado.</li>
+          <li>O agente de retorno programa o lembrete e o de satisfação prepara a pesquisa.</li>
+        </ol>
+      </div>
+      <div class="sim-regras">
+        <h3>As regras que valem sempre</h3>
+        <ul class="seg">
+          <li>A IA é configurada para se apresentar como IA, logo na primeira mensagem</li>
+          <li>Passa a conversa para uma pessoa na hora certa: quando o cliente pede ou quando o assunto foge do combinado</li>
+          <li>Respeita a LGPD: coleta só o necessário, e a sua empresa continua sendo a controladora dos dados</li>
+        </ul>
+        <div class="sim-cta">
+          <p>Quer ver como seria na sua empresa? A primeira conversa de diagnóstico da gestão é gratuita.</p>
+          <a class="btn" href="https://wa.me/5532991337984?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20da%20gest%C3%A3o%20da%20minha%20empresa" target="_blank" rel="noopener">Agendar diagnóstico gratuito</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -242,5 +338,45 @@ footer a{color:var(--bc)}
 </footer>
 
 <a class="zap" href="https://wa.me/5532991337984?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20PB%20Solu%C3%A7%C3%B5es%20IA" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></svg></a>
+<script>
+(function(){
+  var sec=document.getElementById('simulacao');if(!sec)return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var sino=sec.querySelector('.m-ag .sino').outerHTML;
+  var mesas={},passos=sec.querySelectorAll('.sim-passos li');
+  sec.querySelectorAll('.mesa').forEach(function(m){mesas[m.dataset.mesa]=m});
+  var ocioso={at:'Online, aguardando mensagens',ag:'Agenda aberta',eq:'Equipe disponível',re:'Em espera',ps:'Em espera'};
+  var etapas=[
+    {m:'at',p:0,c:'msg',t:'Nova mensagem: “Qual o horário de amanhã?”'},
+    {m:'at',p:1,t:'Olá! Sou a assistente virtual desta empresa, uma IA. Vou ver os horários para você.'},
+    {m:'ag',p:2,t:'Recebido do Atendimento. Separando horários livres de amanhã…'},
+    {m:'eq',p:3,c:'espera',t:'Aguardando aprovação da equipe'},
+    {m:'eq',p:4,c:'ok',t:'Aprovado pela equipe ✓'},
+    {m:'ag',p:5,c:'ok',t:sino+'Horário marcado',toca:1},
+    {m:'re',p:6,t:'Lembrete programado para a véspera'},
+    {m:'ps',p:6,t:'Pesquisa pronta para depois do atendimento'}
+  ];
+  var i=-1,timer=null,pausado=false,visivel=true;
+  var btn=sec.querySelector('.sim-pausa');btn.hidden=false;
+  function balao(k,html,c){var b=mesas[k].querySelector('.balao');b.classList.add('troca');setTimeout(function(){b.className='balao'+(c?' '+c:'');b.innerHTML=html},250)}
+  function zera(){Object.keys(mesas).forEach(function(k){mesas[k].classList.remove('ativa','feito','toca');balao(k,ocioso[k])});passos.forEach(function(li){li.removeAttribute('aria-current')})}
+  function passo(){
+    i++;
+    if(i>=etapas.length){i=-1;zera();timer=setTimeout(tique,1800);return}
+    var e=etapas[i];
+    Object.keys(mesas).forEach(function(k){if(mesas[k].classList.contains('ativa')&&k!==e.m){mesas[k].classList.remove('ativa');mesas[k].classList.add('feito')}});
+    mesas[e.m].classList.remove('feito','toca');mesas[e.m].classList.add('ativa');
+    if(e.toca)setTimeout(function(){mesas.ag.classList.add('toca')},300);
+    balao(e.m,e.t,e.c);
+    passos.forEach(function(li,n){if(n===e.p)li.setAttribute('aria-current','step');else li.removeAttribute('aria-current')});
+    timer=setTimeout(tique,i===etapas.length-1?3400:2600);
+  }
+  function tique(){timer=null;if(!pausado&&visivel)passo()}
+  function retoma(){if(!timer&&!pausado&&visivel)timer=setTimeout(tique,600)}
+  btn.addEventListener('click',function(){pausado=!pausado;btn.textContent=pausado?'Retomar animação':'Pausar animação';if(pausado){clearTimeout(timer);timer=null}else retoma()});
+  if('IntersectionObserver' in window){new IntersectionObserver(function(en){visivel=en[0].isIntersecting;if(!visivel){clearTimeout(timer);timer=null}else retoma()}).observe(sec.querySelector('.sim-sala'))}
+  zera();retoma();
+})();
+</script>
 </body>
 </html>
