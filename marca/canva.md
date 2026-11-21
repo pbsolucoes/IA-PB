@@ -22,7 +22,7 @@
 
 ## Peças já na pasta Peças das redes
 - **Subpasta 5 · Campanha Onde trava?** (`FAHbgQWpJYo`): 4 carrosséis de 6 páginas: Serviços `DAHbgT70BEU`, Varejo `DAHbgY2EcH0`, Educação `DAHbgRoSt2Q`, Beleza `DAHbgUHZeRk`. Fonte: `pecas/fonte/onde-trava.html` → `node pecas/renderizar-onde-trava.js`.
-- **Subpasta 2 · LinkedIn** (`FAHbf2HKPks`) tem as 6 imagens do calendário, com a data no nome: 24/11, 26/11, 01/12, 03/12, 08/12 e 10/12; mais o carrossel de 10/12 em 6 páginas (`DAHbgBobioQ`, opcional) e os 2 banners.
+- **Subpasta 2 · LinkedIn** (`FAHbf2HKPks`) tem as 6 imagens do calendário, com a data no nome: 24/11, 26/11, 01/12, 03/12, 08/12 e 10/12; mais o carrossel de 10/12 em 6 páginas (`DAHbgBobioQ`, opcional) e os 2 banners. Também tem os 4 carrosséis da campanha "Onde trava?" para o LinkedIn, em documento de 6 páginas: 15/12 Serviços `DAHbgR63UZ8`, 17/12 Educação `DAHbgdi6E7Y`, 06/01 Varejo `DAHbgZ2i-cA` e 08/01 Beleza `DAHbgWUh6LM`.
 - Carrosséis como design único de 6 páginas (subpasta 1): Post 06 `DAHbf0uojfw` e Post 09 `DAHbf4OYWi8`, importados de `pecas/carrosseis/carrossel-post-6.pdf` e `-9.pdf`. Carrossel novo: gere o PDF com as páginas na ordem e importe com `import-design-from-url`.
 Organizadas em 4 subpastas (peça nova vai direto para a subpasta certa):
 
