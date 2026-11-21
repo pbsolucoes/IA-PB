@@ -113,6 +113,34 @@ a{color:var(--accent)}
 .card .bts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .card .bts button{padding:5px 11px;font-size:12.5px}
 .card.atrasada{border-color:var(--bad)}
+/* ===== Pedido para a sala + equipe ===== */
+.pedido{margin-top:14px;background:#14100e;border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.pedido .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);font-weight:700;display:flex;align-items:center;gap:8px}
+.pedido .t:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.pedido textarea{margin-top:10px;width:100%;min-height:84px;background:transparent;border:0;color:var(--fg);font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.35;resize:vertical}
+.pedido textarea:focus{outline:none}
+.pedido .bts{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.pedido .mic[aria-pressed="true"]{background:var(--bad);border-color:var(--bad);color:#1b1512}
+.pronto{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ok);background:rgba(143,196,141,.12);border:1px solid rgba(143,196,141,.4);border-radius:999px;padding:2px 10px;margin-bottom:6px}
+.selo-exec{margin-top:8px;font-size:12.5px;color:var(--gold);font-weight:600}
+.equipe{display:grid;gap:12px;margin-top:14px}
+@media(min-width:700px){.equipe{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1050px){.equipe{grid-template-columns:repeat(3,1fr)}}
+.ag2{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}
+.ag2 .barra{height:5px}
+.ag2 .cab{display:flex;gap:12px;align-items:center;padding:12px 14px 6px}
+.ag2 .av{flex:none;width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:24px;font-weight:700;color:#1b1512}
+.ag2 .dep{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.ag2 h4{font-family:var(--display);font-size:20px;margin:0;line-height:1.1}
+.ag2 .fn{font-size:13px;color:var(--muted)}
+.ag2 .st{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:4px}
+.ag2 .st:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ag2 ul{list-style:none;margin:0;padding:4px 14px 12px;font-size:13px}
+.ag2 li{display:flex;gap:8px;padding:5px 0;border-top:1px solid var(--line);min-width:0}
+.ag2 li time{color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+.ag2 li span{overflow-wrap:anywhere}
+.ag2 .vazio{color:var(--muted);font-size:13px;padding:6px 14px 12px}
+
 </style>
 
 <div class="wrap">
@@ -139,8 +167,12 @@ a{color:var(--accent)}
   <section aria-labelledby="t-guerra">
     <div class="eyebrow">Ao vivo · os agentes trabalham às 7h30 e às 16h30 (dias úteis)</div>
     <h2 id="t-guerra">Sala de guerra comercial</h2>
-    <p class="lead">Crie uma tarefa e os agentes pegam na próxima rodada. O que eles produzem volta para a coluna <b>Para você aprovar</b>. Nenhuma mensagem é enviada por eles: quem envia é você.</p>
+    <p class="lead">Faça um pedido para a sala (ou crie uma tarefa direto). A Helena divide entre os agentes, eles trabalham e a entrega volta em <b>Pronto · na tua mesa</b>. Você aprova ou pede ajuste. Depois de aprovado, eles executam o combinado (Canva, lembrete na agenda, rascunho no Gmail). Publicar, enviar mensagens e gastar verba continuam com você.</p>
     <div class="rodada" id="rodada"><span>Última rodada dos agentes: <b id="rUlt">ainda não rodou</b></span><span id="rRes" class="estado"></span></div>
+    <div class="pedido" id="pedidoBox"><div class="t">Pedido para a sala · por texto ou por voz</div>
+      <textarea id="pedTxt" maxlength="1500" aria-label="Pedido para a sala" placeholder="Ex.: Helena, monta o post de amanhã para o segmento de varejo e planeja um anúncio de teste no Instagram."></textarea>
+      <div class="bts"><button class="pri" id="pedEnv" type="button">Enviar para a Helena</button><button class="mic" id="pedMic" type="button" aria-pressed="false" hidden>🎙 Falar</button><span class="estado" id="pedEst"></span></div>
+    </div>
     <details class="nova" id="novaBox"><summary>Nova tarefa para os agentes</summary>
       <form id="fTar" autocomplete="off">
         <label for="tTipo">Tipo
@@ -149,6 +181,8 @@ a{color:var(--accent)}
             <option value="followup">Follow-up</option>
             <option value="diagnostico">Diagnóstico e proposta</option>
             <option value="conteudo">Conteúdo</option>
+            <option value="ads">Tráfego (Meta Ads)</option>
+            <option value="fluxo">Fluxos e automação</option>
           </select>
         </label>
         <label for="tCanal">Canal
@@ -174,6 +208,9 @@ a{color:var(--accent)}
     </details>
     <p class="aviso">LGPD: só nome e empresa. Não coloque telefone, e-mail, CPF nem dados de saúde. Apague as tarefas encerradas que não precisar mais.</p>
     <div class="quadro" id="quadro"></div>
+    <h3 style="font-family:var(--display);font-size:24px;margin:30px 0 0">A equipe</h3>
+    <p class="lead" style="margin:4px 0 0">Cada agente com nome, função e as últimas ações reais desta sala. Todos se apresentam como IA quando falam com alguém de fora.</p>
+    <div class="equipe" id="equipe"></div>
   </section>
 
   <section aria-labelledby="t-fun">
@@ -330,11 +367,14 @@ let ok3d=!!window.THREE, renderer=null;
 if(ok3d){ try{ renderer=new THREE.WebGLRenderer({antialias:true,alpha:true}); }catch(e){ ok3d=false; } }
 if(!ok3d){ document.getElementById('erro').style.display='flex'; document.getElementById('tag').style.display='none'; }
 const TEAM=[
-  {id:'prosp',nome:'Prospecção',cor:0x6f9cc4,cabelo:0x2a2a3a,pele:0xe3b48c,pos:[-3.2,-1.6]},
+  {id:'prosp',nome:'Rafael · Prospecção',cor:0x6f9cc4,cabelo:0x2a2a3a,pele:0xe3b48c,pos:[-3.2,-1.6]},
   {id:'pri',nome:'Priscila · CEO',cor:0xAB7646,cabelo:0x3a2416,pele:0xd9a27a,pos:[1.0,-1.6],ceo:true},
-  {id:'prop',nome:'Propostas',cor:0x7fb87d,cabelo:0x5a3b24,pele:0xc98f68,pos:[-3.2,1.2]},
-  {id:'jur',nome:'Jurídico',cor:0xa98ad1,cabelo:0x1f1a18,pele:0xf0c9a6,pos:[1.0,1.2]},
-  {id:'fin',nome:'Financeiro',cor:0xd9c3a5,cabelo:0x6b4a2e,pele:0xb97d58,pos:[4.2,-0.2]}
+  {id:'prop',nome:'Marina · Propostas',cor:0x7fb87d,cabelo:0x5a3b24,pele:0xc98f68,pos:[-3.2,1.2],ceo:true},
+  {id:'jur',nome:'Sofia · Jurídico',cor:0xa98ad1,cabelo:0x1f1a18,pele:0xf0c9a6,pos:[1.0,1.2],ceo:true},
+  {id:'fin',nome:'Otávio · Financeiro',cor:0xd9c3a5,cabelo:0x6b4a2e,pele:0xb97d58,pos:[4.2,-0.2]},
+  {id:'central',nome:'Helena · Mesa central',cor:0x2f6f5e,cabelo:0x2a1a12,pele:0xe0b08a,pos:[-3.2,-3.4],ceo:true},
+  {id:'ads',nome:'Lucas · Tráfego',cor:0xd9774a,cabelo:0x1c1c1c,pele:0xc58b63,pos:[4.2,2.4]},
+  {id:'flu',nome:'Davi · Fluxos',cor:0x4f6fb0,cabelo:0x3b2a1e,pele:0xdcae86,pos:[4.2,-2.8]}
 ];
 TEAM.forEach(t=>t.msg='');
 function atualizaBaloes(c){
@@ -344,11 +384,12 @@ function atualizaBaloes(c){
   T.prop.msg  = c.proposta ? `${c.proposta} proposta(s) enviada(s)` : 'Modelos de proposta prontos';
   T.jur.msg   = 'Rascunhos para advogado';
   T.fin.msg   = c.contrato ? `${c.contrato} cliente(s) no caixa` : 'Planilha de caixa pronta';
+  T.central.msg = 'Pronta para dividir pedidos'; T.ads.msg = 'Planejando campanhas'; T.flu.msg = 'Desenhando fluxos';
 }
 
 // ===================== SALA DE GUERRA (db: tarefas, sala/status) =====================
-const TIPOS={prospeccao:{n:'Prospecção',ag:'comercial-prospeccao',team:'prosp'},followup:{n:'Follow-up',ag:'comercial-prospeccao',team:'prosp'},diagnostico:{n:'Diagnóstico e proposta',ag:'redator-propostas',team:'prop'},conteudo:{n:'Conteúdo',ag:'social-media + redator-copy + designer-pecas',team:null}};
-const COLS=[['fazer','A fazer'],['andamento','Agentes trabalhando'],['aprovar','Para você aprovar'],['feito','Feito']];
+const TIPOS={pedido:{n:'Pedido para a sala',ag:'mesa-central',team:'central'},prospeccao:{n:'Prospecção',ag:'comercial-prospeccao',team:'prosp'},followup:{n:'Follow-up',ag:'comercial-prospeccao',team:'prosp'},diagnostico:{n:'Diagnóstico e proposta',ag:'redator-propostas',team:'prop'},conteudo:{n:'Conteúdo',ag:'social-media + redator-copy + designer-pecas',team:null},ads:{n:'Tráfego (Meta Ads)',ag:'trafego-ads',team:'ads'},fluxo:{n:'Fluxos e automação',ag:'fluxos-automacao',team:'flu'}};
+const COLS=[['fazer','A fazer'],['andamento','Agentes trabalhando'],['aprovar','Pronto · na tua mesa'],['feito','Aprovado e feito']];
 let tarefas=[], dbT=null;
 const quadro=document.getElementById('quadro');
 function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
@@ -358,7 +399,7 @@ function renderQuadro(){
   quadro.innerHTML='';
   const hoje=new Date().toISOString().slice(0,10);
   COLS.forEach(([k,nome])=>{
-    const lista=tarefas.filter(t=>(t.status||'fazer')===k);
+    const lista=tarefas.filter(t=>{const st=t.status||'fazer';return k==='feito'?(st==='feito'||st==='aprovado'):st===k;});
     const col=el('div','col '+k); const h=el('h3',null,nome); h.append(el('span',null,String(lista.length))); col.append(h);
     if(!lista.length) col.append(el('div','vazio',k==='aprovar'?'Nada esperando por você.':'—'));
     lista.forEach(t=>{
@@ -371,11 +412,14 @@ function renderQuadro(){
       if(t.ajuste){c.append(el('div','rot','Seu pedido de ajuste'),el('div','txt',t.ajuste));}
       if(t.resultado){c.append(el('div','rot','Entrega do agente'));const r=el('div','txt',t.resultado);c.append(r);}
       if(t.proxima){c.append(el('div','rot','Próximo passo'),el('div','meta',t.proxima));}
+      if(t.execucao){c.append(el('div','rot',t.status==='feito'?'Executado depois da aprovação':'Depois que você aprovar, os agentes vão'),el('div','meta',t.execucao_feita||t.execucao));}
+      if(t.status==='aprovado'){c.append(el('div','selo-exec','Aprovado · os agentes executam na próxima rodada'));}
+      if(k==='aprovar'){c.insertBefore(el('div','pronto','✓ Pronto · na tua mesa'),c.firstChild);}
       const b=el('div','bts');
       const bt=(x,f,cls)=>{const e=el('button',cls,x);e.type='button';e.onclick=f;b.append(e);};
-      if(t.resultado) bt('Copiar entrega',()=>{try{navigator.clipboard.writeText(t.resultado);}catch(e){}},'pri');
+      if(t.resultado) bt('Copiar entrega',()=>{try{navigator.clipboard.writeText(t.resultado);}catch(e){}});
       if(k==='aprovar'){
-        bt('Aprovar',()=>muda(t,{status:'feito'}));
+        bt('Aprovar',()=>muda(t,{status:t.execucao?'aprovado':'feito',aprovado_em:new Date().toISOString()}),'pri');
         if(t.tipo==='prospeccao'||t.tipo==='followup') bt('Aprovei e enviei',async()=>{await muda(t,{status:'feito',enviado:new Date().toISOString()}); if(t.tipo==='prospeccao'&&db){try{await db.collection('eventos').add({tipo:'abordagem',quem:t.empresa||t.contato||'Contato',oque:'',quando:new Date().toISOString()});}catch(e){}}});
         bt('Pedir ajuste',()=>{const a=prompt('O que o agente deve mudar?');if(a&&a.trim())muda(t,{status:'fazer',ajuste:a.trim().slice(0,600)});});
       }
@@ -389,6 +433,7 @@ function renderQuadro(){
   // balões da sala 3D mostram a tarefa em andamento de cada mesa
   TEAM.forEach(tm=>tm.tarefa='');
   tarefas.filter(t=>t.status==='andamento'||t.status==='aprovar').forEach(t=>{const id=(TIPOS[t.tipo]||{}).team;const tm=TEAM.find(x=>x.id===id);if(tm&&!tm.tarefa)tm.tarefa=(t.status==='aprovar'?'Para aprovar: ':'Trabalhando: ')+(t.titulo||'').slice(0,34);});
+  renderEquipe();
   const pa=tarefas.filter(t=>t.status==='aprovar').length; const pri=TEAM.find(x=>x.id==='pri'); if(pri&&pa) pri.tarefa=pa+' tarefa(s) para aprovar';
 }
 (async()=>{
@@ -398,7 +443,58 @@ function renderQuadro(){
   dbT.collection('tarefas').orderBy('criado','desc').limit(300).onSnapshot(sn=>{clearTimeout(tm);tarefas=sn.docs.map(d=>Object.assign({id:d.id},d.data()));renderQuadro();},()=>{clearTimeout(tm);quadro.innerHTML='<p class="estado">Não foi possível ler as tarefas agora.</p>';});
   dbT.doc('sala/status').onSnapshot(s=>{ if(s.exists){const d=s.data(); document.getElementById('rUlt').textContent=fmt(d.ultima_rodada)||'ainda não rodou'; document.getElementById('rRes').textContent=d.resumo||'';} },()=>{});
 })();
-document.getElementById('tTipo').addEventListener('change',e=>{const m={prospeccao:'Primeira mensagem',followup:'Follow-up',diagnostico:'Preparar diagnóstico',conteudo:'Post'};const ti=document.getElementById('tTit');if(!ti.value)ti.placeholder='Ex.: '+m[e.target.value];});
+
+const EQUIPE=[
+  {nome:'Helena',fn:'Chefe de operações · mesa central',dep:'Operação',cor:'#2f6f5e',tipos:['pedido']},
+  {nome:'Rafael',fn:'Prospecção e follow-up',dep:'Comercial',cor:'#6f9cc4',tipos:['prospeccao','followup']},
+  {nome:'Marina',fn:'Diagnóstico e propostas',dep:'Receita',cor:'#7fb87d',tipos:['diagnostico']},
+  {nome:'Nina',fn:'Social media',dep:'Marketing',cor:'#c3885b',tipos:['conteudo'],por:['social-media','Nina']},
+  {nome:'Bia',fn:'Copy',dep:'Marketing',cor:'#e2b25a',tipos:[],por:['redator-copy','Bia']},
+  {nome:'Theo',fn:'Arte e Canva',dep:'Marketing',cor:'#d08a6a',tipos:[],por:['designer-pecas','Theo']},
+  {nome:'Lucas',fn:'Tráfego (Meta Ads)',dep:'Marketing',cor:'#d9774a',tipos:['ads']},
+  {nome:'Davi',fn:'Fluxos e automação',dep:'Operação',cor:'#4f6fb0',tipos:['fluxo']},
+  {nome:'Júlia',fn:'Estratégia de marca',dep:'Marketing',cor:'#b58fc9',tipos:[],por:['estrategista-marca','Júlia']},
+  {nome:'Pedro',fn:'Site',dep:'Marketing',cor:'#8aa6c1',tipos:[],por:['desenvolvedor-site','Pedro']},
+  {nome:'Otávio',fn:'Financeiro',dep:'Finanças',cor:'#d9c3a5',tipos:[],por:['financeiro','Otávio']},
+  {nome:'Sofia',fn:'Jurídico (rascunhos para advogado)',dep:'Jurídico',cor:'#a98ad1',tipos:[],por:['juridico-contratos','Sofia']}
+];
+const ST_ROT={fazer:'na fila',andamento:'trabalhando',aprovar:'pronto p/ você',aprovado:'executando',feito:'feito'};
+function renderEquipe(){
+  const box=document.getElementById('equipe'); if(!box) return; box.innerHTML='';
+  EQUIPE.forEach(a=>{
+    const minhas=tarefas.filter(t=>a.tipos.includes(t.tipo)||(a.por||[]).some(p=>(t.por||'').includes(p)||(t.agente||'').includes(p)))
+      .sort((x,y)=>(y.atualizado||y.criado||'').localeCompare(x.atualizado||x.criado||''));
+    const trab=minhas.some(t=>t.status==='andamento'||t.status==='aprovado'), esp=minhas.some(t=>t.status==='aprovar');
+    const c=el('article','ag2'); const b=el('div','barra'); b.style.background=a.cor; c.append(b);
+    const cab=el('div','cab'); const av=el('div','av',a.nome[0]); av.style.background=a.cor; av.setAttribute('aria-hidden','true');
+    const tx=el('div'); const dp=el('div','dep',a.dep); dp.style.color=a.cor;
+    const st=el('div','st',trab?'Trabalhando':esp?'Esperando você':'Disponível'); st.style.color=trab?'var(--ok)':esp?'var(--gold)':'var(--muted)';
+    tx.append(dp,el('h4',null,a.nome),el('div','fn',a.fn),st); cab.append(av,tx); c.append(cab);
+    if(minhas.length){const ul=el('ul');minhas.slice(0,3).forEach(t=>{const li=el('li');const d=new Date(t.atualizado||t.criado);li.append(el('time',null,d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})),el('span',null,(t.titulo||'Tarefa')+' · '+(ST_ROT[t.status]||t.status)));ul.append(li);});c.append(ul);}
+    else c.append(el('div','vazio','Sem tarefas nesta sala ainda.'));
+    box.append(c);
+  });
+}
+// Pedido para a sala
+document.getElementById('pedEnv').addEventListener('click',async()=>{
+  const tx=document.getElementById('pedTxt'), est=document.getElementById('pedEst'), v=tx.value.trim();
+  if(!v){est.textContent='Escreva ou fale o pedido primeiro.';return;} if(!dbT){est.textContent='Abra esta página logada no claude.ai para enviar.';return;}
+  const b=document.getElementById('pedEnv'); b.disabled=true; const agora=new Date().toISOString();
+  try{ await dbT.collection('tarefas').add({titulo:v.length>70?v.slice(0,67)+'…':v,tipo:'pedido',agente:'mesa-central',canal:'—',contato:'',empresa:'',detalhes:v,prazo:'',status:'fazer',resultado:'',criado:agora,atualizado:agora,por:'Priscila'});
+    tx.value=''; est.textContent='Pedido enviado. A Helena divide entre os agentes na próxima rodada.';
+  }catch(e){ est.textContent='Não consegui enviar agora. Tente de novo.'; }
+  b.disabled=false;
+});
+(async()=>{ let d=null; try{ d=window.claude?await window.claude.use('dictation'):null; }catch(e){d=null;} if(!d) return;
+  const mic=document.getElementById('pedMic'), tx=document.getElementById('pedTxt'), est=document.getElementById('pedEst'); mic.hidden=false; let base='';
+  d.onPartial(({text})=>{tx.value=(base+' '+text).trim();});
+  d.onFinal(({text})=>{base=(base+' '+text).trim();tx.value=base;});
+  d.onState(({state,reason})=>{const on=state==='listening'||state==='starting';mic.setAttribute('aria-pressed',on);mic.textContent=on?'■ Parar':'🎙 Falar';
+    if(state==='idle'&&reason==='not_granted'){mic.hidden=true;est.textContent='Microfone não liberado. Pode digitar o pedido.';}});
+  mic.addEventListener('click',()=>{ if(d.active()){d.stop().catch(()=>{});return;} base=tx.value.trim(); d.start({language:'pt-BR'}).catch(e=>{ if(e&&e.code==='not_granted'){mic.hidden=true;est.textContent='Microfone não liberado. Pode digitar o pedido.';} }); });
+})();
+
+document.getElementById('tTipo').addEventListener('change',e=>{const m={prospeccao:'Primeira mensagem',followup:'Follow-up',diagnostico:'Preparar diagnóstico',conteudo:'Post',ads:'Campanha de teste no Instagram',fluxo:'Fluxo de atendimento no WhatsApp'};const ti=document.getElementById('tTit');if(!ti.value)ti.placeholder='Ex.: '+m[e.target.value];});
 document.getElementById('fTar').addEventListener('submit',async ev=>{
   ev.preventDefault(); if(!dbT) return;
   const g=id=>document.getElementById(id).value.trim(); const tipo=g('tTipo');
@@ -440,7 +536,7 @@ placa.position.set(-W/2+.02,2.0,-1.8); placa.rotation.y=Math.PI/2; scene.add(pla
 const tap=new THREE.Mesh(new THREE.PlaneGeometry(3,2.4),new THREE.MeshStandardMaterial({map:tex(512,512,(g,w,h)=>{g.fillStyle='#6d4633';g.fillRect(0,0,w,h);g.strokeStyle='#C3885B';g.lineWidth=14;g.strokeRect(28,28,w-56,h-56);}),roughness:1}));
 tap.rotation.x=-Math.PI/2; tap.position.set(-1.1,.01,3.0); tap.receiveShadow=true; scene.add(tap);
 function planta(x,z,s=1){const g=new THREE.Group();mesh(new THREE.CylinderGeometry(.22*s,.17*s,.42*s,20),M(0xb07a52,{roughness:.5}),0,.21*s,0,g);[[0,.75,0,.32],[.18,.62,.1,.24],[-.16,.66,-.08,.26],[.05,.95,-.1,.22]].forEach(([a,b,c,r],i)=>mesh(new THREE.IcosahedronGeometry(r*s,1),M(i%2?0x6aac63:0x4f8f4c,{roughness:.8}),a*s,b*s,c*s,g));g.position.set(x,0,z);scene.add(g);}
-planta(-5.4,-3.6,1.2);planta(5.4,-3.6,1.1);planta(-5.4,3.6,.9);planta(5.3,3.4,1);
+planta(-5.4,-3.6,1.2);planta(5.4,-3.6,1.1);planta(-5.4,3.6,.9);planta(5.4,1.3,1);
 const pern=M(0x2A211D,{metalness:.5,roughness:.4});
 [[-1.1,-.2],[2.6,-.2]].forEach(([x,z])=>{mesh(new THREE.CylinderGeometry(.01,.01,1.3,6),M(0x222222),x,3.6,z);mesh(new THREE.ConeGeometry(.35,.3,24,1,true),M(0x2A211D,{side:THREE.DoubleSide,metalness:.4}),x,2.85,z);const pl=new THREE.PointLight(0xffd9a0,.6,7,2);pl.position.set(x,2.6,z);scene.add(pl);});
 function mesa(x,z){const g=new THREE.Group();mesh(new THREE.BoxGeometry(1.9,.08,1),M(0xe6d5bd,{roughness:.55}),0,.78,0,g);[[-.88,-.42],[.88,-.42],[-.88,.42],[.88,.42]].forEach(([a,b])=>mesh(new THREE.BoxGeometry(.06,.78,.06),pern,a,.39,b,g));
