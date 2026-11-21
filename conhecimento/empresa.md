@@ -8,7 +8,7 @@
 - **LinkedIn da empresa:** https://www.linkedin.com/company/pb-servicos (página da empresa; nome muda para PB Soluções IA, a URL continua)
 - **LinkedIn:** linkedin.com/in/priscilablandy
 - **WhatsApp comercial (link da bio e CTAs):** https://wa.me/5532991337984
-- **Primeira conversa:** diagnóstico da gestão, 30 a 40 min, por Google Meet (agenda "falecompb"). ✏️ Link público de agendamento: PREENCHER
+- **Primeira conversa:** diagnóstico da gestão, 30 a 40 min, por Google Meet (agenda falecom), **gratuita** (confirmado pela Priscila em 21/11/2026). Capacidade: até 5 conversas por semana. ✏️ Link público de agendamento: PREENCHER
 - **Horário de atendimento humano:** segunda a sexta, 9h às 18h (horário de Brasília)
 - **E-mail oficial:** falecom@pbservicos.com.br (site, assinatura, Google, WhatsApp Business)
 
