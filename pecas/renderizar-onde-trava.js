@@ -1,0 +1,29 @@
+// Campanha "Onde trava?": node pecas/renderizar-onde-trava.js
+// Gera png/onde-trava/<segmento>-01..06.png e carrosseis/onde-trava-<segmento>.pdf (6 páginas, para importar no Canva).
+// Confere: Playfair carregada, fonte mínima 24 px, texto dentro da margem de 80 px.
+const { chromium } = require('playwright'); const path = require('path'), fs = require('fs');
+const { execFileSync } = require('child_process');
+const out = path.join(__dirname, 'png', 'onde-trava'); fs.mkdirSync(out, { recursive: true });
+fs.mkdirSync(path.join(__dirname, 'carrosseis'), { recursive: true });
+(async () => {
+  const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1350 } });
+  await p.goto('file://' + path.join(__dirname, 'fonte', 'onde-trava.html'), { waitUntil: 'networkidle' });
+  const ok = await p.evaluate(async () => { await document.fonts.ready; return [...document.fonts].some(f => f.family.includes('Playfair') && f.status === 'loaded'); });
+  if (!ok) console.warn('⚠️  Playfair NÃO carregou');
+  const erros = await p.evaluate(() => { const e = [];
+    document.querySelectorAll('.s').forEach(s => { const b = s.getBoundingClientRect();
+      s.querySelectorAll('*').forEach(el => { if (![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) return;
+        if (el.closest('.big')) return;
+        const fs = parseFloat(getComputedStyle(el).fontSize); if (fs < 21) e.push(`${s.id}: fonte ${fs}px "${el.textContent.trim().slice(0,25)}"`);
+        const r = document.createRange(); r.selectNodeContents(el);
+        [...r.getClientRects()].filter(x => x.width > 1).forEach(x => { if (!el.closest('.cel') && (x.left < b.left + 79 || x.right > b.right - 79 || x.bottom > b.bottom - 60)) e.push(`${s.id}: fora da margem "${el.textContent.trim().slice(0,25)}"`); });
+      }); }); return [...new Set(e)]; });
+  const ids = await p.$$eval('.s', els => els.map(e => e.id));
+  for (const id of ids) await p.locator('#' + id).screenshot({ path: path.join(out, id + '.png') });
+  await b.close();
+  for (const seg of [...new Set(ids.map(i => i.split('-')[0]))]) {
+    execFileSync('python3', ['-c', `import sys\nfrom PIL import Image\nf=sys.argv[2:]\nims=[Image.open(x).convert('RGB') for x in f]\nims[0].save(sys.argv[1],save_all=True,append_images=ims[1:],resolution=72,quality=95)`,
+      path.join(__dirname, 'carrosseis', `onde-trava-${seg}.pdf`), ...[1,2,3,4,5,6].map(n => path.join(out, `${seg}-0${n}.png`))]);
+  }
+  console.log(ids.length, 'slides', erros.length ? '\n' + erros.join('\n') : 'QA ok');
+})();
