@@ -113,6 +113,13 @@ a{color:var(--accent)}
 .card .bts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .card .bts button{padding:5px 11px;font-size:12.5px}
 .card.atrasada{border-color:var(--bad)}
+.analise,.sugs{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.analise .t,.sugs .t{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+.analise .txt{white-space:pre-wrap;margin-top:8px;font-size:14.5px;line-height:1.55}
+.sug{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;border-top:1px solid var(--line);padding:10px 0 2px;margin-top:8px}
+.sug b{display:block;font-size:14.5px}.sug small{color:var(--muted);font-size:13px}
+.sug .bts{display:flex;gap:6px}.sug .bts button{padding:5px 11px;font-size:12.5px}
+
 /* ===== Pedido para a sala + equipe ===== */
 .pedido{margin-top:14px;background:#14100e;border:1px solid var(--line);border-radius:18px;padding:16px 18px}
 .pedido .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);font-weight:700;display:flex;align-items:center;gap:8px}
@@ -168,7 +175,9 @@ a{color:var(--accent)}
     <div class="eyebrow">Ao vivo · os agentes trabalham às 7h30 e às 16h30 (dias úteis)</div>
     <h2 id="t-guerra">Sala de guerra comercial</h2>
     <p class="lead">Faça um pedido para a sala (ou crie uma tarefa direto). A Helena divide entre os agentes, eles trabalham e a entrega volta em <b>Pronto · na tua mesa</b>. Você aprova ou pede ajuste. Depois de aprovado, eles executam o combinado (Canva, lembrete na agenda, rascunho no Gmail). Publicar, enviar mensagens e gastar verba continuam com você.</p>
-    <div class="rodada" id="rodada"><span>Última rodada dos agentes: <b id="rUlt">ainda não rodou</b></span><span id="rRes" class="estado"></span></div>
+    <div class="rodada" id="rodada"><span>Última rodada dos agentes: <b id="rUlt">ainda não rodou</b></span><span id="rRes" class="estado"></span><button type="button" id="rAgora" hidden>▶ Rodar agora</button><span class="estado" id="rAgoraEst"></span></div>
+    <div class="analise" id="analise" hidden><div class="t">Análise dos resultados · feita pelos agentes</div><div class="txt" id="anTxt"></div><div class="estado" id="anData"></div></div>
+    <div class="sugs" id="sugs" hidden><div class="t">Sugestões dos agentes · aceite para virar tarefa</div><div id="sugLista"></div></div>
     <div class="pedido" id="pedidoBox"><div class="t">Pedido para a sala · por texto ou por voz</div>
       <textarea id="pedTxt" maxlength="1500" aria-label="Pedido para a sala" placeholder="Ex.: Helena, monta o post de amanhã para o segmento de varejo e planeja um anúncio de teste no Instagram."></textarea>
       <div class="bts"><button class="pri" id="pedEnv" type="button">Enviar para a Helena</button><button class="mic" id="pedMic" type="button" aria-pressed="false" hidden>🎙 Falar</button><span class="estado" id="pedEst"></span></div>
@@ -425,7 +434,7 @@ function renderQuadro(){
       const bt=(x,f,cls)=>{const e=el('button',cls,x);e.type='button';e.onclick=f;b.append(e);};
       if(t.resultado) bt('Copiar entrega',()=>{try{navigator.clipboard.writeText(t.resultado);}catch(e){}});
       if(k==='aprovar'){
-        bt('Aprovar',()=>muda(t,{status:t.execucao?'aprovado':'feito',aprovado_em:new Date().toISOString()}),'pri');
+        bt('Aprovar',async()=>{await muda(t,{status:t.execucao?'aprovado':'feito',aprovado_em:new Date().toISOString()}); if(t.execucao) agendaRodada('Execução das tarefas aprovadas agora pela Priscila.');},'pri');
         if(t.tipo==='prospeccao'||t.tipo==='followup') bt('Aprovei e enviei',async()=>{await muda(t,{status:'feito',enviado:new Date().toISOString()}); if(t.tipo==='prospeccao'&&db){try{await db.collection('eventos').add({tipo:'abordagem',quem:t.empresa||t.contato||'Contato',oque:'',quando:new Date().toISOString()});}catch(e){}}});
         bt('Pedir ajuste',()=>{const a=prompt('O que o agente deve mudar?');if(a&&a.trim())muda(t,{status:'fazer',ajuste:a.trim().slice(0,600)});});
       }
@@ -441,7 +450,7 @@ function renderQuadro(){
   // balões da sala 3D mostram a tarefa em andamento de cada mesa
   TEAM.forEach(tm=>tm.tarefa='');
   tarefas.filter(t=>t.status==='andamento'||t.status==='aprovar').forEach(t=>{const id=(TIPOS[t.tipo]||{}).team;const tm=TEAM.find(x=>x.id===id);if(tm&&!tm.tarefa)tm.tarefa=(t.status==='aprovar'?'Para aprovar: ':'Trabalhando: ')+(t.titulo||'').slice(0,34);});
-  renderEquipe();
+  renderEquipe(); renderSugestoes();
   const pa=tarefas.filter(t=>t.status==='aprovar').length; const pri=TEAM.find(x=>x.id==='pri'); if(pri&&pa) pri.tarefa=pa+' tarefa(s) para aprovar';
 }
 (async()=>{
@@ -449,6 +458,7 @@ function renderQuadro(){
   if(!dbT){ document.getElementById('novaBox').style.display='none'; quadro.innerHTML='<p class="estado">As tarefas só aparecem quando você abre esta página logada no claude.ai.</p>'; return; }
   const tm=setTimeout(()=>{document.getElementById('rRes').textContent='As tarefas estão demorando para chegar.';},10000);
   dbT.collection('tarefas').orderBy('criado','desc').limit(300).onSnapshot(sn=>{clearTimeout(tm);tarefas=sn.docs.map(d=>Object.assign({id:d.id},d.data()));renderQuadro();},()=>{clearTimeout(tm);quadro.innerHTML='<p class="estado">Não foi possível ler as tarefas agora.</p>';});
+  dbT.doc('sala/analise').onSnapshot(a=>{ const bx=document.getElementById('analise'); if(a.exists&&a.data().texto){ bx.hidden=false; document.getElementById('anTxt').textContent=a.data().texto; document.getElementById('anData').textContent='Atualizada em '+fmt(a.data().atualizado); } },()=>{});
   dbT.doc('sala/status').onSnapshot(s=>{ if(s.exists){const d=s.data(); document.getElementById('rUlt').textContent=fmt(d.ultima_rodada)||'ainda não rodou'; document.getElementById('rRes').textContent=d.resumo||'';} },()=>{});
 })();
 
@@ -466,7 +476,7 @@ const EQUIPE=[
   {nome:'Otávio',fn:'Financeiro',dep:'Finanças',cor:'#d9c3a5',tipos:[],por:['financeiro','Otávio']},
   {nome:'Sofia',fn:'Jurídico (rascunhos para advogado)',dep:'Jurídico',cor:'#a98ad1',tipos:[],por:['juridico-contratos','Sofia']}
 ];
-const ST_ROT={fazer:'na fila',andamento:'trabalhando',aprovar:'pronto p/ você',aprovado:'executando',feito:'feito'};
+const ST_ROT={sugestao:'sugestão',descartada:'descartada',fazer:'na fila',andamento:'trabalhando',aprovar:'pronto p/ você',aprovado:'executando',feito:'feito'};
 function renderEquipe(){
   const box=document.getElementById('equipe'); if(!box) return; box.innerHTML='';
   EQUIPE.forEach(a=>{
@@ -483,6 +493,25 @@ function renderEquipe(){
     box.append(c);
   });
 }
+
+function renderSugestoes(){
+  const box=document.getElementById('sugs'), ls=document.getElementById('sugLista'); if(!box) return;
+  const sg=tarefas.filter(t=>t.status==='sugestao'); box.hidden=!sg.length; ls.innerHTML='';
+  sg.forEach(t=>{const d=el('div','sug');const tx=el('div');tx.append(el('b',null,t.titulo||'Sugestão'),el('small',null,((TIPOS[t.tipo]||{}).n||t.tipo)+(t.por?' · sugerido por '+t.por:'')+(t.detalhes?' · '+t.detalhes:'')));
+    const b=el('div','bts');const ac=el('button','pri','Aceitar');ac.type='button';ac.onclick=()=>muda(t,{status:'fazer',aceita_em:new Date().toISOString()});
+    const ds=el('button',null,'Descartar');ds.type='button';ds.onclick=()=>muda(t,{status:'descartada'});b.append(ac,ds);d.append(tx,b);ls.append(d);});
+}
+// Acionar os agentes na hora (tarefa agendada "Sala de guerra: rodada dos agentes")
+const TRIGGER_ID='trig_01Nv4sMun8HkiSB8zTR1fzcG'; let mcpSala=null, gatilho=null;
+async function rodarAgora(motivo){ const est=document.getElementById('rAgoraEst'); if(!mcpSala){ if(est) est.textContent='Para acionar na hora, abra o Claude e diga "rode as tarefas da sala".'; return; }
+  try{ await mcpSala.callTool('Claude Code Remote','fire_trigger',{trigger_id:TRIGGER_ID,text:motivo}); if(est) est.textContent='Agentes acionados. A rodada começa em instantes.'; }
+  catch(e){ if(est) est.textContent=(e&&e.code==='not_granted')?'Permissão não dada. Você pode liberar no menu Permissões desta página.':'Não consegui acionar agora. Os agentes rodam no próximo horário.'; } }
+function agendaRodada(motivo){ clearTimeout(gatilho); gatilho=setTimeout(()=>rodarAgora(motivo),15000); const est=document.getElementById('rAgoraEst'); if(est&&mcpSala) est.textContent='Aprovado. Os agentes serão acionados em 15 segundos (dá tempo de aprovar outras).'; }
+document.getElementById('rAgora').addEventListener('click',()=>rodarAgora('Rodada pedida pela Priscila pelo botão "Rodar agora" da sala.'));
+(async()=>{ let m=null; try{ m=window.claude?await window.claude.use('mcp'):null; }catch(e){m=null;} if(!m) return;
+  try{ const lt=await m.listTools('Claude Code Remote'); const ok=(lt.servers||[]).some(sv=>(sv.tools||[]).some(t=>t.name==='fire_trigger')); if(!ok) return; }catch(e){ return; }
+  mcpSala=m; document.getElementById('rAgora').hidden=false; })();
+
 // Pedido para a sala
 document.getElementById('pedEnv').addEventListener('click',async()=>{
   const tx=document.getElementById('pedTxt'), est=document.getElementById('pedEst'), v=tx.value.trim();

@@ -7,8 +7,9 @@
 ## Onde estão os dados (banco da Central Real, via ferramenta `ArtifactData`)
 | Caminho | O que é |
 |---|---|
-| `tarefas/<id>` | Uma tarefa. Campos: `titulo`, `tipo` (`pedido` · `prospeccao` · `followup` · `diagnostico` · `conteudo` · `ads` · `fluxo`), `agente`, `canal`, `contato` (nome), `empresa`, `detalhes` (contexto da Priscila), `prazo` (AAAA-MM-DD), `status` (`fazer` · `andamento` · `aprovar` · `aprovado` · `feito`), `resultado` (entrega do agente), `proxima` (próximo passo), `ajuste` (pedido de ajuste da Priscila), `criado`, `atualizado`, `por`, `execucao` (o que fazer depois de aprovado), `execucao_feita` (o que foi feito), `pedido` (id do pedido de origem), `depende_de`. |
+| `tarefas/<id>` | Uma tarefa. Campos: `titulo`, `tipo` (`pedido` · `prospeccao` · `followup` · `diagnostico` · `conteudo` · `ads` · `fluxo`), `agente`, `canal`, `contato` (nome), `empresa`, `detalhes` (contexto da Priscila), `prazo` (AAAA-MM-DD), `status` (`sugestao` · `fazer` · `andamento` · `aprovar` · `aprovado` · `feito` · `descartada`), `resultado` (entrega do agente), `proxima` (próximo passo), `ajuste` (pedido de ajuste da Priscila), `criado`, `atualizado`, `por`, `execucao` (o que fazer depois de aprovado), `execucao_feita` (o que foi feito), `pedido` (id do pedido de origem), `depende_de`. |
 | `sala/status` | Resumo da última rodada: `ultima_rodada` (data ISO), `resumo` (1 frase), `proxima` (texto). |
+| `sala/analise` | Análise dos resultados mostrada no topo da sala: `texto` (até 8 linhas) e `atualizado` (ISO). |
 | `eventos/<id>` | Funil real (abordagem, resposta, diagnóstico, proposta, contrato). **Só a Priscila registra.** O agente não cria eventos. |
 
 ## Passo a passo de uma rodada
@@ -29,13 +30,19 @@
       | `ads` | `trafego-ads` (Lucas) | Plano de campanha, textos do anúncio e passo a passo no Gerenciador. Verba só a que a Priscila definir. |
       | `fluxo` | `fluxos-automacao` (Davi) | Fluxo desenhado (etapas, responsáveis, onde entra a IA) e passo a passo das automações gratuitas. |
    3. Gravar `resultado`, `proxima` (o que a Priscila faz agora, em 1 linha), `execucao` (o que os agentes farão depois da aprovação, se houver), `status: aprovar`, `atualizado` (agora) e `por` (nome do agente). Apagar `ajuste` se ele já foi atendido.
-4. Gravar `sala/status` com `ultima_rodada` (agora), `resumo` (ex.: "3 tarefas prontas para aprovar") e `proxima` ("próxima rodada às 16h30").
-5. Se não houver nada para fazer, só atualizar `sala/status` ("Nenhuma tarefa nova").
+4. **Sugestões dos agentes.** Grave no máximo **3** tarefas novas com `status: sugestao` (aparecem em "Sugestões dos agentes"; a Priscila aceita ou descarta). Base: `campanhas/`, `redes/` (calendário), funil (`eventos`) e tarefas recentes. Não repita sugestão pendente ou descartada nos últimos 14 dias. Cada sugestão: `titulo`, `tipo`, `detalhes` (por que agora, em 1 frase), `por` (nome do agente).
+5. **Análise dos resultados.** Na rodada das 16h30 de sexta, ou quando a Priscila pedir, grave `sala/analise`: números reais do funil (abordagens, respostas, diagnósticos, propostas, contratos) da semana, tarefas entregues e aprovadas, o que funcionou e 1 a 3 recomendações. Com a conta de anúncios conectada, o Lucas inclui os números dos anúncios. **Só números que existem nos dados**; se não houver dados, diga isso.
+6. Gravar `sala/status` com `ultima_rodada` (agora), `resumo` (ex.: "3 tarefas prontas para aprovar") e `proxima` ("próxima rodada às 16h30").
+7. Se não houver nada para fazer, só atualizar `sala/status` ("Nenhuma tarefa nova").
+
+## Aprovou, os agentes seguem
+Ao clicar **Aprovar** numa tarefa com `execucao`, a página aciona esta rodada em 15 segundos (botão **▶ Rodar agora** também). A rodada executa as tarefas `aprovado` na hora.
 
 ## Ações permitidas depois da aprovação (`execucao`)
 - Enviar peça pronta ao **Canva**, na pasta certa (`marca/canva.md`).
 - Criar **lembrete** na agenda falecom@pbservicos.com.br para a Priscila (publicar, ligar, enviar). Convites para outras pessoas: só com confirmação explícita dela.
 - Criar **rascunho** no Gmail. **Nunca enviar.**
+- **Anúncios (Meta Ads), quando a conta estiver conectada:** criar campanha/conjunto/anúncio **sempre pausado**; pausar anúncio; ativar ou mudar verba **só no valor exato aprovado** pela Priscila e nunca acima do teto mensal que ela definiu.
 - Atualizar a **Central de publicações** e arquivos do repositório **sem dados pessoais** (commit e push permitidos só para peças e textos de marketing).
 
 ## Regras (não negociáveis)
