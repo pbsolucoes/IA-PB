@@ -25,6 +25,24 @@
 
 ---
 
+## ✅ Oferta em degraus: todos os segmentos (aprovada pela Priscila em 21/11/2026)
+
+> Vale para empresários de **qualquer segmento** (inclusive saúde). O conteúdo de cada degrau se adapta ao segmento; a escada é a mesma.
+> **Valores ainda não definidos:** enquanto estiverem em ✏️, o agente **não cita preço** e diz que "a Priscila envia a proposta por escrito".
+
+| Degrau | O que o cliente recebe | Como é cobrado | Valor |
+|---|---|---|---|
+| 1. Diagnóstico da gestão | Conversa de 30 a 40 min por Google Meet: onde a empresa trava e qual o próximo passo | **Gratuito** | R$ 0 |
+| 2. Plano de gestão | Mapa dos processos que travam, indicadores e prioridades, entregue por escrito | Preço fechado por projeto | ✏️ PREENCHER |
+| 3. Implantação dos agentes | Desenho do processo, configuração e testes de segurança de 1 a 3 agentes | Taxa de implantação | ✏️ PREENCHER |
+| 4. Operação mensal | Acompanhamento, ajustes e relatório dos agentes | Mensalidade | ✏️ PREENCHER |
+| 5. Consultoria avulsa | Governança, indicadores ou gestão de projetos (PMO) | Por projeto ou por hora | ✏️ PREENCHER |
+
+- **Fora da saúde, os agentes são adaptações** dos 4 agentes de saúde (agendamento e confirmação, retorno de clientes, satisfação, conferência). Ainda **não existem prontos** para outros segmentos: vender como projeto, com prazo só depois do plano (degrau 2).
+- Custos das ferramentas do cliente (WhatsApp Business API, Meta, Anthropic, sistemas) são contratados e pagos pelo cliente.
+
+---
+
 ## Serviço 1: ✏️ PREENCHER (nome)
 
 - **Para quem é:** ✏️
