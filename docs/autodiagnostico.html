@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autodiagnóstico da gestão | PB Soluções IA</title>
+<meta name="description" content="10 perguntas rápidas para descobrir onde a gestão do seu negócio trava. Resultado na hora, sem cadastro e sem guardar dados.">
+<meta property="og:title" content="Onde o seu negócio trava? Autodiagnóstico da gestão">
+<meta property="og:description" content="10 perguntas, resultado na hora, sem cadastro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pbsolucoes.github.io/IA-PB/autodiagnostico.html">
+<meta property="og:image" content="https://pbsolucoes.github.io/IA-PB/favicon.png">
+<meta property="og:locale" content="pt_BR">
+<link rel="canonical" href="https://pbsolucoes.github.io/IA-PB/autodiagnostico.html">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="fontes.css">
+<style>
+:root{--bronze:#AB7646;--bc:#C3885B;--be:#936431;--esp:#2A211D;--marfim:#FDF9F5;--areia:#F4EDE5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--marfim);color:var(--esp);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.15}
+a{color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:500;color:var(--be)}
+.escuro .eyebrow{color:var(--be)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--bronze);color:var(--esp);text-decoration:none;font-weight:600;padding:16px 26px;border-radius:999px;font-size:16px;border:0;cursor:pointer;font-family:inherit;transition:background .2s}
+.btn:hover,.btn:focus-visible{background:var(--bc)}
+.btn:focus-visible,a:focus-visible,input:focus-visible+span{outline:3px solid var(--bc);outline-offset:3px}
+.btn.sec{background:transparent;color:inherit;border:1.5px solid currentColor}
+header{background:rgba(253,249,245,.94);border-bottom:1px solid #eadfd3}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{text-decoration:none;color:var(--esp);display:flex;align-items:baseline;gap:8px}
+.logo b{font-family:'Playfair Display',serif;font-size:26px;color:var(--bronze)}
+.logo span{font-size:13px;letter-spacing:4px;text-transform:uppercase;font-weight:300}
+header a.voltar{color:var(--esp);font-size:14px;opacity:.85;text-decoration:none}
+.escuro{background:radial-gradient(90% 70% at 90% 0%,#F6E9DB 0%,var(--marfim) 62%);color:var(--esp)}
+#resultado.escuro{background:#fff;border:1px solid #eadfd3;border-top:4px solid var(--bronze)}
+.hero{padding:56px 0 48px}
+.hero h1{font-size:clamp(34px,7vw,52px);margin:14px 0 16px}
+.hero h1 em{color:var(--bronze);font-weight:500}
+.hero p{font-size:18px;color:#4a3d36;max-width:600px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{font-size:13px;background:#fff;border:1px solid #eadfd3;border-radius:999px;padding:6px 12px}
+main{padding:40px 0 64px}
+.como{font-size:15px;color:#5a4a42;margin-bottom:24px}
+fieldset{border:0;background:#fff;border:1px solid #eadfd3;border-radius:16px;padding:20px 18px;margin-bottom:14px}
+legend{float:left;width:100%;font-weight:600;font-size:17px;margin-bottom:12px}
+legend small{display:block;font-weight:500;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--be);margin-bottom:6px}
+.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;clear:both}
+.ops label{position:relative;cursor:pointer}
+.ops input{position:absolute;opacity:0;width:1px;height:1px}
+.ops span{display:flex;align-items:center;justify-content:center;min-height:50px;line-height:1.2;text-align:center;padding:8px 6px;border:1.5px solid #d9c7b5;border-radius:10px;font-size:15px;background:var(--marfim);transition:all .15s}
+.ops input:checked+span{background:var(--esp);color:var(--marfim);border-color:var(--esp);font-weight:600}
+.barra{position:sticky;bottom:0;background:rgba(253,249,245,.97);border-top:1px solid #eadfd3;padding:12px 0;margin-top:8px}
+.barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.barra p{font-size:14px;color:#5a4a42}
+#aviso{color:#8a3b12;font-size:14px;margin-top:8px;min-height:1em}
+#resultado{display:none;margin-top:32px;border-radius:20px;padding:32px 22px}
+#resultado.on{display:block}
+#resultado h2{font-size:clamp(28px,6vw,40px);margin:10px 0 14px}
+#resultado p{color:#4a3d36;margin-bottom:14px}
+#resultado ul{margin:6px 0 18px 20px;color:#4a3d36}
+#resultado .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.nota{font-size:13px;opacity:.75;margin-top:18px}
+footer{background:var(--marfim);border-top:1px solid #eadfd3;color:#4a3d36;font-size:14px;padding:28px 0}
+footer p{opacity:.8;margin-bottom:6px}
+@media(max-width:420px){.ops span{font-size:14px;padding:6px 4px}}
+.barra.fim{display:none}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="./" aria-label="PB Soluções IA, página inicial"><b>PB</b><span>Soluções IA</span></a>
+  <a class="voltar" href="./">← Voltar ao site</a>
+</div></header>
+
+<section class="hero escuro"><div class="wrap">
+  <div class="eyebrow">Autodiagnóstico da gestão</div>
+  <h1>Onde o seu negócio <em>trava?</em></h1>
+  <p>10 perguntas rápidas sobre o dia a dia da sua empresa. Você vê o resultado na hora, nesta tela.</p>
+  <div class="chips"><span>Cerca de 3 minutos</span><span>Sem cadastro</span><span>Nada é salvo nem enviado</span></div>
+</div></section>
+
+<main><div class="wrap">
+  <p class="como">Para cada frase, marque com que frequência ela acontece hoje no seu negócio. Não existe resposta certa: quanto mais sincera, mais útil.</p>
+  <form id="quiz" novalidate></form>
+  <p id="aviso" role="alert"></p>
+
+  <section id="resultado" class="escuro" aria-live="polite" tabindex="-1"></section>
+</div></main>
+
+<div class="barra"><div class="wrap">
+  <p><span id="cont">0</span> de 10 respondidas</p>
+  <button class="btn" id="ver" type="button">Ver meu resultado</button>
+</div></div>
+
+<footer><div class="wrap">
+  <p>Privacidade: esta página não usa cookies, não tem formulário de cadastro e não guarda nem envia as suas respostas. O cálculo acontece só no seu aparelho (LGPD).</p>
+  <p>PB Soluções IA · Rio de Janeiro · atendimento online · falecom@pbservicos.com.br</p>
+</div></footer>
+
+<script>
+const AREAS = { processos: 'Processos', equipe: 'Equipe', atendimento: 'Atendimento', indicadores: 'Indicadores', ferramentas: 'Ferramentas' };
+const PERGUNTAS = [
+  ['processos', 'Quando você se ausenta por um dia, alguma tarefa importante para.'],
+  ['processos', 'Cada pessoa da equipe faz a mesma tarefa de um jeito diferente.'],
+  ['equipe', 'A equipe passa boa parte do dia em tarefas repetitivas, feitas à mão.'],
+  ['equipe', 'Decisões simples ficam esperando você para andar.'],
+  ['atendimento', 'Mensagens de clientes no WhatsApp ou no Direct ficam horas sem resposta.'],
+  ['atendimento', 'O cliente que comprou ou foi atendido uma vez não volta, e ninguém acompanha.'],
+  ['indicadores', 'Você só descobre se o mês foi bom depois que ele termina.'],
+  ['indicadores', 'Os números do negócio estão espalhados em cadernos, planilhas e na cabeça das pessoas.'],
+  ['ferramentas', 'Vocês já pagaram por um sistema ou ferramenta que ninguém usa direito.'],
+  ['ferramentas', 'A mesma informação é digitada em mais de um lugar.']
+];
+const OPS = [['Quase nunca', 0], ['Às vezes', 1], ['Quase sempre', 2]];
+const WA = 'https://wa.me/5532991337984?text=';
+const form = document.getElementById('quiz');
+PERGUNTAS.forEach(([area, txt], i) => {
+  const fs = document.createElement('fieldset');
+  fs.innerHTML = `<legend><small>${i + 1} · ${AREAS[area]}</small>${txt}</legend><div class="ops">` +
+    OPS.map(([r, v]) => `<label><input type="radio" name="q${i}" value="${v}"><span>${r}</span></label>`).join('') + '</div>';
+  form.appendChild(fs);
+});
+const cont = document.getElementById('cont');
+form.addEventListener('change', () => { cont.textContent = form.querySelectorAll('input:checked').length; document.getElementById('aviso').textContent = ''; });
+
+document.getElementById('ver').addEventListener('click', () => {
+  const marcadas = form.querySelectorAll('input:checked');
+  if (marcadas.length < PERGUNTAS.length) {
+    document.getElementById('aviso').textContent = `Faltam ${PERGUNTAS.length - marcadas.length} perguntas. Responda todas para ver o resultado.`;
+    const falta = PERGUNTAS.findIndex((_, i) => !form.querySelector(`input[name=q${i}]:checked`));
+    form.querySelectorAll('fieldset')[falta].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  let total = 0; const porArea = {};
+  PERGUNTAS.forEach(([area], i) => {
+    const v = +form.querySelector(`input[name=q${i}]:checked`).value;
+    total += v; porArea[area] = (porArea[area] || 0) + v;
+  });
+  const max = Math.max(...Object.values(porArea));
+  const pontos = max > 0 ? Object.keys(porArea).filter(a => porArea[a] === max).map(a => AREAS[a]) : [];
+  let faixa, titulo, texto;
+  if (total <= 6) {
+    faixa = 'base firme'; titulo = 'A sua gestão tem uma base firme.';
+    texto = 'Pelas suas respostas, a operação não depende tanto de você no dia a dia. O próximo passo costuma ser medir melhor e decidir onde a tecnologia pode ajudar sem bagunçar o que já funciona.';
+  } else if (total <= 13) {
+    faixa = 'pontos de atenção'; titulo = 'Existem pontos de atenção.';
+    texto = 'Pelas suas respostas, parte da rotina ainda trava em você ou em tarefas manuais. Isso costuma piorar quando o movimento aumenta. Vale olhar com calma antes de comprar qualquer ferramenta.';
+  } else {
+    faixa = 'operação travando'; titulo = 'A operação está travando.';
+    texto = 'Pelas suas respostas, muita coisa depende de você e de trabalho manual. Não é falta de esforço: é processo que ainda não foi desenhado. Esse é o melhor momento para um diagnóstico da gestão.';
+  }
+  const msg = `Olá! Fiz o autodiagnóstico no site da PB Soluções IA (resultado: ${faixa}${pontos.length ? '; onde mais trava: ' + pontos.join(', ') : ''}) e quero marcar o diagnóstico da gestão gratuito.`;
+  const r = document.getElementById('resultado');
+  r.innerHTML = `<div class="eyebrow">Seu resultado</div><h2>${titulo}</h2><p>${texto}</p>` +
+    (pontos.length ? `<p>Onde mais trava hoje, pelas suas respostas:</p><ul>${pontos.map(p => `<li>${p}</li>`).join('')}</ul>` : '') +
+    `<p>O próximo passo é o <strong>diagnóstico da gestão</strong>: uma conversa gratuita de 30 a 40 minutos, por Google Meet, com a Priscila Blandy Dias. Primeiro a gestão, depois a tecnologia.</p>` +
+    `<div class="acoes"><a class="btn" href="${WA + encodeURIComponent(msg)}" target="_blank" rel="noopener">Marcar o diagnóstico no WhatsApp</a>` +
+    `<button class="btn sec" type="button" id="refazer">Refazer</button></div>` +
+    `<p class="nota">Este autodiagnóstico é uma reflexão rápida e não substitui a conversa de diagnóstico. Ao tocar no botão, o WhatsApp abre com uma mensagem pronta que você pode editar antes de enviar.</p>`;
+  r.classList.add('on'); document.querySelector('.barra').classList.add('fim'); r.focus(); r.scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('refazer').addEventListener('click', () => { form.reset(); cont.textContent = 0; r.classList.remove('on'); document.querySelector('.barra').classList.remove('fim'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+});
+</script>
+</body>
+</html>
