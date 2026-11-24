@@ -156,9 +156,9 @@ document.getElementById('ver').addEventListener('click', () => {
   r.innerHTML = `<div class="eyebrow">Seu resultado</div><h2>${titulo}</h2><p>${texto}</p>` +
     (pontos.length ? `<p>Onde mais trava hoje, pelas suas respostas:</p><ul>${pontos.map(p => `<li>${p}</li>`).join('')}</ul>` : '') +
     `<p>O próximo passo é o <strong>diagnóstico da gestão</strong>: uma conversa gratuita de 30 a 40 minutos, por Google Meet, com a Priscila Blandy Dias. Primeiro a gestão, depois a tecnologia.</p>` +
-    `<div class="acoes"><a class="btn" href="${WA + encodeURIComponent(msg)}" target="_blank" rel="noopener">Marcar o diagnóstico no WhatsApp</a>` +
+    `<div class="acoes"><a class="btn" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1fnGhPn765Y3GK15uDoUCTXkxBQUrQkfx4uHAl0YuwFimaPjD0qA5hRGMtdEl4oy31a5tKhEvW" target="_blank" rel="noopener">Marcar um café virtual</a><a class="btn sec" href="${WA + encodeURIComponent(msg)}" target="_blank" rel="noopener">Enviar meu resultado no WhatsApp</a>` +
     `<button class="btn sec" type="button" id="refazer">Refazer</button></div>` +
-    `<p class="nota">Este autodiagnóstico é uma reflexão rápida e não substitui a conversa de diagnóstico. Ao tocar no botão, o WhatsApp abre com uma mensagem pronta que você pode editar antes de enviar.</p>`;
+    `<p class="nota">Este autodiagnóstico é uma reflexão rápida e não substitui a conversa de diagnóstico. No botão do WhatsApp, ele abre com uma mensagem pronta que você pode editar antes de enviar.</p>`;
   r.classList.add('on'); document.querySelector('.barra').classList.add('fim'); r.focus(); r.scrollIntoView({ behavior: 'smooth' });
   document.getElementById('refazer').addEventListener('click', () => { form.reset(); cont.textContent = 0; r.classList.remove('on'); document.querySelector('.barra').classList.remove('fim'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 });
