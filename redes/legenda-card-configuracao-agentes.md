@@ -34,3 +34,7 @@ Se fizer sentido para a sua empresa, me chame aqui.
 
 #inteligenciaartificial #gestao #processos
 ```
+
+## Stories (versão 1080 × 1920)
+Peça: `pecas/png/card-configuracao-agentes-story.png` · Canva: pasta "3 · Stories, destaques e perfil", "Story · Configuração de agentes".
+No Instagram, coloque o **adesivo de link** no espaço vazio abaixo do texto, com o link do café virtual (`conhecimento/empresa.md`) e o texto do adesivo **"Marcar café virtual"**.
