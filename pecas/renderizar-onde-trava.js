@@ -2,7 +2,6 @@
 // Gera png/onde-trava/<segmento>-01..06.png e carrosseis/onde-trava-<segmento>.pdf (6 páginas, para importar no Canva).
 // Confere: Playfair carregada, fonte mínima 24 px, texto dentro da margem de 80 px.
 const { chromium } = require('playwright'); const path = require('path'), fs = require('fs');
-const { execFileSync } = require('child_process');
 const out = path.join(__dirname, 'png', 'onde-trava'); fs.mkdirSync(out, { recursive: true });
 fs.mkdirSync(path.join(__dirname, 'carrosseis'), { recursive: true });
 (async () => {
@@ -20,10 +19,14 @@ fs.mkdirSync(path.join(__dirname, 'carrosseis'), { recursive: true });
       }); }); return [...new Set(e)]; });
   const ids = await p.$$eval('.s', els => els.map(e => e.id));
   for (const id of ids) await p.locator('#' + id).screenshot({ path: path.join(out, id + '.png') });
-  await b.close();
+  // PDF de 6 páginas por segmento, montado pelo próprio Chromium (não depende do Python/PIL).
   for (const seg of [...new Set(ids.map(i => i.split('-')[0]))]) {
-    execFileSync('python3', ['-c', `import sys\nfrom PIL import Image\nf=sys.argv[2:]\nims=[Image.open(x).convert('RGB') for x in f]\nims[0].save(sys.argv[1],save_all=True,append_images=ims[1:],resolution=72,quality=95)`,
-      path.join(__dirname, 'carrosseis', `onde-trava-${seg}.pdf`), ...[1,2,3,4,5,6].map(n => path.join(out, `${seg}-0${n}.png`))]);
+    const imgs = [1,2,3,4,5,6].map(n => `<img src="data:image/png;base64,${fs.readFileSync(path.join(out, `${seg}-0${n}.png`)).toString('base64')}">`).join('');
+    const pp = await b.newPage();
+    await pp.setContent(`<style>@page{size:1080px 1350px;margin:0}body{margin:0}img{display:block;width:1080px;height:1350px;page-break-after:always}</style>${imgs}`);
+    await pp.pdf({ path: path.join(__dirname, 'carrosseis', `onde-trava-${seg}.pdf`), width: '1080px', height: '1350px', printBackground: true });
+    await pp.close();
   }
+  await b.close();
   console.log(ids.length, 'slides', erros.length ? '\n' + erros.join('\n') : 'QA ok');
 })();

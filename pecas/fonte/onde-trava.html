@@ -20,7 +20,7 @@ h1,h2{font-family:'Playfair Display',serif;font-weight:700;line-height:1.06;lett
 .num{position:absolute;right:90px;bottom:86px;font-size:26px;letter-spacing:4px;font-weight:600}
 .escuro .num{color:var(--bronze-claro)} .claro .num{color:var(--bronze-escuro)}
 /* capa */
-.palco{position:absolute;left:90px;right:90px;top:640px;height:520px;border-radius:36px;background:linear-gradient(160deg,#3b2e27,#2f2520);border:2px solid rgba(195,136,91,.35);overflow:hidden}
+.palco{position:absolute;left:90px;right:90px;top:670px;height:490px;border-radius:36px;background:linear-gradient(160deg,#3b2e27,#2f2520);border:2px solid rgba(195,136,91,.35);overflow:hidden}
 .palco svg.cena{position:absolute;left:40px;bottom:30px;width:420px;height:420px}
 .palco svg.cena *{fill:none;stroke:#C3885B;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
 .cel{position:absolute;right:46px;top:48px;width:400px;height:430px;border-radius:40px;background:#FDF9F5;box-shadow:0 30px 60px rgba(0,0,0,.45);padding:26px 22px;display:flex;flex-direction:column;gap:16px;color:#2A211D}
@@ -50,40 +50,43 @@ h1,h2{font-family:'Playfair Display',serif;font-weight:700;line-height:1.06;lett
 .cta-box .l:first-child{margin-top:0}
 .cta-box .l i{width:16px;height:16px;border-radius:50%;background:var(--bronze);flex:none}
 .botao{position:absolute;left:90px;top:1020px;background:var(--bronze);color:var(--espresso);font-weight:700;font-size:38px;padding:26px 44px;border-radius:999px}
+.escuro p.apoio{font-size:34px;line-height:1.35;color:#e4d6c9}
+.escuro p.vp{font-size:38px;line-height:1.4;color:#e4d6c9}
+.lema{position:absolute;left:90px;right:90px;top:1140px;font-size:32px;color:#c3885b;font-style:italic}
 </style></head><body class="escuro" style="background:#111">
 <div id="raiz"></div>
 <script>
 const SEG = {
-  servicos:{nome:'Serviços profissionais', h:'Seu escritório cresce. E tudo <em>ainda passa por você?</em>',
+  servicos:{apoio:'3 sinais de que a gestão travou', vh:'Não é falta de ferramenta. <em>É processo.</em>', vp:'Diagnóstico, desenho do processo, agentes de IA. Sempre nessa ordem.', ch:'Descubra onde o seu escritório <em>trava.</em>', nome:'Serviços profissionais', h:'Seu escritório cresce. E tudo <em>ainda passa por você?</em>',
     chat:{quem:'Cliente', msgs:[['ele','Bom dia! O documento sai hoje? O prazo é amanhã.'],['ele','Alguém pode me retornar?']], alerta:'Prazo vencendo · sem responsável'},
     cena:'<rect x="70" y="120" width="220" height="270" rx="14"/><path d="M110 180h140M110 230h140M110 280h90"/><rect x="40" y="90" width="220" height="270" rx="14" opacity=".55"/><circle cx="320" cy="140" r="70"/><path d="M320 100v42l28 18"/>',
-    s:[['Sinal 1','O cliente cobra <em>antes de você avisar.</em>','Prazos e retornos dependem de alguém lembrar. Quando ninguém lembra, quem cobra é o cliente.','<circle cx="45" cy="45" r="32"/><path d="M45 25v22l14 9"/>'],
-       ['Sinal 2','Toda decisão <em>espera o sócio.</em>','Se a equipe não sabe o que pode decidir sozinha, a fila para na sua mesa.','<rect x="14" y="40" width="62" height="36" rx="6"/><path d="M30 40V26a15 15 0 0 1 30 0v14"/>'],
-       ['Sinal 3','A proposta demora <em>mais que o serviço.</em>','Cada orçamento começa do zero. O cliente esfria enquanto o documento é montado.','<path d="M24 12h32l16 16v50H24z"/><path d="M56 12v16h16M36 50h28M36 64h20"/>']]},
-  varejo:{nome:'Comércio e varejo', h:'Sua loja vende. <em>Mas onde ela trava?</em>',
+    s:[['Sinal 1','O cliente cobra <em>antes de você avisar.</em>','Prazo e andamento dependem de alguém lembrar.','<circle cx="45" cy="45" r="32"/><path d="M45 25v22l14 9"/>'],
+       ['Sinal 2','Toda decisão <em>espera o sócio.</em>','Quando tudo precisa do seu ok, o seu tempo vira o limite do escritório.','<rect x="14" y="40" width="62" height="36" rx="6"/><path d="M30 40V26a15 15 0 0 1 30 0v14"/>'],
+       ['Sinal 3','A proposta demora <em>mais que o serviço.</em>','O cliente esfria enquanto o orçamento não sai.','<path d="M24 12h32l16 16v50H24z"/><path d="M56 12v16h16M36 50h28M36 64h20"/>']]},
+  varejo:{apoio:'3 sinais comuns no comércio', vh:'Quase sempre não falta cliente. <em>Falta processo.</em>', vp:'Primeiro a gestão. Depois, agentes de IA que respondem dúvidas frequentes e lembram o cliente de voltar, sempre se apresentando como IA.', ch:'Descubra onde a sua loja <em>trava.</em>', nome:'Comércio e varejo', h:'Sua loja vende. <em>Mas onde ela trava?</em>',
     chat:{quem:'Cliente', msgs:[['ele','Oi! Ainda tem no tamanho M?'],['ele','Qual o valor?']], alerta:'Sem resposta há 2 dias'},
     cena:'<path d="M40 170h340l-24-80H64z"/><path d="M60 170v210h300V170"/><path d="M160 380V270h100v110"/><path d="M40 170c0 28 42 28 42 0c0 28 42 28 42 0c0 28 42 28 42 0c0 28 42 28 42 0c0 28 42 28 42 0c0 28 42 28 42 0c0 28 42 28 42 0c0 28 42 28 42 0"/>',
-    s:[['Sinal 1','Mensagem sem resposta <em>é venda perdida.</em>','WhatsApp e Direct lotados, e o cliente que perguntou o preço comprou em outro lugar.','<path d="M14 20h62v40H40l-16 14V60H14z"/>'],
-       ['Sinal 2','Você não sabe <em>quanto sobrou no mês.</em>','Estoque e caixa na cabeça ou no caderno não mostram por onde o dinheiro escapa.','<path d="M14 76h62M24 76V50M42 76V30M60 76V42"/>'],
-       ['Sinal 3','Quem comprou uma vez <em>não voltou.</em>','Ninguém acompanha o cliente depois da venda. Ele esquece a loja.','<path d="M22 34h46l-6 42H28z"/><path d="M34 34a11 11 0 0 1 22 0"/>']]},
-  educacao:{nome:'Educação e cursos', h:'Sua escola ensina bem. <em>E a gestão acompanha?</em>',
+    s:[['Sinal 1','Mensagem sem resposta <em>no WhatsApp e no Direct.</em>','Cliente que pergunta e não ouve de volta compra em outro lugar.','<path d="M14 20h62v40H40l-16 14V60H14z"/>'],
+       ['Sinal 2','Ninguém sabe ao certo <em>quanto sobrou no fim do mês.</em>','Sem número claro, toda decisão vira palpite.','<path d="M14 76h62M24 76V50M42 76V30M60 76V42"/>'],
+       ['Sinal 3','Quem comprou uma vez <em>não voltou.</em>','E ninguém foi lembrar.','<path d="M22 34h46l-6 42H28z"/><path d="M34 34a11 11 0 0 1 22 0"/>']]},
+  educacao:{apoio:'3 sinais que travam o crescimento', vh:'Primeiro o processo. <em>Depois a IA.</em>', vp:'Com o processo desenhado, agentes de IA tiram dúvidas frequentes e avisam a equipe sobre sinais de desistência. A decisão continua com vocês.', ch:'Descubra onde a sua escola <em>trava.</em>', nome:'Educação e cursos', h:'Sua escola ensina bem. <em>E a gestão acompanha?</em>',
     chat:{quem:'Interessado', msgs:[['ele','Como faço a matrícula?'],['ele','Ainda tem vaga para a turma da noite?']], alerta:'Matrícula esperando resposta'},
     cena:'<path d="M40 150l170-70 170 70-170 70z"/><path d="M110 180v90c0 30 200 30 200 0v-90"/><path d="M380 150v110"/><circle cx="380" cy="275" r="14"/>',
-    s:[['Sinal 1','A matrícula depende <em>de alguém responder.</em>','Dúvidas repetidas no WhatsApp tomam o dia da equipe, e o interessado desiste no meio.','<path d="M14 20h62v40H40l-16 14V60H14z"/>'],
-       ['Sinal 2','O aluno desiste <em>e ninguém percebe.</em>','Faltas e atrasos são sinais. Sem acompanhamento, eles viram cancelamento.','<circle cx="45" cy="30" r="14"/><path d="M18 78c4-18 14-26 27-26s23 8 27 26"/>'],
-       ['Sinal 3','Cobrança feita <em>na mão, todo mês.</em>','Lembretes e conferências manuais consomem horas que poderiam ir para os alunos.','<rect x="12" y="24" width="66" height="44" rx="8"/><path d="M12 38h66M24 56h16"/>']]},
-  beleza:{nome:'Beleza, bem-estar e estética', h:'Sua agenda está cheia. <em>E os buracos nela?</em>',
+    s:[['Sinal 1','A matrícula depende <em>de alguém responder no WhatsApp.</em>','Interessado sem resposta é matrícula que não acontece.','<path d="M14 20h62v40H40l-16 14V60H14z"/>'],
+       ['Sinal 2','O aluno desiste <em>e ninguém percebe a tempo.</em>','Os sinais aparecem antes; falta quem acompanhe.','<circle cx="45" cy="30" r="14"/><path d="M18 78c4-18 14-26 27-26s23 8 27 26"/>'],
+       ['Sinal 3','Cobrança e lembretes <em>feitos na mão, todo mês.</em>','Tempo da equipe que poderia ir para o aluno.','<rect x="12" y="24" width="66" height="44" rx="8"/><path d="M12 38h66M24 56h16"/>']]},
+  beleza:{apoio:'3 sinais comuns em salões, estúdios e espaços de bem-estar', vh:'Confirmação e retorno <em>são processos.</em>', vp:'Bem desenhados, um agente de IA cuida deles, e a sua equipe cuida das clientes.', ch:'Descubra onde a sua agenda <em>trava.</em>', nome:'Beleza, bem-estar e estética', h:'Sua agenda está cheia. <em>E os buracos nela?</em>',
     chat:{quem:'Agenda de hoje', msgs:[['ele','14h · Corte e escova'],['ele','15h30 · Horário vago']], alerta:'Cliente faltou sem avisar'},
     cena:'<rect x="60" y="90" width="300" height="290" rx="20"/><path d="M60 160h300M130 60v60M290 60v60"/><path d="M110 220h40M190 220h40M270 220h40M110 290h40M190 290h40"/><circle cx="290" cy="290" r="22"/>',
-    s:[['Sinal 1','Cliente que falta <em>sem avisar.</em>','Sem confirmação, o horário vago só aparece quando já não dá para encaixar ninguém.','<rect x="14" y="20" width="62" height="56" rx="8"/><path d="M14 38h62M32 12v14M58 12v14M36 52l18 14M54 52L36 66"/>'],
-       ['Sinal 2','Agendar toma o tempo <em>de quem atende.</em>','Responder mensagem entre um atendimento e outro atrasa os dois.','<circle cx="45" cy="45" r="32"/><path d="M45 25v22l14 9"/>'],
-       ['Sinal 3','Ela gostou, <em>mas não voltou.</em>','Sem lembrete de retorno, a próxima visita fica para quando a cliente lembrar.','<path d="M45 76S14 56 14 34a16 16 0 0 1 31-6 16 16 0 0 1 31 6c0 22-31 42-31 42z"/>']]}
+    s:[['Sinal 1','A cliente falta <em>sem avisar.</em>','E o horário fica vazio.','<rect x="14" y="20" width="62" height="56" rx="8"/><path d="M14 38h62M32 12v14M58 12v14M36 52l18 14M54 52L36 66"/>'],
+       ['Sinal 2','Agendar toma o tempo <em>de quem está atendendo.</em>','Pausa no atendimento para responder mensagem.','<circle cx="45" cy="45" r="32"/><path d="M45 25v22l14 9"/>'],
+       ['Sinal 3','A cliente gostou, <em>mas não voltou.</em>','Ninguém lembrou na hora certa.','<path d="M45 76S14 56 14 34a16 16 0 0 1 31-6 16 16 0 0 1 31 6c0 22-31 42-31 42z"/>']]}
 };
 const MARCA='<div class="marca"><span class="pb">PB</span><span class="sol">Soluções IA</span></div>';
 let html='';
 for(const [k,d] of Object.entries(SEG)){
-  html+=`<section class="s escuro" id="${k}-01"><div class="pad" style="top:150px"><span class="pill"><i></i>${d.nome}</span>
-    <h1 style="font-size:96px;margin-top:44px">${d.h}</h1></div>
+  html+=`<section class="s escuro" id="${k}-01"><div class="pad" style="top:120px"><span class="pill"><i></i>${d.nome}</span>
+    <h1 style="font-size:86px;margin-top:36px">${d.h}</h1><p class="apoio" style="margin-top:28px">${d.apoio}</p></div>
     <div class="palco"><svg class="cena" viewBox="0 0 420 420">${d.cena}</svg>
       <div class="cel"><div class="topo"><span></span>${d.chat.quem}</div>${d.chat.msgs.map(m=>`<div class="bal ${m[0]}">${m[1]}</div>`).join('')}<div class="alerta">${d.chat.alerta}</div></div></div>
     ${MARCA}<div class="desl">Deslize →</div></section>`;
@@ -93,16 +96,16 @@ for(const [k,d] of Object.entries(SEG)){
       <p class="nota">Sinal comum em muitos negócios. Cada empresa é um caso: por isso começamos pelo diagnóstico.</p>${MARCA}<div class="num">${i+2}/6</div></section>`;
   });
   html+=`<section class="s escuro" id="${k}-05"><div class="pad" style="top:150px"><div class="eyebrow">Por onde começar?</div>
-    <h2 style="font-size:92px;margin-top:26px">Pela gestão. <em>A IA vem depois.</em></h2>
+    <h2 style="font-size:84px;margin-top:26px">${d.vh}</h2><p class="vp" style="margin-top:26px">${d.vp}</p>
     <div style="position:relative;margin-top:30px"><div class="trilho" style="left:47px;top:48px;height:310px"></div>
     <div class="passo"><b>1</b><div><h3>Diagnóstico da gestão</h3><p>Onde o negócio perde tempo e dinheiro.</p></div></div>
     <div class="passo"><b>2</b><div><h3>Desenho do processo</h3><p>Quem faz, quando faz e o que vira regra.</p></div></div>
     <div class="passo"><b>3</b><div><h3>Agentes de IA</h3><p>Só então a tecnologia entra para trabalhar.</p></div></div></div></div>
     ${MARCA}<div class="num">5/6</div></section>`;
   html+=`<section class="s escuro" id="${k}-06"><div class="pad" style="top:170px"><span class="pill"><i></i>${d.nome}</span>
-    <h2 style="font-size:100px;margin-top:44px">Descubra onde o seu negócio <em>trava.</em></h2></div>
+    <h2 style="font-size:96px;margin-top:44px">${d.ch}</h2></div>
     <div class="cta-box"><div class="l"><i></i>Diagnóstico da gestão gratuito</div><div class="l"><i></i>30 a 40 minutos</div><div class="l"><i></i>Por Google Meet</div></div>
-    <div class="botao">Fale comigo no WhatsApp · link na bio</div>${MARCA}<div class="num">6/6</div></section>`;
+    <div class="botao">Fale comigo no WhatsApp · link na bio</div><p class="lema">Diagnóstico antes da tecnologia.</p>${MARCA}<div class="num">6/6</div></section>`;
 }
 document.getElementById('raiz').innerHTML=html;
 </script></body></html>
