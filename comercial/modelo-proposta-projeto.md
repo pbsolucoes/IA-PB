@@ -45,7 +45,7 @@
 7. **Investimento:** tabela do pacote escolhido (seção 3), com o que não está incluso.
 8. **Responsabilidades:** o que é da PB Soluções IA (só o que está no contrato), o que é do cliente e o que é dos fornecedores (`comercial/oferta-saude.md` serve de referência).
 9. **Próximos passos:** aceite → contrato (Sofia prepara o rascunho para o advogado) → início do Plano de gestão.
-10. **Validade e pagamento:** ✏️ PREENCHER (a Priscila define).
+10. **Pagamento (definido pela Priscila em 25/11/2026):** investimento único (Plano de gestão + implantação) em **50% na assinatura do contrato e 50% na entrega**. Mensalidade: paga mês a mês, a partir do início da operação. **Validade da proposta:** ✏️ PREENCHER (a Priscila define).
 
 ## 5. Exemplo de montagem (fictício, só para treinar)
 > Loja de roupas (fictícia). No diagnóstico: mensagens sem resposta e cliente que compra uma vez e some.

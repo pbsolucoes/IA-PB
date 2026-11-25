@@ -65,4 +65,6 @@
 - O agente não consegue pesquisar pessoas no Instagram nem no LinkedIn: trabalha com o que a Priscila escreveu na tarefa.
 
 ## Limites da rodada agendada
-- A rodada automática roda numa sessão nova **sem os conectores** Canva, Gmail e Google Agenda (a organização não permite passar conectores para tarefas agendadas). Execuções que dependem deles ficam em `aprovado` com o aviso em `proxima`, e são feitas quando a Priscila abrir o Claude e disser "execute as aprovadas da sala".
+- **Desde 25/11/2026 a rodada automática tem os conectores Canva, Gmail, Google Agenda e Google Drive** (a Priscila ligou na tarefa agendada). Ela executa as tarefas `aprovado` na própria rodada, só com as ações permitidas acima, e grava o dia no painel executivo.
+- Cópias no **Google Drive** só na conta da Priscila e só de peças e textos de marketing (nada de dados de clientes).
+- Se um conector falhar, a tarefa fica em `aprovado` com o motivo em `proxima`; a execução das 7h52/16h52 (na conversa principal) ou o pedido "execute as aprovadas da sala" tenta de novo.

@@ -39,6 +39,7 @@
 | 5. Consultoria avulsa | Governança, indicadores ou gestão de projetos (PMO) | Por projeto ou por hora | R$ 250/hora ou pacote de 10 h por R$ 2.300 |
 
 - **Fora da saúde, os agentes são adaptações** dos 4 agentes de saúde (agendamento e confirmação, retorno de clientes, satisfação, conferência). Ainda **não existem prontos** para outros segmentos: vender como projeto, com prazo só depois do plano (degrau 2).
+- **Condição de pagamento (definida pela Priscila em 25/11/2026):** 50% na assinatura do contrato e 50% na entrega, para o investimento único (Plano de gestão, implantação, pacote de consultoria). A mensalidade é paga mês a mês. Parcelamento diferente ou desconto: só a Priscila.
 - Os valores **não incluem** as ferramentas do cliente. Impostos, custos fixos e margem ainda serão conferidos pelo agente `financeiro`.
 - Custos das ferramentas do cliente (WhatsApp Business API, Meta, Anthropic, sistemas) são contratados e pagos pelo cliente.
 
