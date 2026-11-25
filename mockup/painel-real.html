@@ -148,6 +148,47 @@ a{color:var(--accent)}
 .ag2 li span{overflow-wrap:anywhere}
 .ag2 .vazio{color:var(--muted);font-size:13px;padding:6px 14px 12px}
 
+/* ===== Minha mesa (topo objetivo) ===== */
+.cm-nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.cm-nav a{font-size:13px;font-weight:600;color:var(--fg);text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px}
+.cm-nav a:hover{border-color:var(--accent)}
+.cm{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:18px;scroll-margin-top:12px}
+.cm-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.cm-head h2{margin:0}
+.cm-k{display:grid;gap:10px;grid-template-columns:repeat(2,1fr);margin-bottom:14px}
+@media(min-width:760px){.cm-k{grid-template-columns:repeat(4,1fr)}}
+.cm-k button{text-align:left;border-radius:14px;padding:12px 14px;background:var(--surface-2);border:1px solid var(--line)}
+.cm-k button strong{display:block;font-family:var(--display);font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cm-k button span{color:var(--muted);font-size:13px;font-weight:500}
+.cm-k button.quente{border-color:var(--accent);background:#3d2e22}.cm-k button.quente strong{color:var(--gold)}
+.cm-cols{display:grid;gap:14px}
+.cm-cols>*,.cm-links>*{min-width:0}
+.cm-ckf[hidden]{display:none}
+.cm-ckf button{flex:none}
+@media(min-width:860px){.cm-cols{grid-template-columns:1fr 1fr}}
+.cm-box{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px}
+.cm-box .t{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.cm-box ul{list-style:none;margin:0;padding:0}
+.cm-ap li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cm-ap li:last-child{border-bottom:0}
+.cm-ap small{color:var(--muted);display:block;font-size:12px}
+.cm-ap button{padding:5px 11px;font-size:12px;flex:none}
+.cm-ck li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cm-ck li:last-child{border-bottom:0}
+.cm-ck input[type=checkbox]{width:20px;height:20px;margin-top:1px;accent-color:var(--accent-strong);flex:none}
+.cm-ck li.ok span{text-decoration:line-through;color:var(--muted)}
+.cm-ck li .x{margin-left:auto;background:none;border:0;color:var(--muted);padding:0 4px;font-size:16px}
+.cm-ckf{display:flex;gap:8px;margin-top:10px}
+.cm-ckf input{flex:1;min-width:0;background:var(--surface);border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:9px 11px;font:inherit}
+.cm-vazio{color:var(--muted);font-size:13px;padding:6px 0}
+.cm-links{display:grid;gap:12px;margin-top:14px}
+@media(min-width:760px){.cm-links{grid-template-columns:repeat(3,1fr)}}
+.cm-links .cm-box a{display:flex;justify-content:space-between;gap:8px;color:var(--fg);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cm-links .cm-box a:last-child{border-bottom:0}
+.cm-links .cm-box a:hover{color:var(--accent)}
+.cm-links .cm-box a small{color:var(--muted);font-size:12px;text-align:right}
+details.arquivo{margin-top:22px;border:1px solid var(--line);border-radius:14px;padding:12px 16px;background:var(--surface)}
+details.arquivo>summary{cursor:pointer;font-weight:600}
 </style>
 
 <div class="wrap">
@@ -162,6 +203,43 @@ a{color:var(--accent)}
       <button id="bTeste" type="button">▶ Ver a animação (teste)</button>
     </div>
   </header>
+  <nav class="cm-nav" aria-label="Atalhos da página"><a href="#mesa">Minha mesa</a><a href="#links">Links rápidos</a><a href="#t-guerra">Sala de guerra</a><a href="#t-fun">Funil</a><a href="#stage">Sala 3D</a></nav>
+  <section class="cm" id="mesa" aria-labelledby="t-mesa">
+    <div class="cm-head"><h2 id="t-mesa">Minha mesa</h2><span class="estado" id="cmRod"></span></div>
+    <div class="cm-k" id="cmK"></div>
+    <div class="cm-cols">
+      <div class="cm-box cm-ap"><div class="t">Para aprovar agora</div><ul id="cmAp"><li class="cm-vazio">Carregando…</li></ul></div>
+      <div class="cm-box cm-ck"><div class="t">Meu checklist</div><ul id="ckLista"><li class="cm-vazio">Carregando…</li></ul>
+        <form class="cm-ckf" id="ckForm" autocomplete="off"><input id="ckTxt" maxlength="120" aria-label="Nova tarefa do checklist" placeholder="Nova tarefa minha…"><button class="pri" type="submit">Adicionar</button></form></div>
+    </div>
+    <div class="cm-links" id="links">
+      <div class="cm-box"><div class="t">Publicar</div>
+        <a href="https://claude.ai/artifact/R6SLZKbYdSqTt4o9fpPsDX" target="_blank" rel="noopener"><span>Central de publicações</span><small>datas e legendas prontas</small></a>
+        <a href="https://github.com/pbsolucoes/IA-PB/tree/claude/pb-servicos-ai-agents-xpg0ky/redes" target="_blank" rel="noopener"><span>Todas as legendas</span><small>pasta redes/</small></a>
+        <a href="https://github.com/pbsolucoes/IA-PB/blob/claude/pb-servicos-ai-agents-xpg0ky/redes/legendas-onde-trava.md" target="_blank" rel="noopener"><span>Legendas Onde trava?</span><small>4 segmentos</small></a>
+        <a href="https://github.com/pbsolucoes/IA-PB/blob/claude/pb-servicos-ai-agents-xpg0ky/redes/legenda-card-configuracao-agentes.md" target="_blank" rel="noopener"><span>Legendas do card de agentes</span><small>feed, LinkedIn, stories</small></a>
+        <a href="https://www.canva.com/folder/FAHbf00CBLY" target="_blank" rel="noopener"><span>Canva · peças das redes</span><small>todas as pastas</small></a>
+        <a href="https://www.canva.com/folder/FAHbf61nrZ0" target="_blank" rel="noopener"><span>Canva · stories</span><small>e destaques</small></a>
+        <a href="https://www.canva.com/folder/FAHbf2HKPks" target="_blank" rel="noopener"><span>Canva · LinkedIn</span><small>imagens e carrosséis</small></a>
+      </div>
+      <div class="cm-box"><div class="t">Vender</div>
+        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1fnGhPn765Y3GK15uDoUCTXkxBQUrQkfx4uHAl0YuwFimaPjD0qA5hRGMtdEl4oy31a5tKhEvW" target="_blank" rel="noopener"><span>Link do café virtual</span><small>para mandar ao contato</small></a>
+        <a href="https://claude.ai/artifact/VanfDgyY7BrohrkqRTArGv" target="_blank" rel="noopener"><span>Apresentação comercial</span><small>10 slides</small></a>
+        <a href="https://github.com/pbsolucoes/IA-PB/blob/claude/pb-servicos-ai-agents-xpg0ky/comercial/abordagem-empresarios.md" target="_blank" rel="noopener"><span>Mensagens de abordagem</span><small>e roteiro do diagnóstico</small></a>
+        <a href="https://github.com/pbsolucoes/IA-PB/blob/claude/pb-servicos-ai-agents-xpg0ky/comercial/modelo-proposta-projeto.md" target="_blank" rel="noopener"><span>Modelo de proposta</span><small>pacotes e pagamento 50/50</small></a>
+        <a href="https://github.com/pbsolucoes/IA-PB/blob/claude/pb-servicos-ai-agents-xpg0ky/conhecimento/servicos.md" target="_blank" rel="noopener"><span>Preços aprovados</span><small>degraus da oferta</small></a>
+        <a href="https://pbsolucoes.github.io/IA-PB/autodiagnostico.html" target="_blank" rel="noopener"><span>Autodiagnóstico</span><small>para indicar ao lead</small></a>
+      </div>
+      <div class="cm-box"><div class="t">Acompanhar</div>
+        <a href="https://claude.ai/artifact/WZUrduDJJPGzNNa2cgH7Wd" target="_blank" rel="noopener"><span>Painel executivo</span><small>números por dia</small></a>
+        <a href="https://claude.ai/artifact/2f7ZmPFnWYi6epss6oMnwU" target="_blank" rel="noopener"><span>Plano mestre</span><small>30 dias e simulações</small></a>
+        <a href="https://pbsolucoes.github.io/IA-PB/" target="_blank" rel="noopener"><span>Site no ar</span><small>pbsolucoes.github.io</small></a>
+        <a href="https://calendar.google.com/" target="_blank" rel="noopener"><span>Google Agenda</span><small>falecom</small></a>
+        <a href="https://mail.google.com/" target="_blank" rel="noopener"><span>Gmail</span><small>rascunhos dos agentes</small></a>
+        <a href="https://adsmanager.facebook.com/" target="_blank" rel="noopener"><span>Gerenciador de anúncios</span><small>Meta</small></a>
+      </div>
+    </div>
+  </section>
   <div class="stage" id="stage" aria-label="Departamento comercial da PB Soluções IA em 3D">
     <div class="bubbles" id="bubbles"></div>
     <span class="tag" id="tag">Arraste para girar a sala</span>
@@ -251,6 +329,7 @@ a{color:var(--accent)}
     <ul class="eventos" id="eventos"></ul>
   </section>
 
+  <details class="arquivo"><summary>Arquivo: conexões, agentes e histórico</summary>
     <section aria-labelledby="t-con">
     <div class="eyebrow">Testadas de verdade</div>
     <h2 id="t-con">Conexões</h2>
@@ -313,6 +392,7 @@ a{color:var(--accent)}
         <li><time>16:56</time>Teste do agente comercial</li>
       </ol>
     </section>
+  </details>
 
 
 </div></main>
@@ -403,6 +483,38 @@ function atualizaBaloes(c){
   T.nina.msg='Calendário em dia'; T.bia.msg='Textos prontos'; T.theo.msg='Peças no Canva'; T.julia.msg='Marca revisada'; T.pedro.msg='Site no ar';
 }
 
+// ===================== MINHA MESA (resumo + checklist) =====================
+function vaiPara(id){const e=document.getElementById(id); if(e) e.scrollIntoView({behavior:'smooth',block:'start'});}
+function renderMesa(){
+  const n=st=>tarefas.filter(t=>(t.status||'fazer')===st).length;
+  const k=[['aprovar','Para aprovar',n('aprovar'),'quadro'],['sugestao','Sugestões dos agentes',n('sugestao'),'sugs'],['aprovado','Em execução',n('aprovado'),'quadro'],['fazer','Na fila dos agentes',n('fazer')+n('andamento'),'quadro']];
+  const box=document.getElementById('cmK'); box.innerHTML='';
+  k.forEach(([id,txt,v,alvo])=>{const b=document.createElement('button');b.type='button';if(id==='aprovar'&&v)b.className='quente';b.innerHTML='<strong>'+v+'</strong><span>'+txt+'</span>';b.onclick=()=>vaiPara(alvo);box.append(b);});
+  const ul=document.getElementById('cmAp'); ul.innerHTML='';
+  const ap=tarefas.filter(t=>t.status==='aprovar');
+  if(!ap.length){ul.innerHTML='<li class="cm-vazio">Nada esperando você. 🎉</li>';}
+  ap.slice(0,6).forEach(t=>{const li=document.createElement('li');const d=document.createElement('div');d.textContent=t.titulo||'Tarefa';const sm=document.createElement('small');sm.textContent=(t.por||t.agente||'')+(t.prazo?' · prazo '+t.prazo.split('-').reverse().slice(0,2).join('/'):'');d.append(sm);const b=document.createElement('button');b.type='button';b.textContent='Ver';b.onclick=()=>vaiPara('quadro');li.append(d,b);ul.append(li);});
+  if(ap.length>6){const li=document.createElement('li');li.className='cm-vazio';li.textContent='+ '+(ap.length-6)+' no quadro abaixo';ul.append(li);}
+}
+(async()=>{
+  const C=window.claude; let d=null; try{ d=C?await C.use('db'):null; }catch(e){d=null;}
+  const ul=document.getElementById('ckLista'), f=document.getElementById('ckForm');
+  if(!d){ ul.innerHTML='<li class="cm-vazio">O checklist aparece quando você abre esta página logada no claude.ai.</li>'; f.hidden=true; return; }
+  let itens=[];
+  function desenha(){ ul.innerHTML=''; if(!itens.length){ul.innerHTML='<li class="cm-vazio">Sem pendências. Adicione abaixo.</li>';return;}
+    itens.sort((a,b)=>(a.feito?1:0)-(b.feito?1:0)||(a.ordem||0)-(b.ordem||0)).forEach(it=>{
+      const li=document.createElement('li'); if(it.feito) li.className='ok';
+      const cb=document.createElement('input'); cb.type='checkbox'; cb.checked=!!it.feito; cb.setAttribute('aria-label',it.texto||'item');
+      cb.onchange=async()=>{try{await d.doc('checklist/'+it.id).update({feito:cb.checked,feito_em:cb.checked?new Date().toISOString():''});}catch(e){cb.checked=!cb.checked;}};
+      const sp=document.createElement('span'); sp.textContent=it.texto||'';
+      if(it.link){const a=document.createElement('a');a.href=it.link;a.target='_blank';a.rel='noopener';a.textContent=' ↗';a.style.color='var(--accent)';sp.append(a);}
+      const x=document.createElement('button'); x.type='button'; x.className='x'; x.textContent='×'; x.setAttribute('aria-label','Remover');
+      x.onclick=async()=>{ if(confirm('Remover do checklist?')){ try{await d.doc('checklist/'+it.id).delete();}catch(e){} } };
+      li.append(cb,sp,x); ul.append(li); });
+  }
+  d.collection('checklist').limit(200).onSnapshot(sn=>{itens=sn.docs.map(x=>Object.assign({id:x.id},x.data()));desenha();},()=>{ul.innerHTML='<li class="cm-vazio">Não consegui ler o checklist agora.</li>';});
+  f.addEventListener('submit',async ev=>{ev.preventDefault();const i=document.getElementById('ckTxt');const v=i.value.trim();if(!v)return;try{await d.collection('checklist').add({texto:v,feito:false,ordem:Date.now(),criado:new Date().toISOString()});i.value='';}catch(e){}});
+})();
 // ===================== SALA DE GUERRA (db: tarefas, sala/status) =====================
 const TIPOS={pedido:{n:'Pedido para a sala',ag:'mesa-central',team:'central'},prospeccao:{n:'Prospecção',ag:'comercial-prospeccao',team:'prosp'},followup:{n:'Follow-up',ag:'comercial-prospeccao',team:'prosp'},diagnostico:{n:'Diagnóstico e proposta',ag:'redator-propostas',team:'prop'},conteudo:{n:'Conteúdo',ag:'social-media + redator-copy + designer-pecas',team:'nina'},ads:{n:'Tráfego (Meta Ads)',ag:'trafego-ads',team:'ads'},fluxo:{n:'Fluxos e automação',ag:'fluxos-automacao',team:'flu'}};
 const COLS=[['fazer','A fazer'],['andamento','Agentes trabalhando'],['aprovar','Pronto · na tua mesa'],['feito','Aprovado e feito']];
@@ -451,16 +563,16 @@ function renderQuadro(){
   // balões da sala 3D mostram a tarefa em andamento de cada mesa
   TEAM.forEach(tm=>tm.tarefa='');
   tarefas.filter(t=>t.status==='andamento'||t.status==='aprovar').forEach(t=>{const id=(TIPOS[t.tipo]||{}).team;const tm=TEAM.find(x=>x.id===id);if(tm&&!tm.tarefa)tm.tarefa=(t.status==='aprovar'?'Para aprovar: ':'Trabalhando: ')+(t.titulo||'').slice(0,34);});
-  renderEquipe(); renderSugestoes();
+  renderEquipe(); renderSugestoes(); renderMesa();
   const pa=tarefas.filter(t=>t.status==='aprovar').length; const pri=TEAM.find(x=>x.id==='pri'); if(pri&&pa) pri.tarefa=pa+' tarefa(s) para aprovar';
 }
 (async()=>{
   const C=window.claude; try{ dbT = C ? await C.use('db') : null; }catch(e){ dbT=null; }
-  if(!dbT){ document.getElementById('novaBox').style.display='none'; quadro.innerHTML='<p class="estado">As tarefas só aparecem quando você abre esta página logada no claude.ai.</p>'; return; }
+  if(!dbT){ document.getElementById('cmAp').innerHTML='<li class="cm-vazio">As tarefas aparecem quando você abre esta página logada no claude.ai.</li>'; document.getElementById('novaBox').style.display='none'; quadro.innerHTML='<p class="estado">As tarefas só aparecem quando você abre esta página logada no claude.ai.</p>'; return; }
   const tm=setTimeout(()=>{document.getElementById('rRes').textContent='As tarefas estão demorando para chegar.';},10000);
   dbT.collection('tarefas').orderBy('criado','desc').limit(300).onSnapshot(sn=>{clearTimeout(tm);tarefas=sn.docs.map(d=>Object.assign({id:d.id},d.data()));renderQuadro();},()=>{clearTimeout(tm);quadro.innerHTML='<p class="estado">Não foi possível ler as tarefas agora.</p>';});
   dbT.doc('sala/analise').onSnapshot(a=>{ const bx=document.getElementById('analise'); if(a.exists&&a.data().texto){ bx.hidden=false; document.getElementById('anTxt').textContent=a.data().texto; document.getElementById('anData').textContent='Atualizada em '+fmt(a.data().atualizado); } },()=>{});
-  dbT.doc('sala/status').onSnapshot(s=>{ if(s.exists){const d=s.data(); document.getElementById('rUlt').textContent=fmt(d.ultima_rodada)||'ainda não rodou'; document.getElementById('rRes').textContent=d.resumo||'';} },()=>{});
+  dbT.doc('sala/status').onSnapshot(s=>{ if(s.exists){const d=s.data(); document.getElementById('rUlt').textContent=fmt(d.ultima_rodada)||'ainda não rodou'; document.getElementById('rRes').textContent=d.resumo||''; const cr=document.getElementById('cmRod'); if(cr) cr.textContent='Última rodada: '+(fmt(d.ultima_rodada)||'—');} },()=>{});
 })();
 
 const EQUIPE=[
