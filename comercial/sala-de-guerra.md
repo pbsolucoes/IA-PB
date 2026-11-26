@@ -70,4 +70,5 @@
 ## Limites da rodada agendada
 - **Desde 25/11/2026 a rodada automática tem os conectores Canva, Gmail, Google Agenda e Google Drive** (a Priscila ligou na tarefa agendada). Ela executa as tarefas `aprovado` na própria rodada, só com as ações permitidas acima, e grava o dia no painel executivo.
 - Cópias no **Google Drive** só na conta da Priscila e só de peças e textos de marketing (nada de dados de clientes).
+- **Arquivos no GitHub:** a rodada roda numa sessão própria e só consegue enviar para um ramo (branch) dela. Ao terminar, grave o nome desse ramo em `sala/status.ramo_para_juntar`. A execução das 7h52/16h52 (conversa principal) revisa e junta esse ramo no ramo do site (`claude/pb-servicos-ai-agents-xpg0ky`).
 - Se um conector falhar, a tarefa fica em `aprovado` com o motivo em `proxima`; a execução das 7h52/16h52 (na conversa principal) ou o pedido "execute as aprovadas da sala" tenta de novo.
