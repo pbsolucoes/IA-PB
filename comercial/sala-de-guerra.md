@@ -7,7 +7,7 @@
 ## Onde estão os dados (banco da Central Real, via ferramenta `ArtifactData`)
 | Caminho | O que é |
 |---|---|
-| `tarefas/<id>` | Uma tarefa. Campos: `titulo`, `tipo` (`pedido` · `prospeccao` · `followup` · `diagnostico` · `conteudo` · `ads` · `fluxo`), `agente`, `canal`, `contato` (nome), `empresa`, `detalhes` (contexto da Priscila), `prazo` (AAAA-MM-DD), `status` (`sugestao` · `fazer` · `andamento` · `aprovar` · `aprovado` · `feito` · `descartada`), `resultado` (entrega do agente), `proxima` (próximo passo), `ajuste` (pedido de ajuste da Priscila), `criado`, `atualizado`, `por`, `execucao` (o que fazer depois de aprovado), `execucao_feita` (o que foi feito), `pedido` (id do pedido de origem), `depende_de`. |
+| `tarefas/<id>` | Uma tarefa. Campos: `titulo`, `tipo` (`pedido` · `prospeccao` · `followup` · `diagnostico` · `conteudo` · `ads` · `fluxo` · `mercado`), `agente`, `canal`, `contato` (nome), `empresa`, `detalhes` (contexto da Priscila), `prazo` (AAAA-MM-DD), `status` (`sugestao` · `fazer` · `andamento` · `aprovar` · `aprovado` · `feito` · `descartada`), `resultado` (entrega do agente), `proxima` (próximo passo), `ajuste` (pedido de ajuste da Priscila), `criado`, `atualizado`, `por`, `execucao` (o que fazer depois de aprovado), `execucao_feita` (o que foi feito), `pedido` (id do pedido de origem), `depende_de`. |
 | `sala/status` | Resumo da última rodada: `ultima_rodada` (data ISO), `resumo` (1 frase), `proxima` (texto). |
 | `sala/analise` | Análise dos resultados mostrada no topo da sala: `texto` (até 8 linhas) e `atualizado` (ISO). |
 | `eventos/<id>` | Funil real (abordagem, resposta, diagnóstico, proposta, contrato). **Só a Priscila registra.** O agente não cria eventos. |
@@ -28,6 +28,7 @@
       | `diagnostico` | `comercial-prospeccao` + `redator-propostas` (Marina) | Roteiro do diagnóstico **ou** rascunho da proposta, com os valores de `conhecimento/servicos.md`. |
       | `conteudo` | `social-media` (Nina), `redator-copy` (Bia), `designer-pecas` (Theo) | Legenda/post pronto; peça em PNG no repositório (sem dados pessoais) e o nome do arquivo. Sugerir `execucao`: "enviar ao Canva + lembrete na agenda". |
       | `ads` | `trafego-ads` (Lucas) | Plano de campanha, textos do anúncio e passo a passo no Gerenciador. Verba só a que a Priscila definir. |
+      | `mercado` | `inteligencia-mercado` (Clara) | Comparativo ou radar com link e data em cada item; recomendação separada e marcada como opinião. |
       | `fluxo` | `fluxos-automacao` (Davi) | Fluxo desenhado (etapas, responsáveis, onde entra a IA) e passo a passo das automações gratuitas. |
    3. Gravar `resultado`, `proxima` (o que a Priscila faz agora, em 1 linha), `execucao` (o que os agentes farão depois da aprovação, se houver), `status: aprovar`, `atualizado` (agora) e `por` (nome do agente). Apagar `ajuste` se ele já foi atendido.
 4. **Sugestões dos agentes.** Grave no máximo **3** tarefas novas com `status: sugestao` (aparecem em "Sugestões dos agentes"; a Priscila aceita ou descarta). Base: `campanhas/`, `redes/` (calendário), funil (`eventos`) e tarefas recentes. Não repita sugestão pendente ou descartada nos últimos 14 dias. Cada sugestão: `titulo`, `tipo`, `detalhes` (por que agora, em 1 frase), `por` (nome do agente).

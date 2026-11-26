@@ -4,11 +4,10 @@
 <style>
 /* Layout: departamento 3D ao vivo no topo (sem imagem estática); abaixo, dados reais (funil registrado por você, conexões, agentes, entregas, histórico). Tema escuro único da marca, por escolha. */
 :root{
-  --bg:#1b1512; --surface:#2A211D; --surface-2:#352a24; --line:#4a3b33;
-  --fg:#FDF9F5; --muted:#c9b9ab; --accent:#C3885B; --accent-strong:#AB7646; --gold:#e9b45a;
-  --ok:#8fc48d; --warn:#e2b25a; --bad:#e08a7a; --pause:#a1958d;
+  --bg:#FDF9F5; --surface:#FFFFFF; --surface-2:#F6EEE5; --line:#E8DACB; --fg:#2A211D; --muted:#6E5D52; --accent:#936431; --accent-strong:#AB7646; --gold:#9A6A12;
+  --ok:#2F7A3C; --warn:#9A6A12; --bad:#B5452F; --pause:#7a6e66;
   --display:'Playfair Display',Georgia,serif; --body:'Inter',system-ui,sans-serif;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);margin:0;line-height:1.5;font-size:15px}
@@ -28,7 +27,7 @@ h1{font-family:var(--display);font-size:clamp(28px,4.5vw,44px);margin:2px 0 2px;
 .bub.fecha b{color:var(--gold);font-size:11px}
 .bub.fecha:after{border-top-color:var(--gold)}
 @media(max-width:640px){.bub:not(.fecha){font-size:0;padding:3px 7px}.bub:not(.fecha) b{font-size:9px}.bub.fecha{font-size:12px;max-width:200px}}
-.tag{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--muted);background:rgba(18,14,12,.72);padding:3px 8px;border-radius:6px}
+.tag{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--muted);background:rgba(253,249,245,.88);padding:3px 8px;border-radius:6px}
 .erro{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--muted)}
 .ctrls{display:flex;flex-wrap:wrap;gap:8px}
 button,select,input{font-family:var(--body);font-size:14px}
@@ -45,7 +44,7 @@ h2{font-family:var(--display);font-size:clamp(22px,3vw,28px);margin:0 0 4px}
 .kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
 .kpi strong{display:block;font-family:var(--display);font-size:32px;line-height:1.1;font-variant-numeric:tabular-nums}
 .kpi span{color:var(--muted);font-size:13px}
-.kpi.sino{background:#3d2e1c;border-color:#6a5030}.kpi.sino strong{color:var(--gold)}
+.kpi.sino{background:#FBF1E4;border-color:#E3C9A0}.kpi.sino strong{color:var(--gold)}
 .form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px;margin-top:12px}
 @media(min-width:760px){.form{grid-template-columns:200px 1fr 1fr auto;align-items:end}}
 .form label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--muted);min-width:0}
@@ -97,10 +96,10 @@ a{color:var(--accent)}
 .nova textarea{min-height:70px;resize:vertical}
 .quadro{display:grid;gap:12px;margin-top:14px}
 @media(min-width:900px){.quadro{grid-template-columns:repeat(4,1fr);align-items:start}}
-.col{background:#211a16;border:1px solid var(--line);border-radius:14px;padding:10px;min-width:0}
+.col{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:10px;min-width:0}
 .col h3{margin:2px 4px 10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
 .col h3 span{color:var(--fg);font-variant-numeric:tabular-nums}
-.col.aprovar{border-color:#6a5030}.col.aprovar h3{color:var(--gold)}
+.col.aprovar{border-color:#E3C9A0;background:#FBF1E4}.col.aprovar h3{color:var(--gold)}
 .vazio{font-size:13px;color:var(--muted);padding:6px 4px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:8px;font-size:14px;min-width:0}
 .card .tp{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent)}
@@ -121,14 +120,14 @@ a{color:var(--accent)}
 .sug .bts{display:flex;gap:6px}.sug .bts button{padding:5px 11px;font-size:12.5px}
 
 /* ===== Pedido para a sala + equipe ===== */
-.pedido{margin-top:14px;background:#14100e;border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.pedido{margin-top:14px;background:var(--surface-2);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
 .pedido .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);font-weight:700;display:flex;align-items:center;gap:8px}
 .pedido .t:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
 .pedido textarea{margin-top:10px;width:100%;min-height:84px;background:transparent;border:0;color:var(--fg);font-family:var(--display);font-size:clamp(18px,2.4vw,22px);line-height:1.35;resize:vertical}
 .pedido textarea:focus{outline:none}
 .pedido .bts{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
 .pedido .mic[aria-pressed="true"]{background:var(--bad);border-color:var(--bad);color:#1b1512}
-.pronto{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ok);background:rgba(143,196,141,.12);border:1px solid rgba(143,196,141,.4);border-radius:999px;padding:2px 10px;margin-bottom:6px}
+.pronto{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ok);background:#E9F3EA;border:1px solid #BFDCC3;border-radius:999px;padding:2px 10px;margin-bottom:6px}
 .selo-exec{margin-top:8px;font-size:12.5px;color:var(--gold);font-weight:600}
 .equipe{display:grid;gap:12px;margin-top:14px}
 @media(min-width:700px){.equipe{grid-template-columns:repeat(2,1fr)}}
@@ -160,7 +159,7 @@ a{color:var(--accent)}
 .cm-k button{text-align:left;border-radius:14px;padding:12px 14px;background:var(--surface-2);border:1px solid var(--line)}
 .cm-k button strong{display:block;font-family:var(--display);font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
 .cm-k button span{color:var(--muted);font-size:13px;font-weight:500}
-.cm-k button.quente{border-color:var(--accent);background:#3d2e22}.cm-k button.quente strong{color:var(--gold)}
+.cm-k button.quente{border-color:var(--accent-strong);background:#FBF1E4}.cm-k button.quente strong{color:var(--gold)}
 .cm-cols{display:grid;gap:14px}
 .cm-cols>*,.cm-links>*{min-width:0}
 .cm-ckf[hidden]{display:none}
@@ -189,9 +188,44 @@ a{color:var(--accent)}
 .cm-links .cm-box a small{color:var(--muted);font-size:12px;text-align:right}
 details.arquivo{margin-top:22px;border:1px solid var(--line);border-radius:14px;padding:12px 16px;background:var(--surface)}
 details.arquivo>summary{cursor:pointer;font-weight:600}
+/* ===== Menu lateral (claro e objetivo) ===== */
+.side{background:#FFFFFF;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;padding:10px 16px;display:flex;align-items:center;gap:14px}
+.side .logo{display:flex;align-items:baseline;gap:7px;text-decoration:none;color:var(--fg);flex:none}
+.side .logo b{font-family:var(--display);color:var(--accent-strong);font-size:22px}
+.side .logo span{font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+.side nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.side nav::-webkit-scrollbar{display:none}
+.side nav a{white-space:nowrap;text-decoration:none;color:var(--fg);font-size:14px;font-weight:500;padding:8px 12px;border-radius:10px}
+.side nav a:hover,.side nav a.on{background:var(--surface-2);color:var(--accent)}
+.side .rod{display:none}
+@media(min-width:1100px){
+  body{padding-left:236px}
+  .side{position:fixed;left:0;top:0;bottom:0;width:236px;flex-direction:column;align-items:stretch;gap:20px;padding:26px 16px;border-bottom:0;border-right:1px solid var(--line)}
+  .side .logo{padding:0 10px}
+  .side nav{flex-direction:column;overflow:visible}
+  .side nav a{padding:10px 12px;font-size:14.5px}
+  .side .rod{display:block;margin-top:auto;padding:0 10px;font-size:12px;color:var(--muted);line-height:1.5}
+}
+h2,section{scroll-margin-top:70px}
+header.top .brand{display:none}
+.pedido textarea{font-family:var(--body)!important;font-size:16px!important}
 </style>
 
-<div class="wrap">
+<aside class="side" aria-label="Menu">
+  <a class="logo" href="#topo"><b>PB</b><span>Soluções IA</span></a>
+  <nav>
+    <a href="#mesa">🗂 Minha mesa</a>
+    <a href="#links">🔗 Links rápidos</a>
+    <a href="#t-guerra">⚔️ Sala de guerra</a>
+    <a href="#equipe">👥 Equipe</a>
+    <a href="#t-fun">📈 Funil</a>
+    <a href="#stage">🏢 Sala 3D</a>
+    <a href="#arquivo">🗄 Arquivo</a>
+  </nav>
+  <div class="rod">Rodadas dos agentes: 7h30 e 16h30, dias úteis.<br>Você aprova; os agentes executam.</div>
+</aside>
+
+<div class="wrap" id="topo">
   <header class="top">
     <div>
       <div class="brand"><b>PB</b><span>Soluções IA</span></div>
@@ -203,7 +237,6 @@ details.arquivo>summary{cursor:pointer;font-weight:600}
       <button id="bTeste" type="button">▶ Ver a animação (teste)</button>
     </div>
   </header>
-  <nav class="cm-nav" aria-label="Atalhos da página"><a href="#mesa">Minha mesa</a><a href="#links">Links rápidos</a><a href="#t-guerra">Sala de guerra</a><a href="#t-fun">Funil</a><a href="#stage">Sala 3D</a></nav>
   <section class="cm" id="mesa" aria-labelledby="t-mesa">
     <div class="cm-head"><h2 id="t-mesa">Minha mesa</h2><span class="estado" id="cmRod"></span></div>
     <div class="cm-k" id="cmK"></div>
@@ -271,6 +304,7 @@ details.arquivo>summary{cursor:pointer;font-weight:600}
             <option value="conteudo">Conteúdo</option>
             <option value="ads">Tráfego (Meta Ads)</option>
             <option value="fluxo">Fluxos e automação</option>
+            <option value="mercado">Inteligência de mercado</option>
           </select>
         </label>
         <label for="tCanal">Canal
@@ -329,7 +363,7 @@ details.arquivo>summary{cursor:pointer;font-weight:600}
     <ul class="eventos" id="eventos"></ul>
   </section>
 
-  <details class="arquivo"><summary>Arquivo: conexões, agentes e histórico</summary>
+  <details class="arquivo" id="arquivo"><summary>Arquivo: conexões, agentes e histórico</summary>
     <section aria-labelledby="t-con">
     <div class="eyebrow">Testadas de verdade</div>
     <h2 id="t-con">Conexões</h2>
@@ -516,7 +550,7 @@ function renderMesa(){
   f.addEventListener('submit',async ev=>{ev.preventDefault();const i=document.getElementById('ckTxt');const v=i.value.trim();if(!v)return;try{await d.collection('checklist').add({texto:v,feito:false,ordem:Date.now(),criado:new Date().toISOString()});i.value='';}catch(e){}});
 })();
 // ===================== SALA DE GUERRA (db: tarefas, sala/status) =====================
-const TIPOS={pedido:{n:'Pedido para a sala',ag:'mesa-central',team:'central'},prospeccao:{n:'Prospecção',ag:'comercial-prospeccao',team:'prosp'},followup:{n:'Follow-up',ag:'comercial-prospeccao',team:'prosp'},diagnostico:{n:'Diagnóstico e proposta',ag:'redator-propostas',team:'prop'},conteudo:{n:'Conteúdo',ag:'social-media + redator-copy + designer-pecas',team:'nina'},ads:{n:'Tráfego (Meta Ads)',ag:'trafego-ads',team:'ads'},fluxo:{n:'Fluxos e automação',ag:'fluxos-automacao',team:'flu'}};
+const TIPOS={pedido:{n:'Pedido para a sala',ag:'mesa-central',team:'central'},prospeccao:{n:'Prospecção',ag:'comercial-prospeccao',team:'prosp'},followup:{n:'Follow-up',ag:'comercial-prospeccao',team:'prosp'},diagnostico:{n:'Diagnóstico e proposta',ag:'redator-propostas',team:'prop'},conteudo:{n:'Conteúdo',ag:'social-media + redator-copy + designer-pecas',team:'nina'},ads:{n:'Tráfego (Meta Ads)',ag:'trafego-ads',team:'ads'},fluxo:{n:'Fluxos e automação',ag:'fluxos-automacao',team:'flu'},mercado:{n:'Inteligência de mercado',ag:'inteligencia-mercado',team:'julia'}};
 const COLS=[['fazer','A fazer'],['andamento','Agentes trabalhando'],['aprovar','Pronto · na tua mesa'],['feito','Aprovado e feito']];
 let tarefas=[], dbT=null;
 const quadro=document.getElementById('quadro');
@@ -584,6 +618,7 @@ const EQUIPE=[
   {nome:'Theo',fn:'Arte e Canva',dep:'Marketing',cor:'#d08a6a',tipos:[],por:['designer-pecas','Theo']},
   {nome:'Lucas',fn:'Tráfego (Meta Ads)',dep:'Marketing',cor:'#d9774a',tipos:['ads']},
   {nome:'Davi',fn:'Fluxos e automação',dep:'Operação',cor:'#4f6fb0',tipos:['fluxo']},
+  {nome:'Clara',fn:'Inteligência de mercado',dep:'Estratégia',cor:'#3f8f8a',tipos:['mercado'],por:['inteligencia-mercado','Clara']},
   {nome:'Júlia',fn:'Estratégia de marca',dep:'Marketing',cor:'#b58fc9',tipos:[],por:['estrategista-marca','Júlia']},
   {nome:'Pedro',fn:'Site',dep:'Marketing',cor:'#8aa6c1',tipos:[],por:['desenvolvedor-site','Pedro']},
   {nome:'Otávio',fn:'Financeiro',dep:'Finanças',cor:'#d9c3a5',tipos:[],por:['financeiro','Otávio']},
@@ -645,7 +680,7 @@ document.getElementById('pedEnv').addEventListener('click',async()=>{
   mic.addEventListener('click',()=>{ if(d.active()){d.stop().catch(()=>{});return;} base=tx.value.trim(); est.textContent='Ouvindo… fale o pedido e toque em ■ Parar.'; d.start({language:'pt-BR'}).catch(e=>{ const c=e&&e.code; est.textContent=c==='not_granted'?'Microfone não liberado nesta página. Use o microfone do teclado ou digite.':c==='no_gesture'?'Toque no botão 🎙 Falar de novo.':'A voz não funcionou aqui ('+(c||'erro')+'). Use o microfone do teclado ou digite.'; if(c==='not_granted') mic.hidden=true; }); });
 })();
 
-document.getElementById('tTipo').addEventListener('change',e=>{const m={prospeccao:'Primeira mensagem',followup:'Follow-up',diagnostico:'Preparar diagnóstico',conteudo:'Post',ads:'Campanha de teste no Instagram',fluxo:'Fluxo de atendimento no WhatsApp'};const ti=document.getElementById('tTit');if(!ti.value)ti.placeholder='Ex.: '+m[e.target.value];});
+document.getElementById('tTipo').addEventListener('change',e=>{const m={prospeccao:'Primeira mensagem',followup:'Follow-up',diagnostico:'Preparar diagnóstico',conteudo:'Post',ads:'Campanha de teste no Instagram',fluxo:'Fluxo de atendimento no WhatsApp',mercado:'Comparar plataformas de WhatsApp com IA'};const ti=document.getElementById('tTit');if(!ti.value)ti.placeholder='Ex.: '+m[e.target.value];});
 document.getElementById('fTar').addEventListener('submit',async ev=>{
   ev.preventDefault(); if(!dbT) return;
   const g=id=>document.getElementById(id).value.trim(); const tipo=g('tTipo');

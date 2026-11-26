@@ -16,6 +16,7 @@
 | **Pedro** | Site | `desenvolvedor-site` | Marketing |
 | **Lucas** | Tráfego pago (Meta Ads) | `trafego-ads` | Marketing |
 | **Davi** | Fluxos e automação | `fluxos-automacao` | Operação |
+| **Clara** | Inteligência de mercado: comparativos, radar semanal, modelos de negócio (com fonte e data) | `inteligencia-mercado` | Estratégia |
 | **Otávio** | Financeiro | `financeiro` | Finanças |
 | **Sofia** | Jurídico (rascunhos para advogado) | `juridico-contratos` | Jurídico |
 
