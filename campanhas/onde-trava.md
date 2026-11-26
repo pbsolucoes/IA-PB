@@ -66,7 +66,7 @@
 |---|---|---|---|---|
 | 14 a 18/12 | Seg: carrossel Serviços profissionais · Qua: Reels Comércio · Sex: carrossel Educação | IG feed | `social-media` | A fazer |
 | 14 a 18/12 | Ter e Qui: textos para Serviços profissionais e Comércio | LinkedIn perfil | `redator-copy` | A fazer |
-| 21/12 a 02/01 | **Pausa de festas:** só stories leves e follow-ups | IG stories | Sala de guerra continua nos dias úteis | — |
+| 21/12 a 02/01 | **Série "Virada da gestão 2027"** (decisão da Priscila em 26/11: sem pausa): 2 posts por semana no feed e no LinkedIn + stories diários, CTA para o checklist `docs/virada-2027.html` e o café virtual | IG feed, stories, LinkedIn | `social-media`, `redator-copy`, `designer-pecas`, `apps-lancamentos` | A fazer |
 | 05 a 09/01 | Seg: carrossel Beleza · Qua: Reels Serviços · Sex: post de prova (consultoria 180+ clientes) | IG feed | `social-media` | A fazer |
 | 05 a 09/01 | Teste de anúncio (se a verba estiver definida) | Meta Ads | Você aprova o valor | ✏️ |
 | 12 a 16/01 | Seg: carrossel Comércio · Qua: Reels Educação · Sex: Reels Beleza | IG feed | `social-media` | A fazer |
@@ -108,5 +108,5 @@ Sem valor definido. Produção = R$ 0 (Claude, Canva Pro que você já tem, GitH
 | **Não existe oferta definida para outros segmentos** (`servicos.md` está vazio) | Definir até 27/11, antes do 1º diagnóstico. Sem isso, o diagnóstico não tem próximo passo. |
 | Postar no feed agora quebra a grade "Fio Condutor" | Fase 1 só em stories, abordagem 1:1 e site; feed só depois de 11/12. |
 | Sobrecarga: 5 diagnósticos por semana + produção de conteúdo | Sala de guerra faz os rascunhos; você aprova e envia. Se passar de 5 por semana, abrir lista de espera. |
-| Festas derrubam a resposta | Pausa de 21/12 a 02/01 e volta forte em 05/01. |
+| Festas derrubam a resposta (hipótese, sem dado nosso) | Série "Virada 2027" agendada antes; medir o post de 21/12 contra a média de 14 a 18/12 em 48 h e reduzir para stories se cair muito. |
 | Abordagem virar spam ou ferir a LGPD | 1 mensagem por pessoa, sempre personalizada; só nome e empresa na sala de guerra. |

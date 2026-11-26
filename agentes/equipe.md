@@ -16,7 +16,9 @@
 | **Pedro** | Site | `desenvolvedor-site` | Marketing |
 | **Lucas** | Tráfego pago (Meta Ads) | `trafego-ads` | Marketing |
 | **Davi** | Fluxos e automação | `fluxos-automacao` | Operação |
-| **Clara** | Inteligência de mercado: comparativos, radar semanal, modelos de negócio (com fonte e data) | `inteligencia-mercado` | Estratégia |
+| **Clara** | Inteligência de mercado: comparativos, radar semanal, modelos de negócio (com fonte e data) | `inteligencia-mercado` | Inovação e mercado |
+| **Iara** | Inteligência tecnológica e de IA: novas ferramentas, testes e pareceres técnicos | `tecnologia-ia` | Inovação e mercado |
+| **Bruno** | Criação de apps e lançamentos: mini-apps grátis no site e planos de lançamento | `apps-lancamentos` | Inovação e mercado |
 | **Otávio** | Financeiro | `financeiro` | Finanças |
 | **Sofia** | Jurídico (rascunhos para advogado) | `juridico-contratos` | Jurídico |
 
