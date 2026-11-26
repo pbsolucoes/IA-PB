@@ -209,6 +209,42 @@ details.arquivo>summary{cursor:pointer;font-weight:600}
 h2,section{scroll-margin-top:70px}
 header.top .brand{display:none}
 .pedido textarea{font-family:var(--body)!important;font-size:16px!important}
+/* ===== Sala 3D: visual "operação ao vivo" (HUD, marcadores de missão, luz de fim de tarde) ===== */
+.stage{background:linear-gradient(180deg,#2b2236 0%,#5b3a3e 52%,#b9774c 100%)!important}
+.stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 95% at 50% 45%,transparent 58%,rgba(20,10,8,.42) 100%);z-index:1}
+.bubbles{z-index:2}
+.bub{background:rgba(42,33,29,.86)!important;color:#FDF9F5!important;font-size:11px;padding:3px 9px 4px;border-radius:999px;display:flex;align-items:center;gap:6px;box-shadow:0 3px 10px rgba(0,0,0,.35)}
+.bub b{display:inline;font-size:11px;letter-spacing:.02em;margin:0;color:#FDF9F5!important;text-transform:none!important;font-weight:600}
+.bub:not(.fecha):after{border-top-color:rgba(42,33,29,.86)!important}
+.bub span{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;border-radius:999px;padding:1px 7px;white-space:nowrap}
+.bub.mini{padding:2px 8px;font-size:11px;opacity:.82}.bub.mini span{display:none}
+.bub.st-aprovar span{background:#FDF9F5;color:#2A211D;border:1.5px solid #AB7646}
+.bub.st-trab span{background:#C3885B;color:#2A211D}
+.bub.st-exec span{background:#936431;color:#FDF9F5}
+.bub.st-aprovar{animation:pulso 1.8s ease-in-out infinite}
+@keyframes pulso{50%{box-shadow:0 0 0 4px rgba(195,136,91,.55),0 3px 10px rgba(0,0,0,.35)}}
+@media (prefers-reduced-motion:reduce){.bub.st-aprovar{animation:none}}
+@media(max-width:640px){.bub:not(.fecha){font-size:0;padding:2px 6px}.bub:not(.fecha) b{font-size:9px}.bub span{font-size:9px;padding:0 5px}}
+.hud{position:absolute;z-index:3;pointer-events:auto;background:rgba(42,33,29,.88);backdrop-filter:blur(6px);color:#FDF9F5;border:1px solid rgba(233,180,90,.35);border-radius:14px}
+.hud-m{left:12px;bottom:50px;width:min(270px,40%);padding:9px 11px}
+.hud-m .t{cursor:pointer}
+.hud-m li div{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hud-m.fechado ol{display:none}.hud-m.fechado .t{margin:0}
+.hud-m .t{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#E9B45A;font-weight:700;margin-bottom:6px;display:flex;justify-content:space-between;gap:12px}
+.hud-m ol{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.hud-m li{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start;font-size:12px;line-height:1.3;cursor:pointer}
+.hud-m li i{font-style:normal;font-size:10px;font-weight:700;border-radius:999px;padding:1px 7px;margin-top:1px}
+.hud-m li i.ap{background:#FDF9F5;color:#2A211D;border:1.5px solid #AB7646}.hud-m li i.tr{background:#C3885B;color:#2A211D}.hud-m li i.ex{background:#936431;color:#FDF9F5}
+.hud-m li small{display:block;color:#d9c7b5;font-size:10.5px}
+.hud-m .vz{font-size:12px;color:#d9c7b5}
+.hud-mapa{right:12px;bottom:12px;padding:8px}
+.hud-mapa .t{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#C3885B;font-weight:700;margin:0 0 4px 2px}
+.hud-mapa svg{display:block;width:150px;height:auto}
+.hud-leg{left:12px;bottom:10px;padding:5px 10px;font-size:11px;display:flex;gap:10px;flex-wrap:wrap}
+.hud-leg span{display:inline-flex;align-items:center;gap:5px}.hud-leg i{width:9px;height:9px;border-radius:50%;display:inline-block}
+@media(max-width:640px){.hud-mapa{display:none}.hud-m{top:8px;left:8px;bottom:auto}.hud-m{width:auto;max-width:70%;padding:7px 10px}.hud-m li:nth-child(n+4){display:none}.hud-leg{display:none}}
+.tag{display:none}
+
 </style>
 
 <aside class="side" aria-label="Menu">
@@ -276,6 +312,9 @@ header.top .brand{display:none}
   <div class="stage" id="stage" aria-label="Departamento comercial da PB Soluções IA em 3D">
     <div class="bubbles" id="bubbles"></div>
     <span class="tag" id="tag">Arraste para girar a sala</span>
+    <div class="hud hud-m" id="hudM" aria-label="Missões dos agentes"><div class="t" id="hudT" role="button" tabindex="0" aria-expanded="true" title="Mostrar ou esconder as missões"><span>Missões do dia</span><span id="hudN"></span></div><ol id="hudL"><li class="vz">Conectando à sala…</li></ol></div>
+    <div class="hud hud-mapa" aria-label="Mapa das áreas"><div class="t">Mapa da sala</div><svg id="hudMapa" viewBox="-13 -9 26 18" role="img" aria-label="Mapa das áreas da sala"></svg></div>
+    <div class="hud hud-leg"><span><i style="background:#FDF9F5;border:1.5px solid #AB7646"></i>Sua decisão</span><span><i style="background:#C3885B"></i>Em produção</span><span><i style="background:#936431"></i>Executando</span><span style="color:#d9c7b5">Arraste para girar</span></div>
     <div class="erro" id="erro">Não foi possível abrir a sala em 3D neste navegador. Os dados reais continuam abaixo.</div>
   </div>
 </div>
@@ -554,6 +593,30 @@ function renderMesa(){
   d.collection('checklist').limit(200).onSnapshot(sn=>{itens=sn.docs.map(x=>Object.assign({id:x.id},x.data()));desenha();},()=>{ul.innerHTML='<li class="cm-vazio">Não consegui ler o checklist agora.</li>';});
   f.addEventListener('submit',async ev=>{ev.preventDefault();const i=document.getElementById('ckTxt');const v=i.value.trim();if(!v)return;try{await d.collection('checklist').add({texto:v,feito:false,ordem:Date.now(),criado:new Date().toISOString()});i.value='';}catch(e){}});
 })();
+// ===== Missões: de quem é cada tarefa (pelo agente; se não houver, pelo tipo) =====
+let MISSOES=[];
+const AG2TEAM={'mesa-central':'central','comercial-prospeccao':'prosp','redator-propostas':'prop','social-media':'nina','redator-copy':'bia','designer-pecas':'theo','estrategista-marca':'julia','desenvolvedor-site':'pedro','trafego-ads':'ads','fluxos-automacao':'flu','financeiro':'fin','juridico-contratos':'jur','inteligencia-mercado':'clara','tecnologia-ia':'iara','apps-lancamentos':'bruno'};
+const NOME2TEAM={Helena:'central',Rafael:'prosp',Marina:'prop',Nina:'nina',Bia:'bia',Theo:'theo','Júlia':'julia',Pedro:'pedro',Lucas:'ads',Davi:'flu','Otávio':'fin',Sofia:'jur',Clara:'clara',Iara:'iara',Bruno:'bruno'};
+function timeDa(t){const a=(t.agente||'').split(/[ +,]+/)[0]; if(AG2TEAM[a]) return AG2TEAM[a]; const p=(t.por||'').split(/[ ,]/)[0]; if(NOME2TEAM[p]) return NOME2TEAM[p]; return (TIPOS[t.tipo]||{}).team;}
+const ROT_ST={aprovar:['ap','Sua decisão'],trab:['tr','Em produção'],exec:['ex','Executando']};
+function renderHud(){const ol=document.getElementById('hudL'); if(!ol) return; ol.innerHTML='';
+  document.getElementById('hudN').textContent=MISSOES.length?MISSOES.length+' ativa(s)':'';
+  if(!MISSOES.length){ol.innerHTML='<li class="vz">Tudo em dia. Nenhuma decisão pendente.</li>';}
+  MISSOES.slice(0,4).forEach(m=>{const li=document.createElement('li');const i=document.createElement('i');i.className=ROT_ST[m.st][0];i.textContent=ROT_ST[m.st][1];
+    const d=document.createElement('div');d.textContent=(m.t.titulo||'Tarefa');d.title=m.t.titulo||'';const sm=document.createElement('small');sm.textContent=m.tm?m.tm.nome.split(' · ')[0]:(m.t.por||'');d.append(sm);
+    li.append(i,d);li.title='Ver no quadro';li.onclick=()=>{const q=document.getElementById('quadro');if(q)q.scrollIntoView({behavior:'smooth'});if(m.tm&&window.salaCamera)window.salaCamera(m.tm.pos[0],m.tm.pos[1],10);};ol.append(li);});
+  if(MISSOES.length>4){const li=document.createElement('li');li.className='vz';li.textContent='+ '+(MISSOES.length-4)+' no quadro abaixo';ol.append(li);}
+  desenhaMapa();}
+function desenhaMapa(){const svg=document.getElementById('hudMapa'); const ZZ=window.ZONAS_MAPA; if(!svg||!ZZ) return;
+  let h='<rect x="-13" y="-9" width="26" height="18" rx=".6" fill="rgba(253,249,245,.08)" stroke="rgba(253,249,245,.35)" stroke-width=".15"/>';
+  ZZ.forEach(([n,c,x0,x1,z0,z1])=>{h+='<rect x="'+x0+'" y="'+z0+'" width="'+(x1-x0)+'" height="'+(z1-z0)+'" rx=".3" fill="'+c+'" fill-opacity=".35" stroke="'+c+'" stroke-width=".12"/>';});
+  TEAM.forEach(t=>{const c=t.st==='aprovar'?'#FDF9F5':t.st==='trab'?'#C3885B':t.st==='exec'?'#936431':'rgba(253,249,245,.35)';h+='<circle cx="'+t.pos[0]+'" cy="'+t.pos[1]+'" r="'+(t.st?.55:.3)+'" fill="'+c+'"/>';});
+  h+='<circle cx="-9.3" cy="3.8" r=".45" fill="none" stroke="#E9B45A" stroke-width=".18"/>';
+  svg.innerHTML=h;}
+(()=>{const m=document.getElementById('hudM'),t=document.getElementById('hudT'); if(!m||!t) return;
+  const set=f=>{m.classList.toggle('fechado',f);t.setAttribute('aria-expanded',String(!f));};
+  if(window.matchMedia&&matchMedia('(max-width:640px)').matches) set(true);
+  const tg=()=>set(!m.classList.contains('fechado')); t.addEventListener('click',tg); t.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});})();
 // ===================== SALA DE GUERRA (db: tarefas, sala/status) =====================
 const TIPOS={pedido:{n:'Pedido para a sala',ag:'mesa-central',team:'central'},prospeccao:{n:'Prospecção',ag:'comercial-prospeccao',team:'prosp'},followup:{n:'Follow-up',ag:'comercial-prospeccao',team:'prosp'},diagnostico:{n:'Diagnóstico e proposta',ag:'redator-propostas',team:'prop'},conteudo:{n:'Conteúdo',ag:'social-media + redator-copy + designer-pecas',team:'nina'},ads:{n:'Tráfego (Meta Ads)',ag:'trafego-ads',team:'ads'},fluxo:{n:'Fluxos e automação',ag:'fluxos-automacao',team:'flu'},mercado:{n:'Inteligência de mercado',ag:'inteligencia-mercado',team:'clara'},tecnologia:{n:'Tecnologia e IA',ag:'tecnologia-ia',team:'iara'},app:{n:'Apps e lançamentos',ag:'apps-lancamentos',team:'bruno'}};
 const COLS=[['fazer','A fazer'],['andamento','Agentes trabalhando'],['aprovar','Pronto · na tua mesa'],['feito','Aprovado e feito']];
@@ -600,10 +663,16 @@ function renderQuadro(){
     quadro.append(col);
   });
   // balões da sala 3D mostram a tarefa em andamento de cada mesa
-  TEAM.forEach(tm=>tm.tarefa='');
-  tarefas.filter(t=>t.status==='andamento'||t.status==='aprovar').forEach(t=>{const id=(TIPOS[t.tipo]||{}).team;const tm=TEAM.find(x=>x.id===id);if(tm&&!tm.tarefa)tm.tarefa=(t.status==='aprovar'?'Para aprovar: ':'Trabalhando: ')+(t.titulo||'').slice(0,34);});
+  TEAM.forEach(tm=>{tm.tarefa='';tm.st='';tm.n=0;});
+  MISSOES=[];
+  const ORD={aprovar:0,andamento:1,aprovado:2};
+  tarefas.filter(t=>ORD[t.status]!==undefined).sort((a,b)=>ORD[a.status]-ORD[b.status]).forEach(t=>{const id=timeDa(t);const tm=TEAM.find(x=>x.id===id);
+    const st=t.status==='aprovar'?'aprovar':t.status==='andamento'?'trab':'exec';
+    MISSOES.push({t,tm,st});
+    if(tm){tm.n++; if(!tm.st){tm.st=st;tm.tarefa=(t.titulo||'');}}});
+  renderHud();
   renderEquipe(); renderSugestoes(); renderMesa();
-  const pa=tarefas.filter(t=>t.status==='aprovar').length; const pri=TEAM.find(x=>x.id==='pri'); if(pri&&pa) pri.tarefa=pa+' tarefa(s) para aprovar';
+  const pa=tarefas.filter(t=>t.status==='aprovar').length; const pri=TEAM.find(x=>x.id==='pri'); if(pri){pri.st=pa?'aprovar':'';pri.n=pa;}
 }
 (async()=>{
   const C=window.claude; try{ dbT = C ? await C.use('db') : null; }catch(e){ dbT=null; }
@@ -714,10 +783,10 @@ stage.prepend(renderer.domElement); placeCam();
 const M=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.75,metalness:0},o));
 function mesh(geo,mat,x,y,z,p=scene){const m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;p.add(m);return m;}
 function tex(w,h,draw){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=4;return t;}
-scene.add(new THREE.HemisphereLight(0xfff1e0,0x3a2a20,.55));
-const sol=new THREE.DirectionalLight(0xffe2bd,1.25); sol.position.set(-10,24,-13); sol.castShadow=true; sol.shadow.mapSize.set(3072,3072);
+scene.add(new THREE.HemisphereLight(0xffe2c4,0x4a2f2a,.62));
+const sol=new THREE.DirectionalLight(0xffc690,1.4); sol.position.set(-16,17,-9); sol.castShadow=true; sol.shadow.mapSize.set(3072,3072);
 Object.assign(sol.shadow.camera,{left:-20,right:20,top:20,bottom:-20}); sol.shadow.bias=-.0008; scene.add(sol);
-const fl=new THREE.DirectionalLight(0xc9dcff,.25); fl.position.set(10,8,10); scene.add(fl);
+const fl=new THREE.DirectionalLight(0xa9bcff,.32); fl.position.set(10,8,10); scene.add(fl);
 const W=26,D=18;
 const piso=tex(1024,720,(g,w,h)=>{const tons=['#8a5d3b','#94653f','#7e5434','#9a6b44','#86593a'];const ph=36;for(let y=0;y<h;y+=ph){let x=-((y/ph)%3)*90;while(x<w){const len=180+Math.random()*160;g.fillStyle=tons[Math.floor(Math.random()*5)];g.fillRect(x,y,len,ph-2);g.fillStyle='rgba(40,25,15,.55)';g.fillRect(x+len-2,y,2,ph);x+=len;}g.fillStyle='rgba(40,25,15,.5)';g.fillRect(0,y+ph-2,w,2);}});
 const lado=M(0x5a3d29); mesh(new THREE.BoxGeometry(W,.3,D),[lado,lado,new THREE.MeshStandardMaterial({map:piso,roughness:.6}),lado,lado,lado],0,-.15,0);
@@ -740,6 +809,7 @@ const ZONAS=[
   ['OPERAÇÃO','#4f8fb0',3.6,12.9,3.4,8.6],
   ['INOVAÇÃO E MERCADO','#2f8f6f',5.0,12.9,-2.2,2.4]
 ];
+window.ZONAS_MAPA=ZONAS; setTimeout(()=>{try{desenhaMapa();}catch(e){}},0);
 const pern=M(0x2A211D,{metalness:.5,roughness:.4});
 function placaTex(nome,cor){return tex(1024,200,(g,W2,H2)=>{let fs=96;g.font='800 '+fs+'px Arial';while(g.measureText(nome).width>W2-90&&fs>40){fs-=4;g.font='800 '+fs+'px Arial';}
   g.fillStyle=cor;const r=46;g.beginPath();g.moveTo(r,0);g.lineTo(W2-r,0);g.quadraticCurveTo(W2,0,W2,r);g.lineTo(W2,H2-r);g.quadraticCurveTo(W2,H2,W2-r,H2);g.lineTo(r,H2);g.quadraticCurveTo(0,H2,0,H2-r);g.lineTo(0,r);g.quadraticCurveTo(0,0,r,0);g.fill();
@@ -841,10 +911,10 @@ function passoCena(dt){
 }
 // balões
 const bubbles=document.getElementById('bubbles');
-TEAM.forEach(t=>{const d=document.createElement('div');d.className='bub';d.id='b-'+t.id;const b=document.createElement('b');b.textContent=t.nome;const s=document.createElement('span');d.append(b,s);bubbles.append(d);});
+TEAM.forEach(t=>{const d=document.createElement('div');d.className='bub';d.id='b-'+t.id;d.title=t.nome;const b=document.createElement('b');b.textContent=t.nome.split(' · ')[0];const s=document.createElement('span');d.append(b,s);bubbles.append(d);});
 const v3=new THREE.Vector3();
 function posBaloes(){const w=stage.clientWidth,h=stage.clientHeight;
-  TEAM.forEach(t=>{t.o.cab.getWorldPosition(v3);v3.y+=.42;v3.project(cam);const el=document.getElementById('b-'+t.id);el.style.left=((v3.x+1)/2*w)+'px';el.style.top=((1-v3.y)/2*h)+'px';const ativo=!!t.tarefa||t.ceo&&t.id==='pri'; el.lastChild.textContent=t.tarefa||t.msg; el.classList.toggle('mini',!ativo);
+  TEAM.forEach(t=>{t.o.cab.getWorldPosition(v3);v3.y+=.42;v3.project(cam);const el=document.getElementById('b-'+t.id);el.style.left=((v3.x+1)/2*w)+'px';el.style.top=((1-v3.y)/2*h)+'px';const ativo=!!t.st; el.lastChild.textContent=t.st?(t.st==='aprovar'?'◆ '+(t.n>1?t.n+' decisões':'sua decisão'):t.st==='trab'?'◆ em produção':'◆ executando'):''; el.classList.toggle('mini',!ativo); el.classList.toggle('st-aprovar',t.st==='aprovar'); el.classList.toggle('st-trab',t.st==='trab'); el.classList.toggle('st-exec',t.st==='exec');
     el.style.opacity=(t===P&&cena)?'0':'1';
     if(t===P&&cena&&balaoFecha.style.display==='block'){balaoFecha.style.left=((v3.x+1)/2*w)+'px';balaoFecha.style.top=(((1-v3.y)/2*h)-6)+'px';}});}
 function separaBaloes(){const bs=[...document.querySelectorAll('#bubbles .bub')].filter(b=>b.style.opacity!=='0'&&b.style.display!=='none'&&b.offsetWidth);
